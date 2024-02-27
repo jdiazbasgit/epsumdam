@@ -14,8 +14,45 @@ public class ConciertoHombreOrquesta {
 		Instrumento guitarra= new Instrumento("tlan, tlan, tlan");
 		
 		HombreOrquesta andres= new HombreOrquesta();
-		Instrumento[] instrumentos= {tambor,trompeta,guitarra};
-		andres.setInstrumentos(instrumentos);
+		//Instrumento[] instrumentos= {tambor,trompeta,guitarra};
+		andres.setInstrumentos(new HashSet<Instrumento>());
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		andres.getInstrumentos().add(trompeta);
+		andres.getInstrumentos().add(guitarra);
+		andres.getInstrumentos().add(tambor);
+		
 		andres.tocar();
 	}
 

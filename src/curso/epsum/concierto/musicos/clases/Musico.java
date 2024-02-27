@@ -9,7 +9,7 @@ public abstract class Musico implements MusicoInterface {
 
 	
 	private Instrumento instrumento;
-	private Instrumento[] instrumentos;
+	private Set<Instrumento> instrumentos;
 	
 	@Override
 	public abstract void tocar();
@@ -22,13 +22,12 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumento = instrumento;
 	}
 
-	public Instrumento[] getInstrumentos() {
+	public Set<Instrumento> getInstrumentos() {
 		return instrumentos;
 	}
 
-	public void setInstrumentos(Instrumento[] instrumentos) {
+	public void setInstrumentos(Set<Instrumento> instrumentos) {
 		this.instrumentos = instrumentos;
 	}
 
-	
 }
