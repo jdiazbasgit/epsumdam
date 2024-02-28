@@ -1,5 +1,6 @@
 package curso.epsum.concierto.musicos.clases;
 
+import java.util.List;
 import java.util.Set;
 
 import curso.epsum.concierto.instrumentos.clases.Instrumento;
@@ -9,7 +10,7 @@ public abstract class Musico implements MusicoInterface {
 
 	
 	private Instrumento instrumento;
-	private Set<Instrumento> instrumentos;
+	private List<Instrumento> instrumentos;
 	
 	@Override
 	public abstract void tocar();
@@ -22,12 +23,13 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumento = instrumento;
 	}
 
-	public Set<Instrumento> getInstrumentos() {
+	public List<Instrumento> getInstrumentos() {
 		return instrumentos;
 	}
 
-	public void setInstrumentos(Set<Instrumento> instrumentos) {
+	public void setInstrumentos(List<Instrumento> instrumentos) {
 		this.instrumentos = instrumentos;
 	}
 
+	
 }

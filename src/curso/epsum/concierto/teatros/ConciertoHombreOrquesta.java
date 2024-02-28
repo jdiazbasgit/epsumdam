@@ -1,5 +1,6 @@
 package curso.epsum.concierto.teatros;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import curso.epsum.concierto.instrumentos.clases.Instrumento;
@@ -15,7 +16,7 @@ public class ConciertoHombreOrquesta {
 		
 		HombreOrquesta andres= new HombreOrquesta();
 		//Instrumento[] instrumentos= {tambor,trompeta,guitarra};
-		andres.setInstrumentos(new HashSet<Instrumento>());
+		andres.setInstrumentos(new ArrayList<Instrumento>());
 		andres.getInstrumentos().add(trompeta);
 		andres.getInstrumentos().add(guitarra);
 		andres.getInstrumentos().add(tambor);
