@@ -1,7 +1,8 @@
 package epsum.corso.git;
 
 public class Conflicto {
-    //Soy Axel Rojas Pérez
+    //soy Axel Rojas Pérez
+	//soy Federico
     // soy profe
     // soy marlene 
 }
