@@ -2,6 +2,7 @@ package epsum.corso.git;
 
 public class Conflicto {
     //Soy Rodrigo 
+    //soy emily
 // soy Jorge Ortega Corral
 	
 	// soy Enrique
