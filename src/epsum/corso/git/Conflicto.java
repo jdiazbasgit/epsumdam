@@ -5,40 +5,58 @@ public class Conflicto {
     //soy DaniG
 
 
+    // soy Bo
+    // Soy Rodrigo
+    // soy emily
+    // soy Jorge Ortega Corral
+
+    //llados
     //Soy Antonio
     // soy Camila Ferreyra Navarro
-	//Soy Sihao
 
+<<<<<<< HEAD
 
 
 
     //Soy Antonio
+=======
+    // Soy Sihao
+>>>>>>> 9a8a8bf5049923d7d7a0ad53389a93ceb102ab4d
 
-    //soy emily
+    // Soy Antonio
 
+    // soy emily
 
+    // soy Daniel Moral Garcia
 
+    // soy profe
 
+    // Soy Rodrigo
+    // soy emily
 
+<<<<<<< HEAD
 
 // soy Daniel Moral Garcia
+=======
+    // soy Jorge Ortega Corral
+>>>>>>> 9a8a8bf5049923d7d7a0ad53389a93ceb102ab4d
 
-// soy profe
+    // soy Enrique
 
-    //Soy Rodrigo 
-    //soy emily
+    // soy Enrique
 
-
-// soy Jorge Ortega Corral
-	
-	// soy Enrique
-
-    //soy Axel Rojas Pérez
-	//soy Enrique
-    //soy Xinjie Pan
-	//soy Federico
-    //soy profe
-    //soy marlene 
+    // soy Axel Rojas Pérez
+    // soy Enrique
+    // soy Xinjie Pan
+    // soy Federico
+    // soy profe
+    // soy marlene
+    // soy Axel Rojas Pérez
+    // soy Enrique
+    // soy Xinjie Pan
+    // soy Federico
+    // soy profe
+    // soy marlene
 
 //Soy Juan Fernando Restrepo
 
