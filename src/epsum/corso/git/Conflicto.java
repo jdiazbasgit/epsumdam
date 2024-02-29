@@ -1,7 +1,29 @@
 package epsum.corso.git;
 
 public class Conflicto {
+<<<<<<< HEAD
     //Soy Antonio
+=======
+    // soy Camila Ferreyra Navarro
+	//Soy Sihao
+
+    //Soy Antonio
+
+    //soy emily
+
+
+
+
+
+// soy Daniel Moral Garcia
+
+// soy profe
+
+    //Soy Rodrigo 
+    //soy emily
+
+
+>>>>>>> 87ff762effdaa37379ce67458a9df2632443e999
 // soy Jorge Ortega Corral
 	
 	// soy Enrique
@@ -12,5 +34,5 @@ public class Conflicto {
 	//soy Federico
     //soy profe
     //soy marlene 
->>>>>>> 43c1ad1dd5165d6ae5fe68f8e124b8302f394a56
+
 }
