@@ -5,8 +5,10 @@ public class Conflicto {
 	
 	// soy Enrique
 
+    //soy Axel Rojas Pérez
+	//soy Enrique
+    //soy Xinjie Pan
 	//soy Federico
-
-// soy profe
-// soy marlene 
+    //soy profe
+    //soy marlene 
 }
