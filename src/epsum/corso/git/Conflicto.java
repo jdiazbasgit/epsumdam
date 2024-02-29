@@ -2,9 +2,14 @@ package epsum.corso.git;
 
 public class Conflicto {
 
+
 // soy Daniel Moral Garcia
 
 // soy profe
+=======
+    //Soy Rodrigo 
+    //soy emily
+
 // soy Jorge Ortega Corral
 	
 	// soy Enrique
