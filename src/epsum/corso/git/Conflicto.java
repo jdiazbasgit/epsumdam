@@ -14,14 +14,12 @@ public class Conflicto {
     //Soy Antonio
     // soy Camila Ferreyra Navarro
 
-<<<<<<< HEAD
-
+    //soy adrian
+    //soy alvaro
 
 
     //Soy Antonio
-=======
     // Soy Sihao
->>>>>>> 9a8a8bf5049923d7d7a0ad53389a93ceb102ab4d
 
     // Soy Antonio
 
@@ -34,13 +32,11 @@ public class Conflicto {
     // Soy Rodrigo
     // soy emily
 
-<<<<<<< HEAD
 
 // soy Daniel Moral Garcia
-=======
     // soy Jorge Ortega Corral
->>>>>>> 9a8a8bf5049923d7d7a0ad53389a93ceb102ab4d
-
+    //soy adrian
+    //soy alvaro
     // soy Enrique
 
     // soy Enrique
@@ -50,7 +46,7 @@ public class Conflicto {
     // soy Xinjie Pan
     // soy Federico
     // soy profe
-    // soy marlene
+    // soy marlene  
     // soy Axel Rojas Pérez
     // soy Enrique
     // soy Xinjie Pan
