@@ -2,4 +2,6 @@ package epsum.corso.git;
 
 public class Conflicto {
     // soy Xinjie Pan
+// soy profe
+// soy marlene 
 }
