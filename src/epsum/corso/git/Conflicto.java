@@ -7,6 +7,7 @@ public class Conflicto {
     // soy emily
     // soy Jorge Ortega Corral
 
+    //Soy Antonio
     // soy Camila Ferreyra Navarro
 
     // Soy Sihao
@@ -40,5 +41,7 @@ public class Conflicto {
     // soy Federico
     // soy profe
     // soy marlene
+
+//Soy Juan Fernando Restrepo
 
 }
