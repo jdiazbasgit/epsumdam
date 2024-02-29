@@ -1,15 +1,17 @@
 package epsum.corso.git;
 
 public class Conflicto {
-    //soy Bo
-// soy Jorge Ortega Corral
-	
-	// soy Enrique
+    // soy Bo
+    // Soy Rodrigo
+    // soy emily
+    // soy Jorge Ortega Corral
 
-    //soy Axel Rojas Pérez
-	//soy Enrique
-    //soy Xinjie Pan
-	//soy Federico
-    //soy profe
-    //soy marlene 
+    // soy Enrique
+
+    // soy Axel Rojas Pérez
+    // soy Enrique
+    // soy Xinjie Pan
+    // soy Federico
+    // soy profe
+    // soy marlene
 }
