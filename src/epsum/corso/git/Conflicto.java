@@ -4,6 +4,13 @@ public class Conflicto {
     // soy Camila Ferreyra Navarro
 	//Soy Sihao
 
+    //Soy Antonio
+
+    //soy emily
+
+
+
+
 
 // soy Daniel Moral Garcia
 
@@ -11,6 +18,7 @@ public class Conflicto {
 
     //Soy Rodrigo 
     //soy emily
+
 
 // soy Jorge Ortega Corral
 	
@@ -22,4 +30,5 @@ public class Conflicto {
 	//soy Federico
     //soy profe
     //soy marlene 
+
 }
