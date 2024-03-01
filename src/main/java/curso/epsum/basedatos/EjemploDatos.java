@@ -24,7 +24,7 @@ public class EjemploDatos {
 			//Class.forName("com.mysql1.cj.jdbc.Driver");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 
 	}
