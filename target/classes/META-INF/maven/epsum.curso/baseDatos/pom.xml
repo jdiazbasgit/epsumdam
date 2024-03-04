@@ -9,6 +9,7 @@
 	<version>1.0</version>
 	<name>baseDatos</name>
 	<description></description>
+<<<<<<< HEAD
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
@@ -18,6 +19,17 @@
 		</dependency>
 
 	</dependencies>
+=======
+	<dependencies><!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+   
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.27</version>
+
+</dependency>
+</dependencies>
+>>>>>>> branch 'basedatos-jdbc-statement' of https://github.com/jdiazbasgit/epsumdam.git
 	
 
 </project>
