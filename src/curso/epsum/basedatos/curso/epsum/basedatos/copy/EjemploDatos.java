@@ -1,4 +1,4 @@
-package curso.epsum.basedatos;
+package curso.epsum.basedatos.curso.epsum.basedatos.copy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ public class EjemploDatos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+ 
 	}
 
 }
