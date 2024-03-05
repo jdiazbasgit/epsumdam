@@ -29,9 +29,9 @@ public class EjemploDatos {
 			preparedStatement.execute();
 			conexion.commit();
 			
-			ResultSet resultSet= statement.executeQuery("select decripcion from estados_civiles");
+			ResultSet resultSet= statement.executeQuery("select id,decripcion from estados_civiles");
 		while(resultSet.next()) {
-			System.out.println(resultSet.getString(1));
+			System.out.println(resultSet.getInt(1)+" - "+resultSet.getString(2));
 		}
 			//Class.forName("com.mysql1.cj.jdbc.Driver");
 		} catch (SQLException e) {
