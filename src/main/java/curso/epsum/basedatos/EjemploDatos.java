@@ -1,4 +1,4 @@
-package main.java.curso.epsum.basedatos;
+package curso.epsum.basedatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
