@@ -7,30 +7,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name ="Hijos")
-public class Hijo {
-	
+@Table(name="empresas")
+public class Empresa 
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private String nombre;
+	private String CIF;
 	
-	private int chicos;
-	
-	private int chicas;
-
-	public int getChicos() {
-		return chicos;
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getCIF() {
+		return CIF;
+	}
+	public void setCIF(String cIF) {
+		CIF = cIF;
 	}
 
-	public void setChicos(int chicos) {
-		this.chicos = chicos;
-	}
-
-	public int getChicas() {
-		return chicas;
-	}
-
-	public void setChicas(int chicas) {
-		this.chicas = chicas;
-	}
 }
