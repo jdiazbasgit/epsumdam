@@ -2,6 +2,8 @@ package curso.epsum.basedatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,6 +23,16 @@ public class EjemploDatos {
 			else
 				System.out.println("grabacion no relizada"); 
 			
+			
+			PreparedStatement preparedStatement= conexion.prepareStatement("insert into estados_civiles (decripcion) values (?)");
+			preparedStatement.setString(1, "soltero y entero");
+			preparedStatement.execute();
+			conexion.commit();
+			
+			ResultSet resultSet= statement.executeQuery("select id,decripcion from estados_civiles");
+		while(resultSet.next()) {
+			System.out.println(resultSet.getInt(1)+" - "+resultSet.getString(2));
+		}
 			//Class.forName("com.mysql1.cj.jdbc.Driver");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
