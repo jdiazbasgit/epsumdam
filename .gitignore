@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -31,3 +32,9 @@ build/
 
 ### VS Code ###
 .vscode/
+=======
+.classpath
+.project
+.settings/
+bin/
+>>>>>>> branch 'concierto-array' of https://github.com/jdiazbasgit/epsumdam.git
