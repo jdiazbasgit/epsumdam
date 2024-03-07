@@ -1,5 +1,6 @@
 package curso.epsum.concierto.instrumentos.clases;
 
+import curso.epsum.concierto.excepciones.SinSonidException;
 import curso.epsum.concierto.instrumentos.interfaces.InstrumentoInterface;
 
 public class Instrumento implements InstrumentoInterface {
@@ -12,7 +13,9 @@ public class Instrumento implements InstrumentoInterface {
 	}
 	
 	@Override
-	public String sonar() {
+	public String sonar() throws SinSonidException {
+		if(getSonido().equals("nada"))
+			throw new SinSonidException();
 		return getSonido();
 	}
 
