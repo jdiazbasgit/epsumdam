@@ -1,13 +1,14 @@
 package epsum.corso.git;
 
 public class Conflicto {
-
-	// soy Xinjie
+  
   //soy el profe
+	//soy Axel
+	//soy Xinjie
 	//Soy Federico
 	//soy Sihao
 	//soy cami
-	//say el profe otra vez
+	//soy el profe otra vez
 	//soy DaniM
 	//soy Marlene
 
