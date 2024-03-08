@@ -7,9 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "hijos")
+
+@Table (name ="Hijos")
 public class Hijo {
- 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -41,6 +42,4 @@ public class Hijo {
 	public void setChicas(int chicas) {
 		this.chicas = chicas;
 	}
-
-	
 }
