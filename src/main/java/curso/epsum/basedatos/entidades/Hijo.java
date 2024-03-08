@@ -6,11 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-
-@Table (name ="Hijos")
+@Entity	
+@Table(name = "hijos")
 public class Hijo {
-	
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
