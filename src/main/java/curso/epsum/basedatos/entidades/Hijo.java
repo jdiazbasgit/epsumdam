@@ -19,6 +19,7 @@ public class Hijo  {
 	private int chicos;
 	
 	private int chicas;
+
 	
 	public int getId() {
 		return id;

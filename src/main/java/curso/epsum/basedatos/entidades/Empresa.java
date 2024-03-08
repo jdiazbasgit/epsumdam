@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 
+
 @Table (name = "empresas")
 public class Empresa  {
 	
@@ -41,5 +42,3 @@ public class Empresa  {
 	
 	
 }
-
-	

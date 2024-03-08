@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 
+
 @Table (name = "cargos")
 public class Cargo  {
 
