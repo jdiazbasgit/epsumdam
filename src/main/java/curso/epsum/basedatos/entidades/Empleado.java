@@ -25,11 +25,11 @@ public class Empleado {
 	private Empresa empresa;
 	
 	@ManyToOne
-	@JoinColumn(name="idDatosPersonal")
+	@JoinColumn(name="idDatoPersonal")
 	private DatoPersonal datosPersonal;
 	
 	@ManyToOne
-	@JoinColumn(name="datoLaboral")
+	@JoinColumn(name="idDatoLaboral")
 	private DatoLaboral datoLaboral;
 	
 	public int getIdEmpleado() {
