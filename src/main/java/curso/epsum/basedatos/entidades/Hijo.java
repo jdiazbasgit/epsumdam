@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+
 @Table (name ="Hijos")
 public class Hijo {
 	
@@ -17,6 +18,14 @@ public class Hijo {
 	private int chicos;
 	
 	private int chicas;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getChicos() {
 		return chicos;
