@@ -16,12 +16,38 @@ public class DatoLaboral {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int idDatoLaboral;
 	
-	private int salario;
+	private double salario;
 	
 	@ManyToOne
-	//@JoinColumn(name = "idCargo")
+	@JoinColumn(name = "idCargo")
 	private Cargo cargo;
+	
+	public int getIdDatoLaboral() {
+		return idDatoLaboral;
+	}
+
+	public void setIdDatoLaboral(int idDatoLaboral) {
+		this.idDatoLaboral = idDatoLaboral;
+	}
+
+	public double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
+	}
+
+	
 	
 }
