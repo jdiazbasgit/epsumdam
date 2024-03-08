@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-
-@Table(name = "cargos")
-public class Cargo {
+@Table(name = "estados_civiles")
+public class Estado_Civil {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private int id;
 	private String descripcion;
 	public int getId() {
@@ -27,5 +27,7 @@ public class Cargo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	
 	
 }
