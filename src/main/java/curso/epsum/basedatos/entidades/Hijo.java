@@ -41,6 +41,4 @@ public class Hijo {
 	public void setChicas(int chicas) {
 		this.chicas = chicas;
 	}
-
-	
 }
