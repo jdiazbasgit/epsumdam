@@ -7,19 +7,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="estados_civiles")
-public class EstadoCivil 
-{
+@Table(name = "estados_civiles")
+public class EstadoCivil {
+	
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	private int id;
-	private String decripcion;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int idEstadoCivil;
 	
-	
-	public String getDecripcion() {
-		return decripcion;
+	private String descripcion;
+
+	public int getIdEstadoCivil() {
+		return idEstadoCivil;
 	}
-	public void setDecripcion(String decripcion) {
-		this.decripcion = decripcion;
+
+	public String getDescripcion() {
+		return descripcion;
 	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 }

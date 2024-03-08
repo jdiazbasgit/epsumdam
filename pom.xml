@@ -41,8 +41,8 @@
 			<artifactId>javax.persistence-api</artifactId>
 			<version>2.2</version>
 		</dependency>
-
-
+		
+		
 	</dependencies>
 
 >>>>>>> branch 'basedatos-jdbc-statement' of https://github.com/jdiazbasgit/epsumdam.git
