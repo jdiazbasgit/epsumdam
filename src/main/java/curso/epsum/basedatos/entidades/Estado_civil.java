@@ -1,5 +1,6 @@
 package curso.epsum.basedatos.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,8 @@ public class Estado_civil {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
+	
+	@Column(name = "decripcion")
 	private String descripcion;
 
 	public int getId() {
