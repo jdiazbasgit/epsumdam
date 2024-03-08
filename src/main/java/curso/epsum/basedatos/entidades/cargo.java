@@ -7,14 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "estados_civiles")
-public class EstadoCivil {
-
+@Table(name="cargos")
+public class cargo {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private String decripcion;
+	private String descripcion;
 
 	public int getId() {
 		return id;
@@ -24,14 +24,14 @@ public class EstadoCivil {
 		this.id = id;
 	}
 
-	public String getDecripcion() {
-		return decripcion;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDecripcion(String decripcion) {
-		this.decripcion = decripcion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
-	
+
 
 }
