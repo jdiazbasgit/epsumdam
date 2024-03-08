@@ -6,6 +6,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Entity
+@Table (name="cargos")
+public class Cargo 
+{
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		private int ID;
+		private int descripcion;
+		public int getDescripcion() {
+			return descripcion;
+		}
+		public void setDescripcion(int descripcion) {
+			this.descripcion = descripcion;
+		}
 
 @Entity
 @Table(name = "cargos")
@@ -33,6 +47,5 @@ public class Cargo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
 
 }
