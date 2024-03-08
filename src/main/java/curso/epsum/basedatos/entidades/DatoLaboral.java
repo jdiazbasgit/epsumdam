@@ -9,20 +9,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "datos_personales")
-public class Dato_personal {
+@Table(name = "datos_laborales")
+public class DatoLaboral {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@ManyToOne
-	@JoinColumn(name = "hijos_id")
-	private Hijo hijo;
+	private int salario;
 
 	@ManyToOne
-	@JoinColumn(name = "estados_civiles_id")
-	private Estado_civil estado_civil;
+	@JoinColumn(name = "cargos_id")
+	private Cargo cargo;
 
 	public int getId() {
 		return id;
@@ -32,21 +30,20 @@ public class Dato_personal {
 		this.id = id;
 	}
 
-	public Hijo getHijo() {
-		return hijo;
+	public int getSalario() {
+		return salario;
 	}
 
-	public void setHijo(Hijo hijo) {
-		this.hijo = hijo;
+	public void setSalario(int salario) {
+		this.salario = salario;
 	}
 
-	public Estado_civil getEstado_civil() {
-		return estado_civil;
+	public Cargo getCargo() {
+		return cargo;
 	}
 
-	public void setEstado_civil(Estado_civil estado_civil) {
-		this.estado_civil = estado_civil;
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
-	
 	
 }

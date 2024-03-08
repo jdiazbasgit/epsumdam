@@ -30,9 +30,74 @@ public class Empleado {
 
 	@ManyToOne
 	@JoinColumn(name = "datos_personales_id")
-	private Dato_personal dato_personal;
+	private DatoPersonal datopersonal;
 	
 	@ManyToOne
 	@JoinColumn(name = "datos_laborales_id")
-	private Dato_laboral dato_laboral;
+	private DatoLaboral datolaboral;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+	public DatoPersonal getDatopersonal() {
+		return datopersonal;
+	}
+
+	public void setDatopersonal(DatoPersonal datopersonal) {
+		this.datopersonal = datopersonal;
+	}
+
+	public DatoLaboral getDatolaboral() {
+		return datolaboral;
+	}
+
+	public void setDatolaboral(DatoLaboral datolaboral) {
+		this.datolaboral = datolaboral;
+	}	
+	
 }
