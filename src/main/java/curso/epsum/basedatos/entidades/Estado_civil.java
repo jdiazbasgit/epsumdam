@@ -7,17 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "hijos")
-public class Hijo {
+@Table(name = "estados_civiles")
+public class Estado_civil {
  
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private int chicos;
-	
-	private int chicas;
-	
+	private String descripcion;
+
 	public int getId() {
 		return id;
 	}
@@ -26,21 +24,14 @@ public class Hijo {
 		this.id = id;
 	}
 
-	public int getChicos() {
-		return chicos;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setChicos(int chicos) {
-		this.chicos = chicos;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-
-	public int getChicas() {
-		return chicas;
-	}
-
-	public void setChicas(int chicas) {
-		this.chicas = chicas;
-	}
-
+	
+	
 	
 }
