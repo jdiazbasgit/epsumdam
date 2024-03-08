@@ -6,40 +6,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Cargos")
-public class Cargo {
- 
+
+
+@Table (name = "cargos")
+public class Cargo  {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int idCargo;
 	
-	private int chicos;
-	
-	private int chicas;
-	
-	public int getId() {
-		return id;
+	private String nombre;
+
+	public int getIdCargo() {
+		return idCargo;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public int getChicos() {
-		return chicos;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-
-	public void setChicos(int chicos) {
-		this.chicos = chicos;
-	}
-
-	public int getChicas() {
-		return chicas;
-	}
-
-	public void setChicas(int chicas) {
-		this.chicas = chicas;
-	}
-
-	
 }

@@ -3,20 +3,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import jakarta.annotation.Generated;
 
 @Entity
-@Table(name = "Datos_Laborales")
+@Table(name = "datos_laborales")
 public class DatoLaboral {
- 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	
+
 	private int chicos;
 	
 	private int chicas;
+
 	
 	public int getId() {
 		return id;
