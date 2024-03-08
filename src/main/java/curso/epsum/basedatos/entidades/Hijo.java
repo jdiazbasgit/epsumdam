@@ -1,4 +1,4 @@
-package main.java.curso.epsum.basedatos.entidades;
+package curso.epsum.basedatos.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+
 @Table (name ="Hijos")
 public class Hijo {
 	
@@ -17,6 +18,14 @@ public class Hijo {
 	private int chicos;
 	
 	private int chicas;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getChicos() {
 		return chicos;
