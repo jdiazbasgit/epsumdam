@@ -1,15 +1,24 @@
-package main.java.curso.epsum.basedatos.entidades;
+package curso.epsum.basedatos.entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
+import curso.epsum.basedatos.entidades.Cargo;
+
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 @Entity
 @Table(name="datos_laborales")
 public class DatoLaboral 
 {
+	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int Id;
 	private int salario;
-	private int cargos_id;
+	@ManyToOne
+	private Cargo cargos_id;
 	
 	public int getId() {
 		return Id;
@@ -23,11 +32,6 @@ public class DatoLaboral
 	public void setSalario(int salario) {
 		this.salario = salario;
 	}
-	public int getCargos_id() {
-		return cargos_id;
-	}
-	public void setCargos_id(int cargos_id) {
-		this.cargos_id = cargos_id;
-	}
 
+	
 }
