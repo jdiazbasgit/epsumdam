@@ -6,12 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Empresas")
-public class Empresa {
+@Table(name = "Datos_Laborales")
+public class DatoLaboral {
  
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	
 	private int chicos;
 	
