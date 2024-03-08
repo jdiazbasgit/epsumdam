@@ -8,7 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import jakarta.annotation.Generated;
 
 @Entity
 @Table(name = "datos_laborales")
