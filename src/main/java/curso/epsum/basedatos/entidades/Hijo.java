@@ -6,14 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name = "hijos")
-public class Hijo {
- 
+@Table (name = "hijos")
+public class Hijo  {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
+	private int idHijo;
+
 	private int chicos;
 	
 	private int chicas;
@@ -24,6 +26,7 @@ public class Hijo {
 
 	public void setId(int id) {
 		this.id = id;
+		return idHijo;
 	}
 
 	public int getChicos() {
@@ -41,6 +44,4 @@ public class Hijo {
 	public void setChicas(int chicas) {
 		this.chicas = chicas;
 	}
-
-	
 }
