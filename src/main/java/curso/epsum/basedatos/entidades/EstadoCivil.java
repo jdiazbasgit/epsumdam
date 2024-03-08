@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+
 @Table(name = "estados_civiles")
 public class EstadoCivil {
 	

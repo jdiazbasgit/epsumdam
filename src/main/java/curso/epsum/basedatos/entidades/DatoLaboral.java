@@ -14,14 +14,15 @@ import jakarta.annotation.Generated;
 @Table(name = "datos_laborales")
 public class DatoLaboral {
 
+
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Datos_Laborales")
+public class DatoLaboral {
+ 
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private int salario;
-	
-	@ManyToOne
-	//@JoinColumn(name = "idCargo")
-	private Cargo cargo;
-	
-}
