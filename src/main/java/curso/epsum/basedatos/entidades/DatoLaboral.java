@@ -4,27 +4,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import jakarta.annotation.Generated;
+
 @Entity
-@Table (name = "cargos")
-public class Cargo  {
+@Table(name = "datos_laborales")
+public class DatoLaboral {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCargo;
+	private int id;
 	
-	private String nombre;
-
-	public int getIdCargo() {
-		return idCargo;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	private int salario;
+	
+	@ManyToOne
+	//@JoinColumn(name = "idCargo")
+	private Cargo cargo;
+	
 }
