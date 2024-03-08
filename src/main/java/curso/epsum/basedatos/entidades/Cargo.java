@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.Column;
 @Entity
 @Table(name = "cargos")
 public class Cargo {
@@ -14,6 +14,7 @@ public class Cargo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Column(name = "descripcion")
 	private String descripcion;
 
 	public int getId() {
