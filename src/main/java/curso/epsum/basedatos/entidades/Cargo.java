@@ -1,5 +1,6 @@
 package curso.epsum.basedatos.entidades;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,8 @@ public class Cargo
 			this.descripcion = descripcion;
 		}
 	
+
+
 
 
 }
