@@ -28,40 +28,4 @@ public class Empresa
 	public void setCIF(String cIF) {
 		CIF = cIF;
 	}
-
-@Table(name = "empresas")
-public class Empresa {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	
-	private int id;
-	
-	private String nombre;
-	
-	private String CIF;
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCIF() {
-		return CIF;
-	}
-
-	public void setCIF(String cIF) {
-		CIF = cIF;
-	}
 }

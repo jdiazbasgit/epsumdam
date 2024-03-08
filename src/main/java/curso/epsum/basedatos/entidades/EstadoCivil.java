@@ -22,32 +22,4 @@ public class EstadoCivil
 	public void setDecripcion(String decripcion) {
 		this.decripcion = decripcion;
 	}
-
-
-@Entity
-@Table(name = "estadosciviles")
-public class EstadoCivil {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	
-	private int id;
-	
-	private String descripcion;
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
 }
