@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-
-
 @Table(name = "estados_civiles")
 public class EstadoCivil {
 	
@@ -20,12 +18,14 @@ public class EstadoCivil {
 	public int getIdEstadoCivil() {
 		return idEstadoCivil;
 	}
+  public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
-
-	public void setDescripcion(String descripcion) {
+  public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 

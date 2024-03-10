@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-
-
 @Table (name = "cargos")
 public class Cargo  {
 
@@ -28,4 +26,9 @@ public class Cargo  {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }

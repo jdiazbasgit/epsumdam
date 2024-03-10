@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-
-
 @Table (name = "empresas")
 public class Empresa  {
 	
@@ -22,6 +20,9 @@ public class Empresa  {
 
 	public int getIdEmpresa() {
 		return idEmpresa;
+	}
+ 	public void setId(int id) {
+			this.id = id;
 	}
 
 	public String getNombre() {
@@ -39,6 +40,6 @@ public class Empresa  {
 	public void setCIF(String CIF) {
 		this.CIF = CIF;
 	}
-	
-	
+
+
 }
