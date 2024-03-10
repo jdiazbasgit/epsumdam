@@ -1,20 +1,16 @@
 package curso.epsum.basedatos.entidades;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-
+import jakarta.annotation.Generated;
 
 @Entity
-@Table (name = "hijos")
-public class Hijo  {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idHijo;
+@Table(name = "datos_laborales")
+public class DatoLaboral {
 
 	private int chicos;
 	
@@ -27,7 +23,6 @@ public class Hijo  {
 
 	public void setId(int id) {
 		this.id = id;
-		return idHijo;
 	}
 
 	public int getChicos() {
@@ -45,4 +40,6 @@ public class Hijo  {
 	public void setChicas(int chicas) {
 		this.chicas = chicas;
 	}
+
+	
 }
