@@ -14,7 +14,7 @@ public class Hijo  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idHijo;
+	private int id;
 
 	private int chicos;
 	
@@ -27,7 +27,6 @@ public class Hijo  {
 
 	public void setId(int id) {
 		this.id = id;
-		return idHijo;
 	}
 
 	public int getChicos() {

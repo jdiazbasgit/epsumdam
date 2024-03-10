@@ -11,14 +11,16 @@ public class EstadoCivil {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idEstadoCivil;
+	private int id;
 	
 	private String descripcion;
 
-	public int getIdEstadoCivil() {
-		return idEstadoCivil;
+	
+  public int getId() {
+		return id;
 	}
-  public void setId(int id) {
+
+public void setId(int id) {
 		this.id = id;
 	}
 

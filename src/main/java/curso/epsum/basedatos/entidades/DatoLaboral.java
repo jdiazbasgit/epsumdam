@@ -12,6 +12,10 @@ import jakarta.annotation.Generated;
 @Table(name = "datos_laborales")
 public class DatoLaboral {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
 	private int chicos;
 	
 	private int chicas;

@@ -11,12 +11,14 @@ public class Cargo  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCargo;
+	private int id;
 	
 	private String nombre;
 
-	public int getIdCargo() {
-		return idCargo;
+	
+
+	public int getId() {
+		return id;
 	}
 
 	public String getNombre() {

@@ -7,22 +7,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "empresas")
-public class Empresa  {
-	
+@Table(name = "empresas")
+public class Empresa {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idEmpresa;
-	
+	private int id;
+
 	private String nombre;
-	
+
+	public int getId() {
+		return id;
+	}
+
 	private String CIF;
 
-	public int getIdEmpresa() {
-		return idEmpresa;
-	}
- 	public void setId(int id) {
-			this.id = id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -40,6 +41,5 @@ public class Empresa  {
 	public void setCIF(String CIF) {
 		this.CIF = CIF;
 	}
-
 
 }
