@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>epsum.curso</groupId>
-	<artifactId>basedatosmaven</artifactId>
-	<version>1.0</version>
+	<artifactId>frame</artifactId>
+	<version>1.0</version>s
 
 	<name>baseDatos</name>
 	<description></description>
