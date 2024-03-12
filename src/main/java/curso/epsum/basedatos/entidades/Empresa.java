@@ -16,7 +16,7 @@ public class Empresa  {
 	
 	private String nombre;
 	
-	private String CIF;
+	private String cif;
 
 	public int getIdEmpresa() {
 		return idEmpresa;
@@ -30,12 +30,12 @@ public class Empresa  {
 		this.nombre = nombre;
 	}
 
-	public String getCIF() {
-		return CIF;
+	public String getCif() {
+		return cif;
 	}
 
-	public void setCIF(String CIF) {
-		this.CIF = CIF;
+	public void setCIF(String cif) {
+		this.cif = cif;
 	}
 	
 	
