@@ -16,17 +16,16 @@ public class Empleado
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int id;
 	private String nombre;
-	private String DNI;
-	private String EMAIL;
-	private String Tel;
+	private String dni;
+	private String email;
+	private String telefono;
 	
 	@ManyToOne
-	private Empresa Empresa;
+	private Empresa empresa;
 	@ManyToOne
-	private DatoLaboral DatoLaboral;
+	private DatoLaboral datoLaboral;
 	@ManyToOne
-	private DatoPersonal DatoPersonal;
-	
+	private DatoPersonal datoPersonal;
 	public int getId() {
 		return id;
 	}
@@ -39,41 +38,43 @@ public class Empleado
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getDNI() {
-		return DNI;
+	public String getDni() {
+		return dni;
 	}
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
-	public String getEMAIL() {
-		return EMAIL;
+	public String getEmail() {
+		return email;
 	}
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getTel() {
-		return Tel;
+	public String getTelefono() {
+		return telefono;
 	}
-	public void setTel(String tel) {
-		Tel = tel;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 	public Empresa getEmpresa() {
-		return Empresa;
+		return empresa;
 	}
 	public void setEmpresa(Empresa empresa) {
-		Empresa = empresa;
+		this.empresa = empresa;
 	}
 	public DatoLaboral getDatoLaboral() {
-		return DatoLaboral;
+		return datoLaboral;
 	}
 	public void setDatoLaboral(DatoLaboral datoLaboral) {
-		DatoLaboral = datoLaboral;
+		this.datoLaboral = datoLaboral;
 	}
 	public DatoPersonal getDatoPersonal() {
-		return DatoPersonal;
+		return datoPersonal;
 	}
 	public void setDatoPersonal(DatoPersonal datoPersonal) {
-		DatoPersonal = datoPersonal;
+		this.datoPersonal = datoPersonal;
 	}
+	
+	
 
 }

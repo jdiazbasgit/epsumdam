@@ -13,14 +13,22 @@ public class DatoPersonal
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int ID;
+	private int id;
 	
 	@ManyToOne
 	private Hijo hijo;
 	
 	@ManyToOne
-	private  EstadoCivil EstadoCivil;
+	private  EstadoCivil estadocivil;
 	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Hijo getHijo() {
 		return hijo;
@@ -30,12 +38,14 @@ public class DatoPersonal
 		this.hijo = hijo;
 	}
 
-	public EstadoCivil getEstadoCivil() {
-		return EstadoCivil;
+	public EstadoCivil getEstadocivil() {
+		return estadocivil;
 	}
 
-	public void setEstadoCivil(EstadoCivil estadoCivil) {
-		EstadoCivil = estadoCivil;
+	public void setEstadocivil(EstadoCivil estadocivil) {
+		this.estadocivil = estadocivil;
 	}
+
+	
 
 }

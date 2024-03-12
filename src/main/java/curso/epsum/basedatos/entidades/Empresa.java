@@ -14,7 +14,7 @@ public class Empresa
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String nombre;
-	private String CIF;
+	private String cif;
 	
 	public String getNombre() {
 		return nombre;
@@ -22,11 +22,11 @@ public class Empresa
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getCIF() {
-		return CIF;
+	public String getcif() {
+		return cif;
 	}
-	public void setCIF(String cIF) {
-		CIF = cIF;
+	public void setcif(String cIF) {
+		cif = cIF;
 	}
 
 }
