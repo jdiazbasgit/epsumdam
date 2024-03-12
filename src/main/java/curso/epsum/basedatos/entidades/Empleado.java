@@ -16,7 +16,7 @@ public class Empleado {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idEmpleado;
 	private String nombre;
-	private String DNI;
+	private String dni;
 	private String email;
 	private String tlf;
 	
@@ -48,12 +48,12 @@ public class Empleado {
 		this.nombre = nombre;
 	}
 
-	public String getDNI() {
-		return DNI;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public String getEmail() {
