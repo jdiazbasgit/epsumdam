@@ -19,5 +19,23 @@ public class DatoPersonal {
 	@ManyToOne
 	@JoinColumn(name="estados_civiles_id")
 	private EstadoCivil estadoCivil;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Hijo getHijo() {
+		return hijo;
+	}
+	public void setHijo(Hijo hijo) {
+		this.hijo = hijo;
+	}
+	public EstadoCivil getEstadoCivil() {
+		return estadoCivil;
+	}
+	public void setEstadoCivil(EstadoCivil estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
 	
 }
