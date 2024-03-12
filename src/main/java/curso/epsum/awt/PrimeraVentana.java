@@ -38,21 +38,16 @@ public class PrimeraVentana extends Frame {
 				bola.setPosicionY(i*10);
 				bola.setSentidoX(1);
 				bola.setSentidoY(1);
-				bola.setIncrementoX(2);
-				bola.setIncrementoY(2);
+				bola.setIncrementoX(1);
+				bola.setIncrementoY(1);
 				bola.setDimension(50);
 				BolaHilo bolaHilo = new BolaHilo(bola, this);
 				bolaHilo.start();
-				try {
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 			}
 		}
 		
-		
+		getExterno().clearRect(0, 0, getWidth(), getHeight());
 		g.drawImage(getImagen(), 0, 0, this);
 		/*for (int i = 0; i < 1280; i++) {
 			getExterno().clearRect(0, 0, 1280, 800);

@@ -18,21 +18,15 @@ public class BolaHilo extends Thread {
 		while(true) {
 			getBola().setPosicionX(getBola().getPosicionX()+getBola().getIncrementoX()*getBola().getSentidoX());
 			getBola().setPosicionY(getBola().getPosicionY()+getBola().getIncrementoY()*getBola().getSentidoY());
-			getPrimeraVentana().getExterno() .clearRect(0, 0, getPrimeraVentana().getWidth(),getPrimeraVentana().getHeight());
-			getPrimeraVentana().getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(), getBola().getDimension());
+			//getPrimeraVentana().getExterno() .clearRect(0, 0, getPrimeraVentana().getWidth(),getPrimeraVentana().getHeight());
+			
 			
 			if(getBola().getPosicionX()<0 || getBola().getPosicionX()+getBola().getDimension()>getPrimeraVentana().getWidth())
 				getBola().setSentidoX(getBola().getSentidoX()*-1);
 			if(getBola().getPosicionY()<0 || getBola().getPosicionY()+getBola().getDimension()>getPrimeraVentana().getHeight())
 				getBola().setSentidoY(getBola().getSentidoY()*-1);
 			
-			getPrimeraVentana().repaint();
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 		}
 		
 	}
