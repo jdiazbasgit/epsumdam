@@ -3,47 +3,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import jakarta.annotation.Generated;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "datos_laborales")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DatoLaboral {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private int chicos;
+	private int salario;
 	
-	private int chicas;
-
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getChicos() {
-		return chicos;
-	}
-
-	public void setChicos(int chicos) {
-		this.chicos = chicos;
-	}
-
-	public int getChicas() {
-		return chicas;
-	}
-
-	public void setChicas(int chicas) {
-		this.chicas = chicas;
-	}
+	@ManyToOne
+	//@JoinColumn(name = "idCargo")
+	private Cargo cargo;
 
 	
 }
