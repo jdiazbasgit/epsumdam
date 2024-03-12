@@ -18,7 +18,11 @@ public class Empresa {
 		return id;
 	}
 	public void setId(int id) {
+<<<<<<< HEAD
 		this.id = id;
+=======
+		id = id;
+>>>>>>> f02da9d49ff80fef7256569bad677ee93f69a55a
 	}
 	public String getNombre() {
 		return nombre;
