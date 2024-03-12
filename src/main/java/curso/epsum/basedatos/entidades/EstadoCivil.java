@@ -6,8 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name ="estados_civiles")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EstadoCivil 
 {
 	@Id
@@ -16,17 +23,5 @@ public class EstadoCivil
 	private String decripcion;
 	
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getDecripcion() {
-		return decripcion;
-	}
-	public void setDecripcion(String decripcion) {
-		this.decripcion = decripcion;
-	}
 
 }

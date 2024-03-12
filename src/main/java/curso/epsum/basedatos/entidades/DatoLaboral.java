@@ -7,8 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "datos_laborales")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DatoLaboral {
 
 	@Id
@@ -21,28 +28,6 @@ public class DatoLaboral {
 	//@JoinColumn(name = "idCargo")
 	private Cargo cargo;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getSalario() {
-		return salario;
-	}
-
-	public void setSalario(int salario) {
-		this.salario = salario;
-	}
-
-	public Cargo getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
+	
 	
 }
