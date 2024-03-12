@@ -24,11 +24,9 @@ public class DatoPersonal {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "hijos_id")
 	private Hijo hijo;
 
 	@ManyToOne
-	@JoinColumn(name = "estados_civiles_id")
 	private EstadoCivil estadoCivil;
 
 	

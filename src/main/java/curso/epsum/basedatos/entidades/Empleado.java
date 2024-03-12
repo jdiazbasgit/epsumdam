@@ -32,15 +32,12 @@ public class Empleado {
 	private String telefono;
 	
 	@ManyToOne
-	@JoinColumn(name = "empresas_id")
 	private Empresa empresa;
 
 	@ManyToOne
-	@JoinColumn(name = "datos_personales_id")
 	private DatoPersonal datoPersonal;
 	
 	@ManyToOne
-	@JoinColumn(name = "datos_laborales_id")
 	private DatoLaboral datoLaboral;
 
 	

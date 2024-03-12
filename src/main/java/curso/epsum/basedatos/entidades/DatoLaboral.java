@@ -26,7 +26,6 @@ public class DatoLaboral {
 	private int salario;
 
 	@ManyToOne
-	@JoinColumn(name = "cargos_id")
 	private Cargo cargo;
 	
 }
