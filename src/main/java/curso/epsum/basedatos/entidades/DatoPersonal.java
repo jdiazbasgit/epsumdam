@@ -22,7 +22,7 @@ public class DatoPersonal {
 
 	@ManyToOne
 	@JoinColumn(name = "estados_civiles_id")
-	private EstadoCivil estadocivil;
+	private EstadoCivil estadoCivil;
 
 	public int getId() {
 		return id;
@@ -40,12 +40,12 @@ public class DatoPersonal {
 		this.hijo = hijo;
 	}
 
-	public EstadoCivil getEstadocivil() {
-		return estadocivil;
+	public EstadoCivil getEstadoCivil() {
+		return estadoCivil;
 	}
 
-	public void setEstado_civil(EstadoCivil estadocivil) {
-		this.estadocivil = estadocivil;
+	public void setEstado_civil(EstadoCivil estadoCivil) {
+		this.estadoCivil = estadoCivil;
 	}
 	
 	

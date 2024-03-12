@@ -30,11 +30,11 @@ public class Empleado {
 
 	@ManyToOne
 	@JoinColumn(name = "datos_personales_id")
-	private DatoPersonal datopersonal;
+	private DatoPersonal datoPersonal;
 	
 	@ManyToOne
 	@JoinColumn(name = "datos_laborales_id")
-	private DatoLaboral datolaboral;
+	private DatoLaboral datoLaboral;
 
 	public int getId() {
 		return id;
@@ -84,20 +84,20 @@ public class Empleado {
 		this.empresa = empresa;
 	}
 
-	public DatoPersonal getDatopersonal() {
-		return datopersonal;
+	public DatoPersonal getDatoPersonal() {
+		return datoPersonal;
 	}
 
-	public void setDatopersonal(DatoPersonal datopersonal) {
-		this.datopersonal = datopersonal;
+	public void setDatopersonal(DatoPersonal datoPersonal) {
+		this.datoPersonal = datoPersonal;
 	}
 
-	public DatoLaboral getDatolaboral() {
-		return datolaboral;
+	public DatoLaboral getDatoLaboral() {
+		return datoLaboral;
 	}
 
-	public void setDatolaboral(DatoLaboral datolaboral) {
-		this.datolaboral = datolaboral;
+	public void setDatolaboral(DatoLaboral datoLaboral) {
+		this.datoLaboral = datoLaboral;
 	}	
 	
 }
