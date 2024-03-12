@@ -11,14 +11,14 @@ public class Empresa {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int Id;
+	private int id;
 	private String nombre;
 	private String cif;
 	public int getId() {
 		return Id;
 	}
 	public void setId(int id) {
-		Id = id;
+		id = id;
 	}
 	public String getNombre() {
 		return nombre;
