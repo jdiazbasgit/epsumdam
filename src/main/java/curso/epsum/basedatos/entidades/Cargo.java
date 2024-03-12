@@ -13,13 +13,8 @@ public class Cargo
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int id;
-		private int descripcion;
-		public int getDescripcion() {
-			return descripcion;
-		}
-		public void setDescripcion(int descripcion) {
-			this.descripcion = descripcion;
-		}
+		private String descripcion;
+		
 		public int getId() {
 			return id;
 		}
