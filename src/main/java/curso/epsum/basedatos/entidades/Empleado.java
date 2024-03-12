@@ -8,6 +8,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 @Entity
 @Table(name="empleados")
 public class Empleado {
@@ -32,69 +40,4 @@ public class Empleado {
 	@JoinColumn(name="idDatoLaboral")
 	private DatoLaboral datoLaboral;
 	
-	public int getIdEmpleado() {
-		return idEmpleado;
-	}
-
-	public void setIdEmpleado(int idEmpleado) {
-		this.idEmpleado = idEmpleado;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getTlf() {
-		return tlf;
-	}
-
-	public void setTlf(String tlf) {
-		this.tlf = tlf;
-	}
-
-	public Empresa getEmpresa() {
-		return empresa;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
-
-	public DatoPersonal getDatosPersonal() {
-		return datosPersonal;
-	}
-
-	public void setDatosPersonal(DatoPersonal datosPersonal) {
-		this.datosPersonal = datosPersonal;
-	}
-
-	public DatoLaboral getDatoLaboral() {
-		return datoLaboral;
-	}
-
-	public void setDatoLaboral(DatoLaboral datoLaboral) {
-		this.datoLaboral = datoLaboral;
-	}
-
-
 }

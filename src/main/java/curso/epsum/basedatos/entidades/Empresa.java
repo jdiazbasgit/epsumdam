@@ -6,6 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 @Entity
 @Table (name = "empresas")
 public class Empresa  {
@@ -17,27 +25,6 @@ public class Empresa  {
 	private String nombre;
 	
 	private String cif;
-
-	public int getIdEmpresa() {
-		return idEmpresa;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCif() {
-		return cif;
-	}
-
-	public void setCIF(String cif) {
-		this.cif = cif;
-	}
-	
 	
 }
 

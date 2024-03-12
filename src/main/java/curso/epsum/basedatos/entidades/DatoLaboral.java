@@ -8,6 +8,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 @Table(name = "datos_laborales")
@@ -22,31 +29,5 @@ public class DatoLaboral {
 	@ManyToOne
 	@JoinColumn(name = "idCargo")
 	private Cargo cargo;
-	
-	public int getIdDatoLaboral() {
-		return idDatoLaboral;
-	}
-
-	public void setIdDatoLaboral(int idDatoLaboral) {
-		this.idDatoLaboral = idDatoLaboral;
-	}
-
-	public double getSalario() {
-		return salario;
-	}
-
-	public void setSalario(double salario) {
-		this.salario = salario;
-	}
-
-	public Cargo getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
-
-	
 	
 }
