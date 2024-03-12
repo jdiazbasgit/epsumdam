@@ -8,8 +8,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "datos_personales")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DatoPersonal {
 
 	@Id
@@ -24,29 +31,5 @@ public class DatoPersonal {
 	@JoinColumn(name = "estados_civiles_id")
 	private EstadoCivil estadoCivil;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Hijo getHijo() {
-		return hijo;
-	}
-
-	public void setHijo(Hijo hijo) {
-		this.hijo = hijo;
-	}
-
-	public EstadoCivil getEstadoCivil() {
-		return estadoCivil;
-	}
-
-	public void setEstado_civil(EstadoCivil estadoCivil) {
-		this.estadoCivil = estadoCivil;
-	}
-	
 	
 }
