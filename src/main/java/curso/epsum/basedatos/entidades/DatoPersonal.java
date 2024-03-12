@@ -19,7 +19,7 @@ public class DatoPersonal
 	private Hijo hijo;
 	
 	@ManyToOne
-	private  EstadoCivil estadocivil;
+	private  EstadoCivil estadoCivil;
 	
 
 	public int getId() {
@@ -38,12 +38,12 @@ public class DatoPersonal
 		this.hijo = hijo;
 	}
 
-	public EstadoCivil getEstadocivil() {
-		return estadocivil;
+	public EstadoCivil getEstadoCivil() {
+		return estadoCivil;
 	}
 
 	public void setEstadocivil(EstadoCivil estadocivil) {
-		this.estadocivil = estadocivil;
+		this.estadoCivil = estadocivil;
 	}
 
 	
