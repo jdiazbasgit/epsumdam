@@ -29,13 +29,14 @@ public class PrimeraVentana extends Frame {
 	
 	@Override
 	public void paint(Graphics g) {
+		Bola bola= new Bola();
 		if(getExterno()==null) {
 			setImagen(createImage(this.getWidth(),this.getHeight()));
 			setExterno(getImagen().getGraphics());
-			for (int i = 0; i < 2; i++) {
-				Bola bola = new Bola();
-				bola.setPosicionX(i*10);
-				bola.setPosicionY(i*10);
+			//for (int i = 1; i < 2; i++) {
+				//Bola bola = new Bola();
+				bola.setPosicionX(100);
+				bola.setPosicionY(100);
 				bola.setSentidoX(1);
 				bola.setSentidoY(1);
 				bola.setIncrementoX(1);
@@ -44,10 +45,11 @@ public class PrimeraVentana extends Frame {
 				BolaHilo bolaHilo = new BolaHilo(bola, this);
 				bolaHilo.start();
 				
-			}
+			//}
 		}
 		
 		getExterno().clearRect(0, 0, getWidth(), getHeight());
+		getExterno().fillOval(bola.getPosicionX(), bola.getPosicionY(), bola.getDimension(), bola.getDimension());
 		g.drawImage(getImagen(), 0, 0, this);
 		/*for (int i = 0; i < 1280; i++) {
 			getExterno().clearRect(0, 0, 1280, 800);

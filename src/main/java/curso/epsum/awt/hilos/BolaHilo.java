@@ -16,6 +16,7 @@ public class BolaHilo extends Thread {
 	@Override
 	public void run() {
 		while(true) {
+			
 			getBola().setPosicionX(getBola().getPosicionX()+getBola().getIncrementoX()*getBola().getSentidoX());
 			getBola().setPosicionY(getBola().getPosicionY()+getBola().getIncrementoY()*getBola().getSentidoY());
 			//getPrimeraVentana().getExterno() .clearRect(0, 0, getPrimeraVentana().getWidth(),getPrimeraVentana().getHeight());
@@ -26,8 +27,15 @@ public class BolaHilo extends Thread {
 			if(getBola().getPosicionY()<0 || getBola().getPosicionY()+getBola().getDimension()>getPrimeraVentana().getHeight())
 				getBola().setSentidoY(getBola().getSentidoY()*-1);
 			
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
+		
 		
 	}
 
