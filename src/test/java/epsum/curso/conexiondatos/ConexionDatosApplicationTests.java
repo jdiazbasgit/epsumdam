@@ -20,9 +20,14 @@ class ConexionDatosApplicationTests {
 	@Test
 	void contextLoads() {
 		
-		Iterable<Cargo> cargo= getCargoService().findAll();
+		Cargo cargo= new Cargo();
+		cargo.setDescripcion("peripatetico-cambiado");
+		cargo.setId(1502);
+		getCargoService().save(cargo);
+		
+		Iterable<Cargo> cargos= getCargoService().findAll();
 	
-		for (Cargo cargo2 : cargo) {
+		for (Cargo cargo2 : cargos) {
 			System.out.println(cargo2.getDescripcion());
 		}
 		

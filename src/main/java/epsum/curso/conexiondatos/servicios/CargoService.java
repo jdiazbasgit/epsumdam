@@ -17,5 +17,9 @@ public class CargoService {
 	public Iterable<Cargo> findAll(){
 		return getCargoCrudRepository().findAll();
 	}
+	
+	public Cargo save(Cargo cargo) {
+		return getCargoCrudRepository().save(cargo);
+	}
 
 }
