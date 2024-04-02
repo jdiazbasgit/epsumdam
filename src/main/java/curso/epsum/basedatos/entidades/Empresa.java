@@ -6,42 +6,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
-@Table(name = "Empresas")
+@Table(name = "empresas")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Empresa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	private String nombre;
-	
-	private String CIF;
 
-	public int getId() {
-		return id;
-	}
+	private String cif;
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCIF() {
-		return CIF;
-	}
-
-	public void setCIF(String cIF) {
-		CIF = cIF;
-	}
 }
- 
-	
-
