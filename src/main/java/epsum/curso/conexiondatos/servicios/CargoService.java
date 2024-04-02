@@ -1,5 +1,7 @@
 package epsum.curso.conexiondatos.servicios;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ public class CargoService {
 	
 	public Cargo save(Cargo cargo) {
 		return getCargoCrudRepository().save(cargo);
+	}
+	public List<Cargo> getCargosQueEmpiezanPor(String dato){
+		return getCargoCrudRepository().getCargosQueEmpiezanPor(dato);
 	}
 
 }
