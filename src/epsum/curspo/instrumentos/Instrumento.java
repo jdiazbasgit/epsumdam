@@ -3,10 +3,10 @@ package epsum.curspo.instrumentos;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Instrumento implements InstrumentoInterface {
 
-	@Value("pom, pom, pom con spring")
+	//@Value("pom, pom, pom con spring")
 	private String sonido;
 	
 	@Override

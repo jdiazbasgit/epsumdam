@@ -8,8 +8,9 @@ public class CoinciertoMusico {
 
 	public static void main(String[] args) {
 		
-		Solista solista = new Solista();
+		
 		Instrumento tambor= new Instrumento();
+		Solista solista = new Solista();
 		tambor.setSonido("pom, pom pom");
 		solista.setInstrumento(tambor);
 		solista.tocar();
