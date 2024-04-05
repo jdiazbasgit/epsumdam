@@ -11,6 +11,8 @@ import epsum.curspo.instrumentos.Instrumento;
 public abstract class Musico implements MusicoInterface {
 
 	
+	
+
 	private Instrumento instrumento;
 	
 	private List<Instrumento> instrumentos;

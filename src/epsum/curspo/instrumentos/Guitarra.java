@@ -10,6 +10,16 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class Guitarra extends Instrumento {
 
+	public Guitarra() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Guitarra(String sonido) {
+		super(sonido);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	@Value("tlan, tlan en anotaciones")
 	public void setSonido(String sonido) {

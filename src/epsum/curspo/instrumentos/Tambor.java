@@ -11,4 +11,14 @@ public class Tambor extends Instrumento {
 	public void setSonido(String sonido) {
 		super.setSonido(sonido);
 	}
+
+	public Tambor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Tambor(String sonido) {
+		super(sonido);
+		// TODO Auto-generated constructor stub
+	}
 }
