@@ -1,7 +1,7 @@
 package curso.epsum.awt.bolas;
 
 public class Bola {
-	private int posicionX,posicionY,incrementoX,incrementoY,sentidoX,sentidoY,dimension;
+	private int posicionX,posicionY,incrementoX,incrementoY,sentidoX,sentidoY,dimension,impactos;
 
 	public int getPosicionX() {
 		return posicionX;
@@ -57,6 +57,14 @@ public class Bola {
 
 	public void setDimension(int dimension) {
 		this.dimension = dimension;
+	}
+
+	public int getImpactos() {
+		return impactos;
+	}
+
+	public void setImpactos(int impactos) {
+		this.impactos = impactos;
 	}
 
 }
