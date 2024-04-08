@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_qsbCgPMrEe6M3Mj1t2KUGg" name="concierto">
+    <eAnnotations xmi:id="_q0NFgPMrEe6M3Mj1t2KUGg" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_q0NFgfMrEe6M3Mj1t2KUGg" source="codegen">
+        <details xmi:id="_q0NFgvMrEe6M3Mj1t2KUGg" key="codegenDirectory" value="/concierto/src"/>
+        <details xmi:id="_rZVy4PMrEe6M3Mj1t2KUGg" key="AssociatedSourceCode" value="/concierto/src/epsum/curspo/anotaciones/Vigilado.java;2785336972/1;/concierto/src/epsum/curspo/aspectos/AvisadorDeAudiencia.java;2479621135/1;/concierto/src/epsum/curspo/configuracion/Configuracion.java;1606251866/1;/concierto/src/epsum/curspo/instrumentos/Guitarra.java;1830850038/1;/concierto/src/epsum/curspo/instrumentos/Instrumento.java;3294860196/1;/concierto/src/epsum/curspo/instrumentos/InstrumentoInterface.java;1471638085/1;/concierto/src/epsum/curspo/instrumentos/Tambor.java;1127706858/1;/concierto/src/epsum/curspo/instrumentos/Trompeta.java;4018424704/1;/concierto/src/epsum/curspo/musicos/HombreOrquesta.java;3387667453/1;/concierto/src/epsum/curspo/musicos/Musico.java;3774207153/1;/concierto/src/epsum/curspo/musicos/MusicoInterface.java;1841380371/1;/concierto/src/epsum/curspo/musicos/Solista.java;3633509910/1;/concierto/src/epsum/curspo/teatros/CoinciertoMusico.java;4220970616/1;/concierto/src/epsum/curspo/teatros/ConciertoSolistaHombreOrquesta.java;2679392306/1;/concierto/src/epsum/curspo/teatros/ConciertoSolistaSpring.java;1461650784/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_rCnU8PMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_rCn8APMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_rCn8AfMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_rCn8AvMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_rCn8A_MrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_rCn8BPMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_rCn8BfMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_rCojEPMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_rCpKIPMrEe6M3Mj1t2KUGg">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_rA2aYPMrEe6M3Mj1t2KUGg" name="epsum">
+      <packagedElement xmi:type="uml:Package" xmi:id="_rA2aYfMrEe6M3Mj1t2KUGg" name="curspo">
+        <packagedElement xmi:type="uml:Package" xmi:id="_rA9vIPMrEe6M3Mj1t2KUGg" name="anotaciones">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rCQIkPMrEe6M3Mj1t2KUGg" name="Vigilado"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBGSAPMrEe6M3Mj1t2KUGg" name="aspectos">
+          <packagedElement xmi:type="uml:Class" xmi:id="_rCZ5kPMrEe6M3Mj1t2KUGg" name="AvisadorDeAudiencia">
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rID1oPMrEe6M3Mj1t2KUGg" name="apagarMoviles" specification="_rCc84fMrEe6M3Mj1t2KUGg">
+              <language>java</language>
+              <body>System.err.println(&quot;Señores apaguen los moviles que va a empezar el concierto&quot;);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIG48PMrEe6M3Mj1t2KUGg" name="encenderMoviels" specification="_rCeLA_MrEe6M3Mj1t2KUGg">
+              <language>java</language>
+              <body>System.err.println(&quot;Señores ya pueden encender los moviles que el concierto ha terminado&quot;);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rCbHsPMrEe6M3Mj1t2KUGg" name="sujetador"/>
+            <ownedOperation xmi:id="_rCc84fMrEe6M3Mj1t2KUGg" name="apagarMoviles" method="_rID1oPMrEe6M3Mj1t2KUGg"/>
+            <ownedOperation xmi:id="_rCeLA_MrEe6M3Mj1t2KUGg" name="encenderMoviels" method="_rIG48PMrEe6M3Mj1t2KUGg"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBLxkPMrEe6M3Mj1t2KUGg" name="configuracion">
+          <packagedElement xmi:type="uml:Class" xmi:id="_rCgnQPMrEe6M3Mj1t2KUGg" name="Configuracion"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBTGUPMrEe6M3Mj1t2KUGg" name="instrumentos">
+          <packagedElement xmi:type="uml:Class" xmi:id="_rCk4sPMrEe6M3Mj1t2KUGg" name="Guitarra">
+            <generalization xmi:id="_rHLr4fMrEe6M3Mj1t2KUGg" general="_rCv30PMrEe6M3Mj1t2KUGg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIHgAPMrEe6M3Mj1t2KUGg" name="Guitarra" specification="_rCpKIfMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIHgAfMrEe6M3Mj1t2KUGg" type="_rCk4sPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIIHEPMrEe6M3Mj1t2KUGg" name="Guitarra" specification="_rCq_UPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIIHEfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rIIHEvMrEe6M3Mj1t2KUGg" type="_rCk4sPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super(sonido);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIIuIPMrEe6M3Mj1t2KUGg" name="setSonido" specification="_rCs0gPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIIuIfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>super.setSonido(sonido);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rCpKIfMrEe6M3Mj1t2KUGg" name="Guitarra" method="_rIHgAPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rCpxMPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rCpxMfMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rCpxMvMrEe6M3Mj1t2KUGg" type="_rCk4sPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rCq_UPMrEe6M3Mj1t2KUGg" name="Guitarra" method="_rIIHEPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rCrmYPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rCrmYfMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rCq_UfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rCrmYvMrEe6M3Mj1t2KUGg" type="_rCk4sPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rCs0gPMrEe6M3Mj1t2KUGg" name="setSonido" method="_rIIuIPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rCs0gfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rCv30PMrEe6M3Mj1t2KUGg" name="Instrumento">
+            <ownedAttribute xmi:id="_rIAyUPMrEe6M3Mj1t2KUGg" name="sonido">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_rHMS8PMrEe6M3Mj1t2KUGg" client="_rCv30PMrEe6M3Mj1t2KUGg" supplier="_rC3MkPMrEe6M3Mj1t2KUGg" contract="_rC3MkPMrEe6M3Mj1t2KUGg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIJVMPMrEe6M3Mj1t2KUGg" name="Instrumento" specification="_rCxF8PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIJVMfMrEe6M3Mj1t2KUGg" type="_rCv30PMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIJ8QPMrEe6M3Mj1t2KUGg" name="Instrumento" specification="_rCyUEPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIJ8QfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rIJ8QvMrEe6M3Mj1t2KUGg" type="_rCv30PMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		this.sonido = sonido;&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rILKYPMrEe6M3Mj1t2KUGg" name="sonar" specification="_rCy7I_MrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rILKYfMrEe6M3Mj1t2KUGg" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>return getSonido();&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rCxF8PMrEe6M3Mj1t2KUGg" name="Instrumento" method="_rIJVMPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rCxtAPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rCxtAfMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rCxtAvMrEe6M3Mj1t2KUGg" type="_rCv30PMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rCyUEPMrEe6M3Mj1t2KUGg" name="Instrumento" method="_rIJ8QPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rCy7IPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rCy7IfMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rCyUEfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rCy7IvMrEe6M3Mj1t2KUGg" type="_rCv30PMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rCy7I_MrEe6M3Mj1t2KUGg" name="sonar" method="_rILKYPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rCziMPMrEe6M3Mj1t2KUGg" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rC3MkPMrEe6M3Mj1t2KUGg" name="InstrumentoInterface">
+            <ownedOperation xmi:id="_rC3zoPMrEe6M3Mj1t2KUGg" name="sonar">
+              <ownedParameter xmi:id="_rC4asPMrEe6M3Mj1t2KUGg" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rC5BwPMrEe6M3Mj1t2KUGg" name="Tambor">
+            <generalization xmi:id="_rHOIIPMrEe6M3Mj1t2KUGg" general="_rCv30PMrEe6M3Mj1t2KUGg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rILKYvMrEe6M3Mj1t2KUGg" name="setSonido" specification="_rC628PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rILKY_MrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>super.setSonido(sonido);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rILxcPMrEe6M3Mj1t2KUGg" name="Tambor" specification="_rC96QPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rILxcfMrEe6M3Mj1t2KUGg" type="_rC5BwPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rILxcvMrEe6M3Mj1t2KUGg" name="Tambor" specification="_rC_IYPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rILxc_MrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rILxdPMrEe6M3Mj1t2KUGg" type="_rC5BwPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super(sonido);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rC628PMrEe6M3Mj1t2KUGg" name="setSonido" method="_rILKYvMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rC628fMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rC96QPMrEe6M3Mj1t2KUGg" name="Tambor" method="_rILxcPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rC96QfMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rC96QvMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rC96Q_MrEe6M3Mj1t2KUGg" type="_rC5BwPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rC_IYPMrEe6M3Mj1t2KUGg" name="Tambor" method="_rILxcvMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rC_IYvMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rC_vcPMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rC_IYfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rC_vcfMrEe6M3Mj1t2KUGg" type="_rC5BwPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rDCywPMrEe6M3Mj1t2KUGg" name="Trompeta">
+            <generalization xmi:id="_rHOvMPMrEe6M3Mj1t2KUGg" general="_rCv30PMrEe6M3Mj1t2KUGg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIMYgPMrEe6M3Mj1t2KUGg" name="Trompeta" specification="_rDEn8PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIMYgfMrEe6M3Mj1t2KUGg" type="_rDCywPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIMYgvMrEe6M3Mj1t2KUGg" name="Trompeta" specification="_rDF2EPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIMYg_MrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rIMYhPMrEe6M3Mj1t2KUGg" type="_rDCywPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super(sonido);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIMYhfMrEe6M3Mj1t2KUGg" name="setSonido" specification="_rDGdIfMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIMYhvMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>super.setSonido(sonido);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rDEn8PMrEe6M3Mj1t2KUGg" name="Trompeta" method="_rIMYgPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rDFPAPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rDFPAfMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rDFPAvMrEe6M3Mj1t2KUGg" type="_rDCywPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rDF2EPMrEe6M3Mj1t2KUGg" name="Trompeta" method="_rIMYgvMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rDF2EvMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rDF2E_MrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rDF2EfMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:id="_rDF2FPMrEe6M3Mj1t2KUGg" type="_rDCywPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rDGdIfMrEe6M3Mj1t2KUGg" name="setSonido" method="_rIMYhfMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rDHEMPMrEe6M3Mj1t2KUGg" name="sonido">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBjlAPMrEe6M3Mj1t2KUGg" name="musicos">
+          <packagedElement xmi:type="uml:Class" xmi:id="_rDcbYPMrEe6M3Mj1t2KUGg" name="HombreOrquesta">
+            <generalization xmi:id="_rHZHQPMrEe6M3Mj1t2KUGg" general="_rDk-QPMrEe6M3Mj1t2KUGg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIM_kPMrEe6M3Mj1t2KUGg" name="HombreOrquesta" specification="_rDgFwfMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIM_kfMrEe6M3Mj1t2KUGg" type="_rDcbYPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIM_kvMrEe6M3Mj1t2KUGg" name="tocar" specification="_rDhT4fMrEe6M3Mj1t2KUGg">
+              <language>java</language>
+              <body>for (Instrumento	instrumento	  : getInstrumentos()) {&#xD;
+			System.out.println(instrumento.sonar());&#xD;
+		}&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIM_k_MrEe6M3Mj1t2KUGg" name="setInstrumentos" specification="_rH9H8PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIM_lPMrEe6M3Mj1t2KUGg" name="instrumentos" type="_rHPWQPMrEe6M3Mj1t2KUGg"/>
+              <language>java</language>
+              <body>super.setInstrumentos(instrumentos);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rDgFwfMrEe6M3Mj1t2KUGg" name="HombreOrquesta" method="_rIM_kPMrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rDgs0PMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rDgs0fMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rDgs0vMrEe6M3Mj1t2KUGg" type="_rDcbYPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rDhT4fMrEe6M3Mj1t2KUGg" name="tocar" method="_rIM_kvMrEe6M3Mj1t2KUGg"/>
+            <ownedOperation xmi:id="_rH9H8PMrEe6M3Mj1t2KUGg" name="setInstrumentos" method="_rIM_k_MrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rH9vAPMrEe6M3Mj1t2KUGg" name="instrumentos" type="_rHPWQPMrEe6M3Mj1t2KUGg"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rDk-QPMrEe6M3Mj1t2KUGg" name="Musico" isAbstract="true">
+            <ownedAttribute xmi:id="_rICAcPMrEe6M3Mj1t2KUGg" name="instrumento" type="_rCv30PMrEe6M3Mj1t2KUGg" association="_rIWwkPMrEe6M3Mj1t2KUGg"/>
+            <ownedAttribute xmi:id="_rICngPMrEe6M3Mj1t2KUGg" name="instrumentos" type="_rCv30PMrEe6M3Mj1t2KUGg" isOrdered="true" association="_rIiWwPMrEe6M3Mj1t2KUGg">
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rICngfMrEe6M3Mj1t2KUGg" value="*"/>
+            </ownedAttribute>
+            <interfaceRealization xmi:id="_rHbjgPMrEe6M3Mj1t2KUGg" client="_rDk-QPMrEe6M3Mj1t2KUGg" supplier="_rDrE4PMrEe6M3Mj1t2KUGg" contract="_rDrE4PMrEe6M3Mj1t2KUGg"/>
+            <ownedOperation xmi:id="_rDmMYPMrEe6M3Mj1t2KUGg" name="tocar" isAbstract="true"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rDrE4PMrEe6M3Mj1t2KUGg" name="MusicoInterface">
+            <ownedOperation xmi:id="_rDsTAPMrEe6M3Mj1t2KUGg" name="tocar"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rDs6EPMrEe6M3Mj1t2KUGg" name="Solista">
+            <generalization xmi:id="_rHi4QvMrEe6M3Mj1t2KUGg" general="_rDk-QPMrEe6M3Mj1t2KUGg"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rINmoPMrEe6M3Mj1t2KUGg" name="tocar" specification="_rDuIMfMrEe6M3Mj1t2KUGg">
+              <language>java</language>
+              <body>System.out.println(getInstrumento().sonar());&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rINmofMrEe6M3Mj1t2KUGg" name="setInstrumento" specification="_rHf08PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rINmovMrEe6M3Mj1t2KUGg" name="instrumento" type="_rCv30PMrEe6M3Mj1t2KUGg"/>
+              <language>java</language>
+              <body>super.setInstrumento(instrumento);&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rINmo_MrEe6M3Mj1t2KUGg" name="Solista" specification="_rDvWUPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rINmpPMrEe6M3Mj1t2KUGg" type="_rDs6EPMrEe6M3Mj1t2KUGg" direction="return"/>
+              <language>java</language>
+              <body>super();&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rDuIMfMrEe6M3Mj1t2KUGg" name="tocar" method="_rINmoPMrEe6M3Mj1t2KUGg"/>
+            <ownedOperation xmi:id="_rDvWUPMrEe6M3Mj1t2KUGg" name="Solista" method="_rINmo_MrEe6M3Mj1t2KUGg">
+              <eAnnotations xmi:id="_rDv9YPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                <details xmi:id="_rDv9YfMrEe6M3Mj1t2KUGg" key="create"/>
+              </eAnnotations>
+              <ownedParameter xmi:id="_rDv9YvMrEe6M3Mj1t2KUGg" type="_rDs6EPMrEe6M3Mj1t2KUGg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:id="_rHf08PMrEe6M3Mj1t2KUGg" name="setInstrumento" method="_rINmofMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rHf08fMrEe6M3Mj1t2KUGg" name="instrumento" type="_rCv30PMrEe6M3Mj1t2KUGg"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_rIWwkPMrEe6M3Mj1t2KUGg" name="" memberEnd="_rICAcPMrEe6M3Mj1t2KUGg _rIWwkfMrEe6M3Mj1t2KUGg">
+            <ownedEnd xmi:id="_rIWwkfMrEe6M3Mj1t2KUGg" name="" type="_rDk-QPMrEe6M3Mj1t2KUGg" association="_rIWwkPMrEe6M3Mj1t2KUGg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_rIiWwPMrEe6M3Mj1t2KUGg" name="" memberEnd="_rIiWwfMrEe6M3Mj1t2KUGg _rICngPMrEe6M3Mj1t2KUGg">
+            <ownedEnd xmi:id="_rIiWwfMrEe6M3Mj1t2KUGg" name="" type="_rDk-QPMrEe6M3Mj1t2KUGg" association="_rIiWwPMrEe6M3Mj1t2KUGg"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBukIPMrEe6M3Mj1t2KUGg" name="teatros">
+          <packagedElement xmi:type="uml:Class" xmi:id="_rDxykPMrEe6M3Mj1t2KUGg" name="CoinciertoMusico">
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIPb0PMrEe6M3Mj1t2KUGg" name="main" specification="_rDznwPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIPb0fMrEe6M3Mj1t2KUGg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rIPb0vMrEe6M3Mj1t2KUGg" value="*"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>Instrumento tambor= new Instrumento();&#xD;
+		Solista solista = new Solista();&#xD;
+		tambor.setSonido(&quot;pom, pom pom&quot;);&#xD;
+		solista.setInstrumento(tambor);&#xD;
+		solista.tocar();&#xD;
+&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rDznwPMrEe6M3Mj1t2KUGg" name="main" isStatic="true" method="_rIPb0PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rDznwfMrEe6M3Mj1t2KUGg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rDznwvMrEe6M3Mj1t2KUGg" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rD0O0PMrEe6M3Mj1t2KUGg" name="ConciertoSolistaHombreOrquesta">
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIQp8PMrEe6M3Mj1t2KUGg" name="main" specification="_rD1c8PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIQp8fMrEe6M3Mj1t2KUGg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rIQp8vMrEe6M3Mj1t2KUGg" value="*"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>ApplicationContext armario= new AnnotationConfigApplicationContext(Configuracion.class);&#xD;
+		MusicoInterface pepe=(MusicoInterface) armario.getBean(&quot;solista&quot;);&#xD;
+		pepe.tocar();&#xD;
+		//pepe.getInstrumento().setSonido(&quot;sonido cambiado&quot;);&#xD;
+		//System.out.println(&quot;vuelve a tocar el solista&quot;);&#xD;
+		//pepe.tocar();		&#xD;
+		MusicoInterface federico= (MusicoInterface) armario.getBean(&quot;hombreOrquesta&quot;);&#xD;
+		federico.tocar();&#xD;
+&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rD1c8PMrEe6M3Mj1t2KUGg" name="main" isStatic="true" method="_rIQp8PMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rD1c8fMrEe6M3Mj1t2KUGg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rD2EAPMrEe6M3Mj1t2KUGg" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rD2rEPMrEe6M3Mj1t2KUGg" name="ConciertoSolistaSpring">
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rIQp8_MrEe6M3Mj1t2KUGg" name="main" specification="_rD3SIPMrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rIQp9PMrEe6M3Mj1t2KUGg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rIQp9fMrEe6M3Mj1t2KUGg" value="*"/>
+              </ownedParameter>
+              <language>java</language>
+              <body>ApplicationContext armario= new AnnotationConfigApplicationContext(Configuracion.class);&#xD;
+		Solista pepe= (Solista) armario.getBean(&quot;solista&quot;);&#xD;
+		pepe.tocar();&#xD;
+	</body>
+            </ownedBehavior>
+            <ownedOperation xmi:id="_rD3SIPMrEe6M3Mj1t2KUGg" name="main" isStatic="true" method="_rIQp8_MrEe6M3Mj1t2KUGg">
+              <ownedParameter xmi:id="_rD35MPMrEe6M3Mj1t2KUGg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rD4gQPMrEe6M3Mj1t2KUGg" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_rA6r0PMrEe6M3Mj1t2KUGg" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_rA6r0fMrEe6M3Mj1t2KUGg" name="lang">
+        <packagedElement xmi:type="uml:Package" xmi:id="_rA6r0vMrEe6M3Mj1t2KUGg" name="annotation">
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_rGyqUPMrEe6M3Mj1t2KUGg" name="ElementType"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rG5YAPMrEe6M3Mj1t2KUGg" name="Retention"/>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_rG5_EfMrEe6M3Mj1t2KUGg" name="RetentionPolicy"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rG7NMfMrEe6M3Mj1t2KUGg" name="Target"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_rA_kUPMrEe6M3Mj1t2KUGg" name="sql">
+        <packagedElement xmi:type="uml:Class" xmi:id="_rG8bUfMrEe6M3Mj1t2KUGg" name="SQLSyntaxErrorException"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_rBf6oPMrEe6M3Mj1t2KUGg" name="util">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_rHPWQPMrEe6M3Mj1t2KUGg" name="List"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_rBy1kPMrEe6M3Mj1t2KUGg" name="io">
+        <packagedElement xmi:type="uml:Class" xmi:id="_rHo-4PMrEe6M3Mj1t2KUGg" name="FileOutputStream"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_rHpl8fMrEe6M3Mj1t2KUGg" name="PrintStream"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_rH2aQPMrEe6M3Mj1t2KUGg" name="PrintWriter"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_rBALYPMrEe6M3Mj1t2KUGg" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_rBALYfMrEe6M3Mj1t2KUGg" name="aspectj">
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBALYvMrEe6M3Mj1t2KUGg" name="lang">
+          <packagedElement xmi:type="uml:Package" xmi:id="_rBALY_MrEe6M3Mj1t2KUGg" name="annotation">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rG9pcfMrEe6M3Mj1t2KUGg" name="After"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rG-3kPMrEe6M3Mj1t2KUGg" name="Aspect"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHAFsPMrEe6M3Mj1t2KUGg" name="Before"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHAswfMrEe6M3Mj1t2KUGg" name="Pointcut"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_rBAycPMrEe6M3Mj1t2KUGg" name="springframework">
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBAycfMrEe6M3Mj1t2KUGg" name="scheduling">
+          <packagedElement xmi:type="uml:Package" xmi:id="_rBAycvMrEe6M3Mj1t2KUGg" name="annotation">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHB64fMrEe6M3Mj1t2KUGg" name="Async"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBCAkPMrEe6M3Mj1t2KUGg" name="stereotype">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rHCh8fMrEe6M3Mj1t2KUGg" name="Component"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBLKgPMrEe6M3Mj1t2KUGg" name="context">
+          <packagedElement xmi:type="uml:Package" xmi:id="_rBLKgfMrEe6M3Mj1t2KUGg" name="annotation">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHDwEPMrEe6M3Mj1t2KUGg" name="ComponentScan"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHEXIfMrEe6M3Mj1t2KUGg" name="ComponentScans"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHE-MfMrEe6M3Mj1t2KUGg" name="Configuration"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHGMUPMrEe6M3Mj1t2KUGg" name="EnableAspectJAutoProxy"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_rHKdwfMrEe6M3Mj1t2KUGg" name="Scope"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_rHl7kPMrEe6M3Mj1t2KUGg" name="AnnotationConfigApplicationContext"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_rBzcoPMrEe6M3Mj1t2KUGg" name="support">
+            <packagedElement xmi:type="uml:Class" xmi:id="_rH5dkPMrEe6M3Mj1t2KUGg" name="ClassPathXmlApplicationContext"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_rHjfUPMrEe6M3Mj1t2KUGg" name="ApplicationContext"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_rBPb8PMrEe6M3Mj1t2KUGg" name="beans">
+          <packagedElement xmi:type="uml:Package" xmi:id="_rBPb8fMrEe6M3Mj1t2KUGg" name="factory">
+            <packagedElement xmi:type="uml:Package" xmi:id="_rBPb8vMrEe6M3Mj1t2KUGg" name="annotation">
+              <packagedElement xmi:type="uml:Interface" xmi:id="_rHHacPMrEe6M3Mj1t2KUGg" name="Qualifier"/>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_rHJ2sPMrEe6M3Mj1t2KUGg" name="Value"/>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_rHU10fMrEe6M3Mj1t2KUGg" name="Autowired"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_q0O6sPMrEe6M3Mj1t2KUGg">
+      <eAnnotations xmi:id="_q0WPcPMrEe6M3Mj1t2KUGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_q0ZSwPMrEe6M3Mj1t2KUGg" base_Package="_qsbCgPMrEe6M3Mj1t2KUGg">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:AnnotationDefinition xmi:id="_rCSk0PMrEe6M3Mj1t2KUGg" base_Interface="_rCQIkPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rCVBEPMrEe6M3Mj1t2KUGg" base_Element="_rCQIkPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rCYEYPMrEe6M3Mj1t2KUGg" base_Element="_rCQIkPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCYrcPMrEe6M3Mj1t2KUGg" name="Retention">
+      <annotationParameters xmi:id="_rCYrcfMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIR4EPMrEe6M3Mj1t2KUGg" value="RetentionPolicy.RUNTIME"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_rCZSgPMrEe6M3Mj1t2KUGg" name="Target">
+      <annotationParameters xmi:id="_rCZSgfMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIR4EfMrEe6M3Mj1t2KUGg" value="ElementType.METHOD"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rCagoPMrEe6M3Mj1t2KUGg" base_Element="_rCZ5kPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rCcV0PMrEe6M3Mj1t2KUGg" base_Element="_rCbHsPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCcV0fMrEe6M3Mj1t2KUGg" name="Pointcut">
+      <annotationParameters xmi:id="_rCc84PMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rISfIPMrEe6M3Mj1t2KUGg" value="&quot;execution(@epsum.curspo.anotaciones.Vigilado * *.*(..))&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_rCeLAPMrEe6M3Mj1t2KUGg" base_Element="_rCc84fMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCeLAfMrEe6M3Mj1t2KUGg" name="Before">
+      <annotationParameters xmi:id="_rCeLAvMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rISfIfMrEe6M3Mj1t2KUGg" value="&quot;sujetador()&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_rCeyEPMrEe6M3Mj1t2KUGg" base_Element="_rCeLA_MrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCfZIPMrEe6M3Mj1t2KUGg" name="After">
+      <annotationParameters xmi:id="_rCfZIfMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rISfIvMrEe6M3Mj1t2KUGg" value="&quot;sujetador()&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_rCfZIvMrEe6M3Mj1t2KUGg" base_Element="_rCZ5kPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCgAMPMrEe6M3Mj1t2KUGg" name="Component"/>
+    <annotations xmi:id="_rCgAMfMrEe6M3Mj1t2KUGg" name="Aspect"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rChOUPMrEe6M3Mj1t2KUGg" base_Element="_rCgnQPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rCh1YPMrEe6M3Mj1t2KUGg" base_Element="_rCgnQPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCh1YfMrEe6M3Mj1t2KUGg" name="Configuration"/>
+    <annotations xmi:id="_rCjqkPMrEe6M3Mj1t2KUGg" name="ComponentScan">
+      <annotationParameters xmi:id="_rCkRoPMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rITGMPMrEe6M3Mj1t2KUGg" value="&quot;epsum.curspo&quot;"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_rCkRofMrEe6M3Mj1t2KUGg" name="EnableAspectJAutoProxy"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rCmG0PMrEe6M3Mj1t2KUGg" base_Element="_rCk4sPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:StyledElement xmi:id="_rCqYQPMrEe6M3Mj1t2KUGg" base_Element="_rCpKIfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:StyledElement xmi:id="_rCrmY_MrEe6M3Mj1t2KUGg" base_Element="_rCq_UPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rCtbkPMrEe6M3Mj1t2KUGg" base_Element="_rCs0gPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCtbkfMrEe6M3Mj1t2KUGg" name="Override"/>
+    <annotations xmi:id="_rCtbkvMrEe6M3Mj1t2KUGg" name="Value">
+      <annotationParameters xmi:id="_rCtbk_MrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIU7YPMrEe6M3Mj1t2KUGg" value="&quot;tlan, tlan en anotaciones&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_rCuCoPMrEe6M3Mj1t2KUGg" base_Element="_rCk4sPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rCuCofMrEe6M3Mj1t2KUGg" name="Component"/>
+    <annotations xmi:id="_rCuCovMrEe6M3Mj1t2KUGg" name="Qualifier">
+      <annotationParameters xmi:id="_rCupsPMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rITtQPMrEe6M3Mj1t2KUGg" value="&quot;tocameAMi&quot;"/>
+      </annotationParameters>
+    </annotations>
+    <annotations xmi:id="_rCupsfMrEe6M3Mj1t2KUGg" name="Scope">
+      <annotationParameters xmi:id="_rCupsvMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rITtQfMrEe6M3Mj1t2KUGg" value="&quot;prototype&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rC0JQPMrEe6M3Mj1t2KUGg" base_Element="_rCy7I_MrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rC1XYPMrEe6M3Mj1t2KUGg" base_Element="_rCy7I_MrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rC1XYfMrEe6M3Mj1t2KUGg" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rC6P4PMrEe6M3Mj1t2KUGg" base_Element="_rC5BwPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rC8sIPMrEe6M3Mj1t2KUGg" base_Element="_rC628PMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rC8sIfMrEe6M3Mj1t2KUGg" name="Override"/>
+    <annotations xmi:id="_rC8sIvMrEe6M3Mj1t2KUGg" name="Value">
+      <annotationParameters xmi:id="_rC8sI_MrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIVicPMrEe6M3Mj1t2KUGg" value="&quot;pom, pom en anotaciones&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:StyledElement xmi:id="_rC-hUPMrEe6M3Mj1t2KUGg" base_Element="_rC96QPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:StyledElement xmi:id="_rC_vcvMrEe6M3Mj1t2KUGg" base_Element="_rC_IYPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rDBkoPMrEe6M3Mj1t2KUGg" base_Element="_rC5BwPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDBkofMrEe6M3Mj1t2KUGg" name="Component"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rDEA4PMrEe6M3Mj1t2KUGg" base_Element="_rDCywPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:StyledElement xmi:id="_rDFPA_MrEe6M3Mj1t2KUGg" base_Element="_rDEn8PMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:StyledElement xmi:id="_rDGdIPMrEe6M3Mj1t2KUGg" base_Element="_rDF2EPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rDISUPMrEe6M3Mj1t2KUGg" base_Element="_rDGdIfMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDISUfMrEe6M3Mj1t2KUGg" name="Override"/>
+    <annotations xmi:id="_rDISUvMrEe6M3Mj1t2KUGg" name="Value">
+      <annotationParameters xmi:id="_rDISU_MrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIVicvMrEe6M3Mj1t2KUGg" value="&quot;tuuu, tuuu en anotaciones&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_rDSDUPMrEe6M3Mj1t2KUGg" base_Element="_rDCywPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDSqYPMrEe6M3Mj1t2KUGg" name="Component"/>
+    <annotations xmi:id="_rDVtsPMrEe6M3Mj1t2KUGg" name="Qualifier">
+      <annotationParameters xmi:id="_rDVtsfMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIVicfMrEe6M3Mj1t2KUGg" value="&quot;tocameAMi&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rDgFwPMrEe6M3Mj1t2KUGg" base_Element="_rDcbYPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:StyledElement xmi:id="_rDhT4PMrEe6M3Mj1t2KUGg" base_Element="_rDgFwfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rDh68PMrEe6M3Mj1t2KUGg" base_Element="_rDhT4fMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDh68fMrEe6M3Mj1t2KUGg" name="Override"/>
+    <annotations xmi:id="_rDh68vMrEe6M3Mj1t2KUGg" name="Vigilado"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_rDjJEPMrEe6M3Mj1t2KUGg" base_Element="_rDcbYPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDjJEfMrEe6M3Mj1t2KUGg" name="Component"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rDmzcPMrEe6M3Mj1t2KUGg" base_Element="_rDmMYPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rDnagPMrEe6M3Mj1t2KUGg" base_Element="_rDmMYPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDnagfMrEe6M3Mj1t2KUGg" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rDuIMPMrEe6M3Mj1t2KUGg" base_Element="_rDs6EPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rDuvQPMrEe6M3Mj1t2KUGg" base_Element="_rDuIMfMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDuvQfMrEe6M3Mj1t2KUGg" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:StyledElement xmi:id="_rDv9Y_MrEe6M3Mj1t2KUGg" base_Element="_rDvWUPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rDwkcPMrEe6M3Mj1t2KUGg" base_Element="_rDs6EPMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rDwkcfMrEe6M3Mj1t2KUGg" name="Component"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_rG27wPMrEe6M3Mj1t2KUGg" base_Element="_rGyqUPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rG5_EPMrEe6M3Mj1t2KUGg" base_Element="_rG5YAPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rG7NMPMrEe6M3Mj1t2KUGg" base_Element="_rG5_EfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rG8bUPMrEe6M3Mj1t2KUGg" base_Element="_rG7NMfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rG9pcPMrEe6M3Mj1t2KUGg" base_Element="_rG8bUfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rG-QgPMrEe6M3Mj1t2KUGg" base_Element="_rG9pcfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rG_eoPMrEe6M3Mj1t2KUGg" base_Element="_rG-3kPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHAswPMrEe6M3Mj1t2KUGg" base_Element="_rHAFsPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHB64PMrEe6M3Mj1t2KUGg" base_Element="_rHAswfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHCh8PMrEe6M3Mj1t2KUGg" base_Element="_rHB64fMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHDJAPMrEe6M3Mj1t2KUGg" base_Element="_rHCh8fMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHEXIPMrEe6M3Mj1t2KUGg" base_Element="_rHDwEPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHE-MPMrEe6M3Mj1t2KUGg" base_Element="_rHEXIfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHFlQPMrEe6M3Mj1t2KUGg" base_Element="_rHE-MfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHGzYPMrEe6M3Mj1t2KUGg" base_Element="_rHGMUPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHJPoPMrEe6M3Mj1t2KUGg" base_Element="_rHHacPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHKdwPMrEe6M3Mj1t2KUGg" base_Element="_rHJ2sPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHLr4PMrEe6M3Mj1t2KUGg" base_Element="_rHKdwfMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHU10PMrEe6M3Mj1t2KUGg" base_Element="_rHPWQPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHXSEPMrEe6M3Mj1t2KUGg" base_Element="_rHU10fMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rHhqIPMrEe6M3Mj1t2KUGg" base_Element="_rHf08PMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rHhqIfMrEe6M3Mj1t2KUGg" name="Override"/>
+    <annotations xmi:id="_rHhqIvMrEe6M3Mj1t2KUGg" name="Autowired"/>
+    <annotations xmi:id="_rHi4QPMrEe6M3Mj1t2KUGg" name="Qualifier">
+      <annotationParameters xmi:id="_rHi4QfMrEe6M3Mj1t2KUGg" skipName="true" skipArray="true">
+        <valueSpecifications xmi:type="uml:LiteralString" xmi:id="_rIYlwPMrEe6M3Mj1t2KUGg" value="&quot;guitarra&quot;"/>
+      </annotationParameters>
+    </annotations>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_rHlUgPMrEe6M3Mj1t2KUGg" base_Element="_rHjfUPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHoX0PMrEe6M3Mj1t2KUGg" base_Element="_rHl7kPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rHpl8PMrEe6M3Mj1t2KUGg" base_Element="_rHo-4PMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rH1zMPMrEe6M3Mj1t2KUGg" base_Element="_rHpl8fMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rH4PcPMrEe6M3Mj1t2KUGg" base_Element="_rH2aQPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Reference xmi:id="_rH6EoPMrEe6M3Mj1t2KUGg" base_Element="_rH5dkPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Generics xmi:id="_rH-WEPMrEe6M3Mj1t2KUGg" genericsValue="Instrumento" base_Element="_rH9vAPMrEe6M3Mj1t2KUGg"/>
+  <UMLLabProfile:Annotations xmi:id="_rH-9IPMrEe6M3Mj1t2KUGg" base_Element="_rH9H8PMrEe6M3Mj1t2KUGg">
+    <annotations xmi:id="_rH-9IfMrEe6M3Mj1t2KUGg" name="Override"/>
+    <annotations xmi:id="_rH-9IvMrEe6M3Mj1t2KUGg" name="Autowired"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_rIkL8PMrEe6M3Mj1t2KUGg" base_Element="_rIiWwPMrEe6M3Mj1t2KUGg"/>
+</xmi:XMI>

@@ -12,6 +12,11 @@ import epsum.curspo.instrumentos.Instrumento;
 @Component
 public class HombreOrquesta extends Musico {
 
+	public HombreOrquesta() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	@Vigilado
 	public void tocar() {
