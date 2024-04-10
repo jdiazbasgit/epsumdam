@@ -21,4 +21,9 @@ public class Solista extends Musico {
 		super.setInstrumento(instrumento);
 	}
 
+	public Solista() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 }
