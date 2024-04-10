@@ -10,8 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -70,7 +75,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		choice = new Choice();
 		panelCargos = new Panel();
 		panelCargos.add(choice);
-
+		
 	}
 
 	@Override
@@ -79,10 +84,21 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			Iterable<Cargo> cargos = cargoService.findAll();
 			for (Cargo cargo : cargos) {
-				choice.add(cargo.getDescripcion());
+				List<Cargo> cargosList=(List<Cargo>) cargos;
+				List<String> descripcionCargo=new ArrayList<>();
+				for (Cargo cargo2 : cargos) {
+					descripcionCargo.add(cargo2.getDescripcion());
+				
+				}
+				descripcionCargo.stream().filter(c->c.startsWith("M")).sorted().forEach(c->choice.add(c));
+				
+				
 			}
-
-			primeraVez = true;
+			
+			
+					
+			//JTable tabla= new JTable([["1","jefe"]], ["id","descripcion"]);
+			
 		}
 	}
 
@@ -138,3 +154,5 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	}
 }
+
+

@@ -12,6 +12,6 @@ import epsum.curso.conexiondatos.entidades.Cargo;
 public interface CargoCrudRepository extends CrudRepository<Cargo, Integer> {
 
 	//@Query(value="SELECT id,descripcion FROM empresas.cargos where descripcion like 'M%'",nativeQuery = true)
-	@Query("from Cargo as cargo where cargo.descripcion like :dato")
-	public List<Cargo> getCargosQueEmpiezanPor(String dato);
+	//@Query("from Cargo as cargo where cargo.descripcion like :dato")
+	//public List<Cargo> getCargosQueEmpiezanPor(String dato);
 }
