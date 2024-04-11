@@ -26,7 +26,7 @@ public class EstadoCivilService {
 		return getEstadoCivilCrudRepository().save(estadoCivil);
 	}
 	
-	public void delete(EstadoCivil estadoCivil) {
+	/*public void delete(EstadoCivil estadoCivil) {
 		 getEstadoCivilCrudRepository().delete(estadoCivil);
 		 
 	}
@@ -35,6 +35,6 @@ public class EstadoCivilService {
 		return getEstadoCivilCrudRepository().count();
 	}
 	
-	
+	*/
 
 }
