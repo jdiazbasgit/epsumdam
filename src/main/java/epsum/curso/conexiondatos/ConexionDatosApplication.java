@@ -13,9 +13,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.yaml.snakeyaml.comments.CommentLine;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
-import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.ventanas.VentanaDatos;
-import epsum.curso.conexiondatos.ventanas.VentanaDatos;
+import epsum.curso.conexiondatos.entidades.Hijo;
 import lombok.Data;
 
 @SpringBootApplication
@@ -40,4 +39,11 @@ public class ConexionDatosApplication implements CommandLineRunner {
 		getVentanaDatos().setVisible(true);
 		
 	}
+<<<<<<< HEAD
 }
+=======
+	
+	
+
+}
+>>>>>>> 64ec1b39fdd752f05cbe7f1ce4195bb4cc5aa650
