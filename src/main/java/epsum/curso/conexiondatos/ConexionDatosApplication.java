@@ -40,7 +40,4 @@ public class ConexionDatosApplication implements CommandLineRunner {
 		getVentanaDatos().setVisible(true);
 		
 	}
-	
-	
-
 }
