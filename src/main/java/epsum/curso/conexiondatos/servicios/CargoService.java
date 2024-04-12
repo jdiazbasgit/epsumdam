@@ -23,4 +23,10 @@ public class CargoService {
 	public Cargo save(Cargo cargo) {
 		return getCargoCrudRepository().save(cargo);
 	}
+<<<<<<< HEAD
 }
+=======
+	
+
+}
+>>>>>>> d324cb9b5e6fd537f670345044d3d55fbbad27ac
