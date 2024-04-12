@@ -43,6 +43,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>epsum.curso</groupId>
+			<artifactId>basedatosmaven</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
