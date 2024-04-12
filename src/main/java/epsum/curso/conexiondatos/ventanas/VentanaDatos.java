@@ -155,4 +155,3 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	}
 }
 
-

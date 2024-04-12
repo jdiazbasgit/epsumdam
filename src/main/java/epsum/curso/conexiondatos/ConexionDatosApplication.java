@@ -13,9 +13,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.yaml.snakeyaml.comments.CommentLine;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
-import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.ventanas.VentanaDatos;
-import epsum.curso.conexiondatos.ventanas.VentanaDatos;
+import epsum.curso.conexiondatos.entidades.Hijo;
 import lombok.Data;
 
 @SpringBootApplication

@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.DatoPersonal;
 
 @Repository
-public interface CargoCrudRepository extends CrudRepository<Cargo, Integer> {
+public interface DatosPersonalesCrudRepository extends CrudRepository<DatoPersonal, Integer> {
 
 	//@Query(value="SELECT id,descripcion FROM empresas.cargos where descripcion like 'M%'",nativeQuery = true)
 	//@Query("from Cargo as cargo where cargo.descripcion like :dato")
