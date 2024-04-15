@@ -39,8 +39,8 @@ public class BolaHilo extends Thread {
 							getBola().setSentidoX(getBola().getSentidoX() * -1);
 							getBola().setSentidoY(getBola().getSentidoY() * -1);
 							bola.setSentidoY(bola.getSentidoY() * -1);
-							bola.setImpactos(bola.getImpactos()+1);
-							getBola().setImpactos(getBola().getImpactos()+1);
+							//bola.setImpactos(bola.getImpactos()+1);
+							//getBola().setImpactos(getBola().getImpactos()+1);
 						} 
 					}
 				}

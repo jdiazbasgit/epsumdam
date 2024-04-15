@@ -7,17 +7,20 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+
 import curso.epsum.awt.bolas.Bola;
 import curso.epsum.awt.hilos.BolaHilo;
 
-public class PrimeraVentana extends Frame {
+public class PrimeraVentana extends JFrame {
 
 	private Graphics externo;
 	private Image imagen;
 	private  List<Bola> bolas;
 
 	public PrimeraVentana() {
-		this.setSize(1280, 800);
+		//this.setSize(2000, 2000);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setLocation(50, 50);
 		this.setBackground(Color.PINK);
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
