@@ -28,9 +28,11 @@ public class Ventana extends Frame {
 	        panelNorte.add(textField);
 	        panelNorte.add(b1);
 
-	        Panel panelIzquierdo = new Panel(new BorderLayout()                         );
-	        Label label2 = new Label("Usuarios");
+	        Panel panelIzquierdo = new Panel(new BorderLayout());
+	        Label label2 = new Label("Usuarios:");
 	        panelIzquierdo.add(label2, BorderLayout.NORTH);
+	        label2.setAlignment(Label.CENTER);
+	        
 	        
 	        Panel panelIzquierdoBajo = new Panel(new BorderLayout());
 	        TextArea textArea2 = new TextArea(30, 20); 
