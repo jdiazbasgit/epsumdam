@@ -23,6 +23,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JTable tabla;
 	private JLabel lTitulo;
 
+
 	public PanelComponente(String[] cabeceras, String[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
