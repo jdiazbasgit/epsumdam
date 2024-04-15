@@ -33,7 +33,6 @@ public class Ventana extends Frame {
 	        panelIzquierdo.add(label2, BorderLayout.NORTH);
 	        label2.setAlignment(Label.CENTER);
 	        
-	        
 	        Panel panelIzquierdoBajo = new Panel(new BorderLayout());
 	        TextArea textArea2 = new TextArea(30, 20); 
 	        panelIzquierdoBajo.add(textArea2); 
