@@ -26,6 +26,7 @@ public class VentanaChat extends Frame {
 		setSize(500,500);		
 		setLayout(new BorderLayout());
 		setVisible(true);
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
 		
 		barraSuperior();
 		barraInferior();
