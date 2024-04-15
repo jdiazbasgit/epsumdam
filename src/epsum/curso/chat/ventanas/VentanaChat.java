@@ -27,10 +27,10 @@ public class VentanaChat extends Frame {
 		setLayout(new BorderLayout());
 		setVisible(true);
 		
-		//barraSuperior();
-		//barraInferior();
-		//barraIzquierda();
-		//barraCentral();
+		barraSuperior();
+		barraInferior();
+		barraIzquierda();
+		barraCentral();
 		
 	}
 	
