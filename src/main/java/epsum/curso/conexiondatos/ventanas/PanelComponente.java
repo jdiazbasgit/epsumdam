@@ -15,7 +15,7 @@ import lombok.Data;
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	private String[] cabeceras;
-	private String[][] datos;
+	private Object[][] datos;
 	private String titulo;
 	private JButton botonAlta;
 	private JButton botonBaja;
@@ -23,8 +23,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JTable tabla;
 	private JLabel lTitulo;
 
-
-	public PanelComponente(String[] cabeceras, String[][] datos, String titulo) {
+	public PanelComponente(String[] cabeceras, Object[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
 		this.datos = datos;
@@ -32,12 +31,12 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonAlta = new JButton("alta");
 		this.botonBaja = new JButton("baja");
 		this.botonModificar = new JButton("modificar");
-		this.tabla= new JTable(datos,cabeceras);
+		this.tabla = new JTable(datos, cabeceras);
 		this.setLayout(new BorderLayout());
-		this.lTitulo= new JLabel(this.titulo);
-		this.add(lTitulo,BorderLayout.NORTH);
-		this.add(tabla,BorderLayout.CENTER);
-		
+		this.lTitulo = new JLabel(this.titulo);
+		this.add(lTitulo, BorderLayout.NORTH);
+		this.add(tabla, BorderLayout.CENTER);
+
 	}
 
 	public abstract void alta();
@@ -47,8 +46,16 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	public abstract void modificar();
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(botonAlta)) {
+			alta();
+		}
+		if (e.getSource().equals(botonBaja)) {
+			baja();
+		}
+		if (e.getSource().equals(botonModificar)) {
+			modificar();
+		}
 	}
 
 }
