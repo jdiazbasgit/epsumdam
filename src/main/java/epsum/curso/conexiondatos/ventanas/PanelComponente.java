@@ -8,13 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import lombok.Data;
 
 @Data
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
-	private String[] cabeceras;
+	private Object[] cabeceras;
 	private Object[][] datos;
 	private String titulo;
 	private JButton botonAlta;
@@ -22,8 +24,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JButton botonModificar;
 	private JTable tabla;
 	private JLabel lTitulo;
+	private DefaultTableModel defaultTableModel;
 
-	public PanelComponente(String[] cabeceras, Object[][] datos, String titulo) {
+	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
 		this.datos = datos;
@@ -31,10 +34,13 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonAlta = new JButton("alta");
 		this.botonBaja = new JButton("baja");
 		this.botonModificar = new JButton("modificar");
-		this.tabla = new JTable(datos, cabeceras);
-		this.setLayout(new BorderLayout());
+		this.defaultTableModel= new DefaultTableModel(datos, cabeceras);
+		this.tabla = new JTable(getDefaultTableModel());
+		this.setLayout(new BorderLayout(20,20));
 		this.lTitulo = new JLabel(this.titulo);
-		this.add(lTitulo, BorderLayout.NORTH);
+		JPanel panelTitulo= new JPanel();
+		panelTitulo.add(lTitulo);
+		this.add(panelTitulo, BorderLayout.NORTH);
 		this.add(tabla, BorderLayout.CENTER);
 
 	}

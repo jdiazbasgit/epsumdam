@@ -30,7 +30,7 @@ import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
 
-@Component
+//@Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
@@ -133,19 +133,21 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			String[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
+			Object[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
 			List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
-			Object[][] datos = new Object[2][(int) getCargoService().count()];
+			Object[][] datos = new Object[(int) getCargoService().count()][3];
 			int i = 0;
-			cargos.stream().forEach(c -> {
-				datos[i][0]=String.valueOf(c.getId());
-				datos[i][1]=c.getDescripcion();
+			for(Cargo cargo:cargos)
+			 {
+				datos[i][0]=String.valueOf(cargo.getId());
+				datos[i][1]=cargo.getDescripcion();
 				JPanel panel= new JPanel();
-				datos[i][3]=panel;
+				datos[i][2]=panel;
 				panel.add(modificar);
 				panel.add(borrar);
+				i++;
 				
-			});
+			};
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
