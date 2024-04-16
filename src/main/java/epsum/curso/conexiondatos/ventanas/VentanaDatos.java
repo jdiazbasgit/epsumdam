@@ -15,7 +15,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,10 @@ import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import lombok.Data;
 
 @Component
-
+@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
@@ -41,13 +44,12 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private MenuItem datosPersonales;
 	private MenuItem empleados;
 	private MenuItem salir;
-	private Panel panelCargos;
-	private Choice choice;
+	private JButton modificar,borrar;
 
 	public VentanaDatos() {
-		//setSize(1000, 1000);
+		// setSize(1000, 1000);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//setResizable(false);
+		// setResizable(false);
 		this.addWindowListener(this);
 		// (new FlowLayout());
 		menuBar = new MenuBar();
@@ -72,34 +74,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		menu.addSeparator();
 		menu.add(salir);
 		menuBar.add(menu);
-		choice = new Choice();
-		panelCargos = new Panel();
-		panelCargos.add(choice);
-		
-	}
-
-	@Override
-	public void paint(Graphics g) {
-		if (!primeraVez) {
-
-			Iterable<Cargo> cargos = cargoService.findAll();
-			for (Cargo cargo : cargos) {
-				List<Cargo> cargosList=(List<Cargo>) cargos;
-				List<String> descripcionCargo=new ArrayList<>();
-				for (Cargo cargo2 : cargos) {
-					descripcionCargo.add(cargo2.getDescripcion());
-				
-				}
-				descripcionCargo.stream().filter(c->c.startsWith("M")).sorted().forEach(c->choice.add(c));
-				
-				
-			}
-			
-			
-					
-			//JTable tabla= new JTable([["1","jefe"]], ["id","descripcion"]);
-			
-		}
+		modificar= new JButton("MODIFICAR");
+		borrar= new JButton("BORRAR");
 	}
 
 	@Override
@@ -148,10 +124,22 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			getContentPane().add(panelCargos);
+			String[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
+			List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
+			Object[][] datos = new Object[2][(int) getCargoService().count()];
+			int i = 0;
+			cargos.stream().forEach(c -> {
+				datos[i][0]=String.valueOf(c.getId());
+				datos[i][1]=c.getDescripcion();
+				JPanel panel= new JPanel();
+				datos[i][3]=panel;
+				panel.add(modificar);
+				panel.add(borrar);
+				
+			});
+			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
 
 	}
 }
-
