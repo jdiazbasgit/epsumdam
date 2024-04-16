@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,10 +29,13 @@ public class Empleado
 	private String telefono;
 	
 	@ManyToOne
+	@JoinColumn(name="empresas_id")
 	private Empresa empresa;
 	@ManyToOne
+	@JoinColumn(name="datos_laborales_id")
 	private DatoLaboral datoLaboral;
 	@ManyToOne
+	@JoinColumn(name="datos_personales_id")
 	private DatoPersonal datoPersonal;
 	
 
