@@ -23,8 +23,8 @@ public class EmpleadoService {
 	public Empleado save(Empleado empleado) {
 		return getEmpleadoCrudRepository().save(empleado);
 	}
-	/*public void delete(Empleado empleado) {
-	 getEmpleadoCrudRepository().delete(estadoCivil);
+	public void delete(Empleado empleado) {
+	 getEmpleadoCrudRepository().delete(empleado);
 	 
 	}
 
@@ -32,6 +32,6 @@ public class EmpleadoService {
 	return getEmpleadoCrudRepository().count();
 	}
 
-*/
+
 
 }
