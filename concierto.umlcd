@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_qvdvcPMrEe6M3Mj1t2KUGg">
+  <modelElement href="concierto.uml#_rA2aYfMrEe6M3Mj1t2KUGg"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_raSOEPMrEe6M3Mj1t2KUGg" sourceAnchor="145.0,0.0" targetAnchor="142.0,36.0" dashed="true" superClass="_raAhQPMrEe6M3Mj1t2KUGg" subClass="_raaJ4PMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHMS8PMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lQ0UPMrEe6M3Mj1t2KUGg" sourceY="-28" targetX="1478"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_raS1IPMrEe6M3Mj1t2KUGg" sourceAnchor="247.0,54.0" targetAnchor="0.0,59.0" superClass="_raaJ4PMrEe6M3Mj1t2KUGg" subClass="_rZ5zkPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHLr4fMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lOYEPMrEe6M3Mj1t2KUGg" sourceX="30" targetX="-617" targetY="230"/>
+    <bendpoints xmi:id="_1lOYEfMrEe6M3Mj1t2KUGg" sourceX="30" sourceY="-230" targetX="-617"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_raUDQPMrEe6M3Mj1t2KUGg" sourceAnchor="122.0,0.0" targetAnchor="0.0,59.0" superClass="_raaJ4PMrEe6M3Mj1t2KUGg" subClass="_raFZwPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHOIIPMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lO_IPMrEe6M3Mj1t2KUGg" sourceY="-352" targetX="-913"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_raUqUPMrEe6M3Mj1t2KUGg" sourceAnchor="238.0,0.0" targetAnchor="0.0,59.0" superClass="_raaJ4PMrEe6M3Mj1t2KUGg" subClass="_raMHcPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHOvMPMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lO_IfMrEe6M3Mj1t2KUGg" sourceY="-268" targetX="-777" targetY="300"/>
+    <bendpoints xmi:id="_1lO_IvMrEe6M3Mj1t2KUGg" sourceX="160" sourceY="-268" targetX="-617" targetY="300"/>
+    <bendpoints xmi:id="_1lO_I_MrEe6M3Mj1t2KUGg" sourceX="160" sourceY="-568" targetX="-617"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_ragQgPMrEe6M3Mj1t2KUGg" sourceAnchor="173.0,118.0" targetAnchor="122.0,84.0" target="_ralJAPMrEe6M3Mj1t2KUGg" source="_raaJ4PMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rIWwkPMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lQNQ_MrEe6M3Mj1t2KUGg" sourceY="200" targetX="586"/>
+    <nameVisual xmi:id="_raheoPMrEe6M3Mj1t2KUGg" text="">
+      <visualProperties xmi:id="_rm1cUPMrEe6M3Mj1t2KUGg" position="-298.5,2.0000000000000284"/>
+    </nameVisual>
+    <sourceRole xmi:id="_raiFsPMrEe6M3Mj1t2KUGg" aggregationKind="NONE" name="instrumento" navigable="true">
+      <modelElement href="concierto.uml#_rICAcPMrEe6M3Mj1t2KUGg"/>
+      <visualProperties xmi:id="_rm0OMPMrEe6M3Mj1t2KUGg" position="2.0,31.599999999999994"/>
+      <visibility xmi:id="_rakh8fMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rakh8PMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_raiswPMrEe6M3Mj1t2KUGg" aggregationKind="NONE" name="">
+      <modelElement href="concierto.uml#_rIWwkfMrEe6M3Mj1t2KUGg"/>
+      <visualProperties xmi:id="_rm1cUfMrEe6M3Mj1t2KUGg" position="36.5625,2.0"/>
+      <visibility xmi:id="_rakh8_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rakh8vMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_rag3kPMrEe6M3Mj1t2KUGg" sourceAnchor="122.0,54.0" targetAnchor="143.0,118.0" target="_raaJ4PMrEe6M3Mj1t2KUGg" source="_ralJAPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rIiWwPMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lQNQPMrEe6M3Mj1t2KUGg" sourceX="556" targetY="170"/>
+    <stereotypes xmi:id="_rajT0_MrEe6M3Mj1t2KUGg" name="Reference">
+      <modelElement href="concierto.uml#_rIkL8PMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_rajT0PMrEe6M3Mj1t2KUGg" text="">
+      <visualProperties xmi:id="_rm2DYPMrEe6M3Mj1t2KUGg" position="-38.0,-58.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_rajT0fMrEe6M3Mj1t2KUGg" aggregationKind="NONE" name="">
+      <modelElement href="concierto.uml#_rIiWwfMrEe6M3Mj1t2KUGg"/>
+      <visualProperties xmi:id="_rm1cUvMrEe6M3Mj1t2KUGg" position="34.68749999999999,-47.0"/>
+      <visibility xmi:id="_rakh9fMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rakh9PMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_rajT0vMrEe6M3Mj1t2KUGg" aggregationKind="NONE" name="instrumentos" navigable="true">
+      <modelElement href="concierto.uml#_rICngPMrEe6M3Mj1t2KUGg"/>
+      <visualProperties xmi:id="_rm2DYfMrEe6M3Mj1t2KUGg" position="-86.99999999999994,31.749999999999986"/>
+      <visibility xmi:id="_rakh9_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rakh9vMrEe6M3Mj1t2KUGg" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_raqBgPMrEe6M3Mj1t2KUGg" sourceAnchor="51.0,0.0" targetAnchor="61.0,108.0" superClass="_ralJAPMrEe6M3Mj1t2KUGg" subClass="_rar2sPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHi4QvMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lPmMPMrEe6M3Mj1t2KUGg" sourceY="-282" targetX="101" targetY="48"/>
+    <bendpoints xmi:id="_1lPmMfMrEe6M3Mj1t2KUGg" sourceX="-101" sourceY="-282" targetY="48"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_rbB08PMrEe6M3Mj1t2KUGg" sourceAnchor="61.0,0.0" targetAnchor="51.0,0.0" dashed="true" superClass="_rbDDEPMrEe6M3Mj1t2KUGg" subClass="_ralJAPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHbjgPMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lQNQfMrEe6M3Mj1t2KUGg" sourceY="-69" targetX="-357" targetY="-20"/>
+    <bendpoints xmi:id="_1lQNQvMrEe6M3Mj1t2KUGg" sourceX="357" sourceY="-69" targetY="-20"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_rbGGYPMrEe6M3Mj1t2KUGg" sourceAnchor="141.0,0.0" targetAnchor="61.0,108.0" superClass="_ralJAPMrEe6M3Mj1t2KUGg" subClass="_rbH7kPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rHZHQPMrEe6M3Mj1t2KUGg"/>
+    <bendpoints xmi:id="_1lPmMvMrEe6M3Mj1t2KUGg" sourceY="-30" targetX="-102" targetY="48"/>
+    <bendpoints xmi:id="_1lPmM_MrEe6M3Mj1t2KUGg" sourceX="102" sourceY="-30" targetY="48"/>
+  </edges>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_rZfj4PMrEe6M3Mj1t2KUGg" name="Vigilado">
+    <modelElement href="concierto.uml#_rCQIkPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rZfj4fMrEe6M3Mj1t2KUGg" position="30.0,30.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_rZfj4vMrEe6M3Mj1t2KUGg" name="AnnotationDefinition">
+      <modelElement href="concierto.uml#_rCSk0PMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rZfj4_MrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rCVBEPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rZfj5PMrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rCYEYPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_rZfj5fMrEe6M3Mj1t2KUGg" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rZrKEPMrEe6M3Mj1t2KUGg" name="AvisadorDeAudiencia">
+    <modelElement href="concierto.uml#_rCZ5kPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rZrKEfMrEe6M3Mj1t2KUGg" position="-28.0,239.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_rZrKEvMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rCagoPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rZrKE_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rCfZIvMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_rZrKFPMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rZrKFfMrEe6M3Mj1t2KUGg" name="sujetador">
+      <modelElement href="concierto.uml#_rCbHsPMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rZrKFvMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rCcV0PMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rZrKF_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rZrKGPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_rZrKGfMrEe6M3Mj1t2KUGg" name="apagarMoviles">
+      <modelElement href="concierto.uml#_rCc84fMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rZrKGvMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rCeLAPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rZrKG_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rZrKHPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_rZrKHfMrEe6M3Mj1t2KUGg" name="encenderMoviels">
+      <modelElement href="concierto.uml#_rCeLA_MrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rZrKHvMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rCeyEPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rZrKH_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rZrKIPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rZzF4PMrEe6M3Mj1t2KUGg" name="Configuracion">
+    <modelElement href="concierto.uml#_rCgnQPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rZzF4fMrEe6M3Mj1t2KUGg" position="20.0,410.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_rZzF4vMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rChOUPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rZzF4_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rCh1YPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_rZzF5PMrEe6M3Mj1t2KUGg" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rZ5zkPMrEe6M3Mj1t2KUGg" name="Guitarra" generalizations="_raS1IPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rCk4sPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rZ5zkfMrEe6M3Mj1t2KUGg" position="-564.0,82.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_rZ5zkvMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rCmG0PMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rZ5zk_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rCuCoPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_rZ5zlPMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rZ5zlfMrEe6M3Mj1t2KUGg" name="Guitarra">
+      <modelElement href="concierto.uml#_rCpKIfMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_rZ5zlvMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_rZ5zl_MrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rCqYQPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rZ5zmPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rZ5zmfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_rZ5zmvMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rCpxMvMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_rZ5zm_MrEe6M3Mj1t2KUGg" name="Guitarra">
+          <modelElement href="concierto.uml#_rCk4sPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_rZ5znPMrEe6M3Mj1t2KUGg" name="Guitarra">
+      <modelElement href="concierto.uml#_rCq_UPMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_rZ5znfMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_rZ5znvMrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rCrmY_MrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rZ5zn_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rZ5zoPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_rZ5zofMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rCrmYvMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_rZ5zovMrEe6M3Mj1t2KUGg" name="Guitarra">
+          <modelElement href="concierto.uml#_rCk4sPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_rZ5zo_MrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rCq_UfMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_rZ5zpPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_rZ5zpfMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_rZ5zpvMrEe6M3Mj1t2KUGg" name="setSonido">
+      <modelElement href="concierto.uml#_rCs0gPMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rZ5zp_MrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rCtbkPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rZ5zqPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rZ5zqfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_rZ5zqvMrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rCs0gfMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_rZ5zq_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_rZ5zrPMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_raAhQPMrEe6M3Mj1t2KUGg" name="InstrumentoInterface" subclassedBy="_raSOEPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rC3MkPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_raAhQfMrEe6M3Mj1t2KUGg" position="-1145.0,-217.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_raAhQvMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_raAhQ_MrEe6M3Mj1t2KUGg" name="sonar">
+      <modelElement href="concierto.uml#_rC3zoPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_raAhRPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raAhRfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raAhRvMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rC4asPMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raAhR_MrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_raFZwPMrEe6M3Mj1t2KUGg" name="Tambor" generalizations="_raUDQPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rC5BwPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_raFZwfMrEe6M3Mj1t2KUGg" position="-705.0,258.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_raFZwvMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rC6P4PMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_raFZw_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rDBkoPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_raFZxPMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_raFZxfMrEe6M3Mj1t2KUGg" name="setSonido">
+      <modelElement href="concierto.uml#_rC628PMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_raFZxvMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rC8sIPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raFZx_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raFZyPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_raFZyfMrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rC628fMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_raFZyvMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_raFZy_MrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_raFZzPMrEe6M3Mj1t2KUGg" name="Tambor">
+      <modelElement href="concierto.uml#_rC96QPMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_raFZzfMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_raFZzvMrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rC-hUPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raFZz_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raFZ0PMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raFZ0fMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rC96Q_MrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raFZ0vMrEe6M3Mj1t2KUGg" name="Tambor">
+          <modelElement href="concierto.uml#_rC5BwPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_raFZ0_MrEe6M3Mj1t2KUGg" name="Tambor">
+      <modelElement href="concierto.uml#_rC_IYPMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_raFZ1PMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_raFZ1fMrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rC_vcvMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raFZ1vMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raFZ1_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raFZ2PMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rC_vcfMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raFZ2fMrEe6M3Mj1t2KUGg" name="Tambor">
+          <modelElement href="concierto.uml#_rC5BwPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_raFZ2vMrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rC_IYfMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_raFZ2_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_raFZ3PMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_raMHcPMrEe6M3Mj1t2KUGg" name="Trompeta" generalizations="_raUqUPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rDCywPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_raMHcfMrEe6M3Mj1t2KUGg" position="-685.0,474.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_raMHcvMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rDEA4PMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_raMHc_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rDSDUPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_raMHdPMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_raMHdfMrEe6M3Mj1t2KUGg" name="Trompeta">
+      <modelElement href="concierto.uml#_rDEn8PMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_raMHdvMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_raMHd_MrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rDFPA_MrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raMHePMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raMHefMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raMHevMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rDFPAvMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raMHe_MrEe6M3Mj1t2KUGg" name="Trompeta">
+          <modelElement href="concierto.uml#_rDCywPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_raMHfPMrEe6M3Mj1t2KUGg" name="Trompeta">
+      <modelElement href="concierto.uml#_rDF2EPMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_raMHffMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_raMHfvMrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rDGdIPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raMHf_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raMHgPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raMHgfMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rDF2FPMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raMHgvMrEe6M3Mj1t2KUGg" name="Trompeta">
+          <modelElement href="concierto.uml#_rDCywPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_raMHg_MrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rDF2EfMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_raMHhPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_raMHhfMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_raMHhvMrEe6M3Mj1t2KUGg" name="setSonido">
+      <modelElement href="concierto.uml#_rDGdIfMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_raMHh_MrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rDISUPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raMHiPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raMHifMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_raMHivMrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rDHEMPMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_raMHi_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_raMHjPMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rar2sPMrEe6M3Mj1t2KUGg" name="Solista" generalizations="_raqBgPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rDs6EPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rar2sfMrEe6M3Mj1t2KUGg" position="-94.0,519.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_rar2svMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rDuIMPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rar2s_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rDwkcPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_rar2tPMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rar2tfMrEe6M3Mj1t2KUGg" name="tocar">
+      <modelElement href="concierto.uml#_rDuIMfMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rar2tvMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rDuvQPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rar2t_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rar2uPMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_ra4rAPMrEe6M3Mj1t2KUGg" name="Solista">
+      <modelElement href="concierto.uml#_rDvWUPMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_ra4rAfMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_ra4rAvMrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rDv9Y_MrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_ra5SEPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_ra5SEfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_ra5SEvMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rDv9YvMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_ra5SE_MrEe6M3Mj1t2KUGg" name="Solista">
+          <modelElement href="concierto.uml#_rDs6EPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ra5SFPMrEe6M3Mj1t2KUGg" name="setInstrumento">
+      <modelElement href="concierto.uml#_rHf08PMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_ra5SFfMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rHhqIPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_ra5SFvMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_ra5SF_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_ra5SGPMrEe6M3Mj1t2KUGg" name="instrumento">
+        <modelElement href="concierto.uml#_rHf08fMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_ra5SGfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_ra5SGvMrEe6M3Mj1t2KUGg" name="Instrumento">
+          <modelElement href="concierto.uml#_rCv30PMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_rbDDEPMrEe6M3Mj1t2KUGg" name="MusicoInterface" subclassedBy="_rbB08PMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rDrE4PMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rbDDEfMrEe6M3Mj1t2KUGg" position="162.0,32.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_rbDDEvMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rbDDE_MrEe6M3Mj1t2KUGg" name="tocar">
+      <modelElement href="concierto.uml#_rDsTAPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_rbDDFPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbDDFfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rbH7kPMrEe6M3Mj1t2KUGg" name="HombreOrquesta" generalizations="_rbGGYPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rDcbYPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rbH7kfMrEe6M3Mj1t2KUGg" position="-387.0,267.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_rbH7kvMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+      <modelElement href="concierto.uml#_rDgFwPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_rbH7k_MrEe6M3Mj1t2KUGg" name="Annotations">
+      <modelElement href="concierto.uml#_rDjJEPMrEe6M3Mj1t2KUGg"/>
+    </stereotypes>
+    <visibility xmi:id="_rbH7lPMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rbH7lfMrEe6M3Mj1t2KUGg" name="HombreOrquesta">
+      <modelElement href="concierto.uml#_rDgFwfMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_rbH7lvMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <stereotypes xmi:id="_rbH7l_MrEe6M3Mj1t2KUGg" name="StyledElement">
+        <modelElement href="concierto.uml#_rDhT4PMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rbH7mPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbH7mfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_rbH7mvMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rDgs0vMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_rbH7m_MrEe6M3Mj1t2KUGg" name="HombreOrquesta">
+          <modelElement href="concierto.uml#_rDcbYPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_rbH7nPMrEe6M3Mj1t2KUGg" name="tocar">
+      <modelElement href="concierto.uml#_rDhT4fMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rbH7nfMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rDh68PMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rbH7nvMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbH7n_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_rbH7oPMrEe6M3Mj1t2KUGg" name="setInstrumentos">
+      <modelElement href="concierto.uml#_rH9H8PMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_rbH7ofMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rH-9IPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_rbH7ovMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbH7o_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_rbH7pPMrEe6M3Mj1t2KUGg" name="instrumentos">
+        <modelElement href="concierto.uml#_rH9vAPMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_rbH7pfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_rbH7pvMrEe6M3Mj1t2KUGg" name="List">
+          <modelElement href="concierto.uml#_rHPWQPMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rbS6sPMrEe6M3Mj1t2KUGg" name="ConciertoSolistaHombreOrquesta">
+    <modelElement href="concierto.uml#_rD0O0PMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rbS6sfMrEe6M3Mj1t2KUGg" position="289.0,418.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_rbS6svMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rbS6s_MrEe6M3Mj1t2KUGg" name="main" staticOperation="true">
+      <modelElement href="concierto.uml#_rD1c8PMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_rbS6tPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbS6tfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_rbS6tvMrEe6M3Mj1t2KUGg" name="args">
+        <modelElement href="concierto.uml#_rD1c8fMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_rbS6t_MrEe6M3Mj1t2KUGg" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_rbS6uPMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rbV-APMrEe6M3Mj1t2KUGg" name="ConciertoSolistaSpring">
+    <modelElement href="concierto.uml#_rD2rEPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rbV-AfMrEe6M3Mj1t2KUGg" position="-354.0,436.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_rbV-AvMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rbV-A_MrEe6M3Mj1t2KUGg" name="main" staticOperation="true">
+      <modelElement href="concierto.uml#_rD3SIPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_rbV-BPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbV-BfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_rbV-BvMrEe6M3Mj1t2KUGg" name="args">
+        <modelElement href="concierto.uml#_rD35MPMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_rbV-B_MrEe6M3Mj1t2KUGg" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_rbV-CPMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_ralJAPMrEe6M3Mj1t2KUGg" name="Musico" abstractClass="true" associationsIn="_ragQgPMrEe6M3Mj1t2KUGg" associationsOut="_rag3kPMrEe6M3Mj1t2KUGg" generalizations="_rbB08PMrEe6M3Mj1t2KUGg" subclassedBy="_raqBgPMrEe6M3Mj1t2KUGg _rbGGYPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rDk-QPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_ralJAfMrEe6M3Mj1t2KUGg" position="-205.0,81.0" size="122.0,108.0"/>
+    <visibility xmi:id="_ralJAvMrEe6M3Mj1t2KUGg" label="+"/>
+    <attributes xmi:id="_ralJA_MrEe6M3Mj1t2KUGg" name="instrumento">
+      <modelElement href="concierto.uml#_rICAcPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_ralJBPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_ralJBfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <type xmi:id="_ralJBvMrEe6M3Mj1t2KUGg" name="Instrumento">
+        <modelElement href="concierto.uml#_rCv30PMrEe6M3Mj1t2KUGg"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_ralJB_MrEe6M3Mj1t2KUGg" name="instrumentos">
+      <modelElement href="concierto.uml#_rICngPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_ralJCPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_ralJCfMrEe6M3Mj1t2KUGg" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_ralJCvMrEe6M3Mj1t2KUGg" name="Instrumento">
+        <modelElement href="concierto.uml#_rCv30PMrEe6M3Mj1t2KUGg"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_ralJC_MrEe6M3Mj1t2KUGg" abstractOperation="true" name="tocar">
+      <modelElement href="concierto.uml#_rDmMYPMrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_ralJDPMrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+        <modelElement href="concierto.uml#_rDmzcPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_ralJDfMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rDnagPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_ralJDvMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_ralJD_MrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_raaJ4PMrEe6M3Mj1t2KUGg" name="Instrumento" associationsIn="_rag3kPMrEe6M3Mj1t2KUGg" associationsOut="_ragQgPMrEe6M3Mj1t2KUGg" generalizations="_raSOEPMrEe6M3Mj1t2KUGg" subclassedBy="_raS1IPMrEe6M3Mj1t2KUGg _raUDQPMrEe6M3Mj1t2KUGg _raUqUPMrEe6M3Mj1t2KUGg">
+    <modelElement href="concierto.uml#_rCv30PMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_raaJ4fMrEe6M3Mj1t2KUGg" position="330.0,-153.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_raaJ4vMrEe6M3Mj1t2KUGg" label="+"/>
+    <attributes xmi:id="_raaJ4_MrEe6M3Mj1t2KUGg" name="sonido">
+      <modelElement href="concierto.uml#_rIAyUPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_raaJ5PMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raaJ5fMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <type xmi:id="_raaJ5vMrEe6M3Mj1t2KUGg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_raaJ5_MrEe6M3Mj1t2KUGg" name="Instrumento">
+      <modelElement href="concierto.uml#_rCxF8PMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_raaJ6PMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <visibility xmi:id="_raaJ6fMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raaJ6vMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raaJ6_MrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rCxtAvMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raaJ7PMrEe6M3Mj1t2KUGg" name="Instrumento">
+          <modelElement href="concierto.uml#_rCv30PMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_raaJ7fMrEe6M3Mj1t2KUGg" name="Instrumento">
+      <modelElement href="concierto.uml#_rCyUEPMrEe6M3Mj1t2KUGg"/>
+      <keywords xmi:id="_raaJ7vMrEe6M3Mj1t2KUGg" keyword="create"/>
+      <visibility xmi:id="_raaJ7_MrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raaJ8PMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raaJ8fMrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rCy7IvMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raaJ8vMrEe6M3Mj1t2KUGg" name="Instrumento">
+          <modelElement href="concierto.uml#_rCv30PMrEe6M3Mj1t2KUGg"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_raaJ8_MrEe6M3Mj1t2KUGg" name="sonido">
+        <modelElement href="concierto.uml#_rCyUEfMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_raaJ9PMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+        <type xmi:id="_raaJ9fMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_raaJ9vMrEe6M3Mj1t2KUGg" name="sonar">
+      <modelElement href="concierto.uml#_rCy7I_MrEe6M3Mj1t2KUGg"/>
+      <stereotypes xmi:id="_raaJ9_MrEe6M3Mj1t2KUGg" name="LegacyStyledElement">
+        <modelElement href="concierto.uml#_rC0JQPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_raaJ-PMrEe6M3Mj1t2KUGg" name="Annotations">
+        <modelElement href="concierto.uml#_rC1XYPMrEe6M3Mj1t2KUGg"/>
+      </stereotypes>
+      <visibility xmi:id="_raaJ-fMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_raaJ-vMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_raaJ-_MrEe6M3Mj1t2KUGg">
+        <modelElement href="concierto.uml#_rCziMPMrEe6M3Mj1t2KUGg"/>
+        <type xmi:id="_raaJ_PMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_rbOpQPMrEe6M3Mj1t2KUGg" name="CoinciertoMusico">
+    <modelElement href="concierto.uml#_rDxykPMrEe6M3Mj1t2KUGg"/>
+    <visualProperties xmi:id="_rbOpQfMrEe6M3Mj1t2KUGg" position="242.0,266.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_rbOpQvMrEe6M3Mj1t2KUGg" label="+"/>
+    <operations xmi:id="_rbOpQ_MrEe6M3Mj1t2KUGg" name="main" staticOperation="true">
+      <modelElement href="concierto.uml#_rDznwPMrEe6M3Mj1t2KUGg"/>
+      <visibility xmi:id="_rbOpRPMrEe6M3Mj1t2KUGg" label="+"/>
+      <cardinality xmi:id="_rbOpRfMrEe6M3Mj1t2KUGg" label="1" max="1" min="1"/>
+      <parameters xmi:id="_rbOpRvMrEe6M3Mj1t2KUGg" name="args">
+        <modelElement href="concierto.uml#_rDznwfMrEe6M3Mj1t2KUGg"/>
+        <cardinality xmi:id="_rbOpR_MrEe6M3Mj1t2KUGg" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_rbOpSPMrEe6M3Mj1t2KUGg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
