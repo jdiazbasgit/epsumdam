@@ -1,8 +1,10 @@
 package epsum.curso.conexiondatos.entidades;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,7 +26,7 @@ public class DatoLaboral {
 	private int salario;
 	
 	@ManyToOne
-	//@JoinColumn(name = "idCargo")
+	@JoinColumn(name = "cargos_id")
 	private Cargo cargo;
 
 	
