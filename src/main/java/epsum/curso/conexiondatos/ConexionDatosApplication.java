@@ -1,4 +1,4 @@
-package main.java.epsum.curso.conexiondatos;
+package epsum.curso.conexiondatos;
 
 import java.awt.Frame;
 import java.util.List;
