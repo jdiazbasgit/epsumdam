@@ -23,15 +23,12 @@ public class EmpleadoService {
 	public Empleado save(Empleado empleado) {
 		return getEmpleadoCrudRepository().save(empleado);
 	}
-	public void delete(Empleado empleado) {
-	 getEmpleadoCrudRepository().delete(empleado);
-	 
+	
+	public void deleteById(int id) {
+	 getEmpleadoCrudRepository().deleteById(id);
 	}
-
+	
 	public long count() {
 	return getEmpleadoCrudRepository().count();
 	}
-
-
-
 }
