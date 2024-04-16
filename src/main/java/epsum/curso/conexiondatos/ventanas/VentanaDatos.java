@@ -17,6 +17,9 @@ import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -28,22 +31,22 @@ import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
 
 @Component
-@Data
+//@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
 	private CargoService cargoService;
 	private boolean primeraVez;
-	private MenuBar menuBar;
-	private Menu menu;
-	private MenuItem empresas;
-	private MenuItem hijos;
-	private MenuItem estadosCiviles;
-	private MenuItem cargos;
-	private MenuItem datosLaborales;
-	private MenuItem datosPersonales;
-	private MenuItem empleados;
-	private MenuItem salir;
+	private JMenuBar menuBar;
+	private JMenu menu;
+	private JMenuItem empresas;
+	private JMenuItem hijos;
+	private JMenuItem estadosCiviles;
+	private JMenuItem cargos;
+	private JMenuItem datosLaborales;
+	private JMenuItem datosPersonales;
+	private JMenuItem empleados;
+	private JMenuItem salir;
 	private JButton modificar,borrar;
 
 	public VentanaDatos() {
@@ -52,18 +55,18 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		// setResizable(false);
 		this.addWindowListener(this);
 		// (new FlowLayout());
-		menuBar = new MenuBar();
-		menu = new Menu("opciones");
-		empresas = new MenuItem("empresas");
-		hijos = new MenuItem("hijos");
-		estadosCiviles = new MenuItem("estados civiles");
-		cargos = new MenuItem("cargos");
+		menuBar = new JMenuBar();
+		menu = new JMenu("opciones");
+		empresas = new JMenuItem("empresas");
+		hijos = new JMenuItem("hijos");
+		estadosCiviles = new JMenuItem("estados civiles");
+		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
-		datosLaborales = new MenuItem("datos laborales");
-		datosPersonales = new MenuItem("datos personales");
-		empleados = new MenuItem("empleados");
-		salir = new MenuItem("salir");
-		setMenuBar(menuBar);
+		datosLaborales = new JMenuItem("datos laborales");
+		datosPersonales = new JMenuItem("datos personales");
+		empleados = new JMenuItem("empleados");
+		salir = new JMenuItem("salir");
+		setJMenuBar(menuBar);
 		menu.add(empresas);
 		menu.add(cargos);
 		menu.add(estadosCiviles);
@@ -76,6 +79,12 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		menuBar.add(menu);
 		modificar= new JButton("MODIFICAR");
 		borrar= new JButton("BORRAR");
+	}
+	
+	@Override
+	public void paint(Graphics g) {
+		g.drawRect(100,100,100,100);
+		show();
 	}
 
 	@Override
@@ -141,5 +150,110 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			this.show();
 		}
 
+	}
+
+	public CargoService getCargoService() {
+		return cargoService;
+	}
+
+	public void setCargoService(CargoService cargoService) {
+		this.cargoService = cargoService;
+	}
+
+	public boolean isPrimeraVez() {
+		return primeraVez;
+	}
+
+	public void setPrimeraVez(boolean primeraVez) {
+		this.primeraVez = primeraVez;
+	}
+
+
+	public JMenu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(JMenu menu) {
+		this.menu = menu;
+	}
+
+	public JMenuItem getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(JMenuItem empresas) {
+		this.empresas = empresas;
+	}
+
+	public JMenuItem getHijos() {
+		return hijos;
+	}
+
+	public void setHijos(JMenuItem hijos) {
+		this.hijos = hijos;
+	}
+
+	public JMenuItem getEstadosCiviles() {
+		return estadosCiviles;
+	}
+
+	public void setEstadosCiviles(JMenuItem estadosCiviles) {
+		this.estadosCiviles = estadosCiviles;
+	}
+
+	public JMenuItem getCargos() {
+		return cargos;
+	}
+
+	public void setCargos(JMenuItem cargos) {
+		this.cargos = cargos;
+	}
+
+	public JMenuItem getDatosLaborales() {
+		return datosLaborales;
+	}
+
+	public void setDatosLaborales(JMenuItem datosLaborales) {
+		this.datosLaborales = datosLaborales;
+	}
+
+	public JMenuItem getDatosPersonales() {
+		return datosPersonales;
+	}
+
+	public void setDatosPersonales(JMenuItem datosPersonales) {
+		this.datosPersonales = datosPersonales;
+	}
+
+	public JMenuItem getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(JMenuItem empleados) {
+		this.empleados = empleados;
+	}
+
+	public JMenuItem getSalir() {
+		return salir;
+	}
+
+	public void setSalir(JMenuItem salir) {
+		this.salir = salir;
+	}
+
+	public JButton getModificar() {
+		return modificar;
+	}
+
+	public void setModificar(JButton modificar) {
+		this.modificar = modificar;
+	}
+
+	public JButton getBorrar() {
+		return borrar;
+	}
+
+	public void setBorrar(JButton borrar) {
+		this.borrar = borrar;
 	}
 }
