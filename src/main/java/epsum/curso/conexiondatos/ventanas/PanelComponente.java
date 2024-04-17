@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -35,7 +36,16 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonBaja = new JButton("baja");
 		this.botonModificar = new JButton("modificar");
 		this.defaultTableModel= new DefaultTableModel(datos, cabeceras);
-		this.tabla = new JTable(getDefaultTableModel());
+		 TableModel dataModel = new AbstractTableModel() { 
+             public int getColumnCount() { return cabeceras.length; } 
+             public int getRowCount() { return datos.length;} 
+             public Object getValueAt(int row, int col) {return datos[row][col];} 
+             public String getColumnName(int column) {return (String) cabeceras[column];} 
+             public Class getColumnClass(int c) {return getValueAt(0, c).getClass();} 
+             public boolean isCellEditable(int row, int col) {return col != 5;} 
+             public void setValueAt(Object aValue, int row, int column) { datos[row][column] = aValue; } 
+          }; 
+		this.tabla = new JTable(dataModel);
 		this.setLayout(new BorderLayout(20,20));
 		this.lTitulo = new JLabel(this.titulo);
 		JPanel panelTitulo= new JPanel();

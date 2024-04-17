@@ -30,7 +30,7 @@ import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
 
-//@Component
+@Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
@@ -81,11 +81,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		borrar= new JButton("BORRAR");
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		g.drawRect(100,100,100,100);
-		show();
-	}
+	
 
 	@Override
 	public void windowOpened(WindowEvent e) {
