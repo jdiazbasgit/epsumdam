@@ -1,34 +1,22 @@
 package epsum.curso.conexiondatos.ventanas;
 
-import java.awt.Choice;
-import java.awt.Graphics;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
-import lombok.Data;
 
 @Component
 //@Data
@@ -82,6 +70,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	}
 	
 	
+
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
