@@ -8,6 +8,8 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -15,7 +17,7 @@ import javax.swing.JFrame;
 import lombok.Data;
 
 @Data
-public class VentanaChat extends Frame {
+public class VentanaChat extends Frame implements WindowListener {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -26,7 +28,7 @@ public class VentanaChat extends Frame {
 		setSize(500,500);		
 		setLayout(new BorderLayout());
 		setVisible(true);
-		
+		this.addWindowListener(this);
 		barraSuperior();
 		barraInferior();
 		barraIzquierda();
@@ -39,7 +41,7 @@ public class VentanaChat extends Frame {
 		LNick = new Label("Nick");
 		TNick = new TextField(80);
 		BRegistrar = new Button("Registrar");
-		PSuperior.setBackground(Color.red);
+		//PSuperior.setBackground(Color.red);
 		PSuperior.setVisible(true);
 		add(PSuperior, BorderLayout.NORTH);
 		getPSuperior().add(getLNick());
@@ -52,7 +54,7 @@ public class VentanaChat extends Frame {
 		LMensaje = new Label("Mensaje");
 		TMensaje = new TextField(90);
 		BEnviar = new Button("Enviar");
-		PInferior.setBackground(Color.yellow);
+		//PInferior.setBackground(Color.yellow);
 		PInferior.setVisible(true);
 		add(PInferior, BorderLayout.SOUTH);
 		getPInferior().add(getLMensaje());
@@ -67,7 +69,7 @@ public class VentanaChat extends Frame {
 		LUsuarios = new Label("Usuarios");
 		TAUsuarios = new TextArea(30,30);
 		
-		PIzquierda.setBackground(Color.green);
+		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
 		add(PIzquierda, BorderLayout.WEST);
 		getPIzquierda().setLayout(new BorderLayout());
@@ -80,10 +82,52 @@ public class VentanaChat extends Frame {
 	void barraCentral() {
 		PCentral = new Panel();
 		TAMensajes = new TextArea();
-		PCentral.setBackground(Color.black);
+		//PCentral.setBackground(Color.black);
 		PCentral.setVisible(true);
 		getPCentral().setLayout(new BorderLayout());
 		add(PCentral, BorderLayout.CENTER);
 		getPCentral().add(getTAMensajes());
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.exit(0);
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
