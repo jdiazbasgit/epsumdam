@@ -1,4 +1,4 @@
-package main.java.epsum.curso.chat.ventanas;
+package epsum.curso.chat.ventanas;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
