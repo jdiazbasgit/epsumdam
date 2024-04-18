@@ -1,2 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 org.eclipse.jdt.apt.aptEnabled=false
+=======
+org.eclipse.jdt.apt.aptEnabled=true
+org.eclipse.jdt.apt.genSrcDir=target/generated-sources/annotations
+org.eclipse.jdt.apt.genTestSrcDir=target/generated-test-sources/test-annotations
+>>>>>>> refs/remotes/origin/chat
