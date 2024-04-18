@@ -1,4 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Build-Jdk-Spec: 17
+=======
+Build-Jdk-Spec: 22
+Implementation-Title: conexionDatos
+Implementation-Version: 1.0
+>>>>>>> 2fc245fcee1492d5687056dcfd6c4869737ceed4
 Created-By: Maven Integration for Eclipse
 
