@@ -1,4 +1,6 @@
 package epsum.curso.chat.ventanas;
+
+
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
@@ -26,9 +28,9 @@ public class VentanaChat extends Frame implements WindowListener {
 	
 	public VentanaChat() {
 		setSize(500,500);		
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout()); 
 		setVisible(true);
-		this.addWindowListener(this);
+		this.addWindowListener(this); 
 		barraSuperior();
 		barraInferior();
 		barraIzquierda();
