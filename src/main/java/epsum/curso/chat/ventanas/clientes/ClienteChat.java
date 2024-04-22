@@ -1,23 +1,27 @@
 package epsum.curso.chat.ventanas.clientes;
 
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Map;
 
 import lombok.Data;
 
 @Data
 public abstract class ClienteChat extends Thread {
 
-	private final static int PUERTO_EXCUCHA_CLIENTE_MENSAJE = 8001;
-	private final static int PUERTO_EXCUCHA_CLIENTE_REGISTRO = 8003;
-	private final static int PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA = 8005;
-	private final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_AVANZADILLA = 8009;
-	private final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_DATOS = 8011;
+	public final static int PUERTO_EXCUCHA_CLIENTE_REGISTRO = 8001;
+	public final static int PUERTO_EXCUCHA_CLIENTE_MENSAJE = 8003;
+	public final static int PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA = 8005;
+	public final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_AVANZADILLA = 8009;
+	public final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_DATOS = 8011;
+	public final static String SERVIDOR="192.168.0.125";
 
 	private String ip;
 	private int puerto;
 	private Socket socket;
+	
 
 	public ClienteChat(String ip, int puerto) {
 		this.ip = ip;
@@ -34,7 +38,7 @@ public abstract class ClienteChat extends Thread {
 		}
 	}
 
-	public abstract void hacerAlgo();
+	public abstract void hacerAlgo() throws IOException;
 	
 	public void enviarTexto(String texto) {
 		
