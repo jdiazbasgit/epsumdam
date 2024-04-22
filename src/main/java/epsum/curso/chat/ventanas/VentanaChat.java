@@ -10,16 +10,21 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
+import epsum.curso.chat.ventanas.clientes.ClienteChat;
+import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
+import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
-public class VentanaChat extends Frame implements WindowListener {
+public class VentanaChat extends Frame implements WindowListener,ActionListener {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -35,6 +40,7 @@ public class VentanaChat extends Frame implements WindowListener {
 		barraInferior();
 		barraIzquierda();
 		barraCentral();
+		getBRegistrar().addActionListener(this);
 		
 	}
 	
@@ -130,6 +136,16 @@ public class VentanaChat extends Frame implements WindowListener {
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(getBRegistrar())) {
+			System.out.println("envio nick desde cliente");
+			ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
+			cliente.start();
+		}
 		
 	}
 }
