@@ -19,6 +19,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
+import epsum.curso.chat.ventanas.clientes.ClienteEnvioBajaCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
@@ -105,6 +106,8 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 
 	@Override
 	public void windowClosing(WindowEvent e) {
+		ClienteEnvioBajaCliente cliente=new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
+		cliente.start();
 		System.exit(0);
 		
 	}
