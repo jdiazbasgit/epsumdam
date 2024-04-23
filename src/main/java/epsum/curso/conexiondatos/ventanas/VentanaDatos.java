@@ -87,10 +87,11 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		cargos.addActionListener(this);
 		empresas.addActionListener(this);
 		hijos.addActionListener(this);
+		datosPersonales = new JMenuItem("datos personales");
 		datosPersonales.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosLaborales.addActionListener(this);
-		datosPersonales = new JMenuItem("datos personales");
+		
 		empleados = new JMenuItem("empleados");
 		empleados.addActionListener(this);
 		salir = new JMenuItem("salir");
