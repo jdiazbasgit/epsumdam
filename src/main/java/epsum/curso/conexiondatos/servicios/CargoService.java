@@ -29,6 +29,10 @@ public class CargoService {
 	public void deleteById(int id) {
 		getCargoCrudRepository().deleteById(id);
 	}
+	
+	public boolean existById(int id) {
+		return getCargoCrudRepository().existsById(id);
+	}
 }
 	
 
