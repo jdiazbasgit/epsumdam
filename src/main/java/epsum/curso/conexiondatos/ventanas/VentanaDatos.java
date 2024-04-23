@@ -35,7 +35,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private CargoService cargoService;
 	@Autowired
 	private	EmpleadoService empleadoService;
+	@Autowired
 	private HijoService hijoService;
+	@Autowired
 	private DatoLaboralService datoLaboralService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
