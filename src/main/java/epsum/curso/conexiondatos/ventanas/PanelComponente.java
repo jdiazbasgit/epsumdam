@@ -1,20 +1,26 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import lombok.Data;
 
 @Data
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
-	private String[] cabeceras;
+	private Object[] cabeceras;
 	private Object[][] datos;
 	private String titulo;
 	private JButton botonAlta;
@@ -22,8 +28,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JButton botonModificar;
 	private JTable tabla;
 	private JLabel lTitulo;
+	private DefaultTableModel defaultTableModel;
 
-	public PanelComponente(String[] cabeceras, Object[][] datos, String titulo) {
+	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
 		this.datos = datos;
@@ -31,11 +38,22 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonAlta = new JButton("alta");
 		this.botonBaja = new JButton("baja");
 		this.botonModificar = new JButton("modificar");
-		this.tabla = new JTable(datos, cabeceras);
-		this.setLayout(new BorderLayout());
+		this.defaultTableModel= new DefaultTableModel(datos, cabeceras);
+		this.defaultTableModel.addColumn("borrar");
+		this.defaultTableModel.addColumn("modificar");
+		
+		this.tabla = new JTable(getDefaultTableModel());
+		this.tabla.getColumn("modificar").setCellRenderer(new BotonModificar());
+		this.tabla.getColumn("borrar").setCellRenderer(new BotonBorrar());
+		TableColumn column= new TableColumn();
+		column.setHeaderValue("ACCIONES");
+		this.setLayout(new BorderLayout(20,20));
 		this.lTitulo = new JLabel(this.titulo);
-		this.add(lTitulo, BorderLayout.NORTH);
-		this.add(tabla, BorderLayout.CENTER);
+		JPanel panelTitulo= new JPanel();
+		panelTitulo.add(lTitulo);
+		this.add(panelTitulo, BorderLayout.NORTH);
+		JScrollPane jScrollPane= new JScrollPane(tabla);
+		this.add(jScrollPane,BorderLayout.CENTER);//, BorderLayout.CENTER);
 
 	}
 
