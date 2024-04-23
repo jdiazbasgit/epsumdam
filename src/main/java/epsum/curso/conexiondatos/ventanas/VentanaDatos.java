@@ -31,11 +31,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private CargoService cargoService;
 	@Autowired
-<<<<<<< HEAD
 	private	EmpleadoService empleadoService;
-=======
 	private HijoService hijoService;
->>>>>>> c3bcfa8983ae407a9348ff236926c40149d1f364
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -188,12 +185,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 
 	}
-<<<<<<< HEAD
-	
-=======
 
-
->>>>>>> c3bcfa8983ae407a9348ff236926c40149d1f364
 	public CargoService getCargoService() {
 		return cargoService;
 	}
