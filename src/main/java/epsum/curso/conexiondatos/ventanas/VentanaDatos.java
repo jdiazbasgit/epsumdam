@@ -18,12 +18,17 @@ import org.springframework.stereotype.Component;
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
 
+import epsum.curso.conexiondatos.entidades.DatoLaboral;
+import epsum.curso.conexiondatos.servicios.DatoLaboralService;
+
 @Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private DatoLaboralService datoLaboralService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -51,6 +56,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
+		datosLaborales.addActionListener(this);
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
 		salir = new JMenuItem("salir");
@@ -132,6 +138,26 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
+		if (e.getSource().equals(datosLaborales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
+			List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
+			Object[][] datos = new Object[(int) datoLaboralService.count()][3];
+			int i = 0;
+			for(DatoLaboral datoLaboral:datosLaborales)
+			 {
+				datos[i][0]=String.valueOf(datoLaboral.getId());
+				datos[i][1]=datoLaboral.getSalario();
+				datos[i][2]=datoLaboral.getCargo().getDescripcion();
+
+				
+				i++;
+				
+			};
+			getContentPane().add(new PanelDatosLaborales(cabeceras, datos, "DATOS LABORALES"));
+			this.show();
+		}
+
 
 	}
 
