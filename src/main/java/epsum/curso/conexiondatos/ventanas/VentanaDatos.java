@@ -126,7 +126,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().removeAll();
 			Object[] cabeceras = { "ID", "DESCRIPCION" };
 			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
-			Object[][] datos = new Object[(int) cargoService.count()][3];
+			Object[][] datos = new Object[(int) cargoService.count()][2];
 			int i = 0;
 			for(Cargo cargo:cargos)
 			 {

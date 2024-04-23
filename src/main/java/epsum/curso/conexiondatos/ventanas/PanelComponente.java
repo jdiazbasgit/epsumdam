@@ -1,6 +1,7 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,7 +39,12 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonBaja = new JButton("baja");
 		this.botonModificar = new JButton("modificar");
 		this.defaultTableModel= new DefaultTableModel(datos, cabeceras);
+		this.defaultTableModel.addColumn("borrar");
+		this.defaultTableModel.addColumn("modificar");
+		
 		this.tabla = new JTable(getDefaultTableModel());
+		this.tabla.getColumn("modificar").setCellRenderer(new BotonModificar());
+		this.tabla.getColumn("borrar").setCellRenderer(new BotonBorrar());
 		TableColumn column= new TableColumn();
 		column.setHeaderValue("ACCIONES");
 		this.setLayout(new BorderLayout(20,20));
