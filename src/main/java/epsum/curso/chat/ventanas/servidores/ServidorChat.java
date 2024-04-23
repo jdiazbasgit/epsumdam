@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import lombok.Data;
@@ -21,6 +23,8 @@ public abstract class ServidorChat extends Thread {
 	private Socket socket;
 	
 	public static Map<String, String> usuarios= new HashMap<>();
+	
+	public static ArrayList<String> mensajes;
 	
 	ServidorChat(int puerto){
 		this.puerto=puerto;
