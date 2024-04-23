@@ -27,6 +27,9 @@ import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
+import epsum.curso.conexiondatos.entidades.DatoLaboral;
+import epsum.curso.conexiondatos.servicios.DatoLaboralService;
+
 @Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
@@ -34,9 +37,15 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private CargoService cargoService;
 	@Autowired
+<<<<<<< HEAD
 	private EmpresaService empresaService;
 	private EmpleadoService empleadoService;
 	private HijoService hijoService;
+=======
+	private	EmpleadoService empleadoService;
+	private HijoService hijoService;
+	private DatoLaboralService datoLaboralService;
+>>>>>>> 422c73210b88cd6db0d54aa5b898106f169149bb
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -67,6 +76,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		empresas.addActionListener(this);
 		hijos.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
+		datosLaborales.addActionListener(this);
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
 		empleados.addActionListener(this);
@@ -192,6 +202,26 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().add(new PanelHijos(cabeceras, datos, "HIJOS"));
 			this.show();
 		}
+		if (e.getSource().equals(datosLaborales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
+			List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
+			Object[][] datos = new Object[(int) datoLaboralService.count()][3];
+			int i = 0;
+			for(DatoLaboral datoLaboral:datosLaborales)
+			 {
+				datos[i][0]=String.valueOf(datoLaboral.getId());
+				datos[i][1]=datoLaboral.getSalario();
+				datos[i][2]=datoLaboral.getCargo().getDescripcion();
+
+				
+				i++;
+				
+			};
+			getContentPane().add(new PanelDatosLaborales(cabeceras, datos, "DATOS LABORALES"));
+			this.show();
+		}
+
 
 		if (e.getSource().equals(empresas)) {
 			getContentPane().removeAll();
