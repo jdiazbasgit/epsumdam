@@ -27,15 +27,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EstadoCivilService;
 import lombok.Data;
 
-//@Component
+@Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private EstadoCivilService estadoCivilService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -62,6 +66,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
+		estadosCiviles.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
@@ -151,9 +156,37 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
+		if (e.getSource().equals(estadosCiviles)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
+			List<EstadoCivil> estadosCiviles = (List<EstadoCivil>) getEstadoCivilService().findAll();
+			Object[][] datos = new Object[(int) getEstadoCivilService().count()][3];
+			int i = 0;
+			for(EstadoCivil estadoCivil:estadosCiviles)
+			 {
+				datos[i][0]=String.valueOf(estadoCivil.getId());
+				datos[i][1]=estadoCivil.getDescripcion();
+				JPanel panel= new JPanel();
+				datos[i][2]=panel;
+				panel.add(modificar);
+				panel.add(borrar);
+				i++;
+				
+			};
+			getContentPane().add(new PanelCargos(cabeceras, datos, "ESTADOS CIVILES"));
+			this.show();
+		}
 
 	}
 
+	public EstadoCivilService getEstadoCivilService() {
+		return estadoCivilService;
+	}
+
+	public void setEstadoCivilService(EstadoCivilService estadoCivilService) {
+		this.estadoCivilService = estadoCivilService;
+	}
+	
 	public CargoService getCargoService() {
 		return cargoService;
 	}
