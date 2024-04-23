@@ -16,7 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.Empleado;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EmpleadoService;
 
 @Component
 //@Data
@@ -24,6 +26,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private	EmpleadoService empleadoService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -53,6 +57,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		datosLaborales = new JMenuItem("datos laborales");
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
+		empleados.addActionListener(this);
 		salir = new JMenuItem("salir");
 		setJMenuBar(menuBar);
 		menu.add(empresas);
@@ -132,9 +137,34 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
+		
+		if (e.getSource().equals(empleados)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES", "DATOS_LABORALES" };
+			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
+			Object[][] datos = new Object[(int) empleadoService.count()][8];
+			int i = 0;
+			for(Empleado empleado:empleados)
+			 {
+				datos[i][0]=String.valueOf(empleado.getId());
+				datos[i][1]=empleado.getNombre();
+				datos[i][2]=empleado.getDni();
+				datos[i][3]=empleado.getEmail();
+				datos[i][4]=empleado.getTelefono();
+				datos[i][5]=empleado.getEmpresa().getNombre();
+				datos[i][6]=empleado.getDatoPersonal().getEstadoCivil().getDecripcion()+" - " + empleado.getDatoPersonal().getHijo().getChicos()+ " - "+ empleado.getDatoPersonal().getHijo().getChicas();
+				datos[i][7]=empleado.getDatoLaboral().getCargo().getDescripcion()+ " - " + empleado.getDatoLaboral().getSalario();
+				
+				i++;
+				
+			};
+			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			this.show();
+			
+		}
 
 	}
-
+	
 	public CargoService getCargoService() {
 		return cargoService;
 	}
