@@ -20,7 +20,7 @@ public class EstadoCivil {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private String descripcion;
+	private String decripcion;
 
 	
 }
