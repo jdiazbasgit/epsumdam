@@ -1,11 +1,9 @@
 package epsum.curso.conexiondatos.ventanas;
 
+public class PanelEstadosCiviles extends PanelComponente {
 
-public class PanelHijos extends PanelComponente {
-
-	public PanelHijos(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelEstadosCiviles(Object[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

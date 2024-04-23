@@ -1,12 +1,9 @@
 package epsum.curso.conexiondatos.repositorios;
 
-import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.entidades.EstadoCivil;
 
 @Repository
