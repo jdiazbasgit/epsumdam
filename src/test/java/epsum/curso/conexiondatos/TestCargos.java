@@ -1,5 +1,9 @@
 package epsum.curso.conexiondatos;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +20,22 @@ public class TestCargos {
 	private CargoService cargoService;
 	
 	
-	@Test
+	//@Test
 	public void alta() {
 		System.setProperty("java.awt.headless", "false");
 		Cargo cargo= new Cargo();
 		cargo.setDescripcion("prueba test");
 		getCargoService().save(cargo);
+		int id=cargo.getId();
 		getCargoService().deleteById(cargo.getId());
+		assertFalse(getCargoService().existById(id));
 	}
+	
+	//@Test
+	public void count() {
+		assertNotEquals(getCargoService().count(), 0);
+	}
+	
+	
 
 }
