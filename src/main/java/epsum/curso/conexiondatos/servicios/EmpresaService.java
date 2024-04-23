@@ -22,4 +22,11 @@ public class EmpresaService {
 	public Empresa save(Empresa empresa) {
 		return getEmpresaCrudRepository().save(empresa);
 	}
+	
+	public long count() {
+		return getEmpresaCrudRepository().count();
+	}
+	public void deleteById(int id) {
+		getEmpresaCrudRepository().deleteById(id);
+	}
 }
