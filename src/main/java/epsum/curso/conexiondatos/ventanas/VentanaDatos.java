@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
+import epsum.curso.conexiondatos.entidades.DatoPersonal;
 
 @Component
 //@Data
@@ -24,18 +26,30 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private DatosPersonalesService datosPersonalesService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
 	private JMenuItem empresas;
 	private JMenuItem hijos;
+	public DatosPersonalesService getDatosPersonalesService() {
+		return datosPersonalesService;
+	}
+
+	public void setDatosPersonalesService(DatosPersonalesService datosPersonalesService) {
+		this.datosPersonalesService = datosPersonalesService;
+	}
+
+	
+
 	private JMenuItem estadosCiviles;
 	private JMenuItem cargos;
 	private JMenuItem datosLaborales;
 	private JMenuItem datosPersonales;
 	private JMenuItem empleados;
 	private JMenuItem salir;
-	private JButton modificar,borrar;
+	private JButton modificar, borrar;
 
 	public VentanaDatos() {
 		// setSize(1000, 1000);
@@ -50,6 +64,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
+		datosPersonales.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
@@ -65,11 +80,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		menu.addSeparator();
 		menu.add(salir);
 		menuBar.add(menu);
-		modificar= new JButton("MODIFICAR");
-		borrar= new JButton("BORRAR");
+		modificar = new JButton("MODIFICAR");
+		borrar = new JButton("BORRAR");
 	}
-	
-	
 
 	@Override
 	public void windowOpened(WindowEvent e) {
@@ -121,14 +134,31 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
 			Object[][] datos = new Object[(int) cargoService.count()][3];
 			int i = 0;
-			for(Cargo cargo:cargos)
-			 {
-				datos[i][0]=String.valueOf(cargo.getId());
-				datos[i][1]=cargo.getDescripcion();
-				
+			for (Cargo cargo : cargos) {
+				datos[i][0] = String.valueOf(cargo.getId());
+				datos[i][1] = cargo.getDescripcion();
+
 				i++;
-				
-			};
+
+			}
+			;
+			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
+			this.show();
+		}
+		if (e.getSource().equals(datosPersonales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
+			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
+			int i = 0;
+			for (DatoPersonal datoPersonal : datosPersonales) {
+				datos[i][0] = String.valueOf(datoPersonal.getId());
+				datos[i][1] = datoPersonal.getEstadoCivil().getDecripcion();
+				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
+				i++;
+
+			}
+			;
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
@@ -150,7 +180,6 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void setPrimeraVez(boolean primeraVez) {
 		this.primeraVez = primeraVez;
 	}
-
 
 	public JMenu getMenu() {
 		return menu;
