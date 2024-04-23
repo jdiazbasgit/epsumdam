@@ -19,12 +19,12 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-@EnableJpaRepositories("epsum.curso.conexiondatos.repositorios")
-@ComponentScan(basePackages = { "epsum.curso.conexiondatos" })
-@EntityScan("epsum.curso.conexiondatos.entidades") 
+//@EnableJpaRepositories("epsum.curso.conexiondatos.repositorios")
+//@ComponentScan(basePackages = { "epsum.curso.conexiondatos" })
+//@EntityScan("epsum.curso.conexiondatos.entidades") 
 public class ConexionDatosApplication implements CommandLineRunner {
 	
-	//@Autowired
+	@Autowired
 	private VentanaDatos ventanaDatos;
 	
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class ConexionDatosApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		//getVentanaDatos().setVisible(true);
+		getVentanaDatos().setVisible(true);
 		
 	}
 	
