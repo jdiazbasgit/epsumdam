@@ -1,5 +1,6 @@
 package epsum.curso.conexiondatos.ventanas;
 
+
 public class PanelHijos extends PanelComponente {
 
 	public PanelHijos(Object[] cabeceras, Object[][] datos, String titulo) {
