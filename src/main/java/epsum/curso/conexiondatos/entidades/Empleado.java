@@ -37,6 +37,10 @@ public class Empleado
 	@ManyToOne
 	@JoinColumn(name="datos_personales_id")
 	private DatoPersonal datoPersonal;
+	public Object getDescripcion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

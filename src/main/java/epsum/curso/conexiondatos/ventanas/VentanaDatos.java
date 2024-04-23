@@ -1,41 +1,33 @@
 package epsum.curso.conexiondatos.ventanas;
 
-import java.awt.Choice;
-import java.awt.Graphics;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.Empleado;
 import epsum.curso.conexiondatos.servicios.CargoService;
-import lombok.Data;
+import epsum.curso.conexiondatos.servicios.EmpleadoService;
 
-//@Component
+@Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private	EmpleadoService empleadoService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -65,6 +57,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		datosLaborales = new JMenuItem("datos laborales");
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
+		empleados.addActionListener(this);
 		salir = new JMenuItem("salir");
 		setJMenuBar(menuBar);
 		menu.add(empresas);
@@ -81,11 +74,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		borrar= new JButton("BORRAR");
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		g.drawRect(100,100,100,100);
-		show();
-	}
+	
 
 	@Override
 	public void windowOpened(WindowEvent e) {
@@ -133,27 +122,49 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
-			List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
-			Object[][] datos = new Object[(int) getCargoService().count()][3];
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
+			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
+			Object[][] datos = new Object[(int) cargoService.count()][2];
 			int i = 0;
 			for(Cargo cargo:cargos)
 			 {
 				datos[i][0]=String.valueOf(cargo.getId());
 				datos[i][1]=cargo.getDescripcion();
-				JPanel panel= new JPanel();
-				datos[i][2]=panel;
-				panel.add(modificar);
-				panel.add(borrar);
+				
 				i++;
 				
 			};
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
+		
+		if (e.getSource().equals(empleados)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES", "DATOS_LABORALES" };
+			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
+			Object[][] datos = new Object[(int) empleadoService.count()][8];
+			int i = 0;
+			for(Empleado empleado:empleados)
+			 {
+				datos[i][0]=String.valueOf(empleado.getId());
+				datos[i][1]=empleado.getNombre();
+				datos[i][2]=empleado.getDni();
+				datos[i][3]=empleado.getEmail();
+				datos[i][4]=empleado.getTelefono();
+				datos[i][5]=empleado.getEmpresa().getNombre();
+				datos[i][6]=empleado.getDatoPersonal().getEstadoCivil().getDecripcion()+" - " + empleado.getDatoPersonal().getHijo().getChicos()+ " - "+ empleado.getDatoPersonal().getHijo().getChicas();
+				datos[i][7]=empleado.getDatoLaboral().getCargo().getDescripcion()+ " - " + empleado.getDatoLaboral().getSalario();
+				
+				i++;
+				
+			};
+			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			this.show();
+			
+		}
 
 	}
-
+	
 	public CargoService getCargoService() {
 		return cargoService;
 	}
