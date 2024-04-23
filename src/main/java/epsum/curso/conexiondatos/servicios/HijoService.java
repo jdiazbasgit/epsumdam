@@ -24,5 +24,12 @@ public class HijoService {
 		return getHijoCrudRepository().save(hijo);
 	}
 	
+	public long count() {
+		return getHijoCrudRepository().count();
+	}
+	
+	public void deleteByID(int id) {
+		getHijoCrudRepository().deleteById(id);
+	}
 
 }
