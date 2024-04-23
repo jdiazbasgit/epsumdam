@@ -57,6 +57,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
+		hijos.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
@@ -142,14 +143,14 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().removeAll();
 			String[] cabeceras = { "ID", "CHICOS", "CHICAS" };
 			List<Hijo> hijos = (List<Hijo>) getHijoService().findAll();
-			Object[][] datos = new Object[3][(int) getHijoService().count()];
+			Object[][] datos = new Object[(int) getHijoService().count()][3];
 			int i = 0;
-			hijos.stream().forEach(c -> {
+			for (Hijo c : hijos) {
 				datos[i][0] = String.valueOf(c.getId());
-				datos[i][1] = c.getChicos();
-				datos[i][2] = c.getChicas();
-
-			});
+				datos[i][1] = String.valueOf(c.getChicos());
+				datos[i][2] = String.valueOf(c.getChicas());
+				i++;
+			}
 			getContentPane().add(new PanelHijos(cabeceras, datos, "HIJOS"));
 			this.show();
 		}
