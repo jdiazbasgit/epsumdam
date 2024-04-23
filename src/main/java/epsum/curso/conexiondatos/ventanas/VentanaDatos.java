@@ -17,12 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
-<<<<<<< HEAD
 import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import epsum.curso.conexiondatos.servicios.EstadoCivilService;
 import lombok.Data;
-=======
 import epsum.curso.conexiondatos.entidades.Empresa;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
@@ -36,7 +34,6 @@ import lombok.Data;
 
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
 import epsum.curso.conexiondatos.servicios.DatoLaboralService;
->>>>>>> origin/springjpa
 
 @Component
 //@Data
@@ -45,9 +42,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private CargoService cargoService;
 	@Autowired
-<<<<<<< HEAD
 	private EstadoCivilService estadoCivilService;
-=======
 	private EmpresaService empresaService;
 	@Autowired
 	private EmpleadoService empleadoService;
@@ -55,7 +50,6 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private HijoService hijoService;
 	@Autowired
 	private DatoLaboralService datoLaboralService;
->>>>>>> origin/springjpa
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -83,12 +77,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
-<<<<<<< HEAD
 		estadosCiviles.addActionListener(this);
-=======
 		empresas.addActionListener(this);
 		hijos.addActionListener(this);
->>>>>>> origin/springjpa
 		datosLaborales = new JMenuItem("datos laborales");
 		datosLaborales.addActionListener(this);
 		datosPersonales = new JMenuItem("datos personales");
@@ -203,7 +194,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				datos[i][3] = empleado.getEmail();
 				datos[i][4] = empleado.getTelefono();
 				datos[i][5] = empleado.getEmpresa().getNombre();
-				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDecripcion() + " - "
+				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
 						+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
 						+ empleado.getDatoPersonal().getHijo().getChicas();
 				datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
