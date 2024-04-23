@@ -1,15 +1,9 @@
 package epsum.curso.conexiondatos;
 
-<<<<<<< HEAD
 
-=======
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.jupiter.api.BeforeAll;
->>>>>>> springjpa
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -35,14 +29,11 @@ public class TestCargos {
 		assertFalse(getCargoService().existById(id));
 	}
 	
-<<<<<<< HEAD
-=======
 	//@Test
 	public void count() {
 		assertNotEquals(getCargoService().count(), 0);
 	}
 	
->>>>>>> springjpa
 	
 
 }

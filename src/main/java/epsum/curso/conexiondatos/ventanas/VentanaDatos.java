@@ -141,18 +141,15 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(estadosCiviles)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
 			List<EstadoCivil> estadosCiviles = (List<EstadoCivil>) getEstadoCivilService().findAll();
-			Object[][] datos = new Object[(int) getEstadoCivilService().count()][3];
+			Object[][] datos = new Object[(int) getEstadoCivilService().count()][2];
 			int i = 0;
 			for(EstadoCivil estadoCivil:estadosCiviles)
 			 {
 				datos[i][0]=String.valueOf(estadoCivil.getId());
 				datos[i][1]=estadoCivil.getDescripcion();
-				JPanel panel= new JPanel();
-				datos[i][2]=panel;
-				panel.add(modificar);
-				panel.add(borrar);
+				
 				i++;
 				
 			};
