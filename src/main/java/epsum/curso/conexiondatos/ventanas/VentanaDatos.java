@@ -25,6 +25,9 @@ import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
+
+import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
 @Component
@@ -33,6 +36,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	@Autowired
 	private CargoService cargoService;
+	private HijoService hijoService;
 	private boolean primeraVez;
 	private MenuBar menuBar;
 	private Menu menu;
@@ -56,6 +60,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		menu = new Menu("opciones");
 		empresas = new MenuItem("empresas");
 		hijos = new MenuItem("hijos");
+		hijos.addActionListener(this);
 		estadosCiviles = new MenuItem("estados civiles");
 		cargos = new MenuItem("cargos");
 		cargos.addActionListener(this);
@@ -142,4 +147,25 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 
 	}
+	
+	public void actionPerformed1(ActionEvent e) {
+		if (e.getSource().equals(hijos)) {
+			getContentPane().removeAll();
+			String[] cabeceras = { "ID", "CHICOS", "CHICAS" };
+			List<Hijo> hijos = (List<Hijo>) getHijoService().findAll();
+			Object[][] datos = new Object[3][(int) getHijoService().count()];
+			int i = 0;
+			hijos.stream().forEach(c -> {
+				datos[i][0]=String.valueOf(c.getId());
+				datos[i][1]=c.getChicos();
+				datos[i][2]=c.getChicas();
+				
+				
+			});
+			getContentPane().add(new PanelHijos(cabeceras, datos, "HIJOS"));
+			this.show();
+		}
+
+	}
+	
 }
