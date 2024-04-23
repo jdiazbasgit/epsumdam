@@ -1,19 +1,10 @@
 package epsum.curso.conexiondatos.ventanas;
 
-import java.awt.Choice;
-import java.awt.Graphics;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,21 +12,24 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EstadoCivilService;
 import lombok.Data;
 
-//@Component
+@Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private EstadoCivilService estadoCivilService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -62,6 +56,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
 		cargos.addActionListener(this);
+		estadosCiviles.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosPersonales = new JMenuItem("datos personales");
 		empleados = new JMenuItem("empleados");
@@ -81,11 +76,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		borrar= new JButton("BORRAR");
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		g.drawRect(100,100,100,100);
-		show();
-	}
+	
 
 	@Override
 	public void windowOpened(WindowEvent e) {
@@ -133,27 +124,49 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
-			List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
-			Object[][] datos = new Object[(int) getCargoService().count()][3];
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
+			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
+			Object[][] datos = new Object[(int) cargoService.count()][2];
 			int i = 0;
 			for(Cargo cargo:cargos)
 			 {
 				datos[i][0]=String.valueOf(cargo.getId());
 				datos[i][1]=cargo.getDescripcion();
-				JPanel panel= new JPanel();
-				datos[i][2]=panel;
-				panel.add(modificar);
-				panel.add(borrar);
+				
 				i++;
 				
 			};
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
+		if (e.getSource().equals(estadosCiviles)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
+			List<EstadoCivil> estadosCiviles = (List<EstadoCivil>) getEstadoCivilService().findAll();
+			Object[][] datos = new Object[(int) getEstadoCivilService().count()][2];
+			int i = 0;
+			for(EstadoCivil estadoCivil:estadosCiviles)
+			 {
+				datos[i][0]=String.valueOf(estadoCivil.getId());
+				datos[i][1]=estadoCivil.getDescripcion();
+				
+				i++;
+				
+			};
+			getContentPane().add(new PanelCargos(cabeceras, datos, "ESTADOS CIVILES"));
+			this.show();
+		}
 
 	}
 
+	public EstadoCivilService getEstadoCivilService() {
+		return estadoCivilService;
+	}
+
+	public void setEstadoCivilService(EstadoCivilService estadoCivilService) {
+		this.estadoCivilService = estadoCivilService;
+	}
+	
 	public CargoService getCargoService() {
 		return cargoService;
 	}

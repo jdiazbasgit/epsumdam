@@ -1,5 +1,0 @@
-package epsum.curso.conexiondatos;
-
-public class prueba {
-
-}
