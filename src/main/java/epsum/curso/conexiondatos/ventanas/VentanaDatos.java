@@ -29,6 +29,8 @@ import lombok.Data;
 
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
 import epsum.curso.conexiondatos.servicios.DatoLaboralService;
+import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
+import epsum.curso.conexiondatos.entidades.DatoPersonal;
 
 @Component
 //@Data
@@ -44,11 +46,23 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private HijoService hijoService;
 	@Autowired
 	private DatoLaboralService datoLaboralService;
+	@Autowired
+	private DatosPersonalesService datosPersonalesService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
 	private JMenuItem empresas;
 	private JMenuItem hijos;
+	public DatosPersonalesService getDatosPersonalesService() {
+		return datosPersonalesService;
+	}
+
+	public void setDatosPersonalesService(DatosPersonalesService datosPersonalesService) {
+		this.datosPersonalesService = datosPersonalesService;
+	}
+
+	
+
 	private JMenuItem estadosCiviles;
 	private JMenuItem cargos;
 	private JMenuItem datosLaborales;
@@ -73,6 +87,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		cargos.addActionListener(this);
 		empresas.addActionListener(this);
 		hijos.addActionListener(this);
+		datosPersonales.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosLaborales.addActionListener(this);
 		datosPersonales = new JMenuItem("datos personales");
@@ -148,6 +163,23 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				datos[i][0] = String.valueOf(cargo.getId());
 				datos[i][1] = cargo.getDescripcion();
 
+				i++;
+
+			}
+			;
+			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
+			this.show();
+		}
+		if (e.getSource().equals(datosPersonales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
+			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
+			int i = 0;
+			for (DatoPersonal datoPersonal : datosPersonales) {
+				datos[i][0] = String.valueOf(datoPersonal.getId());
+				datos[i][1] = datoPersonal.getEstadoCivil().getDecripcion();
+				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
 				i++;
 
 			}
