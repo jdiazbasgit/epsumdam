@@ -45,6 +45,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private CargoService cargoService;
 	@Autowired
 	private EstadoCivilService estadoCivilService;
+	@Autowired
 	private EmpresaService empresaService;
 	@Autowired
 	private EmpleadoService empleadoService;
@@ -59,7 +60,13 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private JMenu menu;
 	private JMenuItem empresas;
 	private JMenuItem hijos;
-
+	private JMenuItem estadosCiviles;
+	private JMenuItem cargos;
+	private JMenuItem datosLaborales;
+	private JMenuItem datosPersonales;
+	private JMenuItem empleados;
+	private JMenuItem salir;
+	private JButton modificar, borrar;
 	public DatosPersonalesService getDatosPersonalesService() {
 		return datosPersonalesService;
 	}
@@ -68,13 +75,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		this.datosPersonalesService = datosPersonalesService;
 	}
 
-	private JMenuItem estadosCiviles;
-	private JMenuItem cargos;
-	private JMenuItem datosLaborales;
-	private JMenuItem datosPersonales;
-	private JMenuItem empleados;
-	private JMenuItem salir;
-	private JButton modificar, borrar;
+	
 
 	public VentanaDatos() {
 		// setSize(1000, 1000);
@@ -89,6 +90,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		hijos = new JMenuItem("hijos");
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
+		salir = new JMenuItem("salir");
 		cargos.addActionListener(this);
 		estadosCiviles.addActionListener(this);
 		empresas.addActionListener(this);
@@ -97,10 +99,10 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		datosPersonales.addActionListener(this);
 		datosLaborales = new JMenuItem("datos laborales");
 		datosLaborales.addActionListener(this);
-
+		salir.addActionListener(this);
 		empleados = new JMenuItem("empleados");
 		empleados.addActionListener(this);
-		salir = new JMenuItem("salir");
+		
 		setJMenuBar(menuBar);
 		menu.add(empresas);
 		menu.add(cargos);
@@ -190,6 +192,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				i++;
 
 			}
+			getContentPane().add(new PanelDatosPersonales(cabeceras, datos, "DATOS PERSONALES"));
+			this.show();
 		}
 		if (e.getSource().equals(estadosCiviles)) {
 			getContentPane().removeAll();
@@ -289,6 +293,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
 			this.show();
 		}
+		if(e.getSource().equals(salir))
+			System.exit(0);
 	}
 
 	public EstadoCivilService getEstadoCivilService() {
