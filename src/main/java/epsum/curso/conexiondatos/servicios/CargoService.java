@@ -23,6 +23,16 @@ public class CargoService {
 	public Cargo save(Cargo cargo) {
 		return getCargoCrudRepository().save(cargo);
 	}
+	public long count() {
+		return getCargoCrudRepository().count();
+	}
+	public void deleteById(int id) {
+		getCargoCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getCargoCrudRepository().existsById(id);
+	}
 }
 	
 
