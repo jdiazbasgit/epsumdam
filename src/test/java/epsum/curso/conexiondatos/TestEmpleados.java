@@ -43,4 +43,20 @@ public class TestEmpleados {
 		getEmpleadoService().save(empleado);
 		getEmpleadoService().deleteById(empleado.getId());
 	}
+	
+	public void modificar() {
+		System.setProperty("java.awt.headless", "false");
+		Empleado empleado = new Empleado();	
+		empleado.setNombre("Shinji");
+		empleado.setDni("secreto");
+		empleado.setEmail("secreto");
+		empleado.setTelefono("secreto");
+		empleado.setEmpresa(((List<Empresa>)getEmpresaService().findAll()).get(0));
+		empleado.setDatoLaboral(((List<DatoLaboral>)getDatoLaboralService().findAll()).get(0));
+		empleado.setDatoPersonal(((List<DatoPersonal>)getDatosPersonalesService().findAll()).get(0));
+		getEmpleadoService().save(empleado);
+		empleado.setNombre("Manuel");
+		getEmpleadoService().save(empleado);
+		getEmpleadoService().deleteById(empleado.getId());
+	}
 }
