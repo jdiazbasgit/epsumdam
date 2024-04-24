@@ -7,6 +7,8 @@ import java.util.Map;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import java.io.PrintWriter;
 
+import java.io.PrintWriter;
+
 import lombok.Data;
 
 @Data
@@ -26,6 +28,7 @@ public class ClienteEnvioMensajeServidor extends ClienteChat {
 		objectOutputStream.writeObject(getMensajes());
 		objectOutputStream.flush();
 	
+	}
 	private String mensajeSalida;
 	
 	public ClienteEnvioMensajeServidor(String ip, int puerto, String mensajeSalida) {
