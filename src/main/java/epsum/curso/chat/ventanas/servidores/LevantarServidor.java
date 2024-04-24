@@ -7,6 +7,8 @@ public class LevantarServidor {
 		//Servidor servidor= new Servidor();
 		ServidorEscuchaRegistroServidor servidor= new ServidorEscuchaRegistroServidor(ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
 		servidor.start();
+		ServicorEscuchaBajaServidor servidorBaja= new ServicorEscuchaBajaServidor(ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
+		servidorBaja.start();
 	}
 
 }
