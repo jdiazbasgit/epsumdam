@@ -9,6 +9,8 @@ public class LevantarServidor {
 		servidor.start();
 		ServicorEscuchaBajaServidor servidorBaja= new ServicorEscuchaBajaServidor(ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
 		servidorBaja.start();
+		ServidorEscuchaMensajeServidor escuchaMensajeServidor= new ServidorEscuchaMensajeServidor(ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
+		escuchaMensajeServidor.start();
 	}
 
 }
