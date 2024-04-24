@@ -10,6 +10,8 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -24,7 +26,7 @@ import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
-public class VentanaChat extends Frame implements WindowListener,ActionListener {
+public class VentanaChat extends Frame implements WindowListener,ActionListener,KeyListener  {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -42,7 +44,9 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
-		
+		TMensaje.addKeyListener((KeyListener) this);
+		TAMensajes.setEditable(false);
+		TAUsuarios.setEditable(false);
 	}
 	
 	void barraSuperior() {
@@ -144,16 +148,48 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals(getBRegistrar())) {
-			System.out.println("envio nick desde cliente");
-			ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
-			cliente.start();
-		}
-		if(e.getSource().equals(getBEnviar())) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
-					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
+        if (e.getSource().equals(BRegistrar)) {
+            ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(
+                ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
+            cliente.start();
+        }
+
+        if (e.getSource().equals(BEnviar)) {
+        	String mensaje = TMensaje.getText().trim();
+            if (!mensaje.isEmpty()) {
+                enviarMensaje(); 
+            }             
+        }
+    }
+
+    private void enviarMensaje() {
+        ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = 
+            new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+        clienteEnvioMensajeCliente.start();
+
+        
+    
 		}
 		
+		public void keyPressed(KeyEvent e) {
+	        if (e.getKeyCode() == KeyEvent.VK_ENTER) { 
+	        	String mensaje = TMensaje.getText().trim();
+	            if (!mensaje.isEmpty()) {
+	                enviarMensaje(); 
+	            } 
+	            e.consume(); 
+	        }
 	}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 }
