@@ -1,17 +1,25 @@
 package epsum.curso.chat.ventanas.servidores;
 
 import java.io.IOException;
+import epsum.curso.chat.ventanas.VentanaChat;
+import lombok.Data;
 
+@Data
 public class ServidorEscuchaMensajeCliente extends ServidorChat {
 
-	ServidorEscuchaMensajeCliente(int puerto) {
+	private VentanaChat ventanaChat;
+
+	public ServidorEscuchaMensajeCliente(int puerto, VentanaChat ventanaChat) {
 		super(puerto);
-		// TODO Auto-generated constructor stub
+		this.ventanaChat=ventanaChat;
+
 	}
 
 	@Override
 	public void hacerAlgo() throws IOException {
-		// TODO Auto-generated method stub
+
+		getVentanaChat().getTAMensajes().append(recibirTexto()+"\n");
+
 
 	}
 

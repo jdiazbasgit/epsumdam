@@ -1,30 +1,24 @@
 package epsum.curso.chat.ventanas.clientes;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.io.PrintWriter;
 import lombok.Data;
 
 @Data
 public class ClienteEnvioMensajeServidor extends ClienteChat {
-
-	private List <String> mensajes = new ArrayList <>();
+		
+	private String mensajeSalida;
 	
-	public ClienteEnvioMensajeServidor(String mensaje, int puerto, ArrayList <String> mensajes) {
-		super(mensaje, puerto);
-		this.mensajes = mensajes;
+	public ClienteEnvioMensajeServidor(String ip, int puerto, String mensajeSalida) {
+		super(ip, puerto);
+		this.mensajeSalida=mensajeSalida;
 	}
-
-
-
 	@Override
 	public void hacerAlgo() throws IOException {
-		ObjectOutputStream objectOutputStream = new ObjectOutputStream(getSocket().getOutputStream());
-		objectOutputStream.writeObject(getMensajes());
-		objectOutputStream.flush();
-		
+		PrintWriter printWriter= new PrintWriter(getSocket().getOutputStream());
+		printWriter.println(getMensajeSalida());
+		printWriter.flush();
+
 	}
 
 }
