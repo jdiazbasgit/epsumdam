@@ -121,7 +121,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 	@Override
 	public void windowIconified(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+		 
 	}
 
 	@Override
