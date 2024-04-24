@@ -1,26 +1,19 @@
 package epsum.curso.chat.ventanas.clientes;
 
 import java.io.IOException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.io.ObjectOutputStream;
 import java.util.Map;
 
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
-=======
 import java.io.PrintWriter;
 
->>>>>>> origin/chat
-=======
 import java.io.PrintWriter;
 
->>>>>>> origin/chat
 import lombok.Data;
 
 @Data
 public class ClienteEnvioMensajeServidor extends ClienteChat {
 
-<<<<<<< HEAD
 
 	private Map<String, String> mensajes;
 	
@@ -34,21 +27,13 @@ public class ClienteEnvioMensajeServidor extends ClienteChat {
 		ObjectOutputStream objectOutputStream= new ObjectOutputStream(getSocket().getOutputStream());
 		objectOutputStream.writeObject(getMensajes());
 		objectOutputStream.flush();
-
-=======
->>>>>>> origin/chat
+	}
 	private String mensajeSalida;
 	
 	public ClienteEnvioMensajeServidor(String ip, int puerto, String mensajeSalida) {
 		super(ip, puerto);
 		this.mensajeSalida=mensajeSalida;
 	}
-	@Override
-	public void hacerAlgo() throws IOException {
-		PrintWriter printWriter= new PrintWriter(getSocket().getOutputStream());
-		printWriter.println(getMensajeSalida());
-		printWriter.flush();
 
-	}
 
 }
