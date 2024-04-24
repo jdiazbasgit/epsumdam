@@ -42,7 +42,7 @@ public abstract class ServidorChat extends Thread {
 		
 	}
 	
-	public abstract void hacerAlgo() ;
+	public abstract void hacerAlgo() throws IOException ;
 	
 	public String recibirTexto() throws IOException {
 		String salida=""; 
