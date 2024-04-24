@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioBajaCliente;
+import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
@@ -42,6 +43,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		barraIzquierda();
 		barraCentral();
 		getBRegistrar().addActionListener(this);
+		getBEnviar().addActionListener(this);
 		
 	}
 	
@@ -148,6 +150,11 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 			System.out.println("envio nick desde cliente");
 			ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
 			cliente.start();
+		}
+		if(e.getSource().equals(getBEnviar())) {
+			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
+					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+			clienteEnvioMensajeCliente.start();
 		}
 		
 	}
