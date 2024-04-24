@@ -17,7 +17,7 @@ public class ClienteEnvioMensajeServidor extends ClienteChat {
 	@Override
 	public void hacerAlgo() throws IOException {
 		PrintWriter printWriter= new PrintWriter(getSocket().getOutputStream());
-		printWriter.println(getMensajeSalida());
+		printWriter.println(getMensajeSalida());		
 		printWriter.flush();
 
 	}

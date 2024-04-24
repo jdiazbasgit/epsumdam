@@ -10,6 +10,8 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -24,7 +26,7 @@ import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
-public class VentanaChat extends Frame implements WindowListener,ActionListener {
+public class VentanaChat extends Frame implements WindowListener,ActionListener,KeyListener {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -80,6 +82,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		
 		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
+		TAUsuarios.setEditable(false);
 		add(PIzquierda, BorderLayout.WEST);
 		getPIzquierda().setLayout(new BorderLayout());
 		getPSuperiorIzquierda().add(getLUsuarios());
@@ -93,9 +96,11 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		TAMensajes = new TextArea();
 		//PCentral.setBackground(Color.black);
 		PCentral.setVisible(true);
+		TAMensajes.setEditable(false);
 		getPCentral().setLayout(new BorderLayout());
 		add(PCentral, BorderLayout.CENTER);
 		getPCentral().add(getTAMensajes());
+		getTMensaje().addKeyListener(this);
 	}
 
 	@Override
@@ -142,18 +147,45 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		
 	}
 
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(getBRegistrar())) {
 			System.out.println("envio nick desde cliente");
 			ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
 			cliente.start();
+			
 		}
 		if(e.getSource().equals(getBEnviar())) {
 			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
-					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
-		}
+					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);			
+			clienteEnvioMensajeCliente.start();	
+			
+		}		
 		
 	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getKeyCode()==10) {
+			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
+					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);			
+			clienteEnvioMensajeCliente.start();	
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
