@@ -21,7 +21,10 @@ public class ServidorEscuchaRegistroCliente extends ServidorChat {
 		
 		if(usuarios.size()==0) {
 			getVentanaChat().getTAMensajes().append("USUARIO YA EXISTE\n");
+			getVentanaChat().getTNick().setEditable(true);
+			getVentanaChat().getBRegistrar().setEnabled(true);
 		}
+		
 		else {
 			getVentanaChat().getTAUsuarios().setText("");
 			usuarios.values().stream().forEach(u->getVentanaChat().getTAUsuarios().append(u+"\n"));
