@@ -10,19 +10,19 @@ import lombok.Data;
 public class ClienteEnvioMensajeCliente extends ClienteChat {
 
 	private VentanaChat ventanaChat;
-	
-	public ClienteEnvioMensajeCliente(String ip, int puerto,VentanaChat ventanaChat) {
+
+	public ClienteEnvioMensajeCliente(String ip, int puerto, VentanaChat ventanaChat) {
 		super(ip, puerto);
-		this.ventanaChat= ventanaChat;
-		
+		this.ventanaChat = ventanaChat;
+
 	}
 
 	@Override
 	public void hacerAlgo() throws IOException {
-		PrintWriter printWriter= new PrintWriter(getSocket().getOutputStream());
+		PrintWriter printWriter = new PrintWriter(getSocket().getOutputStream());
 		printWriter.println(getVentanaChat().getTMensaje().getText());
 		printWriter.flush();
-
+		getVentanaChat().getTMensaje().setText("");
 	}
 
 }
