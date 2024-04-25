@@ -1,9 +1,11 @@
 package epsum.curso.conexiondatos.ventanas;
 
-public class PanelCargos extends PanelComponente {
 
-	public PanelCargos(Object[] cabeceras, Object[][] datos, String titulo) {
+public class PanelHijos extends PanelComponente {
+
+	public PanelHijos(Object[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -20,7 +22,8 @@ public class PanelCargos extends PanelComponente {
 
 	@Override
 	public void modificar() {
-		System.out.println("entro");
+		// TODO Auto-generated method stub
+
 	}
 
 }
