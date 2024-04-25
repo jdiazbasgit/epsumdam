@@ -76,8 +76,8 @@ public abstract class PanelComponente extends JPanel {
                 return false;
             }
         };
-		this.tabla.getColumn("modificar").setCellRenderer(new BotonModificar());
-		this.tabla.getColumn("borrar").setCellRenderer(new BotonBorrar());
+		this.tabla.getColumn("MODIFICAR").setCellRenderer(new BotonModificar());
+		this.tabla.getColumn("BORRAR").setCellRenderer(new BotonBorrar());
 		TableColumn column= new TableColumn();
 		column.setHeaderValue("ACCIONES");
 		this.setLayout(new BorderLayout(20, 20));
