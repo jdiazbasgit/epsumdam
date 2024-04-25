@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "cargos")
@@ -22,7 +23,6 @@ public class Cargo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String descripcion;
-
 	
 
 }
