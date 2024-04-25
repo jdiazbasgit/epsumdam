@@ -10,6 +10,8 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -24,7 +26,7 @@ import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
-public class VentanaChat extends Frame implements WindowListener,ActionListener {
+public class VentanaChat extends JFrame implements WindowListener,ActionListener,KeyListener {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -77,7 +79,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		PInferiorIzquierda = new Panel();
 		LUsuarios = new Label("Usuarios");
 		TAUsuarios = new TextArea(30,30);
-		
+		TAUsuarios.setEditable(false);
 		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
 		add(PIzquierda, BorderLayout.WEST);
@@ -91,6 +93,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 	void barraCentral() {
 		PCentral = new Panel();
 		TAMensajes = new TextArea();
+		TAMensajes.setEditable(false);
 		//PCentral.setBackground(Color.black);
 		PCentral.setVisible(true);
 		getPCentral().setLayout(new BorderLayout());
@@ -148,12 +151,39 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 			System.out.println("envio nick desde cliente");
 			ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
 			cliente.start();
+			getTMensaje().addKeyListener(this);
 		}
 		if(e.getSource().equals(getBEnviar())) {
 			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
 					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
+			
 		}
 		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		System.out.println("code:"+e.getKeyCode());
+		System.out.println("char:"+e.getKeyChar());
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.out.println("code:"+e.getKeyCode());
+		System.out.println("char:"+e.getKeyChar());
+		if(e.getKeyCode()==10
+				) {
+			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
+					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+			clienteEnvioMensajeCliente.start();
+			
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		System.out.println("code:"+e.getKeyCode());
+		System.out.println("char:"+e.getKeyChar());
 	}
 }
