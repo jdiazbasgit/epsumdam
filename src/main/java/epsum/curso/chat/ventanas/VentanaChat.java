@@ -155,6 +155,8 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
 					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
+			TMensaje.setText(null);
+			TMensaje.requestFocus();
 		}
 		
 	}
