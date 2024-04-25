@@ -10,6 +10,8 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -24,7 +26,7 @@ import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
-public class VentanaChat extends Frame implements WindowListener,ActionListener {
+public class VentanaChat extends JFrame implements WindowListener,ActionListener, KeyListener {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -42,6 +44,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
+		
 		
 	}
 	
@@ -62,6 +65,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		PInferior = new Panel();
 		LMensaje = new Label("Mensaje");
 		TMensaje = new TextField(90);
+		TMensaje.addKeyListener(this);
 		BEnviar = new Button("Enviar");
 		//PInferior.setBackground(Color.yellow);
 		PInferior.setVisible(true);
@@ -77,6 +81,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		PInferiorIzquierda = new Panel();
 		LUsuarios = new Label("Usuarios");
 		TAUsuarios = new TextArea(30,30);
+		TAUsuarios.setEditable(false);
 		
 		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
@@ -91,6 +96,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 	void barraCentral() {
 		PCentral = new Panel();
 		TAMensajes = new TextArea();
+		TAMensajes.setEditable(false);
 		//PCentral.setBackground(Color.black);
 		PCentral.setVisible(true);
 		getPCentral().setLayout(new BorderLayout());
@@ -141,6 +147,12 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void enviarMensaje() {
+		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
+				new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+		clienteEnvioMensajeCliente.start();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -150,10 +162,28 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener 
 			cliente.start();
 		}
 		if(e.getSource().equals(getBEnviar())) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
-					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
+			enviarMensaje();
 		}
+		
+	}
+	
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			enviarMensaje();
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }
