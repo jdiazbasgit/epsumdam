@@ -42,7 +42,12 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.defaultTableModel.addColumn("borrar");
 		this.defaultTableModel.addColumn("modificar");
 		
-		this.tabla = new JTable(getDefaultTableModel());
+		this.tabla = new JTable(getDefaultTableModel()) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 		this.tabla.getColumn("modificar").setCellRenderer(new BotonModificar());
 		this.tabla.getColumn("borrar").setCellRenderer(new BotonBorrar());
 		TableColumn column= new TableColumn();
