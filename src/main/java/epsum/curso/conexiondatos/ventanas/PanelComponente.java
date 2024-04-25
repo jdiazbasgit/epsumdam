@@ -71,7 +71,7 @@ public abstract class PanelComponente extends JPanel {
 		this.tabla.getColumn("MODIFICAR").setWidth(200);
 		this.tabla.getColumn("BORRAR").setWidth(100);
 		
-		TableColumn column = new TableColumn();
+		TableColumn column = new TableColumn(); 
 		column.setHeaderValue("ACCIONES");
 		this.setLayout(new BorderLayout(20, 20));
 		this.lTitulo = new JLabel(this.titulo);
