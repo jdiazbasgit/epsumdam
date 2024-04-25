@@ -8,7 +8,11 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
+import lombok.Data;
+
+@Data
 public class BotonModificar extends JButton implements TableCellRenderer {
+	private int id;
 
 	public BotonModificar() {
 		// TODO Auto-generated constructor stub
