@@ -8,8 +8,13 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
+import lombok.Data;
+
+@Data
+
 public class BotonBorrar extends JButton implements TableCellRenderer {
 
+	private int id;
 	public BotonBorrar() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,8 +42,9 @@ public class BotonBorrar extends JButton implements TableCellRenderer {
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 			int row, int column) {
-		setText("BORRAR");
-		return this;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }
