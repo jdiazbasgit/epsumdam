@@ -75,7 +75,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.tabla.getColumn("MODIFICAR").setMaxWidth(300);
 		this.tabla.getColumn("BORRAR").setMaxWidth(300);
 		
-		TableColumn column = new TableColumn();
+		TableColumn column = new TableColumn(); 
 		column.setHeaderValue("ACCIONES");
 		this.setLayout(new BorderLayout(20, 20));
 		this.lTitulo = new JLabel(this.titulo);
