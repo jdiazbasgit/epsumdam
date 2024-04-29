@@ -9,12 +9,14 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeServidor;
 
 public class ServidorEscuchaMensajeServidor extends ServidorChat {
 
-	public ServidorEscuchaMensajeServidor(int puerto) {
+	ServidorEscuchaMensajeServidor(int puerto) {
+
 		super(puerto);
 	}
 
 	@Override
 	public void hacerAlgo() throws IOException {
+
 		String mensaje=new BufferedReader(new InputStreamReader(getSocket().getInputStream())).readLine();
 		String ip=getSocket().getInetAddress().getHostAddress();
 		String mensajeSalida=ServidorChat.usuarios.get(ip)+" dice: "+mensaje;
@@ -27,3 +29,4 @@ public class ServidorEscuchaMensajeServidor extends ServidorChat {
 	}
 
 }
+
