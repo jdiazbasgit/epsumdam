@@ -18,6 +18,7 @@ public abstract class ClienteChat extends Thread {
 	public final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_DATOS = 8011;
 	public final static String SERVIDOR="192.168.0.125";
 
+
 	
 	private String ip;
 	private int puerto;
