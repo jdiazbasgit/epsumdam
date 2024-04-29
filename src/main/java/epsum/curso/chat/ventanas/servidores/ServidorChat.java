@@ -21,6 +21,7 @@ public abstract class ServidorChat extends Thread {
 	private Socket socket;
 	
 	public static Map<String, String> usuarios= new HashMap<>();
+	public static Map<String, String> mensajes= new HashMap<>();
 	
 	ServidorChat(int puerto){
 		this.puerto=puerto;

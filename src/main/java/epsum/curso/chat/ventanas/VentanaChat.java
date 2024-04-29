@@ -27,8 +27,10 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
+
 @Data
-public class VentanaChat extends Frame implements WindowListener, ActionListener, KeyListener {
+public class VentanaChat extends Frame implements WindowListener,ActionListener, KeyListener {
+
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
@@ -46,6 +48,10 @@ public class VentanaChat extends Frame implements WindowListener, ActionListener
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
+		TMensaje.addKeyListener((KeyListener) this);
+		TAMensajes.setEditable(false);
+		TAUsuarios.setEditable(false);
+		
 
 	}
 
@@ -150,38 +156,47 @@ public class VentanaChat extends Frame implements WindowListener, ActionListener
 		// TODO Auto-generated method stub
 
 	}
+	
+	private void enviarMensaje() {
+		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
+				new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+		clienteEnvioMensajeCliente.start();
+		
+	}
+	
+	private void registrarCliente() {
+		System.out.println("envio nick desde cliente");
+		ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
+		cliente.start();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(getBRegistrar())) {
-			System.out.println("envio nick desde cliente");
-			ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
-			cliente.start();
+		if(e.getSource().equals(getBRegistrar())) {
+			registrarCliente();
 		}
-		if (e.getSource().equals(getBEnviar())) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
-
+		if(e.getSource().equals(getBEnviar())) {
+			enviarMensaje();
 		}
+		if(e.getSource().equals(getBEnviar())) {			
+			ClienteEnvioMensajeCliente mensaje= new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+			mensaje.start();
+		}
+		
 
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.print(e.getID());
+		
 
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-
-		if (e.getKeyCode() == 10) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			enviarMensaje();
+			e.consume();
 		}
 
 	}
@@ -189,7 +204,8 @@ public class VentanaChat extends Frame implements WindowListener, ActionListener
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.print(e.getID());
+
 
 	}
+	
 }
