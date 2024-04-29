@@ -21,6 +21,7 @@ public abstract class ServidorChat extends Thread {
 	private Socket socket;
 	
 	public static Map<String, String> usuarios= new HashMap<>();
+	public static Map<String, String> mensajes= new HashMap<>();
 	
 	ServidorChat(int puerto){
 		this.puerto=puerto;
@@ -48,9 +49,11 @@ public abstract class ServidorChat extends Thread {
 		String salida=""; 
 			try(BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(getSocket().getInputStream()))) {
 				salida=bufferedReader.readLine();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}	
+			System.out.print(salida);
 		return salida;
 	}
 	

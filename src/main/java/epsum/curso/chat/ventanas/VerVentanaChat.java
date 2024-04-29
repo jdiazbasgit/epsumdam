@@ -25,6 +25,10 @@ public class VerVentanaChat extends Frame implements WindowListener, ActionListe
 		ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
 		servidorMensaje.start();
 		
+		ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente= 
+				new  ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
+		servidorEscuchaMensajeCliente.start();
+		
 		
 	}
 
