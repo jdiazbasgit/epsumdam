@@ -169,6 +169,10 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener,
 		if(e.getSource().equals(getBEnviar())) {
 			enviarMensaje();
 		}
+		if(e.getSource().equals(getBEnviar())) {			
+			ClienteEnvioMensajeCliente mensaje= new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+			mensaje.start();
+		}
 		
 	}
 
