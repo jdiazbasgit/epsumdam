@@ -79,7 +79,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		PSuperiorIzquierda = new JPanel();
 		PInferiorIzquierda = new JPanel();
 		LUsuarios = new JLabel("Usuarios");
-		TAUsuarios = new JTextArea(30,30);
+		TAUsuarios = new JTextArea(30,30); 
 		TAUsuarios.setEditable(false);
 		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
