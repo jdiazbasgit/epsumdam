@@ -165,15 +165,12 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
 					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
-<<<<<<< HEAD
 			TMensaje.setText(null);
 			TMensaje.requestFocus();
-=======
 			
 		}
 		if(e.getSource().equals(getBPrivado())) {
 			System.out.println(getTAUsuarios().getSelectedText());
->>>>>>> chat
 		}
 		
 	}
