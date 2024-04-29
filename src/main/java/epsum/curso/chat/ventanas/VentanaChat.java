@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -165,15 +166,20 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
 					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
-<<<<<<< HEAD
+
 			TMensaje.setText(null);
 			TMensaje.requestFocus();
-=======
+
 			
 		}
 		if(e.getSource().equals(getBPrivado())) {
+			JDialog dialog = new JDialog();
+			dialog.setSize(200,200);
+			dialog.setVisible(true);
+			dialog.add(new Label("Usuario"),BorderLayout.NORTH);
+			 
 			System.out.println(getTAUsuarios().getSelectedText());
->>>>>>> chat
+			
 		}
 		
 	}
