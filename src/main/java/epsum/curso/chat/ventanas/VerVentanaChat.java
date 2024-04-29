@@ -12,6 +12,7 @@ import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaRegistroCliente;
+import epsum.curso.chat.ventanas.servidores.ServidorEscuchaSolicitudPrtivado;
 
 public class VerVentanaChat extends Frame implements WindowListener, ActionListener, KeyListener {
 
@@ -24,6 +25,8 @@ public class VerVentanaChat extends Frame implements WindowListener, ActionListe
 		servidorEscuchaRegistroCliente.start();
 		ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
 		servidorMensaje.start();
+		ServidorEscuchaSolicitudPrtivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrtivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventana);
+		servidorEscuchaSolicitudPrtivado.start();
 		
 		
 		
