@@ -19,6 +19,7 @@ public abstract class ClienteChat extends Thread {
 	//public final static String SERVIDOR="192.168.0.125";
 	public final static String SERVIDOR="localhost";
 	
+
 	private String ip;
 	private int puerto;
 	private Socket socket;
