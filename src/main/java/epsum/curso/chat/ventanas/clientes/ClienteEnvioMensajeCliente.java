@@ -1,7 +1,9 @@
 package epsum.curso.chat.ventanas.clientes;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
+
 
 import epsum.curso.chat.ventanas.VentanaChat;
 import lombok.Data;
@@ -14,15 +16,20 @@ public class ClienteEnvioMensajeCliente extends ClienteChat {
 	public ClienteEnvioMensajeCliente(String ip, int puerto,VentanaChat ventanaChat) {
 		super(ip, puerto);
 		this.ventanaChat= ventanaChat;
-		
+
 	}
 
 	@Override
 	public void hacerAlgo() throws IOException {
+
 		PrintWriter printWriter= new PrintWriter(getSocket().getOutputStream());
 		printWriter.println(getVentanaChat().getTMensaje().getText());
+		getVentanaChat().getTMensaje().setText("");
 		printWriter.flush();
 		getVentanaChat().getTMensaje().setText("");
+
+		enviarTexto(getVentanaChat().getTMensaje().getText());
+
 
 	}
 
