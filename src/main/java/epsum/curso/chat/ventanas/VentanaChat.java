@@ -1,6 +1,7 @@
 package epsum.curso.chat.ventanas;
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
@@ -26,7 +27,6 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-<<<<<<< HEAD
 import lombok.NoArgsConstructor;
 
 @Data
@@ -38,17 +38,6 @@ public class VentanaChat extends Frame implements WindowListener, ActionListener
 	private TextField TNick, TMensaje;
 	private TextArea TAMensajes, TAUsuarios;
 
-=======
-
-@Data
-public class VentanaChat extends JFrame implements WindowListener,ActionListener,KeyListener {
-	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,pCentralIzquierdaInferior;
-	private JButton BRegistrar, BEnviar,bPrivado;
-	private JLabel LNick, LMensaje, LUsuarios;
-	private JTextField TNick, TMensaje;
-	private JTextArea TAMensajes, TAUsuarios;
-	
->>>>>>> 0220905ae5c790631df81dc79cc21a5c55709bc5
 	public VentanaChat() {
 		setSize(500,500);		
 		setLayout(new BorderLayout());
@@ -60,13 +49,9 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
-<<<<<<< HEAD
 		TMensaje.addKeyListener((KeyListener) this);
 		TAMensajes.setEditable(false);
 		TAUsuarios.setEditable(false);
-=======
-		
->>>>>>> 0220905ae5c790631df81dc79cc21a5c55709bc5
 	}
 	
 	void barraSuperior() {
@@ -169,7 +154,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 
 	}
 
@@ -223,7 +207,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 			}
 			e.consume();
 		}
-=======
 		
 	}
 
@@ -245,12 +228,10 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 			System.out.println(getTAUsuarios().getSelectedText());
 		}
 		
->>>>>>> 0220905ae5c790631df81dc79cc21a5c55709bc5
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-<<<<<<< HEAD
 
 	}
 
@@ -262,11 +243,10 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
 
-=======
 		System.out.println("code:"+e.getKeyCode());
 		System.out.println("char:"+e.getKeyChar());
 	}
-
+	}
 	@Override
 	public void keyPressed(KeyEvent e) {
 		System.out.println("code:"+e.getKeyCode());
@@ -277,20 +257,13 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
 			
->>>>>>> 0220905ae5c790631df81dc79cc21a5c55709bc5
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
 
 	}
-
-=======
-		System.out.println("code:"+e.getKeyCode());
-		System.out.println("char:"+e.getKeyChar());
 	}
->>>>>>> 0220905ae5c790631df81dc79cc21a5c55709bc5
-}
+
