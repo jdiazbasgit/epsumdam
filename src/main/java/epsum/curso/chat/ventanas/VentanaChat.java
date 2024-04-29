@@ -2,14 +2,10 @@ package epsum.curso.chat.ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
-<<<<<<< HEAD
-import java.awt.Frame;
-=======
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.KeyEventDispatcher;
->>>>>>> 346e082ceb352b7463e08bc15a7395e02d252125
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
@@ -29,26 +25,19 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioBajaCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 
 @Data
-<<<<<<< HEAD
-public class VentanaChat extends Frame implements WindowListener,ActionListener,KeyListener  {
-=======
-public class VentanaChat extends Frame implements WindowListener,ActionListener, KeyListener {
+public class VentanaChat extends Frame implements WindowListener, ActionListener, KeyListener {
 
->>>>>>> 346e082ceb352b7463e08bc15a7395e02d252125
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
 	private TextField TNick, TMensaje;
 	private TextArea TAMensajes, TAUsuarios;
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> 346e082ceb352b7463e08bc15a7395e02d252125
 	public VentanaChat() {
 		setSize(500, 500);
 		setLayout(new BorderLayout());
@@ -63,11 +52,6 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener,
 		TMensaje.addKeyListener((KeyListener) this);
 		TAMensajes.setEditable(false);
 		TAUsuarios.setEditable(false);
-<<<<<<< HEAD
-=======
-		
-
->>>>>>> 346e082ceb352b7463e08bc15a7395e02d252125
 	}
 
 	void barraSuperior() {
@@ -171,107 +155,79 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener,
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	private void enviarMensaje() {
-		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
-				new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
+				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 		clienteEnvioMensajeCliente.start();
-		
+
 	}
-	
+
 	private void registrarCliente() {
 		System.out.println("envio nick desde cliente");
-		ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
+		ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
+				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
 		cliente.start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(BRegistrar)) {
-            ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(
-                ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
-            cliente.start();
-        }
+		if (e.getSource().equals(BRegistrar)) {
+			ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
+					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
+			cliente.start();
+		}
 
-        if (e.getSource().equals(BEnviar)) {
-        	String mensaje = TMensaje.getText().trim();
-            if (!mensaje.isEmpty()) {
-                enviarMensaje(); 
-            }             
-        }
-    }
+		if (e.getSource().equals(BEnviar)) {
+			String mensaje = TMensaje.getText().trim();
+			if (!mensaje.isEmpty()) {
+				enviarMensaje();
+			}
+		}
 
-    private void enviarMensaje() {
-        ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = 
-            new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-        clienteEnvioMensajeCliente.start();
-
-        
-    
-		if(e.getSource().equals(getBRegistrar())) {
+		if (e.getSource().equals(getBRegistrar())) {
 			registrarCliente();
 		}
-		if(e.getSource().equals(getBEnviar())) {
+		if (e.getSource().equals(getBEnviar())) {
 			enviarMensaje();
 		}
-		if(e.getSource().equals(getBEnviar())) {			
-			ClienteEnvioMensajeCliente mensaje= new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+		if (e.getSource().equals(getBEnviar())) {
+			ClienteEnvioMensajeCliente mensaje = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
+					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			mensaje.start();
 		}
-		
-<<<<<<< HEAD
-		public void keyPressed(KeyEvent e) {
-	        if (e.getKeyCode() == KeyEvent.VK_ENTER) { 
-	        	String mensaje = TMensaje.getText().trim();
-	            if (!mensaje.isEmpty()) {
-	                enviarMensaje(); 
-	            } 
-	            e.consume(); 
-	        }
-=======
-
->>>>>>> 346e082ceb352b7463e08bc15a7395e02d252125
 	}
 
-		
-
-		@Override
-		public void keyReleased1(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	@Override
-	public void keyTyped(KeyEvent e) {
-		
-
-	}
-
-	@Override
-<<<<<<< HEAD
-	public void keyPressed1(KeyEvent e) {
-		System.out.println("code:"+e.getKeyCode());
-		System.out.println("char:"+e.getKeyChar());
-		if(e.getKeyCode()==10
-				) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente=
-					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
-			
-=======
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			enviarMensaje();
+			String mensaje = TMensaje.getText().trim();
+			if (!mensaje.isEmpty()) {
+				enviarMensaje();
+			}
 			e.consume();
->>>>>>> 346e082ceb352b7463e08bc15a7395e02d252125
 		}
+	}
 
+	@Override
+	public void keyTyped(KeyEvent e) {
+
+	}
+
+	public void keyPressed1(KeyEvent e) {
+		System.out.println("code:" + e.getKeyCode());
+		System.out.println("char:" + e.getKeyChar());
+		if (e.getKeyCode() == 10) {
+			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
+					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+			clienteEnvioMensajeCliente.start();
+
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-
 	}
-	
+
 }
