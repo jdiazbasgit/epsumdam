@@ -24,7 +24,6 @@ public class ServidorEscuchaMensajeServidor extends ServidorChat {
 		ServidorChat.usuarios.keySet().stream().forEach(ipc->{
 			ClienteEnvioMensajeServidor clienteEnvioMensajeServidor= new ClienteEnvioMensajeServidor(ipc, ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, mensajeSalida);
 			clienteEnvioMensajeServidor.start();
-
 		});
 		
 	}
