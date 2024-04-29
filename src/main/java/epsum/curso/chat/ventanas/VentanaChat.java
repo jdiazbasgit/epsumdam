@@ -1,9 +1,6 @@
 package epsum.curso.chat.ventanas;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
@@ -15,8 +12,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioBajaCliente;
@@ -27,11 +28,11 @@ import lombok.Data;
 
 @Data
 public class VentanaChat extends JFrame implements WindowListener,ActionListener,KeyListener {
-	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
-	private Button BRegistrar, BEnviar;
-	private Label LNick, LMensaje, LUsuarios;
-	private TextField TNick, TMensaje;
-	private TextArea TAMensajes, TAUsuarios;
+	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,pCentralIzquierdaInferior;
+	private JButton BRegistrar, BEnviar,bPrivado;
+	private JLabel LNick, LMensaje, LUsuarios;
+	private JTextField TNick, TMensaje;
+	private JTextArea TAMensajes, TAUsuarios;
 	
 	public VentanaChat() {
 		setSize(500,500);		
@@ -48,10 +49,10 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	}
 	
 	void barraSuperior() {
-		PSuperior = new Panel();
-		LNick = new Label("Nick");
-		TNick = new TextField(80);
-		BRegistrar = new Button("Registrar");
+		PSuperior = new JPanel();
+		LNick = new JLabel("Nick");
+		TNick = new JTextField(80);
+		BRegistrar = new JButton("Registrar");
 		//PSuperior.setBackground(Color.red);
 		PSuperior.setVisible(true);
 		add(PSuperior, BorderLayout.NORTH);
@@ -61,10 +62,10 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	}
 	
 	void barraInferior() {
-		PInferior = new Panel();
-		LMensaje = new Label("Mensaje");
-		TMensaje = new TextField(90);
-		BEnviar = new Button("Enviar");
+		PInferior = new JPanel();
+		LMensaje = new JLabel("Mensaje");
+		TMensaje = new JTextField(90);
+		BEnviar = new JButton("Enviar");
 		//PInferior.setBackground(Color.yellow);
 		PInferior.setVisible(true);
 		add(PInferior, BorderLayout.SOUTH);
@@ -74,11 +75,11 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	}
 	
 	void barraIzquierda() {
-		PIzquierda = new Panel();
-		PSuperiorIzquierda = new Panel();
-		PInferiorIzquierda = new Panel();
-		LUsuarios = new Label("Usuarios");
-		TAUsuarios = new TextArea(30,30);
+		PIzquierda = new JPanel();
+		PSuperiorIzquierda = new JPanel();
+		PInferiorIzquierda = new JPanel();
+		LUsuarios = new JLabel("Usuarios");
+		TAUsuarios = new JTextArea(30,30);
 		TAUsuarios.setEditable(false);
 		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
@@ -91,14 +92,19 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	}
 	
 	void barraCentral() {
-		PCentral = new Panel();
-		TAMensajes = new TextArea();
+		PCentral = new JPanel();
+		TAMensajes = new JTextArea();
 		TAMensajes.setEditable(false);
 		//PCentral.setBackground(Color.black);
 		PCentral.setVisible(true);
+		pCentralIzquierdaInferior= new JPanel();
+		bPrivado= new JButton("PRIVADO");
+		bPrivado.addActionListener(this);
 		getPCentral().setLayout(new BorderLayout());
 		add(PCentral, BorderLayout.CENTER);
 		getPCentral().add(getTAMensajes());
+		getPCentralIzquierdaInferior().add(getBPrivado());
+		getPIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.SOUTH);
 	}
 
 	@Override
@@ -158,6 +164,9 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 					new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
 			
+		}
+		if(e.getSource().equals(getBPrivado())) {
+			System.out.println(getTAUsuarios().getSelectedText());
 		}
 		
 	}
