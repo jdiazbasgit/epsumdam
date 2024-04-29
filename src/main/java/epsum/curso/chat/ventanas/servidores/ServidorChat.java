@@ -48,9 +48,11 @@ public abstract class ServidorChat extends Thread {
 		String salida=""; 
 			try(BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(getSocket().getInputStream()))) {
 				salida=bufferedReader.readLine();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}	
+			System.out.print(salida);
 		return salida;
 	}
 	
