@@ -1,6 +1,7 @@
 package epsum.curso.chat.ventanas;
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
@@ -27,21 +28,13 @@ import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
-<<<<<<< HEAD
 public class VentanaChat extends Frame implements WindowListener,ActionListener,KeyListener  {
 	private Panel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
 	private Button BRegistrar, BEnviar;
 	private Label LNick, LMensaje, LUsuarios;
 	private TextField TNick, TMensaje;
 	private TextArea TAMensajes, TAUsuarios;
-=======
-public class VentanaChat extends JFrame implements WindowListener,ActionListener,KeyListener {
-	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,pCentralIzquierdaInferior;
-	private JButton BRegistrar, BEnviar,bPrivado;
-	private JLabel LNick, LMensaje, LUsuarios;
-	private JTextField TNick, TMensaje;
-	private JTextArea TAMensajes, TAUsuarios;
->>>>>>> 167974908ba936b376b4214dbcfe458de4bdea87
+
 	
 	public VentanaChat() {
 		setSize(500,500);		
@@ -164,7 +157,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
         if (e.getSource().equals(BRegistrar)) {
             ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(
                 ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
@@ -186,7 +178,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 
         
     
-=======
 		if(e.getSource().equals(getBRegistrar())) {
 			System.out.println("envio nick desde cliente");
 			ClienteEnvioRegistroCliente cliente= new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
@@ -201,7 +192,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		}
 		if(e.getSource().equals(getBPrivado())) {
 			System.out.println(getTAUsuarios().getSelectedText());
->>>>>>> 167974908ba936b376b4214dbcfe458de4bdea87
 		}
 		
 		public void keyPressed(KeyEvent e) {
@@ -214,19 +204,13 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	        }
 	}
 
-<<<<<<< HEAD
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+		
 
 		@Override
-		public void keyReleased(KeyEvent e) {
+		public void keyReleased1(KeyEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
-=======
 	@Override
 	public void keyTyped(KeyEvent e) {
 		System.out.println("code:"+e.getKeyCode());
@@ -234,7 +218,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed1(KeyEvent e) {
 		System.out.println("code:"+e.getKeyCode());
 		System.out.println("char:"+e.getKeyChar());
 		if(e.getKeyCode()==10
@@ -251,5 +235,4 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		System.out.println("code:"+e.getKeyCode());
 		System.out.println("char:"+e.getKeyChar());
 	}
->>>>>>> 167974908ba936b376b4214dbcfe458de4bdea87
 }

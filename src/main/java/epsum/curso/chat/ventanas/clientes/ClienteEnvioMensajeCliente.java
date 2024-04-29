@@ -23,10 +23,7 @@ public class ClienteEnvioMensajeCliente extends ClienteChat {
 		printWriter.println(getVentanaChat().getTMensaje().getText());
 		printWriter.flush();
 		getVentanaChat().getTMensaje().setText("");
-<<<<<<< HEAD
-=======
 
->>>>>>> 167974908ba936b376b4214dbcfe458de4bdea87
 	}
 
 }
