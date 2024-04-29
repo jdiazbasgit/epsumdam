@@ -23,6 +23,7 @@ import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioBajaCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroCliente;
+import epsum.curso.chat.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
@@ -33,6 +34,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	private JLabel LNick, LMensaje, LUsuarios;
 	private JTextField TNick, TMensaje;
 	private JTextArea TAMensajes, TAUsuarios;
+	private int puerto=9000;
 	
 	public VentanaChat() {
 		setSize(500,500);		
@@ -166,7 +168,15 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 			
 		}
 		if(e.getSource().equals(getBPrivado())) {
-			System.out.println(getTAUsuarios().getSelectedText());
+			
+			ServidorChat.usuarios.keySet().stream().forEach(ip->{
+				if(ServidorChat.usuarios.get(ip).equals(getTAUsuarios().getSelectedText())) {
+					ClienteenvioPeticionPrivado clienteenvioPeticionPrivado= new ClienteenvioPeticionPrivado(ip, ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA,this);
+					clienteenvioPeticionPrivado.start();
+					setPuerto(getPuerto()+1);
+				}
+					
+			});
 		}
 		
 	}
