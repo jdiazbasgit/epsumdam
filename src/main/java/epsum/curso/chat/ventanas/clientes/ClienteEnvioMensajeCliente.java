@@ -24,11 +24,8 @@ public class ClienteEnvioMensajeCliente extends ClienteChat {
 
 		PrintWriter printWriter= new PrintWriter(getSocket().getOutputStream());
 		printWriter.println(getVentanaChat().getTMensaje().getText());
-<<<<<<< HEAD
 		System.out.println(getVentanaChat().getTMensaje().getText());
-=======
-		getVentanaChat().getTMensaje().setText("");
->>>>>>> origin/chat
+
 		printWriter.flush();
 		getVentanaChat().getTMensaje().setText("");
 

@@ -28,9 +28,6 @@ public class ServidorEscuchaMensajeServidor extends ServidorChat {
 		
 	}
 
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> origin/chat
+
