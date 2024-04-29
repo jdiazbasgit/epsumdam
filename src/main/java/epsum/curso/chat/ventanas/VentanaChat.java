@@ -169,7 +169,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 			System.out.println(getTAUsuarios().getSelectedText());
 		}
 		
-	}
+	} 
 
 	@Override
 	public void keyTyped(KeyEvent e) {
