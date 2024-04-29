@@ -14,6 +14,8 @@ public class VerVentanaChat {
 		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= 
 				new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, ventana);
 		servidorEscuchaRegistroCliente.start();
+		ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
+		servidorMensaje.start();
 		
 		ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente= 
 				new  ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
