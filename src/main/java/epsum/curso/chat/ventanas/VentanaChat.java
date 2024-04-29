@@ -82,6 +82,7 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener,
 	}
 
 	void barraIzquierda() {
+<<<<<<< HEAD
 		PIzquierda = new Panel();
 		PSuperiorIzquierda = new Panel();
 		PInferiorIzquierda = new Panel();
@@ -89,6 +90,15 @@ public class VentanaChat extends Frame implements WindowListener,ActionListener,
 		TAUsuarios = new TextArea(30, 30);
 
 		// PIzquierda.setBackground(Color.green);
+=======
+		PIzquierda = new JPanel();
+		PSuperiorIzquierda = new JPanel();
+		PInferiorIzquierda = new JPanel();
+		LUsuarios = new JLabel("Usuarios");
+		TAUsuarios = new JTextArea(30,30); 
+		TAUsuarios.setEditable(false);
+		//PIzquierda.setBackground(Color.green);
+>>>>>>> origin/chat-danig
 		PIzquierda.setVisible(true);
 		add(PIzquierda, BorderLayout.WEST);
 		getPIzquierda().setLayout(new BorderLayout());
