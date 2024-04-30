@@ -4,20 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeServidor;
-
-public class ServidorEscuchaMensajeServidor extends ServidorChat {
-
-	public ServidorEscuchaMensajeServidor(int puerto) {
-
-import java.util.HashMap;
-import java.util.Map;
-
-import epsum.curso.chat.ventanas.clientes.ClienteChat;
-import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeServidor;
-import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroServidor;
 
 public class ServidorEscuchaMensajeServidor extends ServidorChat {
 
