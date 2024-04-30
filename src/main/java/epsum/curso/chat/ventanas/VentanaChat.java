@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,11 +30,13 @@ import lombok.Data;
 @Data
 
 public class VentanaChat extends JFrame implements WindowListener,ActionListener, KeyListener {
-	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda;
-	private JButton BRegistrar, BEnviar;
+	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda, pCentralIzquierdaInferior;
+	private JButton BRegistrar, BEnviar, bPrivado;
 	private JLabel LNick, LMensaje, LUsuarios;
 	private JTextField TNick, TMensaje;
 	private JTextArea TAMensajes, TAUsuarios;
+	private JDialog fMensajePrivado;
+	private VentanaDialog dialogPrivado;
 	
 	public VentanaChat() {
 		setSize(500,500);		
@@ -46,7 +49,9 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
-		
+		dialogPrivado = new VentanaDialog();
+		dialogPrivado.setLocationRelativeTo(null);
+		dialogPrivado.setVisible(false);
 		
 	}
 	
@@ -65,11 +70,11 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	
 	void barraInferior() {
 
-		PInferior = new Panel();
-		LMensaje = new Label("Mensaje");
-		TMensaje = new TextField(90);
+		PInferior = new JPanel();
+		LMensaje = new JLabel("Mensaje");
+		TMensaje = new JTextField(90);
 		TMensaje.addKeyListener(this);
-		BEnviar = new Button("Enviar");
+		BEnviar = new JButton("Enviar");
 		PInferior = new JPanel();
 		LMensaje = new JLabel("Mensaje");
 		TMensaje = new JTextField(90);
@@ -84,11 +89,11 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	
 	void barraIzquierda() {
 
-		PIzquierda = new Panel();
-		PSuperiorIzquierda = new Panel();
-		PInferiorIzquierda = new Panel();
-		LUsuarios = new Label("Usuarios");
-		TAUsuarios = new TextArea(30,30);
+		PIzquierda = new JPanel();
+		PSuperiorIzquierda = new JPanel();
+		PInferiorIzquierda = new JPanel();
+		LUsuarios = new JLabel("Usuarios");
+		TAUsuarios = new JTextArea(30,30);
 		TAUsuarios.setEditable(false);
 		//PIzquierda.setBackground(Color.green);
 		PIzquierda.setVisible(true);
@@ -102,8 +107,8 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	
 	void barraCentral() {
 
-		PCentral = new Panel();
-		TAMensajes = new TextArea();
+		PCentral = new JPanel();
+		TAMensajes = new JTextArea();
 		TAMensajes.setEditable(false);
 		//PCentral.setBackground(Color.black);
 		PCentral.setVisible(true);
@@ -116,6 +121,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		getPCentralIzquierdaInferior().add(getBPrivado());
 		getPIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.SOUTH);
 	}
+	
 
 	@Override
 	public void windowOpened(WindowEvent e) {
@@ -182,7 +188,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		}
 		if(e.getSource().equals(getBPrivado())) {
 			System.out.println(getTAUsuarios().getSelectedText());
-
+			dialogPrivado.setVisible(true);
 		}
 		
 	}
