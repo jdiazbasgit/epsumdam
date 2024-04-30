@@ -1,5 +1,7 @@
 package epsum.curso.conexiondatos.ventanas;
 
+import java.awt.BorderLayout;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -7,6 +9,7 @@ import java.awt.event.WindowListener;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -55,6 +58,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private DatoLaboralService datoLaboralService;
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
+	//@Autowired
+	//private PanelCargos panelCargos;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -78,12 +83,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	
 
 	public VentanaDatos() {
-		// setSize(1000, 1000);
+		
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		// setResizable(false);
 		this.addWindowListener(this);
-		// (new FlowLayout());
-
 		menuBar = new JMenuBar();
 		menu = new JMenu("opciones");
 		empresas = new JMenuItem("empresas");
@@ -293,8 +295,23 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
 			this.show();
 		}
-		if(e.getSource().equals(salir))
-			System.exit(0);
+		if(e.getSource().equals(salir)) {
+			JDialog dialog= new JDialog();
+			dialog.setSize(500,500);
+			dialog.setLocation(200,200);
+			dialog.setVisible(true);
+			dialog.add(new Label("soy un texto en el dialog"),BorderLayout.NORTH);
+			JButton boton= new JButton("cerrar");
+			dialog.add(boton);
+			boton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					dialog.setVisible(false);
+					
+				}
+			});
+		}
 	}
 
 	public EstadoCivilService getEstadoCivilService() {
