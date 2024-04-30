@@ -32,4 +32,7 @@ public class HijoService {
 		getHijoCrudRepository().deleteById(id);
 	}
 
+	public boolean existById(int id) {
+		return getHijoCrudRepository().existsById(id);
+	}
 }
