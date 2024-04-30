@@ -14,6 +14,10 @@ import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
 @Data
 public class PanelEmpleado extends PanelComponente {
+	public PanelEmpleado(Object[] cabeceras, Object[][] datos, String titulo) {
+		super(cabeceras, datos, titulo);
+	}
+	
 	private EmpresaService empresaService;
 	private JDialog dialog1 ;
 	private Label lNombre;
@@ -29,18 +33,24 @@ public class PanelEmpleado extends PanelComponente {
 	//private JComboBox cEmpresa ;
 	private Label lDatoLaboral ;
 	private Label lDatoPersonal ;
-	public PanelEmpleado(Object[] cabeceras, Object[][] datos, String titulo) {
-		super(cabeceras, datos, titulo);
-	}
+	
 	
 	
 	@Override
 	public void alta() {
-		dialog1.setSize(1000,1000);
+		dialog1.setSize(500,500);
 		dialog1.setVisible(true);
 		lNombre = new Label("Nombre");
 		tNombre = new JTextField();
 		lDni = new Label("DNI");
+		tDni = new JTextField();
+		lEmail = new Label("Correo Electrónico");
+		tEmail = new JTextField();
+		lEmpresa = new Label("Empresa");
+		lDatoLaboral = new Label("Dato Laboral");
+		lDatoPersonal = new Label("Dato Personal");
+		
+		dialog1.add(lNombre, BorderLayout.CENTER);
 
 	}
 

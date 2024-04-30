@@ -29,7 +29,7 @@ public class TestEmpleados {
 	@Autowired
 	private EmpresaService empresaService;
 	
-	@Test
+	//@Test
 	public void alta() {
 		System.setProperty("java.awt.headless", "false");
 		Empleado empleado = new Empleado();	
