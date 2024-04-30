@@ -91,6 +91,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		getPIzquierda().add(getTAUsuarios());
 	}
 	
+	
 	void barraCentral() {
 		PCentral = new JPanel();
 		TAMensajes = new JTextArea();
