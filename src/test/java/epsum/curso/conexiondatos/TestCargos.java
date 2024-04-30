@@ -18,7 +18,7 @@ public class TestCargos {
 	@Autowired
 	private CargoService cargoService;
 	
-	
+	 
 	@Test
 	public void alta() {
 		System.setProperty("java.awt.headless", "false");
