@@ -24,4 +24,7 @@ public class EstadoCivil {
 	private String descripcion;
 
 	
+	
+
+	
 }

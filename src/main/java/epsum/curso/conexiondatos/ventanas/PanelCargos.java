@@ -20,8 +20,7 @@ public class PanelCargos extends PanelComponente {
 
 	@Override
 	public void modificar() {
-		// TODO Auto-generated method stub
-
+		System.out.println("entro");
 	}
 
 }

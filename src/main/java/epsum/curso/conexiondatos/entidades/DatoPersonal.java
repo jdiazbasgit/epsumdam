@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,9 +24,11 @@ public class DatoPersonal
 	private int id;
 	
 	@ManyToOne
+	@JoinColumn(name = "hijos_id")
 	private Hijo hijo;
 	
 	@ManyToOne
+	@JoinColumn(name="estados_civiles_id")
 	private  EstadoCivil estadoCivil;
 	
 
