@@ -37,7 +37,7 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 	public VentanaChat() {
 		setSize(500,500);		
 		setLayout(new BorderLayout());
-		setVisible(true);
+		setVisible(true); 
 		this.addWindowListener(this);
 		barraSuperior();
 		barraInferior();
