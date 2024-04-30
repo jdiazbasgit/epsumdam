@@ -1,41 +1,63 @@
 package epsum.curso.conexiondatos.ventanas;
 
-import java.awt.Choice;
-import java.awt.Graphics;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
-import java.awt.Panel;
+import java.awt.BorderLayout;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EstadoCivilService;
+import lombok.Data;
+import epsum.curso.conexiondatos.entidades.Empresa;
+import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EmpresaService;
+import epsum.curso.conexiondatos.entidades.Empleado;
+import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EmpleadoService;
+
+import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
-//@Component
+import epsum.curso.conexiondatos.entidades.DatoLaboral;
+import epsum.curso.conexiondatos.servicios.DatoLaboralService;
+import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
+import epsum.curso.conexiondatos.entidades.DatoPersonal;
+
+@Component
 //@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private EstadoCivilService estadoCivilService;
+	@Autowired
+	private EmpresaService empresaService;
+	@Autowired
+	private EmpleadoService empleadoService;
+	@Autowired
+	private HijoService hijoService;
+	@Autowired
+	private DatoLaboralService datoLaboralService;
+	@Autowired
+	private DatosPersonalesService datosPersonalesService;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -47,7 +69,16 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private JMenuItem datosPersonales;
 	private JMenuItem empleados;
 	private JMenuItem salir;
-	private JButton modificar,borrar;
+	private JButton modificar, borrar;
+	public DatosPersonalesService getDatosPersonalesService() {
+		return datosPersonalesService;
+	}
+
+	public void setDatosPersonalesService(DatosPersonalesService datosPersonalesService) {
+		this.datosPersonalesService = datosPersonalesService;
+	}
+
+	
 
 	public VentanaDatos() {
 		// setSize(1000, 1000);
@@ -55,17 +86,26 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		// setResizable(false);
 		this.addWindowListener(this);
 		// (new FlowLayout());
+
 		menuBar = new JMenuBar();
 		menu = new JMenu("opciones");
 		empresas = new JMenuItem("empresas");
 		hijos = new JMenuItem("hijos");
 		estadosCiviles = new JMenuItem("estados civiles");
 		cargos = new JMenuItem("cargos");
-		cargos.addActionListener(this);
-		datosLaborales = new JMenuItem("datos laborales");
-		datosPersonales = new JMenuItem("datos personales");
-		empleados = new JMenuItem("empleados");
 		salir = new JMenuItem("salir");
+		cargos.addActionListener(this);
+		estadosCiviles.addActionListener(this);
+		empresas.addActionListener(this);
+		hijos.addActionListener(this);
+		datosPersonales = new JMenuItem("datos personales");
+		datosPersonales.addActionListener(this);
+		datosLaborales = new JMenuItem("datos laborales");
+		datosLaborales.addActionListener(this);
+		salir.addActionListener(this);
+		empleados = new JMenuItem("empleados");
+		empleados.addActionListener(this);
+		
 		setJMenuBar(menuBar);
 		menu.add(empresas);
 		menu.add(cargos);
@@ -77,14 +117,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		menu.addSeparator();
 		menu.add(salir);
 		menuBar.add(menu);
-		modificar= new JButton("MODIFICAR");
-		borrar= new JButton("BORRAR");
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		g.drawRect(100,100,100,100);
-		show();
+		modificar = new JButton("MODIFICAR");
+		borrar = new JButton("BORRAR");
 	}
 
 	@Override
@@ -133,25 +167,160 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "DESCRIPCION", "ACCIONES" };
-			List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
-			Object[][] datos = new Object[(int) getCargoService().count()][3];
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
+			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
+			Object[][] datos = new Object[(int) cargoService.count()][2];
 			int i = 0;
-			for(Cargo cargo:cargos)
-			 {
-				datos[i][0]=String.valueOf(cargo.getId());
-				datos[i][1]=cargo.getDescripcion();
-				JPanel panel= new JPanel();
-				datos[i][2]=panel;
-				panel.add(modificar);
-				panel.add(borrar);
+			for (Cargo cargo : cargos) {
+				datos[i][0] = String.valueOf(cargo.getId());
+				datos[i][1] = cargo.getDescripcion();
+
 				i++;
-				
-			};
+
+			}
+			;
 			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
 			this.show();
 		}
+		if (e.getSource().equals(datosPersonales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
+			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
+			int i = 0;
+			for (DatoPersonal datoPersonal : datosPersonales) {
+				datos[i][0] = String.valueOf(datoPersonal.getId());
+				datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
+				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
+				i++;
 
+			}
+			getContentPane().add(new PanelDatosPersonales(cabeceras, datos, "DATOS PERSONALES"));
+			this.show();
+		}
+		if (e.getSource().equals(estadosCiviles)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
+			List<EstadoCivil> estadosCiviles = (List<EstadoCivil>) getEstadoCivilService().findAll();
+			Object[][] datos = new Object[(int) getEstadoCivilService().count()][2];
+			int i = 0;
+			for (EstadoCivil estadoCivil : estadosCiviles) {
+				datos[i][0] = String.valueOf(estadoCivil.getId());
+				datos[i][1] = estadoCivil.getDescripcion();
+
+				i++;
+
+			}
+			
+			getContentPane().add(new PanelEstadosCiviles(cabeceras, datos, "ESTADOS CIVILES"));
+			this.show();
+		}
+
+		if (e.getSource().equals(empleados)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
+					"DATOS_LABORALES" };
+			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
+			Object[][] datos = new Object[(int) empleadoService.count()][8];
+			int i = 0;
+			for (Empleado empleado : empleados) {
+				datos[i][0] = String.valueOf(empleado.getId());
+				datos[i][1] = empleado.getNombre();
+				datos[i][2] = empleado.getDni();
+				datos[i][3] = empleado.getEmail();
+				datos[i][4] = empleado.getTelefono();
+				datos[i][5] = empleado.getEmpresa().getNombre();
+				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
+						+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
+						+ empleado.getDatoPersonal().getHijo().getChicas();
+				datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
+						+ empleado.getDatoLaboral().getSalario();
+
+				i++;
+
+			}
+			;
+			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			this.show();
+
+		}
+
+		if (e.getSource().equals(hijos)) {
+			getContentPane().removeAll();
+			String[] cabeceras = { "ID", "CHICOS", "CHICAS" };
+			List<Hijo> hijos = (List<Hijo>) getHijoService().findAll();
+			Object[][] datos = new Object[(int) getHijoService().count()][3];
+			int i = 0;
+			for (Hijo c : hijos) {
+				datos[i][0] = String.valueOf(c.getId());
+				datos[i][1] = String.valueOf(c.getChicos());
+				datos[i][2] = String.valueOf(c.getChicas());
+				i++;
+			}
+			getContentPane().add(new PanelHijos(cabeceras, datos, "HIJOS"));
+			this.show();
+		}
+		if (e.getSource().equals(datosLaborales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
+			List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
+			Object[][] datos = new Object[(int) datoLaboralService.count()][3];
+			int i = 0;
+			for (DatoLaboral datoLaboral : datosLaborales) {
+				datos[i][0] = String.valueOf(datoLaboral.getId());
+				datos[i][1] = datoLaboral.getSalario();
+				datos[i][2] = datoLaboral.getCargo().getDescripcion();
+
+				i++;
+
+			}
+			;
+			getContentPane().add(new PanelDatosLaborales(cabeceras, datos, "DATOS LABORALES"));
+			this.show();
+		}
+
+		if (e.getSource().equals(empresas)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "NOMBRE", "CIF" };
+			List<Empresa> empresas = (List<Empresa>) getEmpresaService().findAll();
+			Object[][] datos = new Object[(int) getEmpresaService().count()][3];
+			int i = 0;
+			for (Empresa empresa : empresas) {
+				datos[i][0] = String.valueOf(empresa.getId());
+				datos[i][1] = empresa.getNombre();
+				datos[i][2] = empresa.getCif();
+				i++;
+
+			}
+			;
+			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
+			this.show();
+		}
+		if(e.getSource().equals(salir)) {
+			JDialog dialog= new JDialog();
+			dialog.setSize(500,500);
+			dialog.setLocation(200,200);
+			dialog.setVisible(true);
+			dialog.add(new Label("soy un texto en el dialog"),BorderLayout.NORTH);
+			JButton boton= new JButton("cerrar");
+			dialog.add(boton);
+			boton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					dialog.setVisible(false);
+					
+				}
+			});
+		}
+	}
+
+	public EstadoCivilService getEstadoCivilService() {
+		return estadoCivilService;
+	}
+
+	public void setEstadoCivilService(EstadoCivilService estadoCivilService) {
+		this.estadoCivilService = estadoCivilService;
 	}
 
 	public CargoService getCargoService() {
@@ -169,7 +338,6 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void setPrimeraVez(boolean primeraVez) {
 		this.primeraVez = primeraVez;
 	}
-
 
 	public JMenu getMenu() {
 		return menu;
@@ -257,5 +425,21 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setBorrar(JButton borrar) {
 		this.borrar = borrar;
+	}
+
+	public EmpresaService getEmpresaService() {
+		return empresaService;
+	}
+
+	public void setEmpresaService(EmpresaService empresaService) {
+		this.empresaService = empresaService;
+	}
+
+	public HijoService getHijoService() {
+		return hijoService;
+	}
+
+	public void setHijoService(HijoService hijoService) {
+		this.hijoService = hijoService;
 	}
 }

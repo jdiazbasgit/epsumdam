@@ -28,6 +28,16 @@ public class DatosPersonalesService {
 		return getDatosPersonalesCrudRepository().save(datoPersonal);
 	}
 	
+	public long count() {
+		return getDatosPersonalesCrudRepository().count();
+	}
+	public void deleteById(int id) {
+		getDatosPersonalesCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getDatosPersonalesCrudRepository().existsById(id);
+	}
 	/*public void delete(EstadoCivil estadoCivil) {
 		 getEstadoCivilCrudRepository().delete(estadoCivil);
 		 
