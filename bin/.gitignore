@@ -10,10 +10,7 @@ target/
 .factorypath
 .project
 .settings
-<<<<<<< HEAD
 /target
-=======
->>>>>>> springjpa-datospersonales-oscarGM
 .springBeans
 .sts4-cache
 
@@ -34,8 +31,4 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-<<<<<<< HEAD
 .vscode/
-=======
-.vscode/
->>>>>>> springjpa-datospersonales-oscarGM
