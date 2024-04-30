@@ -10,6 +10,10 @@ target/
 .factorypath
 .project
 .settings
+<<<<<<< HEAD
+=======
+/target
+>>>>>>> springjpa
 .springBeans
 .sts4-cache
 
