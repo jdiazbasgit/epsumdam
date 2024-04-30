@@ -58,6 +58,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private DatoLaboralService datoLaboralService;
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
+	@Autowired
+	private PanelCargos panelCargos;
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -82,12 +84,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public VentanaDatos() {
 		
-		// setSize(1000, 1000);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		// setResizable(false);
 		this.addWindowListener(this);
-		// (new FlowLayout());
-
 		menuBar = new JMenuBar();
 		menu = new JMenu("opciones");
 		empresas = new JMenuItem("empresas");
