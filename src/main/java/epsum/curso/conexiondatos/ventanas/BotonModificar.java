@@ -1,48 +1,85 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.Action;
-import javax.swing.Icon;
+import javax.swing.AbstractCellEditor;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
 import lombok.Data;
 
 @Data
-public class BotonModificar extends JButton implements TableCellRenderer {
-	private int id;
+public class BotonModificar extends AbstractCellEditor implements TableCellRenderer, TableCellEditor, ActionListener {
+	JButton renderButton = new JButton();
+	JButton editButton = new JButton();
+	String text = new String("");
+	String toolTipText = new String("");
+	private static final long serialVersionUID = 19791L;
 
-	public BotonModificar() {
-		// TODO Auto-generated constructor stub
+	public BotonModificar(ActionListener eListener) {
+		super();
+		editButton.addActionListener(this); // Para adminitir eventos
+		initClass(eListener);
 	}
 
-	public BotonModificar(Icon icon) {
-		super(icon);
-		// TODO Auto-generated constructor stub
+	public BotonModificar(ActionListener eListener, String newTexto, String newToolTipText) {
+		super();
+		editButton.addActionListener(this);
+		initClass(eListener);
+		text = newTexto;
+		editButton.setText(text);
+		renderButton.setText(text);
+
+		toolTipText = newToolTipText;
+		editButton.setToolTipText(toolTipText);
+		renderButton.setToolTipText(toolTipText);
 	}
 
-	public BotonModificar(String text) {
-		super(text);
-		// TODO Auto-generated constructor stub
+	private void initClass(ActionListener eListener) {
+		editButton.setFocusPainted(false);
+		editButton.addActionListener(eListener);
 	}
 
-	public BotonModificar(Action a) {
-		super(a);
-		// TODO Auto-generated constructor stub
-	}
-
-	public BotonModificar(String text, Icon icon) {
-		super(text, icon);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 			int row, int column) {
-		setText("MODIFICAR");
-		return this;
+		if (hasFocus) {
+			renderButton.setForeground(table.getForeground());
+			renderButton.setBackground(UIManager.getColor("Button.background"));
+		} else if (isSelected) {
+			renderButton.setForeground(table.getSelectionForeground());
+			renderButton.setBackground(table.getSelectionBackground());
+		} else {
+			renderButton.setForeground(table.getForeground());
+			renderButton.setBackground(UIManager.getColor("Button.background"));
+		}
+
+		if (text.equals(""))
+			renderButton.setText((value == null) ? "" : value.toString());
+		else
+			renderButton.setText(text);
+
+		return renderButton;
 	}
 
+	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+		if (text.equals(""))
+			text = (value == null) ? "" : value.toString();
+
+		editButton.setText(text);
+		return editButton;
+	}
+
+	public Object getCellEditorValue() {
+		return text;
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("en boton");
+		fireEditingStopped();
+	}
 }

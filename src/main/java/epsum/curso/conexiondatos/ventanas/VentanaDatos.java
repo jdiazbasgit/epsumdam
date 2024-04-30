@@ -81,6 +81,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	
 
 	public VentanaDatos() {
+		
 		// setSize(1000, 1000);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		// setResizable(false);
