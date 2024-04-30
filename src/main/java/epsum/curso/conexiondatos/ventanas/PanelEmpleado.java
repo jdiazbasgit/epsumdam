@@ -18,7 +18,7 @@ public class PanelEmpleado extends PanelComponente {
 		super(cabeceras, datos, titulo);
 	}
 	
-	private EmpresaService empresaService;
+
 	private JDialog dialog1 ;
 	private Label lNombre;
 	private JTextField tNombre ;
