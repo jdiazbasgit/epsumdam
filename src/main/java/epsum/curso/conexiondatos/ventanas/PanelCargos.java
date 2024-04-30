@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class PanelCargos extends PanelComponente {
 
-	private CargoService cargoService;
+	//private CargoService cargoService;
 	
 	private Object[] cabeceras;
 	
