@@ -22,4 +22,17 @@ public class DatoLaboralService {
 		return getDatoLaboralCrudRepository().save(datoLaboral);
 	}
 	
+
+	public long count() {
+		return getDatoLaboralCrudRepository().count();
+	}
+	
+	public void deleteById(int id) {
+		getDatoLaboralCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getDatoLaboralCrudRepository().existsById(id);
+	}
+	
 }
