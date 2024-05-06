@@ -17,12 +17,12 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajePrivado;
 import lombok.Data;
 
 @Data
-public class ServidorEscuchaSolicitudPrtivado extends ServidorChat {
+public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 
 	private VentanaChat ventanaChat;
 	private String ipOtro;
 	private int puertoDelOtro;
-	public ServidorEscuchaSolicitudPrtivado(int puerto,VentanaChat ventanaChat) {
+	public ServidorEscuchaSolicitudPrivado(int puerto,VentanaChat ventanaChat) {
 		super(puerto);
 		this.ventanaChat=ventanaChat;
 	}
