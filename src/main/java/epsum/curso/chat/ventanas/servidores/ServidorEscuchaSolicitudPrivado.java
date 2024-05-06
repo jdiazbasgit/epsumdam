@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.stereotype.Service;
+
 import epsum.curso.chat.ventanas.DialogPrivado;
 import epsum.curso.chat.ventanas.VentanaChat;
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
@@ -19,6 +21,7 @@ import epsum.curso.chat.ventanas.clientes.ClienteenvioPeticionPrivado;
 import lombok.Data;
 
 @Data
+@Service
 public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 
 	private VentanaChat ventanaChat;
