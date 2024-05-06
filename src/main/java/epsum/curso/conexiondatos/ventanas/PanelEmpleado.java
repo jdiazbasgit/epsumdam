@@ -8,7 +8,8 @@ import java.util.Vector;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
-
+import epsum.curso.conexiondatos.servicios.EmpleadoService;
+import epsum.curso.conexiondatos.entidades.Empleado;
 import epsum.curso.conexiondatos.entidades.Empresa;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
@@ -19,25 +20,26 @@ public class PanelEmpleado extends PanelComponente {
 	}
 	
 
-	private JDialog dialog1 ;
+	private JDialog dialog1;
 	private Label lNombre;
-	private JTextField tNombre ;
+	private JTextField tNombre;
 	private Label lDni;
 	private JTextField tDni;
 	private Label lEmail;
 	private JTextField tEmail;
-	private Label lTelefono ;
-	private JTextField tTelefono ;
-	private Label lEmpresa ;
+	private Label lTelefono;
+	private JTextField tTelefono;
+	private Label lEmpresa;
 	//private Vector<Empresa> empresas;
-	//private JComboBox cEmpresa ;
-	private Label lDatoLaboral ;
-	private Label lDatoPersonal ;
+	//private JComboBox cEmpresa;
+	private Label lDatoLaboral;
+	private Label lDatoPersonal;
 	
 	
 	
 	@Override
 	public void alta() {
+		dialog1 = new JDialog();
 		dialog1.setSize(500,500);
 		dialog1.setVisible(true);
 		lNombre = new Label("Nombre");
