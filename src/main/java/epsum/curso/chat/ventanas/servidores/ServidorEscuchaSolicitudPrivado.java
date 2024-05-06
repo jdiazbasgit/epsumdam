@@ -13,7 +13,9 @@ import javax.swing.JTextField;
 
 import epsum.curso.chat.ventanas.DialogPrivado;
 import epsum.curso.chat.ventanas.VentanaChat;
+import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajePrivado;
+import epsum.curso.chat.ventanas.clientes.ClienteenvioPeticionPrivado;
 import lombok.Data;
 
 @Data
@@ -34,6 +36,10 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 		DialogPrivado jDialog= new DialogPrivado(getVentanaChat(),ServidorChat.usuarios.get(getIpOtro()),  getVentanaChat().getPuerto(),getIpOtro());
 		jDialog.setVisible(true);
 		getVentanaChat().setPuerto(getVentanaChat().getPuerto()+1);
+		ClienteenvioPeticionPrivado clienteenvioPeticionPrivado= new ClienteenvioPeticionPrivado(getIpOtro(), ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
+		clienteenvioPeticionPrivado.start();
+		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getPuertoDelOtro(), ServidorChat.usuarios.get(getIpOtro()), jDialog);
+		servidorEscuchaMensajePrivado.start();
 		
 		
 	}
