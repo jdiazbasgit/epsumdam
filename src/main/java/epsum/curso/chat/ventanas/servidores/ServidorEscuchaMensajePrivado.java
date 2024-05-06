@@ -9,22 +9,24 @@ import lombok.Data;
 
 @Data
 public class ServidorEscuchaMensajePrivado extends ServidorChat {
-	
+
+
 	private String otro;
 	private DialogPrivado dialogPrivado;
-	public ServidorEscuchaMensajePrivado(int puerto, String otro) {
+	public ServidorEscuchaMensajePrivado(int puerto,String otro,DialogPrivado dialogPrivado) {
 		super(puerto);
 		this.otro = otro;
 		this.dialogPrivado = dialogPrivado;
+
 		
 	}
 
 	@Override
 	public void hacerAlgo() throws IOException {
-		String mensaje = recibirTexto();
-		getDialogPrivado().getJTextArea().append(otro );
-		
 
+		String mensaje= recibirTexto();
+		getDialogPrivado().getJTextArea().append(otro+" dice: "+mensaje+"\n");
+		
 	}
 
 }
