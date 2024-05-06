@@ -37,13 +37,13 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 		DialogPrivado jDialog= new DialogPrivado(getVentanaChat(),ServidorChat.usuarios.get(getIpOtro()),  getVentanaChat().getPuerto(),getIpOtro());
 		jDialog.setVisible(true);
 		getVentanaChat().setPuerto(getVentanaChat().getPuerto()+1);
-		if (!primeraVez) {
+		if (!isPrimeraVez()) {
 			ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(getIpOtro(),
 					ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
 			clienteenvioPeticionPrivado.start();
 			setPrimeraVez(true);
 		}
-		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getPuertoDelOtro(), ServidorChat.usuarios.get(getIpOtro()), jDialog);
+		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getVentanaChat().getPuerto(), ServidorChat.usuarios.get(getIpOtro()), jDialog);
 		servidorEscuchaMensajePrivado.start();
 		
 		
