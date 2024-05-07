@@ -49,10 +49,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
-		dialogPrivado = new VentanaDialog();
-		dialogPrivado.setLocationRelativeTo(null);
-		dialogPrivado.setVisible(false);
-		
 	}
 	
 	void barraSuperior() {
@@ -74,10 +70,6 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		LMensaje = new JLabel("Mensaje");
 		TMensaje = new JTextField(90);
 		TMensaje.addKeyListener(this);
-		BEnviar = new JButton("Enviar");
-		PInferior = new JPanel();
-		LMensaje = new JLabel("Mensaje");
-		TMensaje = new JTextField(90);
 		BEnviar = new JButton("Enviar");
 		//PInferior.setBackground(Color.yellow);
 		PInferior.setVisible(true);
@@ -188,6 +180,8 @@ public class VentanaChat extends JFrame implements WindowListener,ActionListener
 		}
 		if(e.getSource().equals(getBPrivado())) {
 			System.out.println(getTAUsuarios().getSelectedText());
+			String tituloDialogo = getTAUsuarios().getSelectedText();
+			dialogPrivado = new VentanaDialog();
 			dialogPrivado.setVisible(true);
 		}
 		
