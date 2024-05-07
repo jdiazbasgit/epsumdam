@@ -61,11 +61,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
-<<<<<<< HEAD
 	private PanelEmpleado panelEmpleado;
-=======
+	
 	private PanelHijos panelHijos;
->>>>>>> origin/springjpa
 	
 	private boolean primeraVez;
 	private JMenuBar menuBar;
