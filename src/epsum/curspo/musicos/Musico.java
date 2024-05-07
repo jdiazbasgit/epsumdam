@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import epsum.curspo.instrumentos.Instrumento;
 
-@Component
 public abstract class Musico implements MusicoInterface {
 
 	@Autowired

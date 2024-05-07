@@ -23,7 +23,8 @@ public class ConciertoSolistaSpring {
 		}
 
 		ApplicationContext armario= new AnnotationConfigApplicationContext(Configuracion.class);
-		Musico pepe= (Musico) armario.getBean("musico");
+		//ApplicationContext armario =new ClassPathXmlApplicationContext("spring.xml");
+		Musico pepe= (Musico) armario.getBean("solista");
 		pepe.tocar();
 	}
 

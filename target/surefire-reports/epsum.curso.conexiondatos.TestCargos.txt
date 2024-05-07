@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: epsum.curso.conexiondatos.TestCargos
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.841 s <<< FAILURE! - in epsum.curso.conexiondatos.TestCargos
+alta  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'conexionDatosApplication': Unsatisfied dependency expressed through field 'ventanaDatos'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ventanaDatos' defined in file [C:\Users\Usuario\git\epsumdam\target\classes\epsum\curso\conexiondatos\ventanas\VentanaDatos.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [epsum.curso.conexiondatos.ventanas.VentanaDatos]: Constructor threw exception; nested exception is java.awt.HeadlessException
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ventanaDatos' defined in file [C:\Users\Usuario\git\epsumdam\target\classes\epsum\curso\conexiondatos\ventanas\VentanaDatos.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [epsum.curso.conexiondatos.ventanas.VentanaDatos]: Constructor threw exception; nested exception is java.awt.HeadlessException
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [epsum.curso.conexiondatos.ventanas.VentanaDatos]: Constructor threw exception; nested exception is java.awt.HeadlessException
+Caused by: java.awt.HeadlessException
+

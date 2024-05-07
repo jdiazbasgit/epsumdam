@@ -18,5 +18,4 @@
 		<property name="instrumento" ref="guitarra"></property>
 	</bean>
 
-	<context:component-scan base-package="epsum.curspo"></context:component-scan>
 </beans>
