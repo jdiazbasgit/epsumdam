@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.entidades.Empleado;
@@ -53,7 +54,7 @@ public class PanelEmpleado extends PanelComponente {
 		lDatoPersonal = new Label("Dato Personal");
 		
 		dialog1.add(lNombre, BorderLayout.CENTER);
-
+		//JOptionPane
 	}
 
 	@Override
