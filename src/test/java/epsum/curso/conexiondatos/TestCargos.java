@@ -4,6 +4,7 @@ package epsum.curso.conexiondatos;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -17,8 +18,8 @@ public class TestCargos {
 	@Autowired
 	private CargoService cargoService;
 	
-	
-	//@Test
+	 
+	@Test
 	public void alta() {
 		System.setProperty("java.awt.headless", "false");
 		Cargo cargo= new Cargo();
