@@ -1,7 +1,5 @@
 package epsum.curso.conexiondatos.servicios;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +26,10 @@ public class CargoService {
 	}
 	public void deleteById(int id) {
 		getCargoCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getCargoCrudRepository().existsById(id);
 	}
 }
 	
