@@ -44,7 +44,7 @@ public class PanelEmpleado extends PanelComponente {
 		dialog1.setVisible(true);
 		lNombre = new Label("Nombre");
 		tNombre = new JTextField();
-		lDni = new Label("DNI");
+		lDni = new Label("DNI"); 
 		tDni = new JTextField();
 		lEmail = new Label("Correo Electrónico");
 		tEmail = new JTextField();
