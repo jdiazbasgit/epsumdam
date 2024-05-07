@@ -10,10 +10,7 @@ target/
 .factorypath
 .project
 .settings
-<<<<<<< HEAD
-=======
 /target
->>>>>>> refs/remotes/origin/springjpa-empresa
 .springBeans
 .sts4-cache
 
