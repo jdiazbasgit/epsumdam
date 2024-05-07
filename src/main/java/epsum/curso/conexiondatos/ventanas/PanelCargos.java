@@ -4,6 +4,7 @@ import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
 
@@ -24,7 +25,9 @@ public class PanelCargos extends PanelComponente {
 
 	@Override
 	public void alta() {
-		// TODO Auto-generated method stub
+		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		Object[] datos = { "0", "" };
+		defaultTableModel.addRow(datos);
 
 	}
 
@@ -32,13 +35,20 @@ public class PanelCargos extends PanelComponente {
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
 		getCargoService().deleteById(id);
-		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
+		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		defaultTableModel.removeRow(getTabla().getSelectedRow());
 	}
 
 	@Override
 	public void modificar() {
-		System.out.println("entro");
+		for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
+			Cargo cargo = new Cargo();
+			cargo.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
+			cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
+			getCargoService().save(cargo);
+
+		}
+
 	}
 
 }
