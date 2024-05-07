@@ -65,9 +65,9 @@ public class PanelEmpleado extends PanelComponente {
 		lDatoLaboral = new Label("Dato Laboral");
 		lDatoPersonal = new Label("Dato Personal");
 		
-		//Vector <Empresa> vectorEmpresa = (Vector<Empresa>) getEmpresaService().findAll();
-		//jComboBoxEmpresa = new JComboBox(vectorEmpresa);
-		//jComboBoxEmpresa.setBounds(10, 10, 80, 20);
+		Vector <Empresa> vectorEmpresa = (Vector<Empresa>) getEmpresaService().findAll();
+		jComboBoxEmpresa = new JComboBox(vectorEmpresa);
+		
 	
 		
 		setLayout(new BorderLayout());
@@ -82,7 +82,7 @@ public class PanelEmpleado extends PanelComponente {
 		panel.add(lEmail);
 		panel.add(tEmail);
 		panel.add(lEmpresa);
-		//panel.add(jComboBoxEmpresa);
+		panel.add(jComboBoxEmpresa);
 		panel.add(lDatoLaboral);
 		panel.add(lDatoPersonal);
 		panel2.add(bGuardar);
