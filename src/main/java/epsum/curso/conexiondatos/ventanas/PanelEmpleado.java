@@ -2,9 +2,11 @@ package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Label;
+import java.awt.Panel;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -14,6 +16,7 @@ import javax.swing.border.Border;
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.entidades.Empleado;
 import epsum.curso.conexiondatos.entidades.Empresa;
+import epsum.curso.conexiondatos.entidades.DatoLaboral;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
 @Data
@@ -22,7 +25,8 @@ public class PanelEmpleado extends PanelComponente {
 		super(cabeceras, datos, titulo);
 	}
 	
-
+	private EmpleadoService empleadoService;
+	private EmpresaService empresaService;
 	private JDialog dialog1;
 	private Label lNombre;
 	private JTextField tNombre;
@@ -33,46 +37,61 @@ public class PanelEmpleado extends PanelComponente {
 	private Label lTelefono;
 	private JTextField tTelefono;
 	private Label lEmpresa;
+	private JComboBox<Empresa> jComboBoxEmpresa;
 	//private Vector<Empresa> empresas;
 	//private JComboBox cEmpresa;
 	private Label lDatoLaboral;
 	private Label lDatoPersonal;
-	private JComboBox<Empresa> Empresa;
-	//private JComboBox<datoLaboral> DatoLaboral;
-	
+	private JComboBox<DatoLaboral> DatoLaboral;
+	private Panel panel;
+	private JButton bGuardar; 
 	
 	@Override
 	public void alta() {
-		dialog1 = new JDialog();
-		dialog1.setSize(500,500);
-		dialog1.setVisible(true);
-		lNombre = new Label("Nombre");
-		tNombre = new JTextField();
-		lDni = new Label("DNI"); 
-		tDni = new JTextField();
-		lEmail = new Label("Correo Electrónico");
-		tEmail = new JTextField();
-		lEmpresa = new Label("Empresa");
 		
+		dialog1 = new JDialog();
+		dialog1.setSize(2000,1000);
+		dialog1.setVisible(true);
+		bGuardar = new JButton("Guardar");
+		lNombre = new Label("Nombre");
+		//lNombre.setLocation(30,100);
+		tNombre = new JTextField(22);
+		lDni = new Label("DNI"); 
+		tDni = new JTextField(8);
+		lEmail = new Label("Correo Electrónico");
+		tEmail = new JTextField(22);
+		lEmpresa = new Label("Empresa");
 		lDatoLaboral = new Label("Dato Laboral");
 		lDatoPersonal = new Label("Dato Personal");
 		
-		dialog1.add(lNombre);
-		dialog1.add(tNombre );
-		dialog1.add(lDni);
-		dialog1.add(tDni);
-		dialog1.add(lEmail);
-		dialog1.add(tEmail);
-		dialog1.add(lEmpresa);
-		dialog1.add(lDatoLaboral);
-		dialog1.add(lDatoPersonal);
+		//Vector <Empresa> vectorEmpresa = (Vector<Empresa>) getEmpresaService().findAll();
+		//jComboBoxEmpresa = new JComboBox(vectorEmpresa);
+		//jComboBoxEmpresa.setBounds(10, 10, 80, 20);
+	
+		
+		setLayout(new BorderLayout());
+		panel = new Panel();
+		Panel panel2 = new Panel();
+		dialog1.add(panel, BorderLayout.CENTER);
+		dialog1.add(panel2, BorderLayout.SOUTH);
+		panel.add(lNombre);
+		panel.add(tNombre);
+		panel.add(lDni);
+		panel.add(tDni);
+		panel.add(lEmail);
+		panel.add(tEmail);
+		panel.add(lEmpresa);
+		//panel.add(jComboBoxEmpresa);
+		panel.add(lDatoLaboral);
+		panel.add(lDatoPersonal);
+		panel2.add(bGuardar);
 		//JOptionPane
 	}
 
 	@Override
 	public void baja() {
-		// TODO Auto-generated method stub
-
+		
+		
 	}
 
 	@Override
