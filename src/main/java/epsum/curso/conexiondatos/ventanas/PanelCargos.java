@@ -1,7 +1,8 @@
 package epsum.curso.conexiondatos.ventanas;
 
+import javax.swing.table.DefaultTableModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
@@ -30,10 +31,9 @@ public class PanelCargos extends PanelComponente {
 	@Override
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-
 		getCargoService().deleteById(id);
-		getTabla().removeAll();
-		
+		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
+		defaultTableModel.removeRow(getTabla().getSelectedRow());
 	}
 
 	@Override
