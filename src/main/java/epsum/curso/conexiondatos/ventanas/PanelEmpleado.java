@@ -9,6 +9,8 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.entidades.Empleado;
 import epsum.curso.conexiondatos.entidades.Empresa;
@@ -35,7 +37,8 @@ public class PanelEmpleado extends PanelComponente {
 	//private JComboBox cEmpresa;
 	private Label lDatoLaboral;
 	private Label lDatoPersonal;
-	
+	private JComboBox<Empresa> Empresa;
+	//private JComboBox<datoLaboral> DatoLaboral;
 	
 	
 	@Override
@@ -50,10 +53,19 @@ public class PanelEmpleado extends PanelComponente {
 		lEmail = new Label("Correo Electrónico");
 		tEmail = new JTextField();
 		lEmpresa = new Label("Empresa");
+		
 		lDatoLaboral = new Label("Dato Laboral");
 		lDatoPersonal = new Label("Dato Personal");
 		
-		dialog1.add(lNombre, BorderLayout.CENTER);
+		dialog1.add(lNombre);
+		dialog1.add(tNombre );
+		dialog1.add(lDni);
+		dialog1.add(tDni);
+		dialog1.add(lEmail);
+		dialog1.add(tEmail);
+		dialog1.add(lEmpresa);
+		dialog1.add(lDatoLaboral);
+		dialog1.add(lDatoPersonal);
 		//JOptionPane
 	}
 
