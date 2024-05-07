@@ -21,9 +21,6 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-//@EnableJpaRepositories("epsum.curso.conexiondatos.repositorios")
-//@ComponentScan(basePackages = { "epsum.curso.conexiondatos" })
-//@EntityScan("epsum.curso.conexiondatos.entidades") 
 public class ConexionDatosApplication implements CommandLineRunner {
 	
 	@Autowired
