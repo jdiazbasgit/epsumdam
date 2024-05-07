@@ -58,8 +58,11 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private DatoLaboralService datoLaboralService;
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
-	//@Autowired
-	//private PanelCargos panelCargos;
+	@Autowired
+	private PanelCargos panelCargos;
+	@Autowired
+	private PanelEstadosCiviles panelEstadosCiviles;
+	
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -166,19 +169,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "DESCRIPCION" };
-			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
-			Object[][] datos = new Object[(int) cargoService.count()][2];
-			int i = 0;
-			for (Cargo cargo : cargos) {
-				datos[i][0] = String.valueOf(cargo.getId());
-				datos[i][1] = cargo.getDescripcion();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
+			
+			getContentPane().add(panelCargos);
 			this.show();
 		}
 		if (e.getSource().equals(datosPersonales)) {
@@ -211,7 +203,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			
-			getContentPane().add(new PanelEstadosCiviles(cabeceras, datos, "ESTADOS CIVILES"));
+			getContentPane().add(getPanelEstadosCiviles());
 			this.show();
 		}
 
@@ -308,6 +300,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dialog.setVisible(false);
+					//System.exit(0);
 					
 				}
 			});
@@ -440,5 +433,13 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setHijoService(HijoService hijoService) {
 		this.hijoService = hijoService;
+	}
+
+	public PanelEstadosCiviles getPanelEstadosCiviles() {
+		return panelEstadosCiviles;
+	}
+
+	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
+		this.panelEstadosCiviles = panelEstadosCiviles;
 	}
 }

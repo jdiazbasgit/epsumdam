@@ -47,6 +47,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 
+
 				if (column == 0) {
 					return false;
 
@@ -59,9 +60,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 				return 30;
 			}
 
-			/*
-			 * @Override public int getWidth() { if(this.getColumnn return 50; return 400; }
-			 */
+			 
 
 		};
 
