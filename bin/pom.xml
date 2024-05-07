@@ -5,7 +5,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+<<<<<<< HEAD
 		<version>2.7.9</version>
+=======
+		<version>2.7.18</version>
+>>>>>>> origin/springjpa
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>epsum.curso</groupId>
@@ -20,12 +24,18 @@
 		<dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>javax.persistence-api</artifactId>
+<<<<<<< HEAD
 			<version>2.2</version>
+=======
+>>>>>>> origin/springjpa
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+<<<<<<< HEAD
 			<version>1.18.30</version>
+=======
+>>>>>>> origin/springjpa
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

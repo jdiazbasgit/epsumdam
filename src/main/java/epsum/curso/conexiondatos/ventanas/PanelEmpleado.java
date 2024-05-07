@@ -12,6 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.entidades.Empleado;
@@ -90,6 +91,10 @@ public class PanelEmpleado extends PanelComponente {
 
 	@Override
 	public void baja() {
+		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
+		getEmpleadoService().deleteById(id);
+		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
+		defaultTableModel.removeRow(getTabla().getSelectedRow());
 		
 		
 	}
