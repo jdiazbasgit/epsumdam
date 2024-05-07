@@ -229,7 +229,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			getContentPane().add(new PanelEmpleado(cabeceras, datos, "EMPLEADOS"));
 			this.show();
 
 		}
