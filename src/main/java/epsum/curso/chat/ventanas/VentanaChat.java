@@ -198,6 +198,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 							ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, this);
 					clienteenvioPeticionPrivado.start();
 					setPuerto(getPuerto() + 1);
+					
 				}
 
 			});
