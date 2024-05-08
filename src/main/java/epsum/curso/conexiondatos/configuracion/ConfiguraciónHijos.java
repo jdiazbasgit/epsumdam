@@ -17,7 +17,7 @@ import lombok.Data;
 public class ConfiguraciónHijos {
 
 	@Autowired
-	private DatoLaboralService datoLaboralService;
+	private HijoService hijoService;
 	
 	public Object[] cabecerasHijos() {
 		Object[] cabeceras = {"ID", "CHICOS", "CHICAS"};

@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import epsum.curso.conexiondatos.entidades.Hijo;
-import epsum.curso.conexiondatos.ventanas.PanelHijos;
+import epsum.curso.conexiondatos.entidades.DatoLaboral;
+import epsum.curso.conexiondatos.ventanas.PanelDatosLaborales;
 import epsum.curso.conexiondatos.servicios.DatoLaboralService;
-import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
 @Data
@@ -19,26 +18,28 @@ public class ConfiguracionDatosLaborales {
 	@Autowired
 	private DatoLaboralService datoLaboralService;
 	
-	public Object[] cabecerasHijos() {
-		Object[] cabeceras = {"ID", "CHICOS", "CHICAS"};
+	public Object[] cabecerasDatosLaborales() {
+		Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
 		return cabeceras;
 	}
-	public Object[][] datosDatoLaboral(){
-		List<DatoLaboral> hijos = (List<DatoLaboral>) getDatoLaboralService().findAll();
-		Object[][] datos = new Object[(int) getDatoLaboralService().count()][3];
+	public Object[][] datosDatosLaborales(){
+		List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
+		Object[][] datos = new Object[(int) datoLaboralService.count()][3];
 		int i = 0;
-		for (Hijo c : hijos) {
-			datos[i][0] = String.valueOf(c.getId());
-			datos[i][1] = String.valueOf(c.getChicos());
-			datos[i][2] = String.valueOf(c.getChicas());
+		for (DatoLaboral datoLaboral : datosLaborales) {
+			datos[i][0] = String.valueOf(datoLaboral.getId());
+			datos[i][1] = datoLaboral.getSalario();
+			datos[i][2] = datoLaboral.getCargo().getDescripcion();
+
 			i++;
+
 		}
 		return datos;
 		
 	}
 	
 	@Bean
-	public PanelHijos getPanelHijos() {
-		return new PanelHijos(cabecerasHijos(), datosHijos(), "HIJOS");
+	public PanelDatosLaborales getPanelDatosLaborales() {
+		return new PanelDatosLaborales(cabecerasDatosLaborales(), datosDatosLaborales(), "DATOS LABORALES");
 	}
 }
