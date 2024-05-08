@@ -19,7 +19,7 @@ public class ChatSpringApplication implements CommandLineRunner {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ChatSpringApplication.class);
 		builder.headless(false);
 		builder.run(args);
-	}
+	} 
 
 	@Override
 	public void run(String... args) throws Exception {
