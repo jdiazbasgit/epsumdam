@@ -30,7 +30,7 @@ public class ConfiguracionDatosPersonales {
 	}
 	public Object[][] datosDatosPersonales() {
 		List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
-		Object[][] datos = new Object[(int) datosPersonalesService.count()][2];
+		Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
 		int i = 0;
 		Hijo[] hijos = {new Hijo(0,1,1),new Hijo(0,2,1), new Hijo(0,1,2)};
 		JComboBox<Hijo> jComboBox = new JComboBox<>(hijos);
@@ -39,7 +39,7 @@ public class ConfiguracionDatosPersonales {
 			datos[i][0] = String.valueOf(datoPersonal.getId());
 			datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
 			//datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
-			datos[1][2]= jComboBox;
+			datos[i][2]= jComboBox;
 			i++;
 			
 		}
