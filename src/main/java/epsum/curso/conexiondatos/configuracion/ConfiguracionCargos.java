@@ -1,4 +1,4 @@
-package epsum.curso.conexiondatos.configuracion;
+ package epsum.curso.conexiondatos.configuracion;
 
 import java.util.List;
 
