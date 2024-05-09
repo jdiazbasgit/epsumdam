@@ -62,6 +62,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private PanelCargos panelCargos;
 	@Autowired
 	private PanelEmpresas panelEmpresas;
+	private PanelHijos panelHijos;
 	
 	private boolean primeraVez;
 	private JMenuBar menuBar;
@@ -238,17 +239,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(hijos)) {
 			getContentPane().removeAll();
-			String[] cabeceras = { "ID", "CHICOS", "CHICAS" };
-			List<Hijo> hijos = (List<Hijo>) getHijoService().findAll();
-			Object[][] datos = new Object[(int) getHijoService().count()][3];
-			int i = 0;
-			for (Hijo c : hijos) {
-				datos[i][0] = String.valueOf(c.getId());
-				datos[i][1] = String.valueOf(c.getChicos());
-				datos[i][2] = String.valueOf(c.getChicas());
-				i++;
-			}
-			getContentPane().add(new PanelHijos(cabeceras, datos, "HIJOS"));
+			
+			getContentPane().add(panelHijos);
+			
 			this.show();
 		}
 		if (e.getSource().equals(datosLaborales)) {
