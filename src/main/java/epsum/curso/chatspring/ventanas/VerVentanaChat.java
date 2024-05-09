@@ -8,24 +8,33 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import epsum.curso.chatspring.configuracion.ChatSpringConfiguración;
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
-
+import lombok.Data;
+@Data
 public class VerVentanaChat extends Frame implements WindowListener, ActionListener, KeyListener {
-
+	
+	@Autowired
+	private ChatSpringConfiguración chatSpringConfiguración;
+	
 	public static void main1(String[] args) {
+		
 		// TODO Auto-generated method stub
-		VentanaChat ventana= new VentanaChat();
+		//VentanaChat ventana= new VentanaChat();
+		
 		ventana.setVisible(true);
-		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= 
-				new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, ventana);
+		//ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= 
+				//new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, ventana);
 		servidorEscuchaRegistroCliente.start();
-		ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
+		//ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
 		servidorMensaje.start();
-		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventana);
+		//ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventana);
 		servidorEscuchaSolicitudPrtivado.start();
 		
 		
