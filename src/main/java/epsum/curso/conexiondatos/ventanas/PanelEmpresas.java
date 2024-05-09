@@ -2,6 +2,7 @@ package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -33,9 +34,13 @@ public class PanelEmpresas extends PanelComponente{
 	@Override
 	public void alta() {
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		Object [] datos = {"0", "",""};
+		Object [] datos = {"0", "pepe",""};
 		defaultTableModel.addRow(datos);
-		
+		Empresa empresa = new Empresa();
+		empresa.setNombre(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 1).toString());
+		empresa.setCif(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 2).toString());
+//		getEmpresaService().save(empresa);
+	
 		}
 
 	@Override
@@ -56,13 +61,15 @@ public class PanelEmpresas extends PanelComponente{
 
 	@Override
 	public void modificar() {
+		int fila = 0;
 		for (int i = 0; i <getTabla().getModel().getRowCount(); i++) {
 			Empresa empresa = new Empresa();
 			empresa.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
 			empresa.setNombre((String) getTabla().getModel().getValueAt(i, 1));
 			empresa.setCif((String) getTabla().getModel().getValueAt(i, 2));
 			getEmpresaService().save(empresa);
-			
+			getTabla().getModel().setValueAt(String.valueOf(empresa.getId()),fila, 0);
+			fila++;
 		}
 		
 	}
