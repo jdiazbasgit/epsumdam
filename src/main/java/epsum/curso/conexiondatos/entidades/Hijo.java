@@ -24,8 +24,8 @@ public class Hijo  {
 	private int id;
 
 	private int chicos;
-	
-	private int chicas;
+	  
+	private int chicas; 
 
 	
 }
