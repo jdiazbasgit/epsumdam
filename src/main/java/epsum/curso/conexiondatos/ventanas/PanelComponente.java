@@ -12,6 +12,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.JDialog;
+
+import epsum.curso.conexiondatos.ventanas.ConfirmarBorrado;
 
 import lombok.Data;
 
@@ -27,6 +30,8 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JTable tabla;
 	private JLabel lTitulo;
 	private DefaultTableModel defaultTableModel;
+	private ConfirmarBorrado confirmarBorrado;
+
 
 	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
 		super();
@@ -96,7 +101,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(botonAlta))
 			alta();
+		Object JDialog ;
 		if(e.getSource().equals(botonBorrar))
+			JDialog  = new JDialog();
 			baja();
 		if(e.getSource().equals(botonModificar))
 			modificar();
