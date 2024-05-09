@@ -441,6 +441,5 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
 		this.panelEstadosCiviles = panelEstadosCiviles;
-		
 	}
 }
