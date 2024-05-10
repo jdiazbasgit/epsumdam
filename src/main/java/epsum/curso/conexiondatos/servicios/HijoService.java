@@ -1,7 +1,5 @@
 package epsum.curso.conexiondatos.servicios;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,4 +30,7 @@ public class HijoService {
 		getHijoCrudRepository().deleteById(id);
 	}
 
+	public boolean existById(int id) {
+		return getHijoCrudRepository().existsById(id);
+	}
 }

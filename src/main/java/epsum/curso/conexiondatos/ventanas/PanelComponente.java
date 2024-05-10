@@ -1,19 +1,15 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.Dialog;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -26,8 +22,8 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private Object[][] datos;
 	private String titulo;
 	private JButton botonAlta;
-	private BotonBorrar botonBorrar;
-	private BotonModificar botonModificar;
+	private JButton botonBorrar;
+	private JButton botonModificar;
 	private JTable tabla;
 	private JLabel lTitulo;
 	private DefaultTableModel defaultTableModel;
@@ -37,56 +33,56 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.cabeceras = cabeceras;
 		this.datos = datos;
 		this.titulo = titulo;
-		/*
-		 * this.botonAlta = new JButton("alta"); this.botonBaja = new JButton("baja");
-		 * this.botonModificar = new JButton("modificar");
-		 */
+
+		this.botonAlta = new JButton("ALTA");
+		this.botonBorrar = new JButton("BORRAR");
+		this.botonModificar = new JButton("GRABAR");
+		this.botonAlta.addActionListener(this);
+		this.botonModificar.addActionListener(this);
+		this.botonBorrar.addActionListener(this);
+
 		this.defaultTableModel = new DefaultTableModel(datos, cabeceras);
-		this.defaultTableModel.addColumn("BORRAR");
-		this.defaultTableModel.addColumn("MODIFICAR");
 
 		this.tabla = new JTable(getDefaultTableModel()) {
 			@Override
 			public boolean isCellEditable(int row, int column) {
-				return false;
+
+				if (column == 0) {
+					return false;
+
+				}
+				return true;
 			}
 
 			@Override
 			public int getRowHeight() {
-				// TODO Auto-generated method stub
-				
 				return 30;
 			}
-			/*@Override
-			public int getWidth() {
-				// TODO Auto-generated method stub
-				return 400;
-			}*/
-			
-			
+
+			/*
+			 * @Override public int getWidth() { if(this.getColumnn return 50; return 400; }
+			 */
+
 		};
-		this.botonModificar = new BotonModificar(this,"algo","MODIFICAR");
-		
-		this.botonBorrar = new BotonBorrar("BORRAR");
-		this.botonBorrar.setFocusPainted( false );
-		this.botonBorrar.addActionListener(botonModificar);
-		this.tabla.getColumn("MODIFICAR").setCellRenderer(botonModificar);
-		this.tabla.getColumn("BORRAR").setCellRenderer(botonBorrar);
-		this.tabla.getColumn("MODIFICAR").setMaxWidth(300);
-		this.tabla.getColumn("BORRAR").setMaxWidth(300);
-		
-		TableColumn column = new TableColumn(); 
+
+		TableColumn column = new TableColumn();
 		column.setHeaderValue("ACCIONES");
 		this.setLayout(new BorderLayout(20, 20));
 		this.lTitulo = new JLabel(this.titulo);
 		JPanel panelTitulo = new JPanel();
 		panelTitulo.add(lTitulo);
 		this.add(panelTitulo, BorderLayout.NORTH);
-		JPanel panelDatos= new JPanel();
+		JPanel panelDatos = new JPanel();
 		panelDatos.setLayout(new FlowLayout());
 		JScrollPane jScrollPane = new JScrollPane(tabla);
 		panelDatos.add(jScrollPane);
 		this.add(jScrollPane, BorderLayout.CENTER);// , BorderLayout.CENTER);
+		JPanel panelBotones = new JPanel();
+		panelBotones.setLayout(new FlowLayout());
+		panelBotones.add(getBotonAlta());
+		panelBotones.add(getBotonBorrar());
+		panelBotones.add(getBotonModificar());
+		this.add(panelBotones, BorderLayout.SOUTH);
 
 	}
 
@@ -98,8 +94,12 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println("hola");
-	} 
+		if(e.getSource().equals(botonAlta))
+			alta();
+		if(e.getSource().equals(botonBorrar))
+			baja();
+		if(e.getSource().equals(botonModificar))
+			modificar();
+	}
 
 }

@@ -58,6 +58,12 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private DatoLaboralService datoLaboralService;
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
+	@Autowired
+	private PanelCargos panelCargos;
+	@Autowired
+	private PanelEmpresas panelEmpresas;
+	private PanelHijos panelHijos;
+	
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -81,12 +87,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	
 
 	public VentanaDatos() {
-		// setSize(1000, 1000);
+		
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		// setResizable(false);
 		this.addWindowListener(this);
-		// (new FlowLayout());
-
 		menuBar = new JMenuBar();
 		menu = new JMenu("opciones");
 		empresas = new JMenuItem("empresas");
@@ -167,19 +170,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "DESCRIPCION" };
-			List<Cargo> cargos = (List<Cargo>) cargoService.findAll();
-			Object[][] datos = new Object[(int) cargoService.count()][2];
-			int i = 0;
-			for (Cargo cargo : cargos) {
-				datos[i][0] = String.valueOf(cargo.getId());
-				datos[i][1] = cargo.getDescripcion();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelCargos(cabeceras, datos, "CARGOS"));
+			
+			getContentPane().add(panelCargos);
 			this.show();
 		}
 		if (e.getSource().equals(datosPersonales)) {
@@ -247,17 +239,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(hijos)) {
 			getContentPane().removeAll();
-			String[] cabeceras = { "ID", "CHICOS", "CHICAS" };
-			List<Hijo> hijos = (List<Hijo>) getHijoService().findAll();
-			Object[][] datos = new Object[(int) getHijoService().count()][3];
-			int i = 0;
-			for (Hijo c : hijos) {
-				datos[i][0] = String.valueOf(c.getId());
-				datos[i][1] = String.valueOf(c.getChicos());
-				datos[i][2] = String.valueOf(c.getChicas());
-				i++;
-			}
-			getContentPane().add(new PanelHijos(cabeceras, datos, "HIJOS"));
+			
+			getContentPane().add(panelHijos);
+			
 			this.show();
 		}
 		if (e.getSource().equals(datosLaborales)) {
@@ -293,7 +277,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
+			getContentPane().add(panelEmpresas);
 			this.show();
 		}
 		if(e.getSource().equals(salir)) {
