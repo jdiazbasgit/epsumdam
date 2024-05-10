@@ -61,6 +61,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
+	private PanelEmpresas panelEmpresas;
 	private PanelHijos panelHijos;
 	
 	private boolean primeraVez;
@@ -276,7 +277,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
+			getContentPane().add(panelEmpresas);
 			this.show();
 		}
 		if(e.getSource().equals(salir)) {
