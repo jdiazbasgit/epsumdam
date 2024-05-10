@@ -13,6 +13,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import epsum.curso.conexiondatos.ventanas.ConfirmarBorrado;
+
 import lombok.Data;
 
 @Data
@@ -27,6 +29,8 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JTable tabla;
 	private JLabel lTitulo;
 	private DefaultTableModel defaultTableModel;
+	private ConfirmarBorrado confirmarBorrado;
+
 
 	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
 		super();
@@ -34,9 +38,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.datos = datos;
 		this.titulo = titulo;
 
-		this.botonAlta = new JButton("alta");
-		this.botonBorrar = new JButton("borrar");
-		this.botonModificar = new JButton("modificar");
+		this.botonAlta = new JButton("ALTA");
+		this.botonBorrar = new JButton("BORRAR");
+		this.botonModificar = new JButton("GRABAR");
 		this.botonAlta.addActionListener(this);
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
