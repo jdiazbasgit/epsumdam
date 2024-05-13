@@ -2,8 +2,10 @@ package epsum.curso.chatspring.ventanas.clientes;
 
 import java.io.IOException;
 
-public class ClienteEnvioBajaCliente extends ClienteChat {
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class ClienteEnvioBajaCliente extends ClienteChat {
+	@Autowired
 	public ClienteEnvioBajaCliente(String ip, int puerto) {
 		super(ip, puerto);
 		

@@ -6,12 +6,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
 public abstract class ClienteChat extends Thread {
-
+	@Autowired
 	public final static int PUERTO_EXCUCHA_CLIENTE_REGISTRO = 8001;
 	public final static int PUERTO_EXCUCHA_CLIENTE_MENSAJE = 8003;
 	public final static int PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA = 8005;

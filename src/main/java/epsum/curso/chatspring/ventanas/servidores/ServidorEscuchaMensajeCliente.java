@@ -10,12 +10,14 @@ import lombok.Data;
 import java.io.IOException;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 
 @Data
 public class ServidorEscuchaMensajeCliente extends ServidorChat {
-
+	@Autowired
 	private VentanaChat ventanaChat;
 
 

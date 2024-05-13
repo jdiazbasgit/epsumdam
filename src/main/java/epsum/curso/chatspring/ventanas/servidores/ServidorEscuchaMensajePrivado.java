@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import javax.swing.JDialog;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import epsum.curso.chatspring.ventanas.DialogPrivado;
 import lombok.Data;
 
 @Data
 public class ServidorEscuchaMensajePrivado extends ServidorChat {
-
+	@Autowired
 	private String otro;
 	private DialogPrivado dialogPrivado;
 	public ServidorEscuchaMensajePrivado(int puerto,String otro,DialogPrivado dialogPrivado) {

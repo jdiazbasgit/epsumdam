@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
@@ -36,6 +37,7 @@ import lombok.NoArgsConstructor;
 @Component
 @Data
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
+	@Autowired
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,
 			pCentralIzquierdaInferior;
 	private JButton BRegistrar, BEnviar, bPrivado;

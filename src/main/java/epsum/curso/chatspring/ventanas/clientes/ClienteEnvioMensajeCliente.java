@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 
 @Data
 public class ClienteEnvioMensajeCliente extends ClienteChat {
-
+	@Autowired
 	private VentanaChat ventanaChat;
 	
 	public ClienteEnvioMensajeCliente(String ip, int puerto,VentanaChat ventanaChat) {
