@@ -12,6 +12,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Service;
 
 import epsum.curso.chatspring.ventanas.DialogPrivado;
@@ -22,8 +25,8 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import lombok.Data;
 
 @Data
-@Service
 public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
+
 	@Autowired
 	private VentanaChat ventanaChat;
 	private String ipOtro;
@@ -51,6 +54,11 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 		servidorEscuchaMensajePrivado.start();
 		
 		
+	}
+	@Bean
+	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
+		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
+		return servidorEscuchaSolicitudPrtivado;
 	}
 
 }

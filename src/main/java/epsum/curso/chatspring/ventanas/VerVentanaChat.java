@@ -1,12 +1,12 @@
 package epsum.curso.chatspring.ventanas;
 
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Import;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -26,15 +26,30 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-public class VerVentanaChat extends Frame implements WindowListener, ActionListener, KeyListener, CommandLineRunner {
+@Import({ServidorEscuchaRegistroCliente.class, ServidorEscuchaMensajeCliente.class, ServidorEscuchaSolicitudPrivado.class})
+public class VerVentanaChat extends Frame implements CommandLineRunner {
+	
 	@Autowired
+	private VentanaChat ventanaChat;
+	@Autowired
+	private static ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente;
+	@Autowired
+	private static ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
+	@Autowired
+	private static ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
+
+
 	public static void main1(String[] args) {
-		// TODO Auto-generated method stub
-		VentanaChat ventana= new VentanaChat();
-		ventana.setVisible(true);
-		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= 
-				new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, ventana);
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
+		builder.headless(false);
+		builder.run(args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		ventanaChat.setVisible(true);
 		servidorEscuchaRegistroCliente.start();
+
 		ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
 		servidorMensaje.start();
 		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventana);
@@ -56,7 +71,12 @@ public class VerVentanaChat extends Frame implements WindowListener, ActionListe
 	@Bean
 	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
 		return new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, getVentanaChat());
+
+		servidorEscuchaMensajeCliente.start();
+		servidorEscuchaSolicitudPrivado.start();
+
 	}
+
 
 	@Override
 	public void keyTyped(KeyEvent e) {
