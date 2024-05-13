@@ -9,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import epsum.curspo.configuracion.Configuracion;
+import epsum.curspo.musicos.HombreOrquesta;
 import epsum.curspo.musicos.Musico;
 
 public class ConciertoSolistaSpring {
@@ -25,7 +26,14 @@ public class ConciertoSolistaSpring {
 		ApplicationContext armario= new AnnotationConfigApplicationContext(Configuracion.class);
 		//ApplicationContext armario =new ClassPathXmlApplicationContext("spring.xml");
 		Musico pepe= (Musico) armario.getBean("solista");
+		System.out.println("toca el solista");
 		pepe.tocar();
+		pepe.getInstrumento().setSonido("sonido cambiado");
+		System.out.println("vuelve a tocar el solista");
+		pepe.tocar();
+		HombreOrquesta hombreOrquesta= (HombreOrquesta) armario.getBean("hombreOrquesta");
+		System.out.println("toca el hombre orquesta");
+		hombreOrquesta.tocar();
 	}
 
 }

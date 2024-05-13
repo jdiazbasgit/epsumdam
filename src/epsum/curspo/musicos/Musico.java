@@ -11,7 +11,7 @@ public abstract class Musico implements MusicoInterface {
 
 	@Autowired
 	private Instrumento instrumento;
-	
+	@Autowired
 	private List<Instrumento> instrumentos;
 	
 	@Override

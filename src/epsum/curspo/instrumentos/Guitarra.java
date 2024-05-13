@@ -1,10 +1,12 @@
 package epsum.curspo.instrumentos;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
 @Component
+@Scope("prototype")
 public class Guitarra extends Instrumento {
 
 	@Override

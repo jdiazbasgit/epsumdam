@@ -11,11 +11,6 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
-	<bean id="guitarra" class="epsum.curspo.instrumentos.Guitarra">
-		<property name="sonido" value="tlan, tlan, tlan en xml"></property>
-	</bean>
-	<bean id="solista" class="epsum.curspo.musicos.Solista">
-		<property name="instrumento" ref="guitarra"></property>
-	</bean>
+	
 
 </beans>
