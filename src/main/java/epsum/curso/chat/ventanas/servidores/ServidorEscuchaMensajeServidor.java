@@ -9,7 +9,7 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeServidor;
 
 public class ServidorEscuchaMensajeServidor extends ServidorChat {
 
-	ServidorEscuchaMensajeServidor(int puerto) {
+	public ServidorEscuchaMensajeServidor(int puerto) {
 
 		super(puerto);
 	}

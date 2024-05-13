@@ -6,12 +6,15 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroServidor;
 
+
 public class ServidorEscuchaRegistroServidor extends ServidorChat {
 
-	ServidorEscuchaRegistroServidor(int puerto) {
+	public ServidorEscuchaRegistroServidor(int puerto) {
 		super(puerto);
 	}
 
