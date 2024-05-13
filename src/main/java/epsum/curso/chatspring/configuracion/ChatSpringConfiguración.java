@@ -3,6 +3,8 @@ package epsum.curso.chatspring.configuracion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import epsum.curso.chatspring.ventanas.VerVentanaChat;
@@ -14,15 +16,13 @@ import lombok.Data;
 
 @Configuration
 @Data
+
 public class ChatSpringConfiguración {
 	
 	@Autowired
 	private VentanaChat ventanaChat;
-	
-	@Bean
-	public VerVentanaChat getverVentanaChat() {
-		return new VerVentanaChat();
-	}
+
+    
 
     @Bean
     ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
