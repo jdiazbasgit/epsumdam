@@ -18,7 +18,7 @@ public class ServidorEscuchaRegistroCliente extends ServidorChat {
 	public void hacerAlgo() throws IOException {
 		System.out.println("esperando map");
 		Map<String, String> usuarios=(Map<String, String>) recibirObjeto();
-		
+		ServidorChat.usuarios=usuarios;
 		if(usuarios.size()==0) {
 			getVentanaChat().getTAMensajes().append("USUARIO YA EXISTE\n");
 			getVentanaChat().getTNick().setEditable(true);
