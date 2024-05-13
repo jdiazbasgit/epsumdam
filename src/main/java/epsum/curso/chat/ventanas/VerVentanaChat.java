@@ -40,11 +40,16 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+<<<<<<< HEAD
 		
 		servidorEscuchaMensajeCliente().start();
 		servidorEscuchaRegistroCliente().start();
 		servidorEscuchaSolicitudPrivado().start();
 		getVentanaChat().setVisible(true);
+=======
+		getVentanaChat().setVisible(true);
+		 
+>>>>>>> branch 'chat' of https://github.com/jdiazbasgit/epsumdam.git
 	}
 	@Bean
 	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
@@ -60,3 +65,4 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	}
 	
 }
+   
