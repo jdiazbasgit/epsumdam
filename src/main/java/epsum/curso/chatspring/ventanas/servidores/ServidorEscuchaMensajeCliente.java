@@ -39,10 +39,6 @@ public class ServidorEscuchaMensajeCliente extends ServidorChat {
 
 
 	}
-	@Bean
-	public ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente() {
-		ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventanaChat);
-		return servidorEscuchaMensajeCliente;
-	}
+
 
 }

@@ -15,9 +15,11 @@ import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
 import lombok.Data;
 
+import epsum.curso.chat.ventanas.configuracion.Configuracion;
+
 @SpringBootApplication
 @Data
-@Import({ServidorEscuchaRegistroCliente.class, ServidorEscuchaMensajeCliente.class, ServidorEscuchaSolicitudPrivado.class})
+@Import(Configuracion.class)
 public class VerVentanaChat extends Frame implements CommandLineRunner {
 	
 	@Autowired
