@@ -21,7 +21,6 @@ import epsum.curso.chat.ventanas.clientes.ClienteenvioPeticionPrivado;
 import lombok.Data;
 
 @Data
-@Service
 public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 
 	private VentanaChat ventanaChat;
