@@ -45,7 +45,7 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		getVentanaChat().setVisible(true);
-		
+		 
 	}
 
 	
