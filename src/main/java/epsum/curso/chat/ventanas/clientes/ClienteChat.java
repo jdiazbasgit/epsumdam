@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Map;
 
+import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
@@ -16,9 +17,10 @@ public abstract class ClienteChat extends Thread {
 	public final static int PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA = 8005;
 	public final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_AVANZADILLA = 8009;
 	public final static int PUERTO_EXCUCHA_CLIENTE_FICHERO_DATOS = 8011;
-	//public final static String SERVIDOR="192.168.0.125";
-	public final static String SERVIDOR="localhost";
+	public final static String SERVIDOR="192.168.0.125";
+	//public final static String SERVIDOR="localhost";
 	
+
 	private String ip;
 	private int puerto;
 	private Socket socket;
@@ -35,7 +37,7 @@ public abstract class ClienteChat extends Thread {
 			setSocket(socket);
 			hacerAlgo();
 		} catch (Exception e) {
-			e.printStackTrace();
+			ServidorChat.usuarios.remove(getIp());
 		}
 	}
 
