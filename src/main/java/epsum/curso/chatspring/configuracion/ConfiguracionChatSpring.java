@@ -19,11 +19,6 @@ public class ConfiguracionChatSpring {
 	private VentanaChat ventanaChat;
 	
 	@Bean
-	public VentanaChat ventana() {
-		return new VentanaChat();
-	}
-	
-	@Bean
 	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
 		return new ServidorEscuchaRegistroCliente (ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, getVentanaChat());
 	}
