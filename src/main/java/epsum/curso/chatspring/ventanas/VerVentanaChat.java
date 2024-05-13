@@ -21,11 +21,12 @@ import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
+import epsum.curso.chat.ventanas.configuracion.Configuracion;
 import lombok.Data;
 
 @SpringBootApplication
 @Data
-@Import({ServidorEscuchaRegistroCliente.class, ServidorEscuchaMensajeCliente.class, ServidorEscuchaSolicitudPrivado.class})
+@Import({ServidorEscuchaRegistroCliente.class, ServidorEscuchaMensajeCliente.class, ServidorEscuchaSolicitudPrivado.class, Configuracion.class})
 public class VerVentanaChat extends Frame implements CommandLineRunner {
 	
 	@Autowired
