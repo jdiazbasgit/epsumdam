@@ -69,7 +69,7 @@ public class DialogPrivado extends JDialog implements ActionListener {
 		getJPanel().add(getJTextField());
 		getJPanel().add(getJButton());
 		add(getJPanel(),BorderLayout.SOUTH);
-		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getPuerto());
+		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getPuerto(),title,this);
 		servidorEscuchaMensajePrivado.start();
 		getJButton().addActionListener(this);
 	}
@@ -129,7 +129,8 @@ public class DialogPrivado extends JDialog implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		ClienteEnvioMensajePrivado clienteEnvioMensajePrivado= new ClienteEnvioMensajePrivado(getIp(), getPuerto(),this);
 		clienteEnvioMensajePrivado.start();
-		
+		getJTextArea().append("YO digo: "+getJTextField().getText()+"\n");		
+		getJTextField().setText("");
 	}
 
 }

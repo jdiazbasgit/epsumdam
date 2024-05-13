@@ -5,9 +5,9 @@ import java.io.IOException;
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroServidor;
 
-public class ServicorEscuchaBajaServidor extends ServidorChat {
+public class ServidorEscuchaBajaServidor extends ServidorChat {
 
-	public ServicorEscuchaBajaServidor(int puerto) {
+	public ServidorEscuchaBajaServidor(int puerto) {
 		super(puerto);
 		
 	}
