@@ -37,7 +37,7 @@ import lombok.NoArgsConstructor;
 @Component
 @Data
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
-	@Autowired
+
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,
 			pCentralIzquierdaInferior;
 	private JButton BRegistrar, BEnviar, bPrivado;

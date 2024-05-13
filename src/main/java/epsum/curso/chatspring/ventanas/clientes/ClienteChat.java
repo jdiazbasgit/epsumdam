@@ -13,7 +13,6 @@ import lombok.Data;
 
 @Data
 public abstract class ClienteChat extends Thread {
-	@Autowired
 	public final static int PUERTO_EXCUCHA_CLIENTE_REGISTRO = 8001;
 	public final static int PUERTO_EXCUCHA_CLIENTE_MENSAJE = 8003;
 	public final static int PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA = 8005;

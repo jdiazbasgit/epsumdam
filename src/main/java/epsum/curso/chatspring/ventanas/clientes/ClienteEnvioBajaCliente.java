@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ClienteEnvioBajaCliente extends ClienteChat {
-	@Autowired
 	public ClienteEnvioBajaCliente(String ip, int puerto) {
 		super(ip, puerto);
 		

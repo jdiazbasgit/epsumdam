@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 public class ClienteEnvioRegistroCliente extends ClienteChat {
-	@Autowired
 	private VentanaChat ventanaChat;
 	
 	public ClienteEnvioRegistroCliente(String ip, int puerto,VentanaChat ventanaChat) {

@@ -10,7 +10,6 @@ import lombok.Data;
 
 @Data
 public class ClienteEnvioMensajePrivado extends ClienteChat {
-	@Autowired
 	private DialogPrivado dialogPrivado;
 	public ClienteEnvioMensajePrivado(String ip, int puerto, DialogPrivado dialogPrivado) {
 		super(ip, puerto);

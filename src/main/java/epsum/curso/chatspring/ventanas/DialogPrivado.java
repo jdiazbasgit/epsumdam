@@ -23,7 +23,6 @@ import lombok.Data;
 
 @Data
 public class DialogPrivado extends JDialog implements ActionListener {
-	@Autowired
 	private JPanel jPanel;
 	private JTextField jTextField;
 	private JButton jButton;
