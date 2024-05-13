@@ -43,10 +43,7 @@ public class ServidorEscuchaRegistroCliente extends ServidorChat {
 		}
 	}
 	
-	@Bean
-	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
-		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, getVentanaChat());
-		return servidorEscuchaRegistroCliente;
+	
 	}
 
-}
+

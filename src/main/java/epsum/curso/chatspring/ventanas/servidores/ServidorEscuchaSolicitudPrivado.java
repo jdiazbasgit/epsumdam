@@ -55,10 +55,6 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 		
 		
 	}
-	@Bean
-	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
-		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
-		return servidorEscuchaSolicitudPrtivado;
+	
 	}
 
-}
