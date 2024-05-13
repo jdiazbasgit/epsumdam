@@ -9,6 +9,7 @@ import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
 
+
 import epsum.curso.chatspring.ventanas.VentanaChat;
 
 @Configuration
@@ -16,10 +17,15 @@ public class Configuracion {
 
 	@Autowired
 	private VentanaChat ventanaChat;
+		
+	public int puertoEscuchaClienteRegistro() {
+		int puerto = ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO;
+		return puerto;
+	}
 	
 	@Bean
 	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
-		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO,ventanaChat);
+		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= new  ServidorEscuchaRegistroCliente(puertoEscuchaClienteRegistro(),ventanaChat);
 		return servidorEscuchaRegistroCliente;
 	}
 
