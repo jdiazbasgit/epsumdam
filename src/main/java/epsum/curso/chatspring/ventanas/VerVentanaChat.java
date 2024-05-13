@@ -14,7 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 
-import epsum.curso.chat.ventanas.LevantarServidor;
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import epsum.curso.chatspring.ventanas.VerVentanaChat;
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
@@ -49,105 +48,13 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		ventanaChat.setVisible(true);
 		servidorEscuchaRegistroCliente.start();
-
-		ServidorEscuchaMensajeCliente servidorMensaje= new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventana);
-		servidorMensaje.start();
-		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado= new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventana);
-		servidorEscuchaSolicitudPrtivado.start();
-		
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(LevantarServidor.class);
-		builder.headless(false);
-		builder.run(args);
-	}
-	
-	@Bean
-	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
-		return new ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, getVentanaChat());
-	}
-	@Bean
-	public ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente() {
-		return new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, getVentanaChat());
-	}
-	@Bean
-	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
-		return new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, getVentanaChat());
-
 		servidorEscuchaMensajeCliente.start();
 		servidorEscuchaSolicitudPrivado.start();
-
-	}
-
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }
+
+
+	
