@@ -1,16 +1,17 @@
 package epsum.curso.chat.ventanas.servidores;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 
 import lombok.Data;
 
 @SpringBootApplication
 @Data
+
 public class LevantarServidor implements CommandLineRunner {
 
 	public static void main(String[] args) {
