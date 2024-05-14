@@ -17,69 +17,62 @@ import lombok.EqualsAndHashCode;
 import javax.swing.JComboBox;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class PanelDatosLaborales extends PanelComponente {
-    
-    @Autowired
-    private DatoLaboralService datoLaboralService;
-    
-    private Object[] cabeceras;
-    
-    private Object[][] datos;
-    
-    private String titulo;
 
-    private int i;
-    
-    @Autowired
+	@Autowired
+	private DatoLaboralService datoLaboralService;
+
+	private Object[] cabeceras;
+
+	private Object[][] datos;
+
+	private String titulo;
+
+	private int i;
+
+	@Autowired
 	private CargoService cargoService;
 
-	private JComboBox<String> jComboBoxCargo;
+	private JComboBox<Cargo> jComboBoxCargo;
 	
 
+	public PanelDatosLaborales(Object[] cabeceras, Object[][] datos, String titulo) {
+		super(cabeceras, datos, titulo);
 
-    
-    public PanelDatosLaborales(Object[] cabeceras, Object[][] datos, String titulo) {
-        super(cabeceras, datos, titulo);
+	}
 
-    }
+	@Override
+	public void alta() {
+		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		jComboBoxCargo = new JComboBox<Cargo>();
+		List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
+		for (Cargo cargo : cargos) {
+			jComboBoxCargo.addItem(cargo);
+		}
+		Object[] datos = { "0", "0", jComboBoxCargo };
+		defaultTableModel.addRow(datos);
+	}
 
-     @Override
-        public void alta() {
-         DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-         Object[] datos = {"0", "", ""};
-         defaultTableModel.addRow(datos);
-         
-         
-         jComboBoxCargo = new JComboBox<String>();
-         
-         List <Cargo> cargos = (List<Cargo>) getCargoService().findAll();
-        
-         for (Cargo cargo : cargos) {
-        	 jComboBoxCargo.addItem(cargo.getDescripcion());
-         }
-         
-         getTabla().getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(jComboBoxCargo));
-         
-        }
-     
-    @Override
-    public void baja() {
-        int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-        getDatoLaboralService().deleteById(id);
-        DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-        defaultTableModel.removeRow(getTabla().getSelectedRow());
-    }
+	@Override
+	public void baja() {
+		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
+		getDatoLaboralService().deleteById(id);
+		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		defaultTableModel.removeRow(getTabla().getSelectedRow());
+	}
 
-    @Override
-    public void modificar() {
-        for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
-            DatoLaboral datoLaboral = new  DatoLaboral();
-            datoLaboral.setId(Integer.parseInt((String)getTabla().getModel().getValueAt(i, 0)));
-            datoLaboral.setSalario(Integer.parseInt((String)getTabla().getModel().getValueAt(i, 1)));
-            datoLaboral.getCargo().setDescripcion((String)getTabla().getModel().getValueAt(i, 2));
-            getDatoLaboralService().save(datoLaboral);
-        }
-    }
+	@Override
+	public void modificar() {
+		for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
+			DatoLaboral datoLaboral = new DatoLaboral();
+			datoLaboral.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
+			datoLaboral.setSalario(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 1)));
+			datoLaboral.setCargo((Cargo) getTabla().getModel().getValueAt(i, 2));
+			getDatoLaboralService().save(datoLaboral);
+			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			defaultTableModel.setValueAt(String.valueOf(datoLaboral.getId()), i, 0);
+		}
+	}
 
 }
