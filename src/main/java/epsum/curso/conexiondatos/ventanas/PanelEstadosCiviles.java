@@ -3,7 +3,6 @@ package epsum.curso.conexiondatos.ventanas;
 import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.servicios.EstadoCivilService;
