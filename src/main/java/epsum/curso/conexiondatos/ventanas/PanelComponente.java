@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 
 import lombok.Data;
@@ -47,11 +48,18 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 
+
 				if (column == 0) {
 					return false;
 
 				}
 				return true;
+			}
+			
+			@Override
+			public void setDefaultEditor(Class<?> columnClass, TableCellEditor editor) {
+				
+				super.setDefaultEditor(columnClass, editor);
 			}
 
 			@Override
@@ -59,9 +67,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 				return 30;
 			}
 
-			/*
-			 * @Override public int getWidth() { if(this.getColumnn return 50; return 400; }
-			 */
+			 
 
 		};
 
