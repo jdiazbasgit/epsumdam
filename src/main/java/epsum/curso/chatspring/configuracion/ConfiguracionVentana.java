@@ -13,9 +13,7 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaBajaServidor;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeServidor;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroServidor;
+
 import lombok.Data;
 
 @Configuration
@@ -57,24 +55,4 @@ public class ConfiguracionVentana {
 		return new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, ventanaChat);
 	}
 	
-	@Bean
-	public ServidorEscuchaRegistroServidor servidorEscuchaRegistroServidor() {
-		ServidorEscuchaRegistroServidor servidorEscuchaRegistroServidor = new ServidorEscuchaRegistroServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
-		return servidorEscuchaRegistroServidor;
-	}
-
-	@Bean
-	public ServidorEscuchaBajaServidor servidorEscuchaBajaServidor() {
-		ServidorEscuchaBajaServidor servidorEscuchaBajaServidor = new ServidorEscuchaBajaServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
-		return servidorEscuchaBajaServidor;
-	}
-
-	@Bean
-	public ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor() {
-		ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor = new ServidorEscuchaMensajeServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
-		return servidorEscuchaMensajeServidor;
-	}
 }
