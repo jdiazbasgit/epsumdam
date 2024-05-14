@@ -1,6 +1,7 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import lombok.Data;
@@ -68,8 +70,16 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			for (int j = 0; j < getTabla().getRowCount(); j++) {
 				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
 
-					getTabla().getColumnModel().getColumn(i)
-							.setCellEditor(new DefaultCellEditor(new JComboBox<>()));
+					getTabla().getColumnModel().getColumn(i).setCellRenderer(new TableCellRenderer() {
+
+						@Override
+						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+								boolean hasFocus, int row, int column) {
+							if (value instanceof JComboBox<?>)
+								return (Component) value;
+							return null;
+						}
+					});
 				}
 			}
 		}
