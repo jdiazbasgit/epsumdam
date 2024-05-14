@@ -5,7 +5,9 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -48,18 +50,11 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 
-
 				if (column == 0) {
 					return false;
 
 				}
 				return true;
-			}
-			
-			@Override
-			public void setDefaultEditor(Class<?> columnClass, TableCellEditor editor) {
-				
-				super.setDefaultEditor(columnClass, editor);
 			}
 
 			@Override
@@ -67,9 +62,17 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 				return 30;
 			}
 
-			 
-
 		};
+
+		for (int i = 0; i < getTabla().getColumnCount(); i++) {
+			for (int j = 0; j < getTabla().getRowCount(); j++) {
+				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
+
+					getTabla().getColumnModel().getColumn(i)
+							.setCellEditor(new DefaultCellEditor(new JComboBox<>()));
+				}
+			}
+		}
 
 		TableColumn column = new TableColumn();
 		column.setHeaderValue("ACCIONES");
@@ -100,11 +103,11 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals(botonAlta))
+		if (e.getSource().equals(botonAlta))
 			alta();
-		if(e.getSource().equals(botonBorrar))
+		if (e.getSource().equals(botonBorrar))
 			baja();
-		if(e.getSource().equals(botonModificar))
+		if (e.getSource().equals(botonModificar))
 			modificar();
 	}
 
