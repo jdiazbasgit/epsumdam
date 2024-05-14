@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
-import epsum.curso.chat.configuration.ServidorConfiguration;
+import epsum.curso.chat.configuration.ClienteConfiguration;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
@@ -15,7 +15,7 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-@Import(ServidorConfiguration.class)
+@Import(ClienteConfiguration.class)
 public class VerVentanaChat extends Frame implements CommandLineRunner {
 	@Autowired
 	private VentanaChat ventanaChat;
