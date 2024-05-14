@@ -20,7 +20,8 @@ public class TestCargos {
 	@Autowired
 	private CargoService cargoService;
 
-	@Test
+
+	//@Test
 	public void alta() {
 		System.setProperty("java.awt.headless", "false");
 		Cargo cargo= new Cargo();

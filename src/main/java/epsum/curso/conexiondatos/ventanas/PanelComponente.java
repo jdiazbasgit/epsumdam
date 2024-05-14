@@ -34,9 +34,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.datos = datos;
 		this.titulo = titulo;
 
-		this.botonAlta = new JButton("alta");
-		this.botonBorrar = new JButton("borrar");
-		this.botonModificar = new JButton("modificar");
+		this.botonAlta = new JButton("ALTA");
+		this.botonBorrar = new JButton("BORRAR");
+		this.botonModificar = new JButton("GRABAR");
 		this.botonAlta.addActionListener(this);
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
