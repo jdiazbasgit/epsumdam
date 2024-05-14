@@ -42,11 +42,11 @@ public class PanelEmpleado extends PanelComponente {
 	@Autowired
 	private DatoLaboralService datoLaboralService;
 	
-	private JComboBox<String> jComboBoxEmpresas;
+	private JComboBox<Empresa> jComboBoxEmpresas;
 	
-	private JComboBox<String> jComboBoxDatosPersonales;
+	private JComboBox<DatoPersonal> jComboBoxDatosPersonales;
 	
-	private JComboBox<String> jComboBoxDatosLaborales;
+	private JComboBox<DatoLaboral> jComboBoxDatosLaborales;
 	
 	private Object[] cabeceras;
 	
@@ -58,39 +58,36 @@ public class PanelEmpleado extends PanelComponente {
 	public void alta() {
 		
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		 Object[] datos = {"0", "","","","","",""};
+		 Object[] datos = {"0", "","","","",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
 		 defaultTableModel.addRow(datos);
 		 
   
-		 jComboBoxEmpresas = new JComboBox<String>();
+		 jComboBoxEmpresas = new JComboBox<Empresa>(); 
         
          List <Empresa> nombreArrayEmpresa = (List<Empresa>) getEmpresaService().findAll();
         
          for (Empresa empresa : nombreArrayEmpresa) {
-        	 jComboBoxEmpresas.addItem(empresa.getNombre());
+        	 jComboBoxEmpresas.addItem(empresa);
          }
          
-         getTabla().getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(jComboBoxEmpresas));
+        getTabla().getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(jComboBoxEmpresas));
          
-         jComboBoxDatosPersonales = new JComboBox<String>();
+         jComboBoxDatosPersonales = new JComboBox<DatoPersonal>();
          
          List <DatoPersonal> nombreArrayDatosPersonales = (List<DatoPersonal>) getDatosPersonalesService().findAll();
         
          for (DatoPersonal datoPersonal : nombreArrayDatosPersonales) {
-        	 jComboBoxDatosPersonales.addItem(datoPersonal.getEstadoCivil().getDescripcion() + " - "
- 					+ datoPersonal.getHijo().getChicos() + " - "
- 					+ datoPersonal.getHijo().getChicas());
+        	 jComboBoxDatosPersonales.addItem(datoPersonal);
          }
 
-        getTabla().getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(jComboBoxDatosPersonales));
+      getTabla().getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(jComboBoxDatosPersonales));
         
-        jComboBoxDatosLaborales = new JComboBox<String>();
+        jComboBoxDatosLaborales = new JComboBox<DatoLaboral>();
         
         List <DatoLaboral> nombreArrayDatosLaborales = (List<DatoLaboral>) getDatoLaboralService().findAll();
        
         for (DatoLaboral datoLaboral : nombreArrayDatosLaborales) {
-        	jComboBoxDatosLaborales.addItem(datoLaboral.getCargo().getDescripcion() + " - "
-					+ datoLaboral.getSalario());
+        	jComboBoxDatosLaborales.addItem(datoLaboral);
         }
 
        getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
@@ -108,11 +105,21 @@ public class PanelEmpleado extends PanelComponente {
 
 	@Override
 	public void modificar() {
-		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0)); 
-		getEmpleadoService().save(null);
-		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
-
+		for (int i = 0; i <getTabla().getModel().getRowCount(); i++) {
+			Empleado empleado = new Empleado();
+			empleado.setId((int)getTabla().getModel().getValueAt(i,0));
+			empleado.setNombre((String) getTabla().getModel().getValueAt(i, 1));
+			empleado.setDni((String) getTabla().getModel().getValueAt(i, 2));
+			empleado.setEmail((String) getTabla().getModel().getValueAt(i, 3));
+			empleado.setTelefono((String) getTabla().getModel().getValueAt(i, 4));
+			empleado.setEmpresa((Empresa) getTabla().getModel().getValueAt(i, 5));
+			empleado.setDatoLaboral((DatoLaboral) getTabla().getModel().getValueAt(i, 6));
+			empleado.setDatoPersonal((DatoPersonal) getTabla().getModel().getValueAt(i, 7));
+			getEmpleadoService().save(empleado);
+			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			defaultTableModel.setValueAt(String.valueOf(empleado.getId()), i, 0);
+			
+		}
 	}
 
 }
