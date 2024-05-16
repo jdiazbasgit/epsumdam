@@ -33,15 +33,14 @@ public class ConfiguracionDatosLaborales {
 	}
 	public Object[][] datosDatosLaborales(){
 		List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
-        jComboBoxCargo = new JComboBox<Cargo>(((List<Cargo>)getCargoService().findAll()).toArray(new Cargo[0]));
 		Object[][] datos = new Object[(int) getDatoLaboralService().count()][3];
 		int i = 0;
 		for (DatoLaboral datoLaboral : datosLaborales) {
+	        JComboBox<Cargo> comboBoxCargo = new JComboBox<Cargo>(((List<Cargo>)getCargoService().findAll()).toArray(new Cargo[0]));
 			datos[i][0] = String.valueOf(datoLaboral.getId());
 			datos[i][1] = String.valueOf(datoLaboral.getSalario());
-			getJComboBoxCargo().setSelectedItem(datoLaboral.getCargo());
-			getJComboBoxCargo().repaint();
-			datos[i][2] = getJComboBoxCargo();
+			comboBoxCargo.setSelectedItem(datoLaboral.getCargo());
+			datos[i][2] = comboBoxCargo;
 
 			i++;
 
@@ -53,7 +52,7 @@ public class ConfiguracionDatosLaborales {
 	@Bean
 	public PanelDatosLaborales getPanelDatosLaborales() {
 		PanelDatosLaborales datosLaborales= new PanelDatosLaborales(cabecerasDatosLaborales(), datosDatosLaborales(), "DATOS LABORALES");
-		datosLaborales.getTabla().getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(jComboBoxCargo));
+		//datosLaborales.getTabla().getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(jComboBoxCargo));
 
 		return datosLaborales; 
 	}
