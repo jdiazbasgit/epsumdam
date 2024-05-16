@@ -105,6 +105,7 @@ public class PanelEmpleado extends PanelComponente {
 
 	@Override
 	public void modificar() {
+		int fila = 0;
 		for (int i = 0; i <getTabla().getModel().getRowCount(); i++) {
 			Empleado empleado = new Empleado();
 			empleado.setId((int)getTabla().getModel().getValueAt(i,0));
@@ -116,8 +117,8 @@ public class PanelEmpleado extends PanelComponente {
 			empleado.setDatoLaboral((DatoLaboral) getTabla().getModel().getValueAt(i, 6));
 			empleado.setDatoPersonal((DatoPersonal) getTabla().getModel().getValueAt(i, 7));
 			getEmpleadoService().save(empleado);
-			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-			defaultTableModel.setValueAt(String.valueOf(empleado.getId()), i, 0);
+			getTabla().getModel().setValueAt(String.valueOf(empleado.getId()),fila, 0);
+			fila++;
 			
 		}
 	}
