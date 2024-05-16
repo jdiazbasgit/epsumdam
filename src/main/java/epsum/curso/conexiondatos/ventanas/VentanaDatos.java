@@ -62,7 +62,11 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private PanelCargos panelCargos;
 	@Autowired
 	private PanelEmpresas panelEmpresas;
+  @Autowired
 	private PanelHijos panelHijos;
+  @Autowired
+	private PanelEstadosCiviles panelEstadosCiviles;
+
 	
 	private boolean primeraVez;
 	private JMenuBar menuBar;
@@ -204,7 +208,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			
-			getContentPane().add(new PanelEstadosCiviles(cabeceras, datos, "ESTADOS CIVILES"));
+			getContentPane().add(getPanelEstadosCiviles());
 			this.show();
 		}
 
@@ -293,6 +297,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dialog.setVisible(false);
+					//System.exit(0);
 					
 				}
 			});
@@ -425,5 +430,13 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setHijoService(HijoService hijoService) {
 		this.hijoService = hijoService;
+	}
+
+	public PanelEstadosCiviles getPanelEstadosCiviles() {
+		return panelEstadosCiviles;
+	}
+
+	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
+		this.panelEstadosCiviles = panelEstadosCiviles;
 	}
 }
