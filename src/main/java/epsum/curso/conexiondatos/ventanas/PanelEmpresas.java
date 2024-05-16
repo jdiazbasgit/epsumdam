@@ -36,9 +36,9 @@ public class PanelEmpresas extends PanelComponente{
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		Object [] datos = {"0", "pepe",""};
 		defaultTableModel.addRow(datos);
-		Empresa empresa = new Empresa();
-		empresa.setNombre(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 1).toString());
-		empresa.setCif(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 2).toString());
+//		Empresa empresa = new Empresa();
+//		empresa.setNombre(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 1).toString());
+//		empresa.setCif(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 2).toString());
 //		getEmpresaService().save(empresa);
 	
 		}
