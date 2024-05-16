@@ -23,6 +23,10 @@ public class Cargo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String descripcion;
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getDescripcion();
+	}
 
 }
