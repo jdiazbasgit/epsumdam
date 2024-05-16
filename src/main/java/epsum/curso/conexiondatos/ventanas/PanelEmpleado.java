@@ -58,8 +58,7 @@ public class PanelEmpleado extends PanelComponente {
 	public void alta() {
 		
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		 Object[] datos = {"0", "","","","",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
-		 defaultTableModel.addRow(datos);
+		
 		 
   
 		 jComboBoxEmpresas = new JComboBox<Empresa>(); 
@@ -91,6 +90,8 @@ public class PanelEmpleado extends PanelComponente {
         }
 
        getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
+       Object[] datos = {"0", "","","","",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
+		 defaultTableModel.addRow(datos);
 	}
 	
 
