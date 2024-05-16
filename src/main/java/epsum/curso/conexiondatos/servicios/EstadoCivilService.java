@@ -1,0 +1,37 @@
+package epsum.curso.conexiondatos.servicios;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import epsum.curso.conexiondatos.entidades.EstadoCivil;
+import epsum.curso.conexiondatos.repositorios.EstadoCivilCrudRepository;
+import lombok.Data;
+
+@Service
+@Data
+public class EstadoCivilService {
+	
+	@Autowired
+	private EstadoCivilCrudRepository estadoCivilCrudRepository;
+	
+	public Iterable<EstadoCivil> findAll(){
+		return getEstadoCivilCrudRepository().findAll();
+	}
+	
+	public EstadoCivil save(EstadoCivil estadoCivil) {
+		return getEstadoCivilCrudRepository().save(estadoCivil);
+	}
+	
+	public long count() {
+		return getEstadoCivilCrudRepository().count();
+	}
+	public void deleteById(int id) {
+		getEstadoCivilCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getEstadoCivilCrudRepository().existsById(id);
+	}
+
+}

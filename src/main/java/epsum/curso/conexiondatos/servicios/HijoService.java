@@ -1,0 +1,36 @@
+package epsum.curso.conexiondatos.servicios;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.repositorios.HijoCrudRepository;
+import lombok.Data;
+
+@Service
+@Data
+public class HijoService {
+	
+	@Autowired
+	private HijoCrudRepository hijoCrudRepository;
+	
+	public Iterable<Hijo> findAll(){
+		return getHijoCrudRepository().findAll();
+	}
+	
+	public Hijo save(Hijo hijo) {
+		return getHijoCrudRepository().save(hijo);
+	}
+	
+	public long count() {
+		return getHijoCrudRepository().count();
+	}
+	
+	public void deleteByID(int id) {
+		getHijoCrudRepository().deleteById(id);
+	}
+
+	public boolean existById(int id) {
+		return getHijoCrudRepository().existsById(id);
+	}
+}
