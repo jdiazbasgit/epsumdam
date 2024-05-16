@@ -61,9 +61,19 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
+<<<<<<< HEAD
 	private PanelEmpleado panelEmpleado;
 	
+=======
+	private PanelEmpresas panelEmpresas;
+  @Autowired
+>>>>>>> origin/springjpa
 	private PanelHijos panelHijos;
+	@Autowired
+	private PanelDatosLaborales panelDatosLaborales;
+  @Autowired
+	private PanelEstadosCiviles panelEstadosCiviles;
+
 	
 	private boolean primeraVez;
 	private JMenuBar menuBar;
@@ -205,7 +215,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			
-			getContentPane().add(new PanelEstadosCiviles(cabeceras, datos, "ESTADOS CIVILES"));
+			getContentPane().add(getPanelEstadosCiviles());
 			this.show();
 		}
 
@@ -225,20 +235,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosLaborales)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
-			List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
-			Object[][] datos = new Object[(int) datoLaboralService.count()][3];
-			int i = 0;
-			for (DatoLaboral datoLaboral : datosLaborales) {
-				datos[i][0] = String.valueOf(datoLaboral.getId());
-				datos[i][1] = datoLaboral.getSalario();
-				datos[i][2] = datoLaboral.getCargo().getDescripcion();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelDatosLaborales(cabeceras, datos, "DATOS LABORALES"));
+			
+			getContentPane().add(panelDatosLaborales);
+			
 			this.show();
 		}
 
@@ -256,7 +255,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
+			getContentPane().add(panelEmpresas);
 			this.show();
 		}
 		if(e.getSource().equals(salir)) {
@@ -272,6 +271,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dialog.setVisible(false);
+					//System.exit(0);
 					
 				}
 			});
@@ -404,5 +404,13 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setHijoService(HijoService hijoService) {
 		this.hijoService = hijoService;
+	}
+
+	public PanelEstadosCiviles getPanelEstadosCiviles() {
+		return panelEstadosCiviles;
+	}
+
+	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
+		this.panelEstadosCiviles = panelEstadosCiviles;
 	}
 }
