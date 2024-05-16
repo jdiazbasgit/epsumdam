@@ -42,16 +42,7 @@ public class PanelCargos extends PanelComponente {
 	
 	@Override
 	public void baja() {
-<<<<<<< HEAD
-		/*int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-		getCargoService().deleteById(id);
-		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());*/
-		Cargo cargo= new Cargo();
-		cargo.setDescripcion("ejemplo cambiado");
-		getCargoService().save(cargo);
-		System.out.println("a");
-=======
+
 	    int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
 	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Estás seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
@@ -59,7 +50,6 @@ public class PanelCargos extends PanelComponente {
 	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 	        defaultTableModel.removeRow(getTabla().getSelectedRow());
 	    }
->>>>>>> refs/remotes/origin/springjpa-cargos
 	}
 	
 	
@@ -73,6 +63,8 @@ public class PanelCargos extends PanelComponente {
 	            
 	            // Intenta guardar el cargo
 	            getCargoService().save(cargo);
+	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
+	            defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 	        }
 	        
 	        // Si llega aquí, todas las modificaciones fueron exitosas
