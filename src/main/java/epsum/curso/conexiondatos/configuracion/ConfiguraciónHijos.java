@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.ventanas.PanelHijos;
+import epsum.curso.conexiondatos.servicios.DatoLaboralService;
 import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
