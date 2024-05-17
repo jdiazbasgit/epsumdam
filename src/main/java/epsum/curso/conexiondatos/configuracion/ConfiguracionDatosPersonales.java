@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.entidades.DatoPersonal;
+import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
@@ -33,11 +34,14 @@ public class ConfiguracionDatosPersonales {
 		Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
 		int i = 0;
 		Hijo[] hijos = {new Hijo(0,1,1),new Hijo(0,2,1), new Hijo(0,1,2)};
+		EstadoCivil [] estadosCiviles = {new EstadoCivil (1,"Casado"), new EstadoCivil(2,"Soltero"), new EstadoCivil(3,"Casado)")};
 		JComboBox<Hijo> jComboBox = new JComboBox<>(hijos);
+		JComboBox <EstadoCivil> jComboBox1 = new JComboBox<> (estadosCiviles);
+		
 		for (DatoPersonal datoPersonal : datosPersonales) {
 			
 			datos[i][0] = String.valueOf(datoPersonal.getId());
-			datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
+			datos[i][1] = jComboBox1;
 			//datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
 			datos[i][2]= jComboBox;
 			i++;
