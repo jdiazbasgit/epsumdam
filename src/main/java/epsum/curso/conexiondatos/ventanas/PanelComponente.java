@@ -1,16 +1,21 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import lombok.Data;
@@ -34,9 +39,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.datos = datos;
 		this.titulo = titulo;
 
-		this.botonAlta = new JButton("alta");
-		this.botonBorrar = new JButton("borrar");
-		this.botonModificar = new JButton("modificar");
+		this.botonAlta = new JButton("ALTA");
+		this.botonBorrar = new JButton("BORRAR");
+		this.botonModificar = new JButton("GRABAR");
 		this.botonAlta.addActionListener(this);
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
@@ -59,11 +64,25 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 				return 30;
 			}
 
-			/*
-			 * @Override public int getWidth() { if(this.getColumnn return 50; return 400; }
-			 */
-
 		};
+
+		for (int i = 0; i < getTabla().getColumnCount(); i++) {
+			for (int j = 0; j < getTabla().getRowCount(); j++) {
+				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
+
+					getTabla().getColumnModel().getColumn(i).setCellRenderer( new TableCellRenderer() {
+
+						@Override
+						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+								boolean hasFocus, int row, int column) {
+							if (value instanceof JComboBox<?>)
+								return (Component) value;
+							return null;
+						}
+					});
+				}
+			}
+		}
 
 		TableColumn column = new TableColumn();
 		column.setHeaderValue("ACCIONES");
@@ -94,11 +113,11 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals(botonAlta))
+		if (e.getSource().equals(botonAlta))
 			alta();
-		if(e.getSource().equals(botonBorrar))
+		if (e.getSource().equals(botonBorrar))
 			baja();
-		if(e.getSource().equals(botonModificar))
+		if (e.getSource().equals(botonModificar))
 			modificar();
 	}
 
