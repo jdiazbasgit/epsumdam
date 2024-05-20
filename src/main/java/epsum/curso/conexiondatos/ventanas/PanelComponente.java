@@ -70,7 +70,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			for (int j = 0; j < getTabla().getRowCount(); j++) {
 				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
 
-					getTabla().getColumnModel().getColumn(i).setCellRenderer(new TableCellRenderer() {
+					getTabla().getColumnModel().getColumn(i).setCellRenderer( new TableCellRenderer() {
 
 						@Override
 						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
