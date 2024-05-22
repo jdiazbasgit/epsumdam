@@ -14,7 +14,7 @@ public class Guitarra extends Instrumento {
 	}
 	
 	@Override
-	@Value("tlan en spring")
+	@Value("nada")
 	public void setSonido(String sonido) {
 		// TODO Auto-generated method stub
 		super.setSonido(sonido);

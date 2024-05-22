@@ -45,11 +45,12 @@ public class AvisadorDeAdiencia {
 			
 		} catch (Throwable e) {
 			//afterThrowing
-			System.out.println("SEÑORES SE HA ROTO EL INSTRUMENTO NO SE PREOCUPEN QUE VOY A ARREGLARLO");
+			
 			if(musico.getClass().isInstance(new HombreOrquesta())){
 				HombreOrquesta hombreOrquesta= (HombreOrquesta) musico;
 				for(Instrumento instrumento:hombreOrquesta.getInstrumentos()) {
 					if(instrumento.getSonido().equals("nada")) {
+						System.out.println("SEÑORES SE HA ROTO EL INSTRUMENTO "+instrumento.getClass().getSimpleName().toUpperCase()+" NO SE PREOCUPEN QUE VOY A ARREGLARLO");
 						instrumento.setSonido("Sonido arreglado");
 					}
 				}
