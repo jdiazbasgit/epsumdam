@@ -1,5 +1,6 @@
 package epsum.curso.chat.ventanas.servidores;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,11 +13,7 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-<<<<<<< HEAD
-
-=======
 @Import(ServidorConfiguration.class)
->>>>>>> origin/chat-rodrigo
 public class LevantarServidor implements CommandLineRunner {
 
 	@Autowired
