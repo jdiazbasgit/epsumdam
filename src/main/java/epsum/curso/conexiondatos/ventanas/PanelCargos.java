@@ -51,13 +51,14 @@ public class PanelCargos extends PanelComponente {
 	        try {
 				getCargoService().deleteById(id);
 				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			     defaultTableModel.removeRow(getTabla().getSelectedRow());
 			} catch (Exception e) {	
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 			} 
 
-	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-	        defaultTableModel.removeRow(getTabla().getSelectedRow());
+	       
 	    }
 	}
 	
