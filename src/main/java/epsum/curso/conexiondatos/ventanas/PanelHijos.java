@@ -4,13 +4,15 @@ import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.swing.JOptionPane;
+
 import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+//@EqualsAndHashCode(callSuper=false)
 public class PanelHijos extends PanelComponente {
 	
 	@Autowired
@@ -38,9 +40,19 @@ public class PanelHijos extends PanelComponente {
 	@Override
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-		getHijoService().deleteByID(id);
-		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
+		
+		//confirmacion de borrado
+		JOptionPane jOptionPane=new JOptionPane("Estas seguro?");
+		jOptionPane.setSize(300,300);
+		jOptionPane.setLocation(100, 100);
+		int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
+		
+		if (confirmation == JOptionPane.YES_OPTION) {
+			getHijoService().deleteByID(id);
+			DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
+			defaultTableModel.removeRow(getTabla().getSelectedRow());
+		}
+		
 	}
 
 	@Override
