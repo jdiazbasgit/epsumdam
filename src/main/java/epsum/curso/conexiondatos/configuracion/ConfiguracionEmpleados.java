@@ -1,5 +1,11 @@
 package epsum.curso.conexiondatos.configuracion;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import javax.swing.JComboBox;
@@ -9,11 +15,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
-import epsum.curso.conexiondatos.entidades.DatoPersonal;
 import epsum.curso.conexiondatos.entidades.Empleado;
 import epsum.curso.conexiondatos.entidades.Empresa;
 import epsum.curso.conexiondatos.servicios.DatoLaboralService;
-import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
 import epsum.curso.conexiondatos.ventanas.PanelEmpleado;
@@ -32,12 +36,32 @@ public class ConfiguracionEmpleados {
 	@Autowired
 	private DatoLaboralService datoLaboralService;
 	
-	@Autowired
-	private DatosPersonalesService datosPersonalesService;
-	
 	public Object[] cabecerasCargos() {
-		Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
-		"DATOS_LABORALES" };
+		Connection conexion=null;
+		Object[] cabeceras=new Object[8] ;
+		try {
+			conexion= DriverManager.getConnection("jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
+			Statement st=conexion.createStatement();
+			ResultSet rs= st.executeQuery("select * from empleados");
+			ResultSetMetaData rsmd= rs.getMetaData();
+			for(int i=0;i<rsmd.getColumnCount();i++)
+			{
+				cabeceras[i]=rsmd.getColumnName(i+1);
+			}
+			//Object[] cabeceras = { "ID", "DESCRIPCION" };
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conexion.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		return  cabeceras;
 	}
 	public Object[][] datosEmpleados() {
@@ -45,23 +69,18 @@ public class ConfiguracionEmpleados {
 		Object[][] datos = new Object[(int) getEmpleadoService().count()][8];
 		int i = 0;
 		for (Empleado empleado : empleados) {
-			JComboBox<Empresa> comboBoxEmpresa = new JComboBox<Empresa>(((List<Empresa>)getEmpresaService().findAll()).toArray(new Empresa [0]));
-			JComboBox<DatoPersonal> comboBoxDatoPersonal = new JComboBox<DatoPersonal>(((List<DatoPersonal>)getDatosPersonalesService().findAll()).toArray(new DatoPersonal [0]));
-			JComboBox<DatoLaboral> comboBoxDatoLaboral = new JComboBox<DatoLaboral>(((List<DatoLaboral>)getDatoLaboralService().findAll()).toArray(new DatoLaboral [0]));
+
 			datos[i][0] = String.valueOf(empleado.getId());
 			datos[i][1] = empleado.getNombre();
 			datos[i][2] = empleado.getDni();
 			datos[i][3] = empleado.getEmail();
 			datos[i][4] = empleado.getTelefono();
-			comboBoxEmpresa.setSelectedItem(empleado.getEmpresa().getNombre());
-			datos[i][5] = comboBoxEmpresa;
-			comboBoxDatoPersonal.setSelectedItem(empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
+			datos[i][5] = empleado.getEmpresa().getNombre();
+			datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
 					+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
-					+ empleado.getDatoPersonal().getHijo().getChicas());
-			datos[i][6] = comboBoxDatoPersonal;
-			comboBoxDatoLaboral.setSelectedItem(empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
-					+ empleado.getDatoLaboral().getSalario());
-			datos[i][7] = comboBoxDatoLaboral;
+					+ empleado.getDatoPersonal().getHijo().getChicas();
+			datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
+					+ empleado.getDatoLaboral().getSalario();
 
 			i++;
 		}

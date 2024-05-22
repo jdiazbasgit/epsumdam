@@ -20,13 +20,7 @@ import lombok.Data;
 public class TestCargos {
 	@Autowired
 	private CargoService cargoService;
-<<<<<<< HEAD
-	
-	 
-=======
 
-
->>>>>>> origin/springjpa
 	//@Test
 	public void alta() {
 		System.setProperty("java.awt.headless", "false");
