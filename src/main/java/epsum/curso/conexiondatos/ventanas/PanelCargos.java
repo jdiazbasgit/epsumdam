@@ -8,14 +8,15 @@ import javax.swing.table.DefaultTableModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
 
 @Data
 public class PanelCargos extends PanelComponente {
 	@Autowired
-	private CargoService cargoService;
-
+	//private CargoService cargoService;
+	private CargoCrudRepository cargoCrudRepository;
 	private Object[] cabeceras;
 
 	private Object[][] datos;
@@ -46,7 +47,7 @@ public class PanelCargos extends PanelComponente {
 	    int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
 	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Estás seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
-	        getCargoService().deleteById(id); 
+	        getCargoCrudRepository().deleteById(id); 
 	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 	        defaultTableModel.removeRow(getTabla().getSelectedRow());
 	    }
@@ -62,7 +63,7 @@ public class PanelCargos extends PanelComponente {
 	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
 	            
 	            // Intenta guardar el cargo
-	            getCargoService().save(cargo);
+	            getCargoCrudRepository().save(cargo);
 	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
 	            defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 	        }
