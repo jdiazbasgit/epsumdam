@@ -6,15 +6,14 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
@@ -32,7 +31,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JTable tabla;
 	private JLabel lTitulo;
 	private DefaultTableModel defaultTableModel;
-
+	
 	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
@@ -70,7 +69,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			for (int j = 0; j < getTabla().getRowCount(); j++) {
 				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
 
-					getTabla().getColumnModel().getColumn(i).setCellRenderer(new TableCellRenderer() {
+					getTabla().getColumnModel().getColumn(i).setCellRenderer( new TableCellRenderer() {
 
 						@Override
 						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
@@ -105,6 +104,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	}
 
+	public void crearPanelBorrado() {
+		 JOptionPane.showMessageDialog(null, "Hello World");
+	}
 	public abstract void alta();
 
 	public abstract void baja();
@@ -121,4 +123,10 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			modificar();
 	}
 
+	
+	//marlenepaper
+	
+	
+	
+	
 }

@@ -10,7 +10,6 @@ target/
 .factorypath
 .project
 .settings
-<<<<<<< HEAD
 /target
 .springBeans
 .sts4-cache
@@ -33,7 +32,7 @@ build/
 
 ### VS Code ###
 .vscode/
-=======
+
 .springBeans
 .sts4-cache
 
@@ -56,4 +55,4 @@ build/
 ### VS Code ###
 .vscode/
 /workspace-spring-tool-suite-4-4.21.1.RELEASE/
->>>>>>> refs/remotes/origin/basedatos-antonio
+
