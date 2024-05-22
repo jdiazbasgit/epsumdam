@@ -18,14 +18,11 @@ public class Configuracion {
 	@Autowired
 	private VentanaChat ventanaChat;
 		
-	public int puertoEscuchaClienteRegistro() {
-		int puerto = ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO;
-		return puerto;
-	}
+	
 	
 	@Bean
 	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
-		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= new  ServidorEscuchaRegistroCliente(puertoEscuchaClienteRegistro(),ventanaChat);
+		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente= new  ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO,ventanaChat);
 		return servidorEscuchaRegistroCliente;
 	}
 

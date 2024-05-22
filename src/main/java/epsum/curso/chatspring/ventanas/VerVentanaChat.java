@@ -26,15 +26,12 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	private VentanaChat ventanaChat;
 	
 	@Autowired
-	private Configuracion servidorEscuchaRegistroCliente;
-	/*
-	@Autowired
 	private static ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente;
 	@Autowired
 	private static ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
 	@Autowired
 	private static ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
-	*/
+	
 
 	public static void main1(String[] args) {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
