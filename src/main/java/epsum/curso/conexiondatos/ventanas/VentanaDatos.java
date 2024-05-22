@@ -32,6 +32,7 @@ import epsum.curso.conexiondatos.servicios.CargoService;
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 
 import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
@@ -45,7 +46,7 @@ import epsum.curso.conexiondatos.entidades.DatoPersonal;
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
-	private CargoService cargoService;
+	private CargoCrudRepository cargoCrudRepository;
 	@Autowired
 	private EstadoCivilService estadoCivilService;
 	@Autowired
@@ -251,7 +252,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(panelEmpresas);
+			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
 			this.show();
 		}
 		if(e.getSource().equals(salir)) {
@@ -282,13 +283,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		this.estadoCivilService = estadoCivilService;
 	}
 
-	public CargoService getCargoService() {
-		return cargoService;
-	}
-
-	public void setCargoService(CargoService cargoService) {
-		this.cargoService = cargoService;
-	}
+	
 
 	public boolean isPrimeraVez() {
 		return primeraVez;
@@ -408,5 +403,13 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
 		this.panelEstadosCiviles = panelEstadosCiviles;
+	}
+
+	public CargoCrudRepository getCargoCrudRepository() {
+		return cargoCrudRepository;
+	}
+
+	public void setCargoCrudRepository(CargoCrudRepository cargoCrudRepository) {
+		this.cargoCrudRepository = cargoCrudRepository;
 	}
 }

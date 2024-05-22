@@ -10,8 +10,8 @@ public class EjemploOptional {
 
 	public static void main(String[] args) {
 		String nombre=null;
-		Optional optionalNombre=Optional.of(nombre);
-		System.out.println(optionalNombre.isEmpty());
+		Optional optionalNombre=Optional.ofNullable(nombre);
+		System.out.println(optionalNombre.isPresent());
 	}
 
 }
