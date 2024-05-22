@@ -67,3 +67,5 @@ public class PanelHijos extends PanelComponente {
 	}
 
 }
+
+
