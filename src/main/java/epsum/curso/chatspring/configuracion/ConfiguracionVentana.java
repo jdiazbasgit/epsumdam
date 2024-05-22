@@ -1,6 +1,5 @@
 package epsum.curso.chatspring.configuracion;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,9 +12,9 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaBajaServidor;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeServidor;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroServidor;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
 import lombok.Data;
 
 @Configuration
@@ -58,23 +57,20 @@ public class ConfiguracionVentana {
 	}
 	
 	@Bean
-	public ServidorEscuchaRegistroServidor servidorEscuchaRegistroServidor() {
-		ServidorEscuchaRegistroServidor servidorEscuchaRegistroServidor = new ServidorEscuchaRegistroServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
-		return servidorEscuchaRegistroServidor;
+	public ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente() {
+		ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente = new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventanaChat);
+		return servidorEscuchaMensajeCliente;
 	}
-
+	
 	@Bean
-	public ServidorEscuchaBajaServidor servidorEscuchaBajaServidor() {
-		ServidorEscuchaBajaServidor servidorEscuchaBajaServidor = new ServidorEscuchaBajaServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
-		return servidorEscuchaBajaServidor;
+	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
+		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente = new ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, ventanaChat);
+		return servidorEscuchaRegistroCliente;
 	}
-
+	
 	@Bean
-	public ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor() {
-		ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor = new ServidorEscuchaMensajeServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
-		return servidorEscuchaMensajeServidor;
+	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
+		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado = new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
+		return servidorEscuchaSolicitudPrivado;
 	}
 }
