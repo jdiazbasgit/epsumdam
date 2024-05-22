@@ -10,7 +10,6 @@ target/
 .factorypath
 .project
 .settings
-<<<<<<< HEAD
 /target
 .springBeans
 .sts4-cache
@@ -34,9 +33,13 @@ build/
 ### VS Code ###
 .vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 ejecutar.bat
 =======
 =======
+=======
+
+>>>>>>> springjpa-estadosciviles
 .springBeans
 .sts4-cache
 
@@ -59,5 +62,9 @@ build/
 ### VS Code ###
 .vscode/
 /workspace-spring-tool-suite-4-4.21.1.RELEASE/
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/basedatos-antonio
 >>>>>>> origin/springjpa-estadosciviles
+=======
+
+>>>>>>> springjpa-estadosciviles

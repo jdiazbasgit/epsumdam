@@ -64,6 +64,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private PanelEmpresas panelEmpresas;
   @Autowired
 	private PanelHijos panelHijos;
+	@Autowired
+	private PanelDatosLaborales panelDatosLaborales;
   @Autowired
 	private PanelEstadosCiviles panelEstadosCiviles;
 
@@ -250,20 +252,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosLaborales)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
-			List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
-			Object[][] datos = new Object[(int) datoLaboralService.count()][3];
-			int i = 0;
-			for (DatoLaboral datoLaboral : datosLaborales) {
-				datos[i][0] = String.valueOf(datoLaboral.getId());
-				datos[i][1] = datoLaboral.getSalario();
-				datos[i][2] = datoLaboral.getCargo().getDescripcion();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelDatosLaborales(cabeceras, datos, "DATOS LABORALES"));
+			
+			getContentPane().add(panelDatosLaborales);
+			
 			this.show();
 		}
 
