@@ -3,6 +3,7 @@ package epsum.curso.conexiondatos.ventanas;
 import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 
 import javax.swing.JOptionPane;
 
@@ -48,9 +49,20 @@ public class PanelHijos extends PanelComponente {
 		int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		
 		if (confirmation == JOptionPane.YES_OPTION) {
+			try {
+				getHijoService().deleteByID(id);
+				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			     defaultTableModel.removeRow(getTabla().getSelectedRow());
+			} catch (Exception e) {	
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+			}
+			/*
 			getHijoService().deleteByID(id);
 			DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
 			defaultTableModel.removeRow(getTabla().getSelectedRow());
+			*/
 		}
 		
 	}
