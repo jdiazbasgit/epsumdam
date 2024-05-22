@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Build-Jdk-Spec: 17
 Implementation-Title: conexionDatos
 Implementation-Version: 1.0
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Build-Jdk-Spec: 17
-Implementation-Title: conexionDatos
-Implementation-Version: 1.0
-Created-By: Maven Integration for Eclipse
-
->>>>>>> springjpa-empleados

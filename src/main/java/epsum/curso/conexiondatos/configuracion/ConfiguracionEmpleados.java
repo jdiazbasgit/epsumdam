@@ -1,5 +1,11 @@
 package epsum.curso.conexiondatos.configuracion;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import javax.swing.JComboBox;
@@ -31,8 +37,31 @@ public class ConfiguracionEmpleados {
 	private DatoLaboralService datoLaboralService;
 	
 	public Object[] cabecerasCargos() {
-		Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
-		"DATOS_LABORALES" };
+		Connection conexion=null;
+		Object[] cabeceras=new Object[2] ;
+		try {
+			conexion= DriverManager.getConnection("jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
+			Statement st=conexion.createStatement();
+			ResultSet rs= st.executeQuery("select * from empleados");
+			ResultSetMetaData rsmd= rs.getMetaData();
+			for(int i=0;i<rsmd.getColumnCount();i++)
+			{
+				cabeceras[i]=rsmd.getColumnName(i+1);
+			}
+			//Object[] cabeceras = { "ID", "DESCRIPCION" };
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conexion.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		return  cabeceras;
 	}
 	public Object[][] datosEmpleados() {
