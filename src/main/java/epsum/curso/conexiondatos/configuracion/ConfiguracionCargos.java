@@ -71,4 +71,9 @@ public class ConfiguracionCargos {
 		return new PanelCargos(cabecerasCargos(),datosCargos(),"CARGOS");
 	}
 
+	
+	
+	
+	
+	
 }
