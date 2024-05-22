@@ -12,7 +12,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+//@EqualsAndHashCode(callSuper=false)
 public class PanelHijos extends PanelComponente {
 	
 	@Autowired

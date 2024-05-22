@@ -5,6 +5,8 @@ package epsum.curso.conexiondatos;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import javax.annotation.PostConstruct;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,7 @@ import lombok.Data;
 public class TestCargos {
 	@Autowired
 	private CargoService cargoService;
+
 
 	//@Test
 	public void alta() {
