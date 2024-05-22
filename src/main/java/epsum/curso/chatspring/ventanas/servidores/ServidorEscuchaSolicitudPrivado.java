@@ -1,4 +1,4 @@
-package epsum.curso.chatspring.ventanas.servidores;
+ package epsum.curso.chatspring.ventanas.servidores;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
