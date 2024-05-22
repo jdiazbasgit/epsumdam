@@ -98,7 +98,10 @@ public class PanelCargos extends PanelComponente {
 //	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
 //	        e.printStackTrace(); // Opcional: imprime el error en la consola
 //	    }
-//	}
+
+	
+	
+	
 	
 	
 	
