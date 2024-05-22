@@ -118,7 +118,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		if (e.getSource().equals(botonAlta))
 			alta();
 		if (e.getSource().equals(botonBorrar))
-			crearPanelBorrado();
+			baja();
 		if (e.getSource().equals(botonModificar))
 			modificar();
 	}
