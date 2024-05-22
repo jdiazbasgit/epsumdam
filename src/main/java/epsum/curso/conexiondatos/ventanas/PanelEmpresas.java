@@ -52,7 +52,14 @@ public class PanelEmpresas extends PanelComponente{
 		jOptionPane.setLocation(100, 100);
 		int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		if (confirmation == JOptionPane.YES_OPTION) {
-		getEmpresaService().deleteById(id); // Assuming this method deletes the entry
+		try {
+			getEmpresaService().deleteById(id);
+			JOptionPane.showConfirmDialog(null, "Registro borrado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showConfirmDialog(null, "Registro no se ha podido realizar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		} // Assuming this method deletes the entry
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		defaultTableModel.removeRow(getTabla().getSelectedRow());
 		}
