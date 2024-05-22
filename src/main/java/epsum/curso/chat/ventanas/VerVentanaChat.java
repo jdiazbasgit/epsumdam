@@ -6,8 +6,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
+<<<<<<< HEAD
 
 import epsum.curso.chat.configuration.ClienteConfiguration;
+=======
+import epsum.curso.chat.ventanas.configuration.ClienteConfiguration;
+>>>>>>> origin/chat-rodrigo
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
@@ -17,6 +21,7 @@ import lombok.Data;
 @Data
 @Import(ClienteConfiguration.class)
 public class VerVentanaChat extends Frame implements CommandLineRunner {
+
 	@Autowired
 	private VentanaChat ventanaChat;
 	
@@ -30,7 +35,9 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	private ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
 	
 	public static void main(String[] args) {
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(VentanaChat.class);
+
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
+
 		builder.headless(false);
 		builder.run(args);
 		
