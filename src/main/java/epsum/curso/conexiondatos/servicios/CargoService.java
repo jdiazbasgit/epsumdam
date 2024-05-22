@@ -34,10 +34,7 @@ public class CargoService {
 		return getCargoCrudRepository().existsById(id);
 	}
 	
-	public Iterable<Cargo> findAllById(List<Integer> ids){
-		return getCargoCrudRepository().findAllById(ids);
-	}
-	
+
 	
 }
 	

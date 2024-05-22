@@ -123,4 +123,10 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			modificar();
 	}
 
+	
+	//marlenepaper
+	
+	
+	
+	
 }

@@ -25,10 +25,5 @@ public class Cargo {
 	private int id;
 	//@Column(name = "descripcion_nueva")
 	private String descripcion;
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return this.getDescripcion();
-	}
 
 }
