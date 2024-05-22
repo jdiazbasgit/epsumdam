@@ -38,7 +38,7 @@ public class ConfiguracionEmpleados {
 	
 	public Object[] cabecerasCargos() {
 		Connection conexion=null;
-		Object[] cabeceras=new Object[7] ;
+		Object[] cabeceras=new Object[8] ;
 		try {
 			conexion= DriverManager.getConnection("jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
 			Statement st=conexion.createStatement();
