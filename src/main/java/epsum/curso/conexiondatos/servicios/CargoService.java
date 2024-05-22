@@ -31,6 +31,12 @@ public class CargoService {
 	public boolean existById(int id) {
 		return getCargoCrudRepository().existsById(id);
 	}
+	
+	
+	
+	
+	
+	
 }
 	
 

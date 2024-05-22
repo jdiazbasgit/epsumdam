@@ -99,6 +99,13 @@ public class PanelCargos extends PanelComponente {
 //	        e.printStackTrace(); // Opcional: imprime el error en la consola
 //	    }
 //	}
+	
+	
+	
+	
+	
+	
+	
 
 
 
