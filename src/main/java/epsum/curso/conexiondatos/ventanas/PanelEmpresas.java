@@ -54,14 +54,15 @@ public class PanelEmpresas extends PanelComponente{
 		if (confirmation == JOptionPane.YES_OPTION) {
 		try {
 			getEmpresaService().deleteById(id);
+			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			defaultTableModel.removeRow(getTabla().getSelectedRow());
 			JOptionPane.showConfirmDialog(null, "Registro borrado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			JOptionPane.showConfirmDialog(null, "Registro no se ha podido realizar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 		} // Assuming this method deletes the entry
-		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
+		
 		}
 
 	}
