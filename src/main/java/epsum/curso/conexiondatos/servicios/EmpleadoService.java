@@ -1,7 +1,5 @@
 package epsum.curso.conexiondatos.servicios;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,15 +21,12 @@ public class EmpleadoService {
 	public Empleado save(Empleado empleado) {
 		return getEmpleadoCrudRepository().save(empleado);
 	}
-	/*public void delete(Empleado empleado) {
-	 getEmpleadoCrudRepository().delete(estadoCivil);
-	 
+	
+	public void deleteById(int id) {
+	 getEmpleadoCrudRepository().deleteById(id);
 	}
-
+	
 	public long count() {
 	return getEmpleadoCrudRepository().count();
 	}
-
-*/
-
 }

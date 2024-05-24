@@ -1,67 +1,122 @@
 package epsum.curso.conexiondatos.ventanas;
 
-import java.awt.Choice;
-import java.awt.Graphics;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
-import java.awt.Panel;
+import java.awt.BorderLayout;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JTable;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
+import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EstadoCivilService;
+import lombok.Data;
+import epsum.curso.conexiondatos.entidades.Empresa;
+import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EmpresaService;
+import epsum.curso.conexiondatos.entidades.Empleado;
+import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.EmpleadoService;
+
+import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
+import epsum.curso.conexiondatos.servicios.HijoService;
+import lombok.Data;
+
+import epsum.curso.conexiondatos.entidades.DatoLaboral;
+import epsum.curso.conexiondatos.servicios.DatoLaboralService;
+import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
+import epsum.curso.conexiondatos.entidades.DatoPersonal;
 
 @Component
-
+//@Data
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
-	private CargoService cargoService;
+	private CargoCrudRepository cargoCrudRepository;
+	@Autowired
+	private EstadoCivilService estadoCivilService;
+	@Autowired
+	private EmpresaService empresaService;
+	@Autowired
+	private EmpleadoService empleadoService;
+	@Autowired
+	private HijoService hijoService;
+	@Autowired
+	private DatoLaboralService datoLaboralService;
+	@Autowired
+	private DatosPersonalesService datosPersonalesService;
+	@Autowired
+	private PanelCargos panelCargos;
+	@Autowired
+	private PanelEmpresas panelEmpresas;
+  @Autowired
+	private PanelHijos panelHijos;
+	@Autowired
+	private PanelDatosLaborales panelDatosLaborales;
+  @Autowired
+	private PanelEstadosCiviles panelEstadosCiviles;
+
+	
 	private boolean primeraVez;
-	private MenuBar menuBar;
-	private Menu menu;
-	private MenuItem empresas;
-	private MenuItem hijos;
-	private MenuItem estadosCiviles;
-	private MenuItem cargos;
-	private MenuItem datosLaborales;
-	private MenuItem datosPersonales;
-	private MenuItem empleados;
-	private MenuItem salir;
-	private Panel panelCargos;
-	private Choice choice;
+	private JMenuBar menuBar;
+	private JMenu menu;
+	private JMenuItem empresas;
+	private JMenuItem hijos;
+	private JMenuItem estadosCiviles;
+	private JMenuItem cargos;
+	private JMenuItem datosLaborales;
+	private JMenuItem datosPersonales;
+	private JMenuItem empleados;
+	private JMenuItem salir;
+	private JButton modificar, borrar;
+	public DatosPersonalesService getDatosPersonalesService() {
+		return datosPersonalesService;
+	}
+
+	public void setDatosPersonalesService(DatosPersonalesService datosPersonalesService) {
+		this.datosPersonalesService = datosPersonalesService;
+	}
+
+	
 
 	public VentanaDatos() {
-		//setSize(1000, 1000);
+		
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//setResizable(false);
 		this.addWindowListener(this);
-		// (new FlowLayout());
-		menuBar = new MenuBar();
-		menu = new Menu("opciones");
-		empresas = new MenuItem("empresas");
-		hijos = new MenuItem("hijos");
-		estadosCiviles = new MenuItem("estados civiles");
-		cargos = new MenuItem("cargos");
+		menuBar = new JMenuBar();
+		menu = new JMenu("opciones");
+		empresas = new JMenuItem("empresas");
+		hijos = new JMenuItem("hijos");
+		estadosCiviles = new JMenuItem("estados civiles");
+		cargos = new JMenuItem("cargos");
+		salir = new JMenuItem("salir");
 		cargos.addActionListener(this);
-		datosLaborales = new MenuItem("datos laborales");
-		datosPersonales = new MenuItem("datos personales");
-		empleados = new MenuItem("empleados");
-		salir = new MenuItem("salir");
-		setMenuBar(menuBar);
+		estadosCiviles.addActionListener(this);
+		empresas.addActionListener(this);
+		hijos.addActionListener(this);
+		datosPersonales = new JMenuItem("datos personales");
+		datosPersonales.addActionListener(this);
+		datosLaborales = new JMenuItem("datos laborales");
+		datosLaborales.addActionListener(this);
+		salir.addActionListener(this);
+		empleados = new JMenuItem("empleados");
+		empleados.addActionListener(this);
+		
+		setJMenuBar(menuBar);
 		menu.add(empresas);
 		menu.add(cargos);
 		menu.add(estadosCiviles);
@@ -72,34 +127,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		menu.addSeparator();
 		menu.add(salir);
 		menuBar.add(menu);
-		choice = new Choice();
-		panelCargos = new Panel();
-		panelCargos.add(choice);
-		
-	}
-
-	@Override
-	public void paint(Graphics g) {
-		if (!primeraVez) {
-
-			Iterable<Cargo> cargos = cargoService.findAll();
-			for (Cargo cargo : cargos) {
-				List<Cargo> cargosList=(List<Cargo>) cargos;
-				List<String> descripcionCargo=new ArrayList<>();
-				for (Cargo cargo2 : cargos) {
-					descripcionCargo.add(cargo2.getDescripcion());
-				
-				}
-				descripcionCargo.stream().filter(c->c.startsWith("M")).sorted().forEach(c->choice.add(c));
-				
-				
-			}
-			
-			
-					
-			//JTable tabla= new JTable([["1","jefe"]], ["id","descripcion"]);
-			
-		}
+		modificar = new JButton("MODIFICAR");
+		borrar = new JButton("BORRAR");
 	}
 
 	@Override
@@ -148,10 +177,260 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(cargos)) {
 			getContentPane().removeAll();
+			
 			getContentPane().add(panelCargos);
 			this.show();
 		}
+		if (e.getSource().equals(datosPersonales)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
+			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
+			int i = 0;
+			for (DatoPersonal datoPersonal : datosPersonales) {
+				datos[i][0] = String.valueOf(datoPersonal.getId());
+				datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
+				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
+				i++;
 
+			}
+			getContentPane().add(new PanelDatosPersonales(cabeceras, datos, "DATOS PERSONALES"));
+			this.show();
+		}
+		if (e.getSource().equals(estadosCiviles)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "DESCRIPCION" };
+			List<EstadoCivil> estadosCiviles = (List<EstadoCivil>) getEstadoCivilService().findAll();
+			Object[][] datos = new Object[(int) getEstadoCivilService().count()][2];
+			int i = 0;
+			for (EstadoCivil estadoCivil : estadosCiviles) {
+				datos[i][0] = String.valueOf(estadoCivil.getId());
+				datos[i][1] = estadoCivil.getDescripcion();
+
+				i++;
+
+			}
+			
+			getContentPane().add(getPanelEstadosCiviles());
+			this.show();
+		}
+
+		if (e.getSource().equals(empleados)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
+					"DATOS_LABORALES" };
+			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
+			Object[][] datos = new Object[(int) empleadoService.count()][8];
+			int i = 0;
+			for (Empleado empleado : empleados) {
+				datos[i][0] = String.valueOf(empleado.getId());
+				datos[i][1] = empleado.getNombre();
+				datos[i][2] = empleado.getDni();
+				datos[i][3] = empleado.getEmail();
+				datos[i][4] = empleado.getTelefono();
+				datos[i][5] = empleado.getEmpresa().getNombre();
+				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
+						+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
+						+ empleado.getDatoPersonal().getHijo().getChicas();
+				datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
+						+ empleado.getDatoLaboral().getSalario();
+
+				i++;
+
+			}
+			;
+			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			this.show();
+
+		}
+
+		if (e.getSource().equals(hijos)) {
+			getContentPane().removeAll();
+			
+			getContentPane().add(panelHijos);
+			
+			this.show();
+		}
+		if (e.getSource().equals(datosLaborales)) {
+			getContentPane().removeAll();
+			
+			getContentPane().add(panelDatosLaborales);
+			
+			this.show();
+		}
+
+		if (e.getSource().equals(empresas)) {
+			getContentPane().removeAll();
+			Object[] cabeceras = { "ID", "NOMBRE", "CIF" };
+			List<Empresa> empresas = (List<Empresa>) getEmpresaService().findAll();
+			Object[][] datos = new Object[(int) getEmpresaService().count()][3];
+			int i = 0;
+			for (Empresa empresa : empresas) {
+				datos[i][0] = String.valueOf(empresa.getId());
+				datos[i][1] = empresa.getNombre();
+				datos[i][2] = empresa.getCif();
+				i++;
+
+			}
+			;
+			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
+			this.show();
+		}
+		if(e.getSource().equals(salir)) {
+			JDialog dialog= new JDialog();
+			dialog.setSize(500,500);
+			dialog.setLocation(200,200);
+			dialog.setVisible(true);
+			dialog.add(new Label("soy un texto en el dialog"),BorderLayout.NORTH);
+			JButton boton= new JButton("cerrar");
+			dialog.add(boton);
+			boton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					dialog.setVisible(false);
+					//System.exit(0);
+					
+				}
+			});
+		}
+	}
+
+	public EstadoCivilService getEstadoCivilService() {
+		return estadoCivilService;
+	}
+
+	public void setEstadoCivilService(EstadoCivilService estadoCivilService) {
+		this.estadoCivilService = estadoCivilService;
+	}
+
+	
+
+	public boolean isPrimeraVez() {
+		return primeraVez;
+	}
+
+	public void setPrimeraVez(boolean primeraVez) {
+		this.primeraVez = primeraVez;
+	}
+
+	public JMenu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(JMenu menu) {
+		this.menu = menu;
+	}
+
+	public JMenuItem getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(JMenuItem empresas) {
+		this.empresas = empresas;
+	}
+
+	public JMenuItem getHijos() {
+		return hijos;
+	}
+
+	public void setHijos(JMenuItem hijos) {
+		this.hijos = hijos;
+	}
+
+	public JMenuItem getEstadosCiviles() {
+		return estadosCiviles;
+	}
+
+	public void setEstadosCiviles(JMenuItem estadosCiviles) {
+		this.estadosCiviles = estadosCiviles;
+	}
+
+	public JMenuItem getCargos() {
+		return cargos;
+	}
+
+	public void setCargos(JMenuItem cargos) {
+		this.cargos = cargos;
+	}
+
+	public JMenuItem getDatosLaborales() {
+		return datosLaborales;
+	}
+
+	public void setDatosLaborales(JMenuItem datosLaborales) {
+		this.datosLaborales = datosLaborales;
+	}
+
+	public JMenuItem getDatosPersonales() {
+		return datosPersonales;
+	}
+
+	public void setDatosPersonales(JMenuItem datosPersonales) {
+		this.datosPersonales = datosPersonales;
+	}
+
+	public JMenuItem getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(JMenuItem empleados) {
+		this.empleados = empleados;
+	}
+
+	public JMenuItem getSalir() {
+		return salir;
+	}
+
+	public void setSalir(JMenuItem salir) {
+		this.salir = salir;
+	}
+
+	public JButton getModificar() {
+		return modificar;
+	}
+
+	public void setModificar(JButton modificar) {
+		this.modificar = modificar;
+	}
+
+	public JButton getBorrar() {
+		return borrar;
+	}
+
+	public void setBorrar(JButton borrar) {
+		this.borrar = borrar;
+	}
+
+	public EmpresaService getEmpresaService() {
+		return empresaService;
+	}
+
+	public void setEmpresaService(EmpresaService empresaService) {
+		this.empresaService = empresaService;
+	}
+
+	public HijoService getHijoService() {
+		return hijoService;
+	}
+
+	public void setHijoService(HijoService hijoService) {
+		this.hijoService = hijoService;
+	}
+
+	public PanelEstadosCiviles getPanelEstadosCiviles() {
+		return panelEstadosCiviles;
+	}
+
+	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
+		this.panelEstadosCiviles = panelEstadosCiviles;
+	}
+
+	public CargoCrudRepository getCargoCrudRepository() {
+		return cargoCrudRepository;
+	}
+
+	public void setCargoCrudRepository(CargoCrudRepository cargoCrudRepository) {
+		this.cargoCrudRepository = cargoCrudRepository;
 	}
 }
-

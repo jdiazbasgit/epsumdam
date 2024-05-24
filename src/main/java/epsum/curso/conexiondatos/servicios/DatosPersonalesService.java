@@ -1,0 +1,46 @@
+package epsum.curso.conexiondatos.servicios;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import epsum.curso.conexiondatos.entidades.DatoPersonal;
+import epsum.curso.conexiondatos.repositorios.DatosPersonalesCrudRepository;
+import lombok.Data;
+
+@Service
+@Data
+public class DatosPersonalesService {
+	
+	@Autowired
+	private DatosPersonalesCrudRepository datosPersonalesCrudRepository;
+	
+	public Iterable<DatoPersonal> findAll(){
+		return getDatosPersonalesCrudRepository().findAll();
+	}
+	
+	public DatoPersonal save(DatoPersonal datoPersonal) {
+		return getDatosPersonalesCrudRepository().save(datoPersonal);
+	}
+	
+	public long count() {
+		return getDatosPersonalesCrudRepository().count();
+	}
+	public void deleteById(int id) {
+		getDatosPersonalesCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getDatosPersonalesCrudRepository().existsById(id);
+	}
+	/*public void delete(EstadoCivil estadoCivil) {
+		 getEstadoCivilCrudRepository().delete(estadoCivil);
+		 
+	}
+	
+	public long count() {
+		return getEstadoCivilCrudRepository().count();
+	}
+	
+	*/
+
+}
