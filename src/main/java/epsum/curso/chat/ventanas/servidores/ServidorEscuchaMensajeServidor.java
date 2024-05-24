@@ -9,7 +9,11 @@ import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeServidor;
 
 public class ServidorEscuchaMensajeServidor extends ServidorChat {
 
+<<<<<<< HEAD
 	ServidorEscuchaMensajeServidor(int puerto) {
+=======
+	public ServidorEscuchaMensajeServidor(int puerto) {
+>>>>>>> 6b13729fca9af6439953172a24babb0f632f2741
 
 		super(puerto);
 	}
@@ -24,7 +28,6 @@ public class ServidorEscuchaMensajeServidor extends ServidorChat {
 		ServidorChat.usuarios.keySet().stream().forEach(ipc->{
 			ClienteEnvioMensajeServidor clienteEnvioMensajeServidor= new ClienteEnvioMensajeServidor(ipc, ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, mensajeSalida);
 			clienteEnvioMensajeServidor.start();
-
 		});
 		
 	}
