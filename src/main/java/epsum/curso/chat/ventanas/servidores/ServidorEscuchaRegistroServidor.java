@@ -20,10 +20,10 @@ public class ServidorEscuchaRegistroServidor extends ServidorChat {
 
 	@Override
 	public void hacerAlgo() throws IOException {
-		System.out.println("entrada nick en servidor");
+		
 		String ip =getSocket().getInetAddress().getHostAddress();
 		String nick=new BufferedReader(new InputStreamReader(getSocket().getInputStream())).readLine();
-		
+		System.out.println("entrada "+nick+" en servidor");
 		Map<String,String> usuariosTemporales=null;
 		if(ServidorEscuchaRegistroServidor.usuarios.values().stream().filter(u->u.equals(nick)).count()>0) {
 			usuariosTemporales= new HashMap<>();
