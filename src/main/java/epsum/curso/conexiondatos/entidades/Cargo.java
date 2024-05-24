@@ -1,5 +1,6 @@
 package epsum.curso.conexiondatos.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +23,7 @@ public class Cargo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	//@Column(name = "descripcion_nueva")
 	private String descripcion;
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return this.getDescripcion();
-	}
 
 }
