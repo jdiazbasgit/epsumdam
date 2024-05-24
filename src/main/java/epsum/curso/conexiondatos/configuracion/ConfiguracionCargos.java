@@ -26,30 +26,8 @@ public class ConfiguracionCargos {
 	private CargoService cargoService;
 	
 	public Object[] cabecerasCargos() {
-		Connection conexion=null;
-		Object[] cabeceras=new Object[2] ;
-		try {
-			 conexion= DriverManager.getConnection("jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
-			Statement st=conexion.createStatement();
-			ResultSet rs= st.executeQuery("select * from cargos");
-			ResultSetMetaData rsmd= rs.getMetaData();
-			for(int i=0;i<rsmd.getColumnCount();i++)
-			{
-				cabeceras[i]=rsmd.getColumnName(i+1);
-			}
-			//Object[] cabeceras = { "ID", "DESCRIPCION" };
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				conexion.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		Object[] cabeceras= {"ID","DESCRIPCION"};
+		
 		
 		return  cabeceras;
 	}
@@ -71,4 +49,9 @@ public class ConfiguracionCargos {
 		return new PanelCargos(cabecerasCargos(),datosCargos(),"CARGOS");
 	}
 
+	
+	
+	
+	
+	
 }

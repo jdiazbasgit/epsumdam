@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 public class PanelCargos extends PanelComponente {
 	@Autowired
-	//private CargoService cargoService;
+	private CargoService cargoService;
 	private CargoCrudRepository cargoCrudRepository;
 	private Object[] cabeceras;
 
@@ -47,9 +47,18 @@ public class PanelCargos extends PanelComponente {
 	    int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
 	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Estás seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
-	        getCargoCrudRepository().deleteById(id); 
-	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-	        defaultTableModel.removeRow(getTabla().getSelectedRow());
+
+	        try {
+				getCargoService().deleteById(id);
+				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			     defaultTableModel.removeRow(getTabla().getSelectedRow());
+			} catch (Exception e) {	
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+			} 
+
+	       
 	    }
 	}
 	
@@ -102,7 +111,21 @@ public class PanelCargos extends PanelComponente {
 //	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
 //	        e.printStackTrace(); // Opcional: imprime el error en la consola
 //	    }
-//	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
