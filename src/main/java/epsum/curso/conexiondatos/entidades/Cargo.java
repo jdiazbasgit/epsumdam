@@ -11,19 +11,28 @@ import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @Table(name = "cargos")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Cargo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	//@Column(name = "descripcion_nueva")
 	private String descripcion;
+	
+	@Override
+	public String toString() {
+		return getDescripcion();
+	}
 
 }
