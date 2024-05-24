@@ -32,6 +32,7 @@ import epsum.curso.conexiondatos.servicios.CargoService;
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 
 import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
@@ -45,7 +46,7 @@ import epsum.curso.conexiondatos.entidades.DatoPersonal;
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
-	private CargoService cargoService;
+	private CargoCrudRepository cargoCrudRepository;
 	@Autowired
 	private EstadoCivilService estadoCivilService;
 	@Autowired
@@ -65,8 +66,18 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private PanelDatosPersonales panelDatosPersonales;
 
 	private PanelEmpresas panelEmpresas;
+  @Autowired
 	private PanelHijos panelHijos;
+<<<<<<< HEAD
 
+=======
+	@Autowired
+	private PanelDatosLaborales panelDatosLaborales;
+  @Autowired
+	private PanelEstadosCiviles panelEstadosCiviles;
+
+	
+>>>>>>> refs/remotes/origin/springjpa
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -197,7 +208,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			
-			getContentPane().add(new PanelEstadosCiviles(cabeceras, datos, "ESTADOS CIVILES"));
+			getContentPane().add(getPanelEstadosCiviles());
 			this.show();
 		}
 
@@ -239,20 +250,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosLaborales)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
-			List<DatoLaboral> datosLaborales = (List<DatoLaboral>) datoLaboralService.findAll();
-			Object[][] datos = new Object[(int) datoLaboralService.count()][3];
-			int i = 0;
-			for (DatoLaboral datoLaboral : datosLaborales) {
-				datos[i][0] = String.valueOf(datoLaboral.getId());
-				datos[i][1] = datoLaboral.getSalario();
-				datos[i][2] = datoLaboral.getCargo().getDescripcion();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelDatosLaborales(cabeceras, datos, "DATOS LABORALES"));
+			
+			getContentPane().add(panelDatosLaborales);
+			
 			this.show();
 		}
 
@@ -270,7 +270,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(panelEmpresas);
+			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
 			this.show();
 		}
 		if(e.getSource().equals(salir)) {
@@ -286,6 +286,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dialog.setVisible(false);
+					//System.exit(0);
 					
 				}
 			});
@@ -300,13 +301,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		this.estadoCivilService = estadoCivilService;
 	}
 
-	public CargoService getCargoService() {
-		return cargoService;
-	}
-
-	public void setCargoService(CargoService cargoService) {
-		this.cargoService = cargoService;
-	}
+	
 
 	public boolean isPrimeraVez() {
 		return primeraVez;
@@ -418,5 +413,21 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setHijoService(HijoService hijoService) {
 		this.hijoService = hijoService;
+	}
+
+	public PanelEstadosCiviles getPanelEstadosCiviles() {
+		return panelEstadosCiviles;
+	}
+
+	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
+		this.panelEstadosCiviles = panelEstadosCiviles;
+	}
+
+	public CargoCrudRepository getCargoCrudRepository() {
+		return cargoCrudRepository;
+	}
+
+	public void setCargoCrudRepository(CargoCrudRepository cargoCrudRepository) {
+		this.cargoCrudRepository = cargoCrudRepository;
 	}
 }
