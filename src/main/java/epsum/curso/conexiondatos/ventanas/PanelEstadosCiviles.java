@@ -45,9 +45,16 @@ public class PanelEstadosCiviles extends PanelComponente {
 		jOptionPane.setLocation(100, 100);
 		int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		if (confirmation == JOptionPane.YES_OPTION) {
-		getEstadoCivilService().deleteById(id); // Assuming this method deletes the entry
+		try {
+		getEstadoCivilService().deleteById(id);
+		jOptionPane.showMessageDialog(null ,"Registro borrado con exito" , "correcto", JOptionPane.INFORMATION_MESSAGE);
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		defaultTableModel.removeRow(getTabla().getSelectedRow());
+		} catch (Exception e) {
+			jOptionPane.showMessageDialog(null ,"Registro no se pudo borrar" , "error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+
 		}
 		
 	}
