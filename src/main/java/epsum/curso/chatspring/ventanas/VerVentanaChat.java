@@ -33,7 +33,7 @@ public class VerVentanaChat extends Frame implements CommandLineRunner{
 	@Autowired
 	private ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
 	@Autowired 
-	private VerVentanaChat verVentanaChat;
+	private VentanaChat ventanaChat;
 	
 	public static void main1(String[] args) {
 	
@@ -41,7 +41,7 @@ public class VerVentanaChat extends Frame implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-	getVerVentanaChat().setVisible(true);
+	getVentanaChat().setVisible(true);
 	servidorEscuchaRegistroCliente.start();
 	servidorEscuchaMensajeCliente.start();
 	servidorEscuchaSolicitudPrivado.start();
