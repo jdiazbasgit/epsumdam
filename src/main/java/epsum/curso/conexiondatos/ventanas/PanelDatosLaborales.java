@@ -17,7 +17,6 @@ import lombok.EqualsAndHashCode;
 import javax.swing.JComboBox;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
 public class PanelDatosLaborales extends PanelComponente {
 
 	@Autowired
