@@ -29,7 +29,7 @@ public class ConfiguracionCargos {
 		Connection conexion=null;
 		Object[] cabeceras=new Object[2] ;
 		try {
-			 conexion= DriverManager.getConnection("jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
+			 conexion= DriverManager.getConnection("jdbc:mysql://192.168.0.126:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
 			Statement st=conexion.createStatement();
 			ResultSet rs= st.executeQuery("select * from cargos");
 			ResultSetMetaData rsmd= rs.getMetaData();
