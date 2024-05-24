@@ -36,9 +36,9 @@ public class PanelEmpresas extends PanelComponente{
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		Object [] datos = {"0", "pepe",""};
 		defaultTableModel.addRow(datos);
-		Empresa empresa = new Empresa();
-		empresa.setNombre(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 1).toString());
-		empresa.setCif(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 2).toString());
+//		Empresa empresa = new Empresa();
+//		empresa.setNombre(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 1).toString());
+//		empresa.setCif(getTabla().getModel().getValueAt(getTabla().getModel().getRowCount() -1, 2).toString());
 //		getEmpresaService().save(empresa);
 	
 		}
@@ -52,9 +52,17 @@ public class PanelEmpresas extends PanelComponente{
 		jOptionPane.setLocation(100, 100);
 		int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		if (confirmation == JOptionPane.YES_OPTION) {
-		getEmpresaService().deleteById(id); // Assuming this method deletes the entry
-		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
+		try {
+			getEmpresaService().deleteById(id);
+			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			defaultTableModel.removeRow(getTabla().getSelectedRow());
+			JOptionPane.showConfirmDialog(null, "Registro borrado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showConfirmDialog(null, "Registro no se ha podido realizar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		} // Assuming this method deletes the entry
+		
 		}
 
 	}
