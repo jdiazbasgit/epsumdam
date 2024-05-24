@@ -24,14 +24,22 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-public class VerVentanaChat extends Frame implements CommandLineRunner {
+public class VerVentanaChat  implements CommandLineRunner {
 	@Autowired
 	private VentanaChat ventanaChat;
+	@Autowired
+	private ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
+	@Autowired
+	private ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente;
+	@Autowired
+	private ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
 	public static void main(String[] args) {
 		
+
 		
 		
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(LevantarServidor.class);
+		
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
 		builder.headless(false);
 		builder.run(args);
 		
@@ -42,27 +50,16 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		
-		servidorEscuchaMensajeCliente().start();
-		servidorEscuchaRegistroCliente().start();
-		servidorEscuchaSolicitudPrivado().start();
+		getServidorEscuchaMensajeCliente().start();
+		getServidorEscuchaRegistroCliente().start();
+		getServidorEscuchaSolicitudPrivado().start();
 		getVentanaChat().setVisible(true);
 
-		getVentanaChat().setVisible(true);
+		
 		 
 
 	}
-	@Bean
-	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
-		return new ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, getVentanaChat());
-	}
-	@Bean
-	public ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente() {
-		return new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, getVentanaChat());
-	}
-	@Bean
-	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
-		return new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, getVentanaChat());
-	}
+	
 	
 }
    
