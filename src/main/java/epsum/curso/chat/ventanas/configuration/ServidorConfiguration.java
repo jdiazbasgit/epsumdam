@@ -27,6 +27,14 @@ public class ServidorConfiguration {
 				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
 		return servidorEscuchaRegistroServidor;
 	}
+	
+	@Bean
+	public ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor() {
+		ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor = new ServidorEscuchaMensajeServidor(
+				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
+		return servidorEscuchaMensajeServidor;
+	}
+	
 
 	@Bean
 	public ServidorEscuchaBajaServidor servidorEscuchaBajaServidor() {
@@ -35,11 +43,5 @@ public class ServidorConfiguration {
 		return servidorEscuchaBajaServidor;
 	}
 
-	@Bean
-	public ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor() {
-		ServidorEscuchaMensajeServidor servidorEscuchaMensajeServidor = new ServidorEscuchaMensajeServidor(
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
-		return servidorEscuchaMensajeServidor;
-	}
 	
 }
