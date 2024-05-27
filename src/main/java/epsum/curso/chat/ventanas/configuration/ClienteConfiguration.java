@@ -63,6 +63,6 @@ public class ClienteConfiguration {
 	@Bean
 	@Scope("prototype")
 	public ClienteenvioPeticionPrivado clienteenvioPeticionPrivado() {
-		return new ClienteenvioPeticionPrivado(ClienteChat.SERVIDOR,ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
+		return new ClienteenvioPeticionPrivado(null,ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
 	}
 }
