@@ -16,7 +16,6 @@ import lombok.Data;
 public class PanelCargos extends PanelComponente {
 	@Autowired
 	private CargoService cargoService;
-	private CargoCrudRepository cargoCrudRepository;
 	private Object[] cabeceras;
 
 	private Object[][] datos;
@@ -33,23 +32,13 @@ public class PanelCargos extends PanelComponente {
 		//Aqui es para el dialog:
 	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
+	    	//funcion del profe:
 	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-	        
-//	        Object[] datos = { "0", "" };
-//	        defaultTableModel.addRow(datos);
-	        
-	        String descripcion = JOptionPane.showInputDialog("Introduce la descripción del cargo:");
-	        
-	        if (descripcion != null && !descripcion.trim().isEmpty()) {
-                Object[] datos = { "0", descripcion.trim() };
-                defaultTableModel.addRow(datos);
-            } else {
-                JOptionPane.showMessageDialog(null, "La descripción no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+	        Object[] datos = { "0", "" };
+	        defaultTableModel.addRow(datos);
 	    }
 	}
-	
-	
+
 	@Override
 	public void baja() {
 
@@ -81,7 +70,7 @@ public class PanelCargos extends PanelComponente {
 	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
 	            
 	            // Intenta guardar el cargo
-	            getCargoCrudRepository().save(cargo);
+	            getCargoService().save(cargo);
 	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
 	            defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 	        }
