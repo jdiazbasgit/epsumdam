@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Service
 @Data
-
 public class EmpresaService {
 
 	@Autowired
@@ -21,5 +20,16 @@ public class EmpresaService {
 	
 	public Empresa save(Empresa empresa) {
 		return getEmpresaCrudRepository().save(empresa);
+	}
+	
+	public long count() {
+		return getEmpresaCrudRepository().count();
+	}
+	public void deleteById(int id) {
+		getEmpresaCrudRepository().deleteById(id);
+	}
+	
+	public boolean existById(int id) {
+		return getEmpresaCrudRepository().existsById(id);
 	}
 }

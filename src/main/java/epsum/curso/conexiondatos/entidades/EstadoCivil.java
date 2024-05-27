@@ -1,4 +1,5 @@
 package epsum.curso.conexiondatos.entidades;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,15 +13,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "estados_civiles")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class EstadoCivil {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@Column(name="decripcion")
+	private String descripcion;
+
 	
-	private String decripcion;
+	
 
 	
 }
