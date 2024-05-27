@@ -11,8 +11,10 @@ import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivad
 
 
 import epsum.curso.chatspring.ventanas.VentanaChat;
+import lombok.Data;
 
 @Configuration
+@Data
 public class Configuracion {
 
 	@Autowired
