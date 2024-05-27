@@ -13,7 +13,9 @@ import epsum.curso.conexiondatos.entidades.DatoPersonal;
 import epsum.curso.conexiondatos.entidades.EstadoCivil;
 import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.servicios.CargoService;
+import epsum.curso.conexiondatos.servicios.HijoService;
 import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
+import epsum.curso.conexiondatos.servicios.EstadoCivilService;
 import epsum.curso.conexiondatos.ventanas.PanelCargos;
 import epsum.curso.conexiondatos.ventanas.PanelDatosPersonales;
 import lombok.Data;
@@ -24,28 +26,36 @@ public class ConfiguracionDatosPersonales {
 
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
+	private HijoService hijoService;
+	private EstadoCivilService estadoCivilService;
 	
 	public Object[] cabecerasDatosPersonales() {
-		Object[] cabeceras = { "ID", "DESCRIPCION", "NUMERO HIJOS" };
+		Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMERO HIJOS" };
 		return  cabeceras;
 	}
 	public Object[][] datosDatosPersonales() {
 		List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
 		Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
 		int i = 0;
-		Hijo[] hijo
-		s = {new Hijo(0,1,1),new Hijo(0,2,1), new Hijo(0,1,2)};
-		EstadoCivil[] estadosCiviles = {new EstadoCivil (1,"Casado"), new EstadoCivil(2,"Soltero"), new EstadoCivil(3,"Casado)")};
-		JComboBox<Hijo> jComboBox = new JComboBox<>(hijos);
-		JComboBox <EstadoCivil> jComboBox1 = new JComboBox<> (estadosCiviles);
-		
 		for (DatoPersonal datoPersonal : datosPersonales) {
-			
+			Hijo[] hijos=((List<Hijo>)getHijoService().findAll()).toArray(new Hijo[0]);
+			JComboBox<Hijo> comboBoxHijo = new JComboBox<Hijo>(hijos);
+			EstadoCivil[] estadosCiviles=((List<EstadoCivil>)getEstadoCivilService().findAll()).toArray(new EstadoCivil[0]);
+			JComboBox<EstadoCivil> comboBoxEstadoCivil = new JComboBox<EstadoCivil>(estadosCiviles);
 			datos[i][0] = String.valueOf(datoPersonal.getId());
-			datos[i][1] = jComboBox1;
-			//datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
-			datos[i][2]= jComboBox;
-			i++;
+			for (int j=0;j<hijos.length;j++) {
+				if(hijos[j].getId()==datoPersonal.getHijo().getId()) {
+					comboBoxHijo.setSelectedIndex(j);
+				}
+			}
+			for (int x=0;x<estadosCiviles.length;x++) {
+				if(estadosCiviles[x].getId()==datoPersonal.getEstadoCivil().getId()) {
+					comboBoxEstadoCivil.setSelectedIndex(x);
+				}
+			}
+			
+			datos[i][2]=comboBoxEstadoCivil;
+			datos[i][3]=comboBoxHijo;
 			
 		}
 		return datos;
@@ -54,7 +64,8 @@ public class ConfiguracionDatosPersonales {
 	
 	@Bean
 	public PanelDatosPersonales panelDatosPersonales() {
-		return new PanelDatosPersonales(cabecerasDatosPersonales(),datosDatosPersonales(),"DatosPersonales");
+		PanelDatosPersonales datosPersonales= new PanelDatosPersonales(cabecerasDatosPersonales(), datosDatosPersonales(), "DATOS PERSONALES");
+		return datosPersonales;
 	}
 
 }
