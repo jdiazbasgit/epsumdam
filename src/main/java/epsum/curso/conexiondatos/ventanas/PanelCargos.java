@@ -16,7 +16,7 @@ import lombok.Data;
 public class PanelCargos extends PanelComponente {
 	@Autowired
 	private CargoService cargoService;
-	private CargoCrudRepository cargoCrudRepository;
+	//private CargoCrudRepository cargoCrudRepository;
 	private Object[] cabeceras;
 
 	private Object[][] datos;
@@ -72,7 +72,7 @@ public class PanelCargos extends PanelComponente {
 	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
 	            
 	            // Intenta guardar el cargo
-	            getCargoCrudRepository().save(cargo);
+	            getCargoService().save(cargo);
 	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
 	            defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 	        }
