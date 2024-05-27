@@ -33,10 +33,19 @@ public class PanelCargos extends PanelComponente {
 		//Aqui es para el dialog:
 	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
-	    	//funcion del profe:
 	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-	        Object[] datos = { "0", "" };
-	        defaultTableModel.addRow(datos);
+	        
+//	        Object[] datos = { "0", "" };
+//	        defaultTableModel.addRow(datos);
+	        
+	        String descripcion = JOptionPane.showInputDialog("Introduce la descripción del cargo:");
+	        
+	        if (descripcion != null && !descripcion.trim().isEmpty()) {
+                Object[] datos = { "0", descripcion.trim() };
+                defaultTableModel.addRow(datos);
+            } else {
+                JOptionPane.showMessageDialog(null, "La descripción no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+            }
 	    }
 	}
 	
@@ -85,48 +94,4 @@ public class PanelCargos extends PanelComponente {
 	        e.printStackTrace(); // Opcional: imprime el error en la consola
 	    }
 	}
-	
-//	@Override
-//	public void modificar() {
-//	    boolean modificacionesRealizadas = false;
-//	    try {
-//	        for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
-//	            Cargo cargo = new Cargo();
-//	            cargo.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
-//	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
-//	            
-//	            // Intenta guardar el cargo
-//	            if (getCargoService().save(cargo)) {
-//	                modificacionesRealizadas = true;
-//	            }
-//	        }
-//	        
-//	        if (modificacionesRealizadas) {
-//	            JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-//	        } else {
-//	            JOptionPane.showMessageDialog(null, "No se realizaron modificaciones", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-//	        }
-//	    } catch (Exception e) {
-//	        // Si ocurre un error, muestra un mensaje de error
-//	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
-//	        e.printStackTrace(); // Opcional: imprime el error en la consola
-//	    }
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
 }
