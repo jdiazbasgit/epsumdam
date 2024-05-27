@@ -3,6 +3,10 @@ package epsum.curso.chat.ventanas.clientes;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.Data;
+@Data
 public class Cliente {
 
 	public static void main(String[] args) {

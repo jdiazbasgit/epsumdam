@@ -1,5 +1,8 @@
 package epsum.curso.chat.configuration;
 
+import java.io.PrintWriter;
+import java.net.Socket;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,4 +43,5 @@ public class ClienteConfiguration {
 		return servidorEscuchaSolicitudPrivado;
 
 	}
+
 }
