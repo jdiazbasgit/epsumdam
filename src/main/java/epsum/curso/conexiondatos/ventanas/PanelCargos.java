@@ -48,7 +48,7 @@ public class PanelCargos extends PanelComponente {
 	public void baja() {
 
 	    int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Estás seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Estás seguro de borrar el cargo "+getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 1)+"?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
 
 	        try {
@@ -61,7 +61,7 @@ public class PanelCargos extends PanelComponente {
 				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque esta en uso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 			} catch(EmptyResultDataAccessException e) {
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "El registro no existe", "Error", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "El registro no existe, se va a eliminar", "Error", JOptionPane.INFORMATION_MESSAGE);
 				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 			    defaultTableModel.removeRow(getTabla().getSelectedRow());
 			}
@@ -90,7 +90,7 @@ public class PanelCargos extends PanelComponente {
 	        
 	        //Quitar la fila donde hay error
 	    } catch (DataIntegrityViolationException e) {
-	        JOptionPane.showMessageDialog(null, "Error: El cargo ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
+	        JOptionPane.showMessageDialog(null, "Error: El cargo ya existe, se va a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
 	        e.printStackTrace(); 
 	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		    defaultTableModel.removeRow(i);
