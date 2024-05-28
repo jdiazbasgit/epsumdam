@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
@@ -57,7 +58,12 @@ public class PanelCargos extends PanelComponente {
 			} catch (DataIntegrityViolationException e) {	
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque esta en uso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-			} 
+			} catch(EmptyResultDataAccessException e) {
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "El registro no existe", "Error", JOptionPane.INFORMATION_MESSAGE);
+				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			    defaultTableModel.removeRow(getTabla().getSelectedRow());
+			}
 
 	       
 	    }
@@ -82,6 +88,8 @@ public class PanelCargos extends PanelComponente {
 	    } catch (DataIntegrityViolationException e) {
 	        JOptionPane.showMessageDialog(null, "Error: El cargo ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
 	        e.printStackTrace(); 
+	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		    defaultTableModel.removeRow(getTabla().getSelectedRow());
 	        
 	    }catch (Exception e) {
 	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
