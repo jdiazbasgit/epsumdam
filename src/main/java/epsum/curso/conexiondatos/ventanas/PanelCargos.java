@@ -73,8 +73,9 @@ public class PanelCargos extends PanelComponente {
 	
 	@Override
 	public void modificar() {
-	    try {
-	        for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
+	    int i =0;
+	    	try {
+	        for ( i = 0; i < getTabla().getModel().getRowCount(); i++) {
 	            Cargo cargo = new Cargo();
 	            cargo.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
 	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
@@ -86,11 +87,13 @@ public class PanelCargos extends PanelComponente {
 	        }
 	        JOptionPane.showMessageDialog(null, "Las modificaciones se realizaron correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 	    
+	        
+	        //Quitar la fila donde hay error
 	    } catch (DataIntegrityViolationException e) {
 	        JOptionPane.showMessageDialog(null, "Error: El cargo ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
 	        e.printStackTrace(); 
 	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		    defaultTableModel.removeRow(getTabla().getSelectedRow());
+		    defaultTableModel.removeRow(i);
 	        
 	    }catch (Exception e) {
 	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
