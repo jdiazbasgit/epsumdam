@@ -62,7 +62,6 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
-
 	private PanelDatosPersonales panelDatosPersonales;
 
 	private PanelEmpresas panelEmpresas;
