@@ -25,8 +25,8 @@ public class ConfiguracionCargos {
 	@Autowired
 	private CargoService cargoService;
 	
-	public Object[] cabecerasCargos() {
-		Object[] cabeceras= {"ID","DESCRIPCION"};
+	public String[] cabecerasCargos() {
+		String[] cabeceras= {"ID","DESCRIPCION"};
 		
 		
 		return  cabeceras;

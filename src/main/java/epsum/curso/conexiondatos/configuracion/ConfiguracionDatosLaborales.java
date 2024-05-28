@@ -27,8 +27,8 @@ public class ConfiguracionDatosLaborales {
 	private CargoService cargoService;
 	private JComboBox<Cargo> jComboBoxCargo;
 
-	public Object[] cabecerasDatosLaborales() {
-		Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
+	public String[] cabecerasDatosLaborales() {
+		String[] cabeceras = { "ID", "SALARIO", "CARGO" };
 		return cabeceras;
 	}
 	public Object[][] datosDatosLaborales(){
