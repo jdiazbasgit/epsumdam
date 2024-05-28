@@ -32,7 +32,7 @@ public class EmpleadoService {
 	return getEmpleadoCrudRepository().count();
 	}
 	
-	public List<Empleado> findByDatoPersonalByHijoByChicasGreaterthan(int chicas){
-		return getEmpleadoCrudRepository().findByDatoPersonalByHijoByChicasGreaterThan(chicas);
+	public List<Empleado> findByNombreEquals(String nombre){
+		return getEmpleadoCrudRepository().findByNombreEquals(nombre);
 	}
 }

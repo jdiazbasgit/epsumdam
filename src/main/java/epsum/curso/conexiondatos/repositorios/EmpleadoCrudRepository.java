@@ -16,5 +16,5 @@ public interface EmpleadoCrudRepository extends CrudRepository<Empleado, Integer
 	//@Query("from Cargo as cargo where cargo.descripcion like :dato")
 	//public List<Cargo> getCargosQueEmpiezanPor(String dato);
 	
-	public List<Empleado> findByDatoPersonalByHijoByChicasGreaterThan(int chicas);
+	public List<Empleado> findByNombreEquals(String nombre);
 }
