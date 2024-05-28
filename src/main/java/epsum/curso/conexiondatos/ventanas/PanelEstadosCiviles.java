@@ -13,6 +13,7 @@ import lombok.Data;
 
 @Data
 public class PanelEstadosCiviles extends PanelComponente {
+	
 	@Autowired
 	private EstadoCivilService 	estadoCivilService;
 	
