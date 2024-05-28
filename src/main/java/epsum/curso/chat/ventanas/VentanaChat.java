@@ -43,8 +43,10 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	private JTextField TNick, TMensaje;
 	private JTextArea TAMensajes, TAUsuarios;
 	private int puerto = 9000;
+	
+	
 
-	public VentanaChat() {
+	public VentanaChat() {		
 		setSize(500, 500);
 		setLayout(new BorderLayout());
 		setVisible(true);

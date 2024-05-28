@@ -25,3 +25,4 @@ public class ClienteEnvioRegistroServidor extends ClienteChat {
 	}
 
 }
+

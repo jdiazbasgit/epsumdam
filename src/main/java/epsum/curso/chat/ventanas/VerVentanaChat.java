@@ -1,22 +1,13 @@
 package epsum.curso.chat.ventanas;
 
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 
-import epsum.curso.chat.ventanas.clientes.ClienteChat;
-import epsum.curso.chat.ventanas.servidores.LevantarServidor;
-import epsum.curso.chat.ventanas.servidores.ServidorChat;
+import epsum.curso.chat.configuration.ClienteConfiguration;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
@@ -24,21 +15,22 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-public class VerVentanaChat  implements CommandLineRunner {
+@Import(ClienteConfiguration.class)
+public class VerVentanaChat extends Frame implements CommandLineRunner {
+
 	@Autowired
 	private VentanaChat ventanaChat;
-	@Autowired
-	private ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
+	
 	@Autowired
 	private ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente;
+	
+	@Autowired
+	private ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
+	
 	@Autowired
 	private ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
+	
 	public static void main(String[] args) {
-		
-
-		
-		
-		
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
 		builder.headless(false);
 		builder.run(args);
@@ -48,18 +40,11 @@ public class VerVentanaChat  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		
-		getServidorEscuchaMensajeCliente().start();
-		getServidorEscuchaRegistroCliente().start();
-		getServidorEscuchaSolicitudPrivado().start();
 		getVentanaChat().setVisible(true);
-
-		
-		 
-
+		getServidorEscuchaRegistroCliente().start();
+		getServidorEscuchaMensajeCliente().start();
+		getServidorEscuchaSolicitudPrivado().start();
 	}
-	
+
 	
 }
-   

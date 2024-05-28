@@ -132,5 +132,5 @@ public class DialogPrivado extends JDialog implements ActionListener {
 		getJTextArea().append("YO digo: "+getJTextField().getText()+"\n");		
 		getJTextField().setText("");
 	}
-
 }
+
