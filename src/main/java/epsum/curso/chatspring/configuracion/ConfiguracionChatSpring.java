@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
+import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
+import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
@@ -32,6 +34,5 @@ public class ConfiguracionChatSpring {
 	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado() {
 		return new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, getVentanaChat());
 	}
-	
-	
+		
 }
