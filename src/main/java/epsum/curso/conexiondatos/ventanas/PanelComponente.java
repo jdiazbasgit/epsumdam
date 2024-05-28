@@ -6,7 +6,9 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -67,18 +69,22 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 		for (int i = 0; i < getTabla().getColumnCount(); i++) {
 			for (int j = 0; j < getTabla().getRowCount(); j++) {
-				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
+				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?> ) {
+					
+;					//JComboBox<?> comboBox=(JComboBox<?>)getTabla().getModel().getValueAt(j, i);
 
-					getTabla().getColumnModel().getColumn(i).setCellRenderer( new TableCellRenderer() {
-
-						@Override
-						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-								boolean hasFocus, int row, int column) {
-							if (value instanceof JComboBox<?>)
-								return (Component) value;
-							return null;
-						}
-					});
+					/*for(int h=0;h<comboBox1.getComponentCount();h++) {
+						comboBox.add((JComboBox<?>) comboBox1.getItemAt(h));
+						comboBox.setSelectedIndex(comboBox1.getSelectedIndex());
+						
+					}*/
+					//getTabla().getModel().setValueAt(comboBox,j, i);
+					getTabla().getColumn(getTabla().getModel().getColumnName(i)).setCellEditor(new DefaultCellEditor(new JComboBox<>()));
+					//getTabla().setDefaultEditor(JComboBox.class, new DefaultCellEditor(new JComboBox()));
+					//getTabla().getModel().setValueAt(comboBox,j, i);
+					//System.out.println(comboBox.getSelectedItem());
+					getTabla().repaint();
+					//comboBox.setSelectedItem(comboBox.getSelectedItem());
 				}
 			}
 		}
