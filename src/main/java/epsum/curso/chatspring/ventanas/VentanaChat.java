@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
@@ -42,6 +43,9 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	private JTextField TNick, TMensaje;
 	private JTextArea TAMensajes, TAUsuarios;
 	private int puerto = 9000;
+	
+	@Autowired
+	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
 
 	public VentanaChat() {
 		setSize(500, 500);
@@ -126,9 +130,9 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		ClienteEnvioBajaCliente cliente = new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR,
+		ClienteEnvioBajaCliente clienteEnvioBajaCliente = new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR,
 				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
-		cliente.start();
+		clienteEnvioBajaCliente.start();
 		System.exit(0);
 
 	}

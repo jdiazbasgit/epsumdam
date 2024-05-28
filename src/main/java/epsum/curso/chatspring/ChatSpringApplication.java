@@ -27,4 +27,4 @@ public class ChatSpringApplication implements CommandLineRunner {
 		getVentanaChat().setVisible(true);
 	}
 
-}
+} 
