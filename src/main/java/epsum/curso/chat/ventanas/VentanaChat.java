@@ -221,8 +221,11 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 			clienteEnvioMensajeCliente.start();
 		}
 		if (e.getSource().equals(getBPrivado())) {
-
+			//String nick = this.getTAUsuarios().getSelectedText();
 			ServidorChat.usuarios.keySet().stream().forEach(ip -> {
+				//if (ServidorChat.usuarios.get(ip).equals(nick)){
+					//clienteenvioPeticionPrivado.setIp(ip);
+				//}
 				if (ServidorChat.usuarios.get(ip).equals(getTAUsuarios().getSelectedText())) {
 					/*ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(ip,
 							ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, this);
