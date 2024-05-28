@@ -6,23 +6,27 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 import lombok.Data;
 
 @Data
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
-	private Object[] cabeceras;
+	private String[] cabeceras;
 	private Object[][] datos;
 	private String titulo;
 	private JButton botonAlta;
@@ -31,8 +35,8 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JTable tabla;
 	private JLabel lTitulo;
 	private DefaultTableModel defaultTableModel;
-	
-	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
+
+	public PanelComponente(String[] cabeceras, Object[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
 		this.datos = datos;
@@ -45,46 +49,40 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
 
-		this.defaultTableModel = new DefaultTableModel(datos, cabeceras);
+		MyTableModel myTableModel = new MyTableModel(datos, cabeceras);
 
-		this.tabla = new JTable(getDefaultTableModel()) {
-			@Override
-			public boolean isCellEditable(int row, int column) {
-
-				if (column == 0) {
-					return false;
-
-				}
-				return true;
-			}
-
-			@Override
-			public int getRowHeight() {
-				return 30;
-			}
-
-		};
+		this.tabla = new JTable(myTableModel);
 
 		for (int i = 0; i < getTabla().getColumnCount(); i++) {
 			for (int j = 0; j < getTabla().getRowCount(); j++) {
 				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
 
-					getTabla().getColumnModel().getColumn(i).setCellRenderer( new TableCellRenderer() {
+					;
+					JComboBox<?> comboBox = (JComboBox<?>) getTabla().getModel().getValueAt(j, i);
 
-						@Override
-						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-								boolean hasFocus, int row, int column) {
-							if (value instanceof JComboBox<?>)
-								return (Component) value;
-							return null;
-						}
-					});
+					/*
+					 * for(int h=0;h<comboBox1.getComponentCount();h++) {
+					 * comboBox.add((JComboBox<?>) comboBox1.getItemAt(h));
+					 * comboBox.setSelectedIndex(comboBox1.getSelectedIndex());
+					 * 
+					 * }
+					 */
+					// getTabla().getModel().setValueAt(comboBox,j, i);
+					// getTabla().getColumn(getTabla().getModel().getColumnName(i)).setCellEditor(new
+					// DefaultCellEditor(comboBox));
+					// getTabla().setDefaultEditor(JComboBox.class, new DefaultCellEditor(new
+					// JComboBox()));
+					// getTabla().getModel().setValueAt(comboBox,j, i);
+					// System.out.println(comboBox.getSelectedItem());
+					myTableModel.fireTableCellUpdated(j, i);
+					// comboBox.setSelectedItem(comboBox.getSelectedItem());
 				}
 			}
 		}
 
 		TableColumn column = new TableColumn();
 		column.setHeaderValue("ACCIONES");
+		column.setCellRenderer(new DefaultTableCellRenderer());
 		this.setLayout(new BorderLayout(20, 20));
 		this.lTitulo = new JLabel(this.titulo);
 		JPanel panelTitulo = new JPanel();
@@ -105,8 +103,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	}
 
 	public void crearPanelBorrado() {
-		 JOptionPane.showMessageDialog(null, "Hello World");
+		JOptionPane.showMessageDialog(null, "Hello World");
 	}
+
 	public abstract void alta();
 
 	public abstract void baja();
@@ -123,10 +122,6 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			modificar();
 	}
 
-	
-	//marlenepaper
-	
-	
-	
-	
+	// marlenepaper
+
 }

@@ -27,8 +27,8 @@ public class ConfiguracionDatosLaborales {
 	private CargoService cargoService;
 	private JComboBox<Cargo> jComboBoxCargo;
 
-	public Object[] cabecerasDatosLaborales() {
-		Object[] cabeceras = { "ID", "SALARIO", "CARGO" };
+	public String[] cabecerasDatosLaborales() {
+		String[] cabeceras = { "ID", "SALARIO", "CARGO" };
 		return cabeceras;
 	}
 	public Object[][] datosDatosLaborales(){
@@ -36,10 +36,18 @@ public class ConfiguracionDatosLaborales {
 		Object[][] datos = new Object[(int) getDatoLaboralService().count()][3];
 		int i = 0;
 		for (DatoLaboral datoLaboral : datosLaborales) {
-	        JComboBox<Cargo> comboBoxCargo = new JComboBox<Cargo>(((List<Cargo>)getCargoService().findAll()).toArray(new Cargo[0]));
+			
+			Cargo[] cargos=((List<Cargo>)getCargoService().findAll()).toArray(new Cargo[0]);
+	        JComboBox<Cargo> comboBoxCargo = new JComboBox<Cargo>(cargos);
 			datos[i][0] = String.valueOf(datoLaboral.getId());
 			datos[i][1] = String.valueOf(datoLaboral.getSalario());
-			comboBoxCargo.setSelectedItem(datoLaboral.getCargo());
+			for(int j=0;j<cargos.length;j++) {
+				if(cargos[j].getId()==datoLaboral.getCargo().getId())
+					comboBoxCargo.setSelectedIndex(j);
+			}
+			
+			
+			//comboBoxCargo.setSelectedItem(datoLaboral.getCargo());
 			datos[i][2] = comboBoxCargo;
 
 			i++;
