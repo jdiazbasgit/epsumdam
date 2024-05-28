@@ -19,8 +19,8 @@ public class ConfiguraciónHijos {
 	@Autowired
 	private HijoService hijoService;
 	
-	public Object[] cabecerasHijos() {
-		Object[] cabeceras = {"ID", "CHICOS", "CHICAS"};
+	public String[] cabecerasHijos() {
+		String[] cabeceras = {"ID", "CHICOS", "CHICAS"};
 		return cabeceras;
 	}
 	public Object[][] datosHijos(){
