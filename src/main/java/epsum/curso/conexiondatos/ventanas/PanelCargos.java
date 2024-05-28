@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
@@ -69,18 +71,24 @@ public class PanelCargos extends PanelComponente {
 	            cargo.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
 	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
 	            
-	            // Intenta guardar el cargo
+	         //Aqui intenta guardarlo:
 	            getCargoService().save(cargo);
 	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
 	            defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 	        }
-	        
-	        // Si llega aquí, todas las modificaciones fueron exitosas
 	        JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-	    } catch (Exception e) {
-	        // Si ocurre un error, muestra un mensaje de error
+	    
+	    } catch (DuplicateKeyException e) {
+	        JOptionPane.showMessageDialog(null, "Error: Clave duplicada. No se puede guardar el cargo.", "Error", JOptionPane.ERROR_MESSAGE);
+	        e.printStackTrace(); 
+	        
+	    } catch (DataIntegrityViolationException e) {
+	        JOptionPane.showMessageDialog(null, "Error: Violación de integridad. Verifique los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+	        e.printStackTrace(); 
+	        
+	    }catch (Exception e) {
 	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
-	        e.printStackTrace(); // Opcional: imprime el error en la consola
+	        e.printStackTrace(); 
 	    }
 	}
 }
