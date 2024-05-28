@@ -1,5 +1,7 @@
 package epsum.curso.conexiondatos.servicios;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +30,9 @@ public class EmpleadoService {
 	
 	public long count() {
 	return getEmpleadoCrudRepository().count();
+	}
+	
+	public List<Empleado> findByDatoPersonalByHijoByChicasGreaterthan(int chicas){
+		return getEmpleadoCrudRepository().findByDatoPersonalByHijoByChicasGreaterThan(chicas);
 	}
 }
