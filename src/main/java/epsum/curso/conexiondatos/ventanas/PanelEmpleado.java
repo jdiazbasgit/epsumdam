@@ -32,13 +32,8 @@ import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
 @Data
 public class PanelEmpleado extends PanelComponente {
-<<<<<<< HEAD
-	private static final String String = null;
-
-	public PanelEmpleado(Object[] cabeceras, Object[][] datos, String titulo) {
-=======
 	public PanelEmpleado(String[] cabeceras, Object[][] datos, String titulo) {
->>>>>>> origin/springjpa-empleados
+
 		super(cabeceras, datos, titulo);
 		
 	}
@@ -65,14 +60,12 @@ public class PanelEmpleado extends PanelComponente {
 	
 	@Override
 	public void alta() {
-<<<<<<< HEAD
+
 		 int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		    if (confirmation == JOptionPane.YES_OPTION) {
-=======
+
 		List<Empleado> empleados= getEmpleadoService().findByNombreEquals("profe");
 		empleados.stream().forEach(e->System.out.println(e.getNombre()));
-		
->>>>>>> origin/springjpa-empleados
 		
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
   
