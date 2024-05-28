@@ -1,6 +1,5 @@
 package epsum.curso.conexiondatos.ventanas;
 
-
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 
@@ -25,8 +24,8 @@ public class MyTableModel extends AbstractTableModel {
 	/**
 	 * Constructor.
 	 * 
-	 * @param datos Nombres de las columnas
-	 * @param cabeceras        Datos de la tabla
+	 * @param datos     Nombres de las columnas
+	 * @param cabeceras Datos de la tabla
 	 */
 	public MyTableModel(Object[][] datos, String[] cabeceras) {
 		this.columnNames = cabeceras;
@@ -63,6 +62,7 @@ public class MyTableModel extends AbstractTableModel {
 		if (aux != null) {
 			clazz = aux.getClass();
 		}
+		
 
 		return clazz;
 	}
@@ -82,7 +82,8 @@ public class MyTableModel extends AbstractTableModel {
 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		// Permitimos editar todas las celdas de la tabla
+		if(columnIndex==0)
+			return false;
 		return true;
 	}
 
