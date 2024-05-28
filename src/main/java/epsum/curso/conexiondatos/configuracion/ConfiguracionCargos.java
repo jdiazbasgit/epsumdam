@@ -1,5 +1,12 @@
 package epsum.curso.conexiondatos.configuracion;
 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +26,9 @@ public class ConfiguracionCargos {
 	private CargoService cargoService;
 	
 	public Object[] cabecerasCargos() {
-		Object[] cabeceras = { "ID", "DESCRIPCION" };
+		Object[] cabeceras= {"ID","DESCRIPCION"};
+		
+		
 		return  cabeceras;
 	}
 	public Object[][] datosCargos() {
@@ -40,4 +49,9 @@ public class ConfiguracionCargos {
 		return new PanelCargos(cabecerasCargos(),datosCargos(),"CARGOS");
 	}
 
+	
+	
+	
+	
+	
 }

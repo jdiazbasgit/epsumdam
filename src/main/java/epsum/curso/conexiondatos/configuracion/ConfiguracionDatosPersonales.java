@@ -33,8 +33,9 @@ public class ConfiguracionDatosPersonales {
 		List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
 		Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
 		int i = 0;
-		Hijo[] hijos = {new Hijo(0,1,1),new Hijo(0,2,1), new Hijo(0,1,2)};
-		EstadoCivil [] estadosCiviles = {new EstadoCivil (1,"Casado"), new EstadoCivil(2,"Soltero"), new EstadoCivil(3,"Casado)")};
+		Hijo[] hijo
+		s = {new Hijo(0,1,1),new Hijo(0,2,1), new Hijo(0,1,2)};
+		EstadoCivil[] estadosCiviles = {new EstadoCivil (1,"Casado"), new EstadoCivil(2,"Soltero"), new EstadoCivil(3,"Casado)")};
 		JComboBox<Hijo> jComboBox = new JComboBox<>(hijos);
 		JComboBox <EstadoCivil> jComboBox1 = new JComboBox<> (estadosCiviles);
 		
