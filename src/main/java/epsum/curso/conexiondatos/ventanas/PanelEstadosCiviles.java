@@ -16,13 +16,13 @@ public class PanelEstadosCiviles extends PanelComponente {
 	@Autowired
 	private EstadoCivilService 	estadoCivilService;
 	
-	private Object[] cabeceras;
+	private String[] cabeceras;
 
 	private Object[][] datos;
 
 	private String titulo;
 
-	public PanelEstadosCiviles(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelEstadosCiviles(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 	}
 

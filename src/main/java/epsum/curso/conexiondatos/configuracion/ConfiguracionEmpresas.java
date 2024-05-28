@@ -18,8 +18,8 @@ public class ConfiguracionEmpresas {
 	@Autowired
 	private EmpresaService empresaService;
 	
-	public Object[] cabecerasEmpresas() {
-		Object[] cabeceras = {"ID", "NOMBRE", "CIF"};
+	public String[] cabecerasEmpresas() {
+		String[] cabeceras = {"ID", "NOMBRE", "CIF"};
 		return cabeceras;
 	}
 	

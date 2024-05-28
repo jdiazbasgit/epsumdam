@@ -21,8 +21,8 @@ public class ConfiguracionEstadosCiviles {
 	@Autowired
 	private EstadoCivilService estadoCivilService;
 	
-	public Object[] cabecerasEstadosCiviles() {
-		Object[] cabeceras = { "ID", "DESCRIPCION" };
+	public String[] cabecerasEstadosCiviles() {
+		String[] cabeceras = { "ID", "DESCRIPCION" };
 		return  cabeceras;
 	}
 	public Object[][] datosEstadosCiviles() {
