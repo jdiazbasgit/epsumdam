@@ -15,12 +15,13 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 import lombok.Data;
-
+@Component
 @Data
 public class DialogPrivado extends JDialog implements ActionListener {
 	private JPanel jPanel;

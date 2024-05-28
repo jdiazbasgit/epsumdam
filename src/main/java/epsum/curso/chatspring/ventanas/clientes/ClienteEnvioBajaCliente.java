@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import lombok.Data;
+
+@Data
 public class ClienteEnvioBajaCliente extends ClienteChat {
 	public ClienteEnvioBajaCliente(String ip, int puerto) {
 		super(ip, puerto);
