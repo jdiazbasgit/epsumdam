@@ -16,6 +16,7 @@ import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.CargoService;
 import lombok.Data;
 
+//Codigo Marlene
 @Data
 public class PanelCargos extends PanelComponente {
 	@Autowired
