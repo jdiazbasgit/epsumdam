@@ -100,4 +100,39 @@ public class PanelCargos extends PanelComponente {
 	        e.printStackTrace(); 
 	    }
 	}
+<<<<<<< HEAD
 }
+=======
+	
+//	@Override
+//	public void modificar() {
+//	    boolean modificacionesRealizadas = false;
+//	    try {
+//	        for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
+//	            Cargo cargo = new Cargo();
+//	            cargo.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
+//	            cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
+//	            
+//	            // Intenta guardar el cargo
+//	            if (getCargoService().save(cargo)) {
+//	                modificacionesRealizadas = true;
+//	            }
+//	        }
+//	        
+//	        if (modificacionesRealizadas) {
+//	            JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+//	        } else {
+//	            JOptionPane.showMessageDialog(null, "No se realizaron modificaciones", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+//	        }
+//	    } catch (Exception e) {
+//	        // Si ocurre un error, muestra un mensaje de error
+//	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
+//	        e.printStackTrace(); // Opcional: imprime el error en la consola
+//	    }
+//	}
+
+
+
+
+}
+>>>>>>> springjpa-empleados
