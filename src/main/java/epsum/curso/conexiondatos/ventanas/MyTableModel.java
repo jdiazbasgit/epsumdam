@@ -11,10 +11,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-public class MyTableModel extends AbstractTableModel {
+public class MyTableModel extends DefaultTableModel  {
 
 	/** Nombre de las columnas. */
 	private String[] columnNames;
