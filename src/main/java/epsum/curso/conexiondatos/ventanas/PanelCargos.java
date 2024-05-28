@@ -34,15 +34,30 @@ public class PanelCargos extends PanelComponente {
 	
 	@Override
 	public void alta() {
-		//Aqui es para el dialog:
+	    
 	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 	    if (confirmation == JOptionPane.YES_OPTION) {
-	    	//funcion del profe:
-	        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-	        Object[] datos = { "0", "" };
-	        defaultTableModel.addRow(datos);
+	        try {
+	            
+	            String descripcion = JOptionPane.showInputDialog(null, "Introduce la descripción del nuevo cargo:", "Nueva Descripción", JOptionPane.PLAIN_MESSAGE);
+
+	            if (descripcion == null || descripcion.trim().isEmpty()) {
+	                throw new IllegalArgumentException("La descripción no puede estar vacía");
+	            }
+	            
+	            DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		        Object[] datos = { "0", descripcion.trim() };
+		        defaultTableModel.addRow(datos);
+
+	            JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+	        } catch (IllegalArgumentException e) {
+	            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+	        } 
 	    }
 	}
+
+
 
 	@Override
 	public void baja() {
