@@ -15,9 +15,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 import lombok.Data;
 
@@ -64,23 +66,40 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 			public int getRowHeight() {
 				return 30;
 			}
+			@Override
+			public TableColumnModel getColumnModel() {
+				// TODO Auto-generated method stub
+				return super.getColumnModel();
+			}
+			
 
 		};
 
 		for (int i = 0; i < getTabla().getColumnCount(); i++) {
 			for (int j = 0; j < getTabla().getRowCount(); j++) {
-				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
-					JComboBox<?> comboBox=(JComboBox<?>)getTabla().getModel().getValueAt(j, i);
-					System.out.println(comboBox.getSelectedItem());
-					getTabla().getColumn(getTabla().getModel().getColumnName(i)).setCellEditor(new DefaultCellEditor(comboBox));
-					getTabla().setDefaultEditor(JCheckBox.class, new DefaultCellEditor(new JCheckBox()));
-					getTabla().repaint();
+				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?> ) {
+					
+;					JComboBox<?> comboBox=(JComboBox<?>)getTabla().getModel().getValueAt(j, i);
+
+					/*for(int h=0;h<comboBox1.getComponentCount();h++) {
+						comboBox.add((JComboBox<?>) comboBox1.getItemAt(h));
+						comboBox.setSelectedIndex(comboBox1.getSelectedIndex());
+						
+					}*/
+					//getTabla().getModel().setValueAt(comboBox,j, i);
+					//getTabla().getColumn(getTabla().getModel().getColumnName(i)).setCellEditor(new DefaultCellEditor(comboBox));
+					//getTabla().setDefaultEditor(JComboBox.class, new DefaultCellEditor(new JComboBox()));
+					//getTabla().getModel().setValueAt(comboBox,j, i);
+					//System.out.println(comboBox.getSelectedItem());
+					defaultTableModel.fireTableCellUpdated(j, i);
+					//comboBox.setSelectedItem(comboBox.getSelectedItem());
 				}
 			}
 		}
 
 		TableColumn column = new TableColumn();
 		column.setHeaderValue("ACCIONES");
+		column.setCellRenderer(new DefaultTableCellRenderer());
 		this.setLayout(new BorderLayout(20, 20));
 		this.lTitulo = new JLabel(this.titulo);
 		JPanel panelTitulo = new JPanel();
