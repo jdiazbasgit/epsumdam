@@ -28,6 +28,8 @@ public class DialogPrivado extends JDialog implements ActionListener {
 	private JTextArea jTextArea;
 	private int puerto;
 	private String ip;
+	
+	
 	public DialogPrivado() {
 		
 		
@@ -69,6 +71,7 @@ public class DialogPrivado extends JDialog implements ActionListener {
 		getJPanel().add(getJTextField());
 		getJPanel().add(getJButton());
 		add(getJPanel(),BorderLayout.SOUTH);
+		
 		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getPuerto(),title,this);
 		servidorEscuchaMensajePrivado.start();
 		getJButton().addActionListener(this);

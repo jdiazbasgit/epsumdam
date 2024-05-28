@@ -36,13 +36,14 @@ public class ClienteConfiguration {
 		return servidorEscuchaMensajeCliente;
 	}
 
-	@Bean
+	@Bean	
 	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
 		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado = new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, getVentanaChat());
 		return servidorEscuchaSolicitudPrivado;
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public ClienteEnvioBajaCliente clienteEnvioBajaCliente() {
 		return new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR,ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
 	}
