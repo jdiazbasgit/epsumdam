@@ -32,6 +32,7 @@ import epsum.curso.conexiondatos.servicios.CargoService;
 import epsum.curso.conexiondatos.servicios.EmpleadoService;
 
 import epsum.curso.conexiondatos.entidades.Hijo;
+import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.HijoService;
 import lombok.Data;
 
@@ -45,7 +46,7 @@ import epsum.curso.conexiondatos.entidades.DatoPersonal;
 public class VentanaDatos extends JFrame implements WindowListener, ActionListener {
 
 	@Autowired
-	private CargoService cargoService;
+	private CargoCrudRepository cargoCrudRepository;
 	@Autowired
 	private EstadoCivilService estadoCivilService;
 	@Autowired
@@ -61,8 +62,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
+	private PanelEmpleado panelEmpleado;
 	private PanelEmpresas panelEmpresas;
-  @Autowired
+    @Autowired
 	private PanelHijos panelHijos;
 	@Autowired
 	private PanelDatosLaborales panelDatosLaborales;
@@ -182,7 +184,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosPersonales)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			String[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
 			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
 			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
 			int i = 0;
@@ -216,29 +218,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(empleados)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
-					"DATOS_LABORALES" };
-			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
-			Object[][] datos = new Object[(int) empleadoService.count()][8];
-			int i = 0;
-			for (Empleado empleado : empleados) {
-				datos[i][0] = String.valueOf(empleado.getId());
-				datos[i][1] = empleado.getNombre();
-				datos[i][2] = empleado.getDni();
-				datos[i][3] = empleado.getEmail();
-				datos[i][4] = empleado.getTelefono();
-				datos[i][5] = empleado.getEmpresa().getNombre();
-				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
-						+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
-						+ empleado.getDatoPersonal().getHijo().getChicas();
-				datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
-						+ empleado.getDatoLaboral().getSalario();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			getContentPane().add(panelEmpleado);
 			this.show();
 
 		}
@@ -260,7 +240,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(empresas)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "NOMBRE", "CIF" };
+			String[] cabeceras = { "ID", "NOMBRE", "CIF" };
 			List<Empresa> empresas = (List<Empresa>) getEmpresaService().findAll();
 			Object[][] datos = new Object[(int) getEmpresaService().count()][3];
 			int i = 0;
@@ -272,7 +252,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 			}
 			;
-			getContentPane().add(panelEmpresas);
+			getContentPane().add(new PanelEmpresas(cabeceras, datos, "EMPRESAS"));
 			this.show();
 		}
 		if(e.getSource().equals(salir)) {
@@ -303,13 +283,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		this.estadoCivilService = estadoCivilService;
 	}
 
-	public CargoService getCargoService() {
-		return cargoService;
-	}
-
-	public void setCargoService(CargoService cargoService) {
-		this.cargoService = cargoService;
-	}
+	
 
 	public boolean isPrimeraVez() {
 		return primeraVez;
@@ -429,5 +403,13 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 	public void setPanelEstadosCiviles(PanelEstadosCiviles panelEstadosCiviles) {
 		this.panelEstadosCiviles = panelEstadosCiviles;
+	}
+
+	public CargoCrudRepository getCargoCrudRepository() {
+		return cargoCrudRepository;
+	}
+
+	public void setCargoCrudRepository(CargoCrudRepository cargoCrudRepository) {
+		this.cargoCrudRepository = cargoCrudRepository;
 	}
 }
