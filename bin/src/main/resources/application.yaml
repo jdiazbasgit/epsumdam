@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: conexionDatos
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: curso
+<<<<<<< HEAD
+    url: jdbc:mysql://192.168.0.126:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+=======
+    url: jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+>>>>>>> springjpa-empleados
+    password: Cursocurso1;
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      use-new-id-generator-mappings: false
+
+    
