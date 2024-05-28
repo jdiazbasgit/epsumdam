@@ -36,9 +36,9 @@ public class ConfiguracionEmpleados {
 	@Autowired
 	private DatoLaboralService datoLaboralService;
 	
-	public Object[] cabecerasCargos() {
+	public String[] cabecerasCargos() {
 		Connection conexion=null;
-		Object[] cabeceras=new Object[8] ;
+		String[] cabeceras=new String[8] ;
 		try {
 			conexion= DriverManager.getConnection("jdbc:mysql://localhost:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
 			Statement st=conexion.createStatement();

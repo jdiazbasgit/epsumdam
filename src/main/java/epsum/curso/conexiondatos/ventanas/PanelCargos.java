@@ -21,13 +21,13 @@ public class PanelCargos extends PanelComponente {
 	@Autowired
 	private CargoService cargoService;
 
-	private Object[] cabeceras;
+	private String[] cabeceras;
 
 	private Object[][] datos;
 
 	private String titulo;
 
-	public PanelCargos(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelCargos(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 	}
 

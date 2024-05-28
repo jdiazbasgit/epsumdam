@@ -25,12 +25,12 @@ public class MyTableModel extends AbstractTableModel {
 	/**
 	 * Constructor.
 	 * 
-	 * @param columnNames Nombres de las columnas
-	 * @param data        Datos de la tabla
+	 * @param datos Nombres de las columnas
+	 * @param cabeceras        Datos de la tabla
 	 */
-	public MyTableModel(String[] columnNames, Object[][] data) {
-		this.columnNames = columnNames;
-		this.data = data;
+	public MyTableModel(Object[][] datos, String[] cabeceras) {
+		this.columnNames = cabeceras;
+		this.data = datos;
 	}
 
 	@Override
@@ -123,7 +123,7 @@ class MyTable extends JTable {
 				{ "Juan", "juan@gmail.com", false, "Click para elegir", new JButton("Reset") },
 				{ "Ana", "ana@hotmail.com", false, "Click para elegir", new JButton("Reset") } };
 
-		MyTableModel model = new MyTableModel(columnNames, data);
+		MyTableModel model = new MyTableModel(data, columnNames);
 
 		// Establecemos el modelo
 		this.setModel(model);

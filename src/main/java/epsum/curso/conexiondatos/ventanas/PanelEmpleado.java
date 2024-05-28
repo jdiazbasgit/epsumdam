@@ -30,7 +30,7 @@ import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
 @Data
 public class PanelEmpleado extends PanelComponente {
-	public PanelEmpleado(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelEmpleado(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 		
 	}
@@ -49,7 +49,7 @@ public class PanelEmpleado extends PanelComponente {
 	
 	private JComboBox<DatoLaboral> jComboBoxDatosLaborales;
 	
-	private Object[] cabeceras;
+	private String[] cabeceras;
 	
 	private Object[][] datos;
 	

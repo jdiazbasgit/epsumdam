@@ -20,13 +20,13 @@ public class PanelEmpresas extends PanelComponente{
 	@Autowired
 	private EmpresaService empresaService;
 
-	private Object[] cabeceras;
+	private String[] cabeceras;
 
 	private Object[][] datos;
 
 	private String titulo;
 
-	public PanelEmpresas(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelEmpresas(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 	}
 	
