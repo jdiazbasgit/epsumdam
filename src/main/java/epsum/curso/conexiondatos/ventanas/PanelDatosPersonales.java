@@ -80,4 +80,4 @@ public class PanelDatosPersonales extends PanelComponente {
 	}
 
 }
-}
+
