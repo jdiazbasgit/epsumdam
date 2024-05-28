@@ -14,11 +14,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.stereotype.Component;
+
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 import lombok.Data;
 
+@Component
 @Data
 public class DialogPrivado extends JDialog implements ActionListener {
 
@@ -28,9 +31,8 @@ public class DialogPrivado extends JDialog implements ActionListener {
 	private JTextArea jTextArea;
 	private int puerto;
 	private String ip;
+	
 	public DialogPrivado() {
-		
-		
 	}
 	
 
@@ -69,7 +71,7 @@ public class DialogPrivado extends JDialog implements ActionListener {
 		getJPanel().add(getJTextField());
 		getJPanel().add(getJButton());
 		add(getJPanel(),BorderLayout.SOUTH);
-		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getPuerto(),title,this);
+		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado = new ServidorEscuchaMensajePrivado(getPuerto(),title,this);
 		servidorEscuchaMensajePrivado.start();
 		getJButton().addActionListener(this);
 	}

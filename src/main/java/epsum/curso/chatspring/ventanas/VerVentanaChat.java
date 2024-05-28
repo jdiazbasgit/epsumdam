@@ -26,11 +26,11 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	private VentanaChat ventanaChat;
 	
 	@Autowired
-	private  ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente;
+	private ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente;
 	@Autowired
-	private  ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
+	private ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
 	@Autowired
-	private  ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
+	private ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
 	
 
 	public static void main1(String[] args) {

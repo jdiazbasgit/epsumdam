@@ -18,7 +18,7 @@ public class ChatSpringApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ChatSpringApplication.class);
 		builder.headless(false);
-		builder.run(args);
+ 
 	}
 
 	@Override
