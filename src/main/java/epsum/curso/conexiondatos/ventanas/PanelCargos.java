@@ -1,6 +1,7 @@
 package epsum.curso.conexiondatos.ventanas;
 
 import java.awt.event.ActionEvent;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -54,9 +55,9 @@ public class PanelCargos extends PanelComponente {
 				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 			     defaultTableModel.removeRow(getTabla().getSelectedRow());
-			} catch (Exception e) {	
+			} catch (DataIntegrityViolationException e) {	
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque esta en uso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 			} 
 
 	       
@@ -77,14 +78,10 @@ public class PanelCargos extends PanelComponente {
 	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
 	            defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 	        }
-	        JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(null, "Las modificaciones se realizaron correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 	    
-	    } catch (DuplicateKeyException e) {
-	        JOptionPane.showMessageDialog(null, "Error: Clave duplicada. No se puede guardar el cargo.", "Error", JOptionPane.ERROR_MESSAGE);
-	        e.printStackTrace(); 
-	        
 	    } catch (DataIntegrityViolationException e) {
-	        JOptionPane.showMessageDialog(null, "Error: Violación de integridad. Verifique los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+	        JOptionPane.showMessageDialog(null, "Error: El cargo ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
 	        e.printStackTrace(); 
 	        
 	    }catch (Exception e) {
