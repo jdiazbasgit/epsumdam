@@ -184,7 +184,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosPersonales)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			String[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
 			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
 			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
 			int i = 0;
@@ -240,7 +240,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(empresas)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "NOMBRE", "CIF" };
+			String[] cabeceras = { "ID", "NOMBRE", "CIF" };
 			List<Empresa> empresas = (List<Empresa>) getEmpresaService().findAll();
 			Object[][] datos = new Object[(int) getEmpresaService().count()][3];
 			int i = 0;

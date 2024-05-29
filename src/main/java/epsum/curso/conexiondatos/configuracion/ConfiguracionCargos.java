@@ -25,8 +25,8 @@ public class ConfiguracionCargos {
 	@Autowired
 	private CargoService cargoService;
 	
-	public Object[] cabecerasCargos() {
-		Object[] cabeceras= {"ID","DESCRIPCION"};
+	public String[] cabecerasCargos() {
+		String[] cabeceras= {"ID","DESCRIPCION"};
 		
 		
 		return  cabeceras;
@@ -48,6 +48,8 @@ public class ConfiguracionCargos {
 	public PanelCargos getPanelCargos() {
 		return new PanelCargos(cabecerasCargos(),datosCargos(),"CARGOS");
 	}
+	
+	
 
 	
 	

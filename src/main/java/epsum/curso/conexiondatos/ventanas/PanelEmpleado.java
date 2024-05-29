@@ -30,8 +30,9 @@ import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
 @Data
 public class PanelEmpleado extends PanelComponente {
-	public PanelEmpleado(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelEmpleado(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
+		
 	}
 	@Autowired
 	private EmpresaService empresaService;
@@ -48,7 +49,7 @@ public class PanelEmpleado extends PanelComponente {
 	
 	private JComboBox<DatoLaboral> jComboBoxDatosLaborales;
 	
-	private Object[] cabeceras;
+	private String[] cabeceras;
 	
 	private Object[][] datos;
 	
@@ -56,6 +57,9 @@ public class PanelEmpleado extends PanelComponente {
 	
 	@Override
 	public void alta() {
+		List<Empleado> empleados= getEmpleadoService().findByNombreEquals("profe");
+		empleados.stream().forEach(e->System.out.println(e.getNombre()));
+		
 		
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
   
