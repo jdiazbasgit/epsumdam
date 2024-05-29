@@ -63,6 +63,11 @@ public class PanelEmpleado extends PanelComponente {
 
 		 int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		    if (confirmation == JOptionPane.YES_OPTION) {
+		    	
+		    	 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			        Object[] datos = { "0", "" };
+			        defaultTableModel.addRow(datos);
+		    }
 
 		List<Empleado> empleados= getEmpleadoService().findByNombreEquals("profe");
 		empleados.stream().forEach(e->System.out.println(e.getNombre()));
@@ -101,7 +106,7 @@ public class PanelEmpleado extends PanelComponente {
         defaultTableModel.addRow(datos);
 
       getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
-		    }
+		    
 	}
 	
 
