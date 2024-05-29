@@ -25,9 +25,9 @@ public class ServidorEscuchaMensajeCliente extends ServidorChat {
 	private VentanaChat ventanaChat;
 
 
-	public ServidorEscuchaMensajeCliente(int puerto, VentanaChat ventanaChat) {
+	public ServidorEscuchaMensajeCliente(int puerto) {
 		super(puerto);
-		this.ventanaChat=ventanaChat;
+		//this.ventanaChat=ventanaChat;
 	}
 
 	@Override

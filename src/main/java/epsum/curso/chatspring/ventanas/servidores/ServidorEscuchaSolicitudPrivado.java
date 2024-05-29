@@ -27,30 +27,34 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 
 	@Autowired
 	private VentanaChat ventanaChat;
+	@Autowired
+	private ClienteenvioPeticionPrivado clienteenvioPeticionPrivado;
+	//@Autowired
+	
 	private String ipOtro;
 	private int puertoDelOtro;
 	private boolean primeraVez;
-	public ServidorEscuchaSolicitudPrivado(int puerto,VentanaChat ventanaChat) {
+	public ServidorEscuchaSolicitudPrivado(int puerto) {
 		super(puerto);
-		this.ventanaChat=ventanaChat;
+		//this.ventanaChat=ventanaChat;
 	}
 
 	@Override
 	public void hacerAlgo() throws IOException {
+		
 		setPuertoDelOtro(Integer.parseInt(recibirTexto()));
 		setIpOtro(getSocket().getInetAddress().getHostAddress());
-		DialogPrivado jDialog= new DialogPrivado(getVentanaChat(),ServidorChat.usuarios.get(getIpOtro()),  getVentanaChat().getPuerto(),getIpOtro());
+		DialogPrivado jDialog= new DialogPrivado(getVentanaChat(), ServidorChat.usuarios.get(getIpOtro()), getVentanaChat().getPuerto(), getIpOtro());
 		jDialog.setVisible(true);
 		getVentanaChat().setPuerto(getVentanaChat().getPuerto()+1);
+		
 		if (!isPrimeraVez()) {
-			ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(getIpOtro(),
-					ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
 			clienteenvioPeticionPrivado.start();
 			setPrimeraVez(true);
 		}
-		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getVentanaChat().getPuerto(), ServidorChat.usuarios.get(getIpOtro()), jDialog);
-		servidorEscuchaMensajePrivado.start();
 		
+		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado= new ServidorEscuchaMensajePrivado(getVentanaChat().getPuerto(), ServidorChat.usuarios.get(getIpOtro()));
+		servidorEscuchaMensajePrivado.start();
 		
 	}
 

@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
@@ -33,13 +34,15 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import epsum.curso.chat.ventanas.configuracion.Configuracion;
 
 @Component
 @Data
-@Import(Configuracion.class)
+@EqualsAndHashCode(callSuper=false)
+//@Import(Configuracion.class)
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
 	
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda, pCentralIzquierdaInferior;
@@ -50,15 +53,19 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	private int puerto = 9000;
 	
 	@Autowired
-	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
-	
-	@Autowired
+	@Lazy
 	private ClienteEnvioMensajeCliente clienteEnvioMensajeCliente;
 	
 	@Autowired
+	@Lazy
+	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
+		
+	@Autowired
+	@Lazy
 	private ClienteEnvioRegistroCliente clienteEnvioRegistroCliente;
 	
 	@Autowired
+	@Lazy
 	private ClienteenvioPeticionPrivado clienteenvioPeticionPrivado;
 
 	public VentanaChat() {
