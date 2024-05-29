@@ -21,6 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
@@ -35,6 +37,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Component
+
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,
 			pCentralIzquierdaInferior;
@@ -43,8 +46,14 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	private JTextField TNick, TMensaje;
 	private JTextArea TAMensajes, TAUsuarios;
 	private int puerto = 9000;
-	
-	
+	@Autowired
+	private ApplicationContext applicationContext;
+	@Autowired
+	private ClienteEnvioMensajeCliente clienteEnvioMensajeCliente;
+	@Autowired
+	private ClienteEnvioRegistroCliente clienteEnvioRegistroCliente;
+	@Autowired
+	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
 
 	public VentanaChat() {		
 		setSize(500, 500);
@@ -129,9 +138,10 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		ClienteEnvioBajaCliente cliente = new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR,
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
-		cliente.start();
+	//	ClienteEnvioBajaCliente cliente = new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR,
+		//		ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
+		ClienteEnvioBajaCliente clienteEnvioBajaCliente= (ClienteEnvioBajaCliente) getApplicationContext().getBean("clienteEnvioBajaCliente");
+		clienteEnvioBajaCliente.start();
 		System.exit(0);
 
 	}
@@ -167,31 +177,32 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	}
 
 	private void enviarMensaje() {
-		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = (ClienteEnvioMensajeCliente) getApplicationContext().getBean("clienteEnvioMensajeCliente");
+	//	clienteEnvioMensajeCliente.setPuerto(ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
+		clienteEnvioMensajeCliente.setVentanaChat(this);
 		clienteEnvioMensajeCliente.start();
 
 	}
 
 	private void registrarCliente() {
 		System.out.println("envio nick desde cliente");
-		ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
-		cliente.start();
+		ClienteEnvioRegistroCliente clienteEnvioRegistroCliente = (ClienteEnvioRegistroCliente) getApplicationContext().getBean("clienteEnvioRegistroCliente");
+		//ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
+			//	ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
+		clienteEnvioRegistroCliente.setVentanaChat(this);
+		clienteEnvioRegistroCliente.start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(getBRegistrar())) {
 			System.out.println("envio nick desde cliente");
-			ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
-			cliente.start();
+			//ClienteEnvioRegistroCliente clienteEnvioRegistroCliente = (ClienteEnvioRegistroCliente) getApplicationContext().getBean("clienteEnvioRegistroCliente");
+			clienteEnvioRegistroCliente.start();
 			getTMensaje().addKeyListener(this);
 		}
 		if (e.getSource().equals(getBEnviar())) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
+		//	ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = (ClienteEnvioMensajeCliente) getApplicationContext().getBean("clienteEnvioMensajeCliente");
 			clienteEnvioMensajeCliente.start();
 
 		}
@@ -221,8 +232,6 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		System.out.println("code:" + e.getKeyCode());
 		System.out.println("char:" + e.getKeyChar());
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
 			clienteEnvioMensajeCliente.start();
 
 		}
