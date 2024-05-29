@@ -22,6 +22,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.stereotype.Component;
+
+import epsum.curso.chatspring.ChatSpringApplication;
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
@@ -31,6 +38,7 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
+
 public class VerVentanaChat extends Frame implements CommandLineRunner{
 	
 	@Autowired
@@ -56,6 +64,7 @@ public class VerVentanaChat extends Frame implements CommandLineRunner{
 	servidorEscuchaSolicitudPrivado.start();
 		
 	}
+
 
 
 }
