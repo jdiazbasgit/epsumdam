@@ -79,6 +79,7 @@ public class MyTableModel extends DefaultTableModel  {
 		// Si queremos que la tabla sea editable deberemos establecer estos valores
 		data[rowIndex][columnIndex] = aValue;
 		fireTableCellUpdated(rowIndex, columnIndex);
+		
 	}
 
 	@Override

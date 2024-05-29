@@ -45,7 +45,7 @@ public class ConfiguracionDatosLaborales {
 			ComboBoxCargos comboBoxCargo=comboBoxCargos(cargos,datoLaboral);
 			
 
-			// comboBoxCargo.setSelectedItem(datoLaboral.getCargo());
+			 comboBoxCargo.setSelectedItem(datoLaboral.getCargo());
 			datos[i][2] = comboBoxCargo;
 
 			i++;

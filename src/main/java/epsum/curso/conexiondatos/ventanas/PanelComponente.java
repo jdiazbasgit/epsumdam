@@ -57,6 +57,9 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 				if(getTabla().getValueAt(i, j) instanceof JComboBox<?>) {
 					JComboBox<?> combobox = (JComboBox<?>) datos[i][j];
 					System.err.println(combobox.getSelectedItem());
+					combobox.setIgnoreRepaint(false);
+					combobox.repaint();
+					getTabla().getModel().setValueAt(combobox.getSelectedItem(), i, j);
 					
 					getTabla().getColumn(cabeceras[j]).setCellEditor(new DefaultCellEditor(combobox));
 					
@@ -86,12 +89,25 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		panelBotones.add(getBotonBorrar());
 		panelBotones.add(getBotonModificar());
 		this.add(panelBotones, BorderLayout.SOUTH);
-
+		getTabla().repaint();
+		recargar();
 	}
 
-	public void crearPanelBorrado() {
-		JOptionPane.showMessageDialog(null, "Hello World");
+	
+
+	private void recargar() {
+		for(int i=0;i<getTabla().getRowCount();i++)
+			for(int j=0;j<getTabla().getColumnCount();j++)
+				if(getTabla().getModel().getValueAt(i, j) instanceof JComboBox<?>){
+					JComboBox<?> jComboBox= (JComboBox<?>) getTabla().getModel().getValueAt(i, j);
+					jComboBox.setSelectedItem(jComboBox.getSelectedItem());
+					jComboBox.repaint(); 
+					jComboBox.show();
+				}
+		
 	}
+
+
 
 	public abstract void alta();
 
