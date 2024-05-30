@@ -1,6 +1,5 @@
 package epsum.curso.conexiondatos.ventanas;
 
-
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 
@@ -12,10 +11,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-public class MyTableModel extends AbstractTableModel {
+public class MyTableModel extends DefaultTableModel  {
 
 	/** Nombre de las columnas. */
 	private String[] columnNames;
@@ -25,8 +25,8 @@ public class MyTableModel extends AbstractTableModel {
 	/**
 	 * Constructor.
 	 * 
-	 * @param datos Nombres de las columnas
-	 * @param cabeceras        Datos de la tabla
+	 * @param datos     Nombres de las columnas
+	 * @param cabeceras Datos de la tabla
 	 */
 	public MyTableModel(Object[][] datos, String[] cabeceras) {
 		this.columnNames = cabeceras;
@@ -63,6 +63,7 @@ public class MyTableModel extends AbstractTableModel {
 		if (aux != null) {
 			clazz = aux.getClass();
 		}
+		
 
 		return clazz;
 	}
@@ -78,11 +79,13 @@ public class MyTableModel extends AbstractTableModel {
 		// Si queremos que la tabla sea editable deberemos establecer estos valores
 		data[rowIndex][columnIndex] = aValue;
 		fireTableCellUpdated(rowIndex, columnIndex);
+		
 	}
 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		// Permitimos editar todas las celdas de la tabla
+		if(columnIndex==0)
+			return false;
 		return true;
 	}
 
