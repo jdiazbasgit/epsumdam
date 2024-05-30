@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 
-import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.entidades.Empresa;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
@@ -30,7 +29,7 @@ public class PanelEmpresas extends PanelComponente{
 	private String titulo;
 
 	public PanelEmpresas(String[] cabeceras, Object[][] datos, String titulo) {
-		super(cabeceras, datos, titulo);
+		super(cabeceras, datos, titulo); 
 	}
 	
 	
