@@ -2,6 +2,7 @@ package epsum.curso.chatspring.configuracion;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import epsum.curso.chatspring.ventanas.DialogPrivado;
 import epsum.curso.chatspring.ventanas.VentanaChat;
@@ -37,6 +38,7 @@ public class ConfiguracionVentana {
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public ClienteEnvioMensajeCliente clienteEnvioMensajeCliente() {
 		return new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, ventanaChat);
 	}
