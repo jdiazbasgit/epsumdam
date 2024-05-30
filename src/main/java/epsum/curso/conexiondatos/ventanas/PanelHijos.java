@@ -89,7 +89,7 @@ public class PanelHijos extends PanelComponente {
 			hijo.setChicos(Integer.parseInt((String)getTabla().getModel().getValueAt(i, 1)));
 			hijo.setChicas(Integer.parseInt((String)getTabla().getModel().getValueAt(i, 2)));
 			getHijoService().save(hijo);
-			JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
