@@ -46,7 +46,7 @@ public class PanelCargos extends PanelComponente {
 					throw new IllegalArgumentException("La descripción no puede estar vacía");
 				}
 
-				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				MyTableModel defaultTableModel = (MyTableModel) getTabla().getModel();
 				Object[] datos = { "0", descripcion.trim() };
 				defaultTableModel.addRow(datos);
 
@@ -100,7 +100,7 @@ public class PanelCargos extends PanelComponente {
 				cargo.setDescripcion((String) getTabla().getModel().getValueAt(i, 1));
 
 				getCargoService().save(cargo);
-				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				MyTableModel defaultTableModel = (MyTableModel) getTabla().getModel();
 				defaultTableModel.setValueAt(String.valueOf(cargo.getId()), i, 0);
 			}
 			JOptionPane.showMessageDialog(null, "Las modificaciones se realizaron correctamente", "Éxito",
