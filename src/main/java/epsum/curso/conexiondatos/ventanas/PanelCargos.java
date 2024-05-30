@@ -59,7 +59,7 @@ public class PanelCargos extends PanelComponente {
 			}
 		}
 	}
-
+	
 	@Override
 	public void baja() {
 
