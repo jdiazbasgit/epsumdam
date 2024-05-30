@@ -45,7 +45,10 @@ public class PanelEstadosCiviles extends PanelComponente {
 				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 				Object[] datos = { "0", descripcion.trim() };
 				defaultTableModel.addRow(datos);
-				
+
+				JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito",
+						JOptionPane.INFORMATION_MESSAGE);				
+					
 				int i=0;
 				for (i = 0; i < getTabla().getModel().getRowCount(); i++) {
 					EstadoCivil estadoCivil = new EstadoCivil();
