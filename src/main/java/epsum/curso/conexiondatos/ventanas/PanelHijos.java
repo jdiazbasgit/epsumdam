@@ -33,9 +33,35 @@ public class PanelHijos extends PanelComponente {
 
 	 @Override
 	    public void alta() {
+		 
+		 int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+		 
+		 if (confirmation == JOptionPane.YES_OPTION) {
+			try {
+				/*
+				String descripcion = JOptionPane.showInputDialog(null, "Introduce la descripción del nuevo cargo:", "Nueva Descripción", JOptionPane.PLAIN_MESSAGE);
+				
+				if (descripcion == null || descripcion.trim().isEmpty()) {
+					throw new IllegalArgumentException("La descripción no puede estar vacía");
+				}
+				*/
+				JOptionPane.showMessageDialog(null, "Introduzca el número de hijos/hijas del registro. Después pulse el botón gabar", "Información", JOptionPane.INFORMATION_MESSAGE);
+				
+				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				 Object[] datos = {"0", ""};
+				 defaultTableModel.addRow(datos);
+				
+				 //JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				 
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		 /*
 		 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		 Object[] datos = {"0", ""};
 		 defaultTableModel.addRow(datos);
+		 */
 	    }
 	@Override
 	public void baja() {
@@ -63,6 +89,7 @@ public class PanelHijos extends PanelComponente {
 			hijo.setChicos(Integer.parseInt((String)getTabla().getModel().getValueAt(i, 1)));
 			hijo.setChicas(Integer.parseInt((String)getTabla().getModel().getValueAt(i, 2)));
 			getHijoService().save(hijo);
+			JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
