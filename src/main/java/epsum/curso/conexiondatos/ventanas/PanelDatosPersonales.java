@@ -35,7 +35,7 @@ public class PanelDatosPersonales extends PanelComponente {
 	
 	private JComboBox<Hijo> jComboBoxHijo;
 
-	public PanelDatosPersonales(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelDatosPersonales(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 	}
 

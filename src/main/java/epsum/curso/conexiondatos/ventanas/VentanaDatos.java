@@ -34,6 +34,13 @@ import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.HijoService;
+import epsum.curso.conexiondatos.ventanas.PanelCargos;
+import epsum.curso.conexiondatos.ventanas.PanelDatosLaborales;
+import epsum.curso.conexiondatos.ventanas.PanelDatosPersonales;
+import epsum.curso.conexiondatos.ventanas.PanelEmpleado;
+import epsum.curso.conexiondatos.ventanas.PanelEmpresas;
+import epsum.curso.conexiondatos.ventanas.PanelEstadosCiviles;
+import epsum.curso.conexiondatos.ventanas.PanelHijos;
 import lombok.Data;
 
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
@@ -63,9 +70,11 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	private PanelCargos panelCargos;
 	@Autowired
 	private PanelDatosPersonales panelDatosPersonales;
-
+	@Autowired
+	private PanelEmpleado panelEmpleado;
+	@Autowired
 	private PanelEmpresas panelEmpresas;
-  @Autowired
+    @Autowired
 	private PanelHijos panelHijos;
 
 
@@ -191,6 +200,18 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 			getContentPane().removeAll();
 			
 			getContentPane().add(panelDatosPersonales);
+			String[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
+			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
+			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
+			int i = 0;
+			for (DatoPersonal datoPersonal : datosPersonales) {
+				datos[i][0] = String.valueOf(datoPersonal.getId());
+				datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
+				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
+				i++;
+
+			}
+			getContentPane().add(new PanelDatosPersonales(cabeceras, datos, "DATOS PERSONALES"));
 			this.show();
 		}
 		if (e.getSource().equals(estadosCiviles)) {
@@ -213,29 +234,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(empleados)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
-					"DATOS_LABORALES" };
-			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
-			Object[][] datos = new Object[(int) empleadoService.count()][8];
-			int i = 0;
-			for (Empleado empleado : empleados) {
-				datos[i][0] = String.valueOf(empleado.getId());
-				datos[i][1] = empleado.getNombre();
-				datos[i][2] = empleado.getDni();
-				datos[i][3] = empleado.getEmail();
-				datos[i][4] = empleado.getTelefono();
-				datos[i][5] = empleado.getEmpresa().getNombre();
-				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
-						+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
-						+ empleado.getDatoPersonal().getHijo().getChicas();
-				datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
-						+ empleado.getDatoLaboral().getSalario();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			getContentPane().add(panelEmpleado);
 			this.show();
 
 		}
@@ -257,7 +256,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(empresas)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "NOMBRE", "CIF" };
+			String[] cabeceras = { "ID", "NOMBRE", "CIF" };
 			List<Empresa> empresas = (List<Empresa>) getEmpresaService().findAll();
 			Object[][] datos = new Object[(int) getEmpresaService().count()][3];
 			int i = 0;
