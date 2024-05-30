@@ -19,6 +19,7 @@ public class ChatSpringApplication implements CommandLineRunner {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ChatSpringApplication.class);
 		builder.headless(false);
 		builder.run(args);
+ 
 	}
 
 	@Override
@@ -26,5 +27,7 @@ public class ChatSpringApplication implements CommandLineRunner {
 		
 		getVentanaChat().setVisible(true);
 	}
+	
+	
 
 } 

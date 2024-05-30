@@ -8,7 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
-import epsum.curso.chatspring.configuracion.Configuracion;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Import;
+
+import epsum.curso.chat.ventanas.configuracion.Configuracion;
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
@@ -31,7 +37,6 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 	private static ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente;
 	@Autowired
 	private static ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado;
-	
 
 	public static void main1(String[] args) {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
@@ -48,3 +53,4 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 		
 	}
 }
+
