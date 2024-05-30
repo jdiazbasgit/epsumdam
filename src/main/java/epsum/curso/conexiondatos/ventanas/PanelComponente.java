@@ -49,7 +49,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
 
-		MyTableModel myTableModel = new MyTableModel(datos, cabeceras);
+		DefaultTableModel myTableModel = new DefaultTableModel(datos, cabeceras);
 
 		this.tabla = new JTable(myTableModel);
 		for (int i = 0; i < getTabla().getRowCount(); i++) {
