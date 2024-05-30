@@ -87,7 +87,7 @@ public class PanelEstadosCiviles extends PanelComponente {
 				defaultTableModel.removeRow(getTabla().getSelectedRow());
 			} catch (DataIntegrityViolationException e) {
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque esta en uso", "Éxito",
+				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque esta en uso", "Advertencia",
 						JOptionPane.INFORMATION_MESSAGE);
 			} catch (EmptyResultDataAccessException e) {
 				e.printStackTrace();
