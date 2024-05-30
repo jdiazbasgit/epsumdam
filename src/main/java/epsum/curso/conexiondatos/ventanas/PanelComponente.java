@@ -8,22 +8,25 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 import lombok.Data;
 
 @Data
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
-	private Object[] cabeceras;
+	private String[] cabeceras;
 	private Object[][] datos;
 	private String titulo;
 	private JButton botonAlta;
@@ -33,7 +36,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	private JLabel lTitulo;
 	private DefaultTableModel defaultTableModel;
 
-	public PanelComponente(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelComponente(String[] cabeceras, Object[][] datos, String titulo) {
 		super();
 		this.cabeceras = cabeceras;
 		this.datos = datos;
@@ -46,46 +49,30 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
 
-		this.defaultTableModel = new DefaultTableModel(datos, cabeceras);
+		MyTableModel myTableModel = new MyTableModel(datos, cabeceras);
 
-		this.tabla = new JTable(getDefaultTableModel()) {
-			@Override
-			public boolean isCellEditable(int row, int column) {
+		this.tabla = new JTable(myTableModel);
+		for (int i = 0; i < getTabla().getRowCount(); i++) {
+			for(int j=0;j<getTabla().getColumnCount();j++)
+				if(getTabla().getValueAt(i, j) instanceof JComboBox<?>) {
+					JComboBox<?> combobox = (JComboBox<?>) datos[i][j];
+					System.err.println(combobox.getSelectedItem());
+					combobox.setIgnoreRepaint(false);
+					combobox.repaint();
+					getTabla().getModel().setValueAt(combobox.getSelectedItem(), i, j);
+					
+					getTabla().getColumn(cabeceras[j]).setCellEditor(new DefaultCellEditor(combobox));
+					
 
-				if (column == 0) {
-					return false;
-
+					
 				}
-				return true;
-			}
-
-			@Override
-			public int getRowHeight() {
-				return 30;
-			}
-
-		};
-
-		for (int i = 0; i < getTabla().getColumnCount(); i++) {
-			for (int j = 0; j < getTabla().getRowCount(); j++) {
-				if (getTabla().getModel().getValueAt(j, i) instanceof JComboBox<?>) {
-
-					getTabla().getColumnModel().getColumn(i).setCellRenderer(new TableCellRenderer() {
-
-						@Override
-						public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-								boolean hasFocus, int row, int column) {
-							if (value instanceof JComboBox<?>)
-								return (Component) value;
-							return null;
-						}
-					});
-				}
-			}
+			
 		}
+		//getTabla().setDefaultEditor(JCheckBox.class, new DefaultCellEditor(new JCheckBox()));
 
 		TableColumn column = new TableColumn();
 		column.setHeaderValue("ACCIONES");
+		column.setCellRenderer(new DefaultTableCellRenderer());
 		this.setLayout(new BorderLayout(20, 20));
 		this.lTitulo = new JLabel(this.titulo);
 		JPanel panelTitulo = new JPanel();
@@ -102,8 +89,25 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		panelBotones.add(getBotonBorrar());
 		panelBotones.add(getBotonModificar());
 		this.add(panelBotones, BorderLayout.SOUTH);
-
+		getTabla().repaint();
+		recargar();
 	}
+
+	
+
+	private void recargar() {
+		for(int i=0;i<getTabla().getRowCount();i++)
+			for(int j=0;j<getTabla().getColumnCount();j++)
+				if(getTabla().getModel().getValueAt(i, j) instanceof JComboBox<?>){
+					JComboBox<?> jComboBox= (JComboBox<?>) getTabla().getModel().getValueAt(i, j);
+					jComboBox.setSelectedItem(jComboBox.getSelectedItem());
+					jComboBox.repaint(); 
+					jComboBox.show();
+				}
+		
+	}
+
+
 
 	public abstract void alta();
 
@@ -120,5 +124,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		if (e.getSource().equals(botonModificar))
 			modificar();
 	}
+
+	// marlenepaper
 
 }

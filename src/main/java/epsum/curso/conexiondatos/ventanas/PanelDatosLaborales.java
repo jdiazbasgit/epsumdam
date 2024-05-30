@@ -17,13 +17,12 @@ import lombok.EqualsAndHashCode;
 import javax.swing.JComboBox;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
 public class PanelDatosLaborales extends PanelComponente {
 
 	@Autowired
 	private DatoLaboralService datoLaboralService;
 
-	private Object[] cabeceras;
+	private String[] cabeceras;
 
 	private Object[][] datos;
 
@@ -37,7 +36,7 @@ public class PanelDatosLaborales extends PanelComponente {
 	private JComboBox<Cargo> jComboBoxCargo;
 	
 
-	public PanelDatosLaborales(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelDatosLaborales(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 
 	}
