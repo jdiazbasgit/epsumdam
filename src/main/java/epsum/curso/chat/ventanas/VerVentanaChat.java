@@ -15,7 +15,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
-import epsum.curso.chat.ventanas.servidores.LevantarServidor;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chat.ventanas.servidores.ServidorEscuchaRegistroCliente;
@@ -24,14 +23,14 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
-public class VerVentanaChat extends Frame implements CommandLineRunner {
+public class VerVentanaChat  implements CommandLineRunner {
 	@Autowired
 	private VentanaChat ventanaChat;
-	public static void main(String[] args) {
+	public static void main1(String[] args) {
 		
 		
 		
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(LevantarServidor.class);
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(VerVentanaChat.class);
 		builder.headless(false);
 		builder.run(args);
 		
@@ -45,9 +44,9 @@ public class VerVentanaChat extends Frame implements CommandLineRunner {
 		servidorEscuchaMensajeCliente().start();
 		servidorEscuchaRegistroCliente().start();
 		servidorEscuchaSolicitudPrivado().start();
-		getVentanaChat().setVisible(true);
+		
 
-		getVentanaChat().setVisible(true);
+		
 		 
 
 	}
