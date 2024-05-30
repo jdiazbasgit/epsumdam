@@ -48,6 +48,8 @@ public class ConfiguracionCargos {
 	public PanelCargos getPanelCargos() {
 		return new PanelCargos(cabecerasCargos(),datosCargos(),"CARGOS");
 	}
+	
+	
 
 	
 	

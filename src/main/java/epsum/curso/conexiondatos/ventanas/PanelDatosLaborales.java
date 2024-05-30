@@ -44,34 +44,6 @@ public class PanelDatosLaborales extends PanelComponente {
 
 	@Override
 	public void alta() {
-		/*int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación",
-				JOptionPane.YES_NO_OPTION);
-		if (confirmation == JOptionPane.YES_OPTION) {
-			try {
-
-				String descripcion = JOptionPane.showInputDialog(null, "Introduce un nuevo dato laboral:",
-						"Salario", JOptionPane.PLAIN_MESSAGE);
-
-				if (descripcion == null || descripcion.trim().isEmpty()) {
-					throw new IllegalArgumentException("La descripción no puede estar vacía");
-				}
-
-				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-				jComboBoxCargo = new JComboBox<Cargo>();
-				List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
-				for (Cargo cargo : cargos) {
-					jComboBoxCargo.addItem(cargo);
-				}
-				Object[] datos = { "0", "0", jComboBoxCargo };
-				defaultTableModel.addRow(datos);
-
-				JOptionPane.showMessageDialog(null, "Registro agregado correctamente", "Éxito",
-						JOptionPane.INFORMATION_MESSAGE);
-
-			} catch (IllegalArgumentException e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-			}
-		}*/
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		jComboBoxCargo = new JComboBox<Cargo>();
 		List<Cargo> cargos = (List<Cargo>) getCargoService().findAll();
