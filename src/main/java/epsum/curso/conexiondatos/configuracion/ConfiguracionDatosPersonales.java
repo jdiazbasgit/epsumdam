@@ -29,8 +29,8 @@ public class ConfiguracionDatosPersonales {
 	private HijoService hijoService;
 	private EstadoCivilService estadoCivilService;
 	
-	public Object[] cabecerasDatosPersonales() {
-		Object[] cabeceras = { "ID", "ESTADOCIVIL", "NUMERO HIJOS" };
+	public String[] cabecerasDatosPersonales() {
+		String[] cabeceras = { "ID", "ESTADOCIVIL", "NUMERO HIJOS" };
 		return  cabeceras;
 	}
 	public Object[][] datosDatosPersonales() {

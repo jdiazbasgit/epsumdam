@@ -17,10 +17,13 @@ import lombok.Data;
 
 @Data
 public class PanelDatosPersonales extends PanelComponente {
+	public PanelDatosPersonales(String[] cabeceras, Object[][] datos, String titulo) {
+		super(cabeceras, datos, titulo);
+	}
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
 	
-	private Object[] cabeceras;
+	private String[] cabeceras;
 
 	private Object[][] datos;
 
@@ -35,9 +38,7 @@ public class PanelDatosPersonales extends PanelComponente {
 	
 	private JComboBox<Hijo> jComboBoxHijo;
 
-	public PanelDatosPersonales(String[] cabeceras, Object[][] datos, String titulo) {
-		super(cabeceras, datos, titulo);
-	}
+	
 
 	@Override
 	public void alta() {
