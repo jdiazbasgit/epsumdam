@@ -4,18 +4,22 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 import epsum.curso.chat.ventanas.VentanaChat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class ClienteEnvioMensajeCliente extends ClienteChat {
 
+	@Autowired
 	private VentanaChat ventanaChat;
 	
-	public ClienteEnvioMensajeCliente(String ip, int puerto,VentanaChat ventanaChat) {
+	public ClienteEnvioMensajeCliente(String ip, int puerto) {
 		super(ip, puerto);
-		this.ventanaChat= ventanaChat;
+		//this.ventanaChat= ventanaChat;
 
 	}
 
