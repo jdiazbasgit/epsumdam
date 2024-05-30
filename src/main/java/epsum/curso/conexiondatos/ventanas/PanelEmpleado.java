@@ -63,10 +63,42 @@ public class PanelEmpleado extends PanelComponente {
 
 		 int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		    if (confirmation == JOptionPane.YES_OPTION) {
+		        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		      	 Object[] datos = {"0", "0","0","0","0",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
+		           defaultTableModel.addRow(datos);
+
 		    	
-		    	 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-			        Object[] datos = { "0", "" };
-			        defaultTableModel.addRow(datos);
+		    	try {
+		    		String nombre = JOptionPane.showInputDialog(null, "Introduce el nombre del empleado:", "nuevo empleado", 
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (nombre == null || nombre.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Tienes que escribir un nombre");
+		    		}
+		    		String email = JOptionPane.showInputDialog(null, "Introduce el email:", "email del empleado", 
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (email == null || email.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Introduzca el correo del empleado");
+		    		}
+		    		String dni = JOptionPane.showInputDialog(null, "Introduzca el DNI/NIE del empleado:", "DNI/NIE del empleado",
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (dni == null || dni.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Introduzca el DNI/NIE del empleado");
+		    		}
+		    		
+		    		String telefono = JOptionPane.showInputDialog(null, "Introduce el telefono del empleado:", "telefono del empleado",
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (telefono == null || telefono.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Introduzca el telegno del empleado");
+		    		}
+		    		
+			         
+			         	JOptionPane.showMessageDialog(null, "Registro correctamente agregado", "Éxito",
+			         			JOptionPane.INFORMATION_MESSAGE);
+		    	} catch (IllegalArgumentException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+				}
+		    	
+		    	
 		    }
 
 		/*List<Empleado> empleados= getEmpleadoService().findByNombreEquals("profe");
@@ -102,9 +134,7 @@ public class PanelEmpleado extends PanelComponente {
         	jComboBoxDatosLaborales.addItem(datoLaboral);
         }
         
-        Object[] datos = {"0", "0","0","0","0",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
-        defaultTableModel.addRow(datos);
-
+   
      // getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
 		    
 	}
