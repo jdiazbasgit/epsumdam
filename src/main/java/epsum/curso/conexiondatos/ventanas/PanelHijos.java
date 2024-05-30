@@ -33,10 +33,12 @@ public class PanelHijos extends PanelComponente {
 	}
 
 	 @Override
-	    public void alta() {
+	    public void alta(){
+		 
 		 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		 Object[] datos = {"0", ""};
 		 defaultTableModel.addRow(datos);
+		 
 	    }
 	@Override
 	public void baja() {
