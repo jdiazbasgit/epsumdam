@@ -9,7 +9,7 @@ import lombok.Data;
 public class ServidorEscuchaRegistroCliente extends ServidorChat {
 
 	private VentanaChat ventanaChat;
-	public ServidorEscuchaRegistroCliente(int puerto,VentanaChat ventanaChat) {
+	public ServidorEscuchaRegistroCliente(int puerto) {
 		super(puerto);
 		this.ventanaChat=ventanaChat;
 	}

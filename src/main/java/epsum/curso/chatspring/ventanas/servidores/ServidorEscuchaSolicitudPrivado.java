@@ -28,7 +28,7 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 	private String ipOtro;
 	private int puertoDelOtro;
 	private boolean primeraVez;
-	public ServidorEscuchaSolicitudPrivado(int puerto,VentanaChat ventanaChat) {
+	public ServidorEscuchaSolicitudPrivado(int puerto) {
 		super(puerto);
 		this.ventanaChat=ventanaChat;
 	}

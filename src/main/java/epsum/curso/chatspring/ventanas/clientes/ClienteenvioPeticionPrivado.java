@@ -10,7 +10,7 @@ public class ClienteenvioPeticionPrivado extends ClienteChat {
 	
 	private VentanaChat ventanaChat;
 
-	public ClienteenvioPeticionPrivado(String ip, int puerto, VentanaChat ventanaChat) {
+	public ClienteenvioPeticionPrivado(String ip, int puerto) {
 		super(ip, puerto);
 		this.ventanaChat = ventanaChat;
 	}

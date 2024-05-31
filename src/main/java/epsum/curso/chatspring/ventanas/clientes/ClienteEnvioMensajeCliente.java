@@ -12,7 +12,7 @@ public class ClienteEnvioMensajeCliente extends ClienteChat {
 
 	private VentanaChat ventanaChat;
 	
-	public ClienteEnvioMensajeCliente(String ip, int puerto,VentanaChat ventanaChat) {
+	public ClienteEnvioMensajeCliente(String ip, int puerto) {
 		super(ip, puerto);
 		this.ventanaChat= ventanaChat;
 

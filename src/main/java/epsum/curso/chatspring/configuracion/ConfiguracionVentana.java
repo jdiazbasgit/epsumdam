@@ -40,39 +40,39 @@ public class ConfiguracionVentana {
 	@Bean
 	@Scope("prototype")
 	public ClienteEnvioMensajeCliente clienteEnvioMensajeCliente() {
-		return new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, ventanaChat);
+		return new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
 	}
 	
 	@Bean
 	public ClienteEnvioMensajePrivado clienteEnvioMensajePrivado() {
-		return new ClienteEnvioMensajePrivado(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, dialogPrivado);
+		return new ClienteEnvioMensajePrivado(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE);
 	}
 	
 	@Bean
 	public ClienteenvioPeticionPrivado clienteenvioPeticionPrivado() {
-		return new ClienteenvioPeticionPrivado(clienteChat.getIp(), ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
+		return new ClienteenvioPeticionPrivado(clienteChat.getIp(), ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
 	}
 	
 	@Bean
 	public ClienteEnvioRegistroCliente clienteEnvioRegistroCliente() {
-		return new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, ventanaChat);
+		return new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
 	}
 	
 	@Bean
 	public ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente() {
-		ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente = new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, ventanaChat);
+		ServidorEscuchaMensajeCliente servidorEscuchaMensajeCliente = new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE);
 		return servidorEscuchaMensajeCliente;
 	}
 	
 	@Bean
 	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
-		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente = new ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, ventanaChat);
+		ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente = new ServidorEscuchaRegistroCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO);
 		return servidorEscuchaRegistroCliente;
 	}
 	
 	@Bean
 	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado() {
-		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado = new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
+		ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrivado = new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
 		return servidorEscuchaSolicitudPrivado;
 	}
 }

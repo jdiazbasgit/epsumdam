@@ -10,7 +10,7 @@ import lombok.Data;
 public class ClienteEnvioMensajePrivado extends ClienteChat {
 
 	private DialogPrivado dialogPrivado;
-	public ClienteEnvioMensajePrivado(String ip, int puerto, DialogPrivado dialogPrivado) {
+	public ClienteEnvioMensajePrivado(String ip, int puerto) {
 		super(ip, puerto);
 		this.dialogPrivado=dialogPrivado;
 	}
