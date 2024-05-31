@@ -32,7 +32,7 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 	private String ipOtro;
 	private int puertoDelOtro;
 	private boolean primeraVez;
-	public ServidorEscuchaSolicitudPrivado(int puerto,VentanaChat ventanaChat) {
+	public ServidorEscuchaSolicitudPrivado(int puerto) {
 		super(puerto);
 		//this.ventanaChat=ventanaChat;
 	}
@@ -45,8 +45,6 @@ public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 		jDialog.setVisible(true);
 		getVentanaChat().setPuerto(getVentanaChat().getPuerto()+1);
 		if (!isPrimeraVez()) {
-			ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(getIpOtro(),
-					ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, ventanaChat);
 			clienteenvioPeticionPrivado.start();
 			setPrimeraVez(true);
 		}

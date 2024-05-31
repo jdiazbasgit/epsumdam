@@ -10,6 +10,7 @@ import java.awt.event.WindowListener;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioBajaCliente;
@@ -23,6 +24,7 @@ import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
 import lombok.Data;
 
+@SpringBootApplication
 @Data
 public class VerVentanaChat extends Frame implements CommandLineRunner {
 	

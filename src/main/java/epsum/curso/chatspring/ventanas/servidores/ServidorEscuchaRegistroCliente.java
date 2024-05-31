@@ -12,7 +12,7 @@ public class ServidorEscuchaRegistroCliente extends ServidorChat {
 
 	@Autowired
 	private VentanaChat ventanaChat;
-	public ServidorEscuchaRegistroCliente(int puerto,VentanaChat ventanaChat) {
+	public ServidorEscuchaRegistroCliente(int puerto) {
 		super(puerto);
 		//this.ventanaChat=ventanaChat;
 	}

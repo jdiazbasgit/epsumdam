@@ -13,7 +13,7 @@ public class ClienteEnvioRegistroCliente extends ClienteChat {
 	@Autowired
 	private VentanaChat ventanaChat;
 
-	public ClienteEnvioRegistroCliente(String ip, int puerto,VentanaChat ventanaChat) {
+	public ClienteEnvioRegistroCliente(String ip, int puerto) {
 		super(ip, puerto);
 		//this.ventanaChat=ventanaChat;
 	}
