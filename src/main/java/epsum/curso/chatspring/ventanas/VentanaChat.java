@@ -58,7 +58,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	
 	@Autowired
 	@Lazy
-	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
+	private ClienteEnvioBajaCliente clienteEnvioBajaCliente; 
 		
 	@Autowired
 	@Lazy
