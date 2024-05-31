@@ -2,6 +2,7 @@ package epsum.curso.chatspring.ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
@@ -89,7 +90,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		LNick = new JLabel("Nick");
 		TNick = new JTextField(80);
 		BRegistrar = new JButton("Registrar");
-		// PSuperior.setBackground(Color.red);
+		PSuperior.setBackground(Color.lightGray);
 		PSuperior.setVisible(true);
 		add(PSuperior, BorderLayout.NORTH);
 		getPSuperior().add(getLNick());
@@ -102,7 +103,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		LMensaje = new JLabel("Mensaje");
 		TMensaje = new JTextField(90);
 		BEnviar = new JButton("Enviar");
-		// PInferior.setBackground(Color.yellow);
+		PInferior.setBackground(Color.lightGray);
 		PInferior.setVisible(true);
 		add(PInferior, BorderLayout.SOUTH);
 		getPInferior().add(getLMensaje());
@@ -117,7 +118,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		LUsuarios = new JLabel("Usuarios");
 		TAUsuarios = new JTextArea(30, 30);
 		TAUsuarios.setEditable(false);
-		// PIzquierda.setBackground(Color.green);
+		PIzquierda.setBackground(Color.lightGray);
 		PIzquierda.setVisible(true);
 		add(PIzquierda, BorderLayout.WEST);
 		getPIzquierda().setLayout(new BorderLayout());
@@ -131,7 +132,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		PCentral = new JPanel();
 		TAMensajes = new JTextArea();
 		TAMensajes.setEditable(false);
-		// PCentral.setBackground(Color.black);
+		PCentral.setBackground(Color.lightGray);
 		PCentral.setVisible(true);
 		pCentralIzquierdaInferior = new JPanel();
 		bPrivado = new JButton("PRIVADO");
