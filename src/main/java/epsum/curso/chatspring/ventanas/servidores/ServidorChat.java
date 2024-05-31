@@ -31,11 +31,12 @@ public abstract class ServidorChat extends Thread {
 
 	@Override
 	public void run() {
-		try(ServerSocket serverSocket= new ServerSocket(getPuerto())) {
+		try {
+			ServerSocket serverSocket= new ServerSocket(getPuerto());
 			while(true) {
 				setSocket(serverSocket.accept());
 				hacerAlgo();
-				getSocket().close();
+				//getSocket().close();
 			}
 			
 		} catch (Exception e) {

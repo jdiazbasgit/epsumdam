@@ -9,8 +9,8 @@ import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data
-@EqualsAndHashCode(callSuper=false)
+
+//@EqualsAndHashCode(callSuper=false)
 public class ClienteEnvioMensajeCliente extends ClienteChat {
 
 	@Autowired
@@ -20,6 +20,14 @@ public class ClienteEnvioMensajeCliente extends ClienteChat {
 		super(ip, puerto);
 		//this.ventanaChat= ventanaChat;
 
+	}
+
+	public VentanaChat getVentanaChat() {
+		return ventanaChat;
+	}
+
+	public void setVentanaChat(VentanaChat ventanaChat) {
+		this.ventanaChat = ventanaChat;
 	}
 
 	@Override
