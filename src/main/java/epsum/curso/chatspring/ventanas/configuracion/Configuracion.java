@@ -1,4 +1,4 @@
-package epsum.curso.chat.ventanas.configuracion;
+package epsum.curso.chatspring.ventanas.configuracion;
 
 import java.awt.Dialog;
 

@@ -32,13 +32,12 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioBajaCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
+import epsum.curso.chatspring.ventanas.configuracion.*;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import epsum.curso.chat.ventanas.configuracion.*;
 
 @Component
 @Data
