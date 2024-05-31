@@ -225,7 +225,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-
+		
 	}
 
 	@Override
