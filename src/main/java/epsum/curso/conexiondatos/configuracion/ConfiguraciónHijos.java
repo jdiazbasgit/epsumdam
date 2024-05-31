@@ -19,8 +19,8 @@ public class ConfiguraciónHijos {
 	@Autowired
 	private HijoService hijoService;
 	
-	public String[] cabecerasHijos() {
-		String[] cabeceras = {"ID", "CHICOS", "CHICAS"};
+	public Object[] cabecerasHijos() {
+		Object[] cabeceras = {"ID", "CHICOS", "CHICAS"};
 		return cabeceras;
 	}
 	public Object[][] datosHijos(){
@@ -39,6 +39,6 @@ public class ConfiguraciónHijos {
 	
 	@Bean
 	public PanelHijos getPanelHijos() {
-		return new PanelHijos(cabecerasHijos(), datosHijos(), "HIJOS");
+		return new PanelHijos((String[]) cabecerasHijos(), datosHijos(), "HIJOS");
 	}
 }
