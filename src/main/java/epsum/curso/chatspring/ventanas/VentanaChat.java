@@ -41,8 +41,6 @@ import epsum.curso.chat.ventanas.configuracion.Configuracion;
 
 @Component
 @Data
-@EqualsAndHashCode(callSuper=false)
-//@Import(Configuracion.class)
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
 	
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda, pCentralIzquierdaInferior;
