@@ -63,9 +63,7 @@ public class PanelEmpleado extends PanelComponente {
 
 		 int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		    if (confirmation == JOptionPane.YES_OPTION) {
-		        DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		      	 Object[] datos = {"0", "0","0","0","0",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
-		           defaultTableModel.addRow(datos);
+		       
 
 		    	
 		    	try {
@@ -88,7 +86,7 @@ public class PanelEmpleado extends PanelComponente {
 		    		String telefono = JOptionPane.showInputDialog(null, "Introduce el telefono del empleado:", "telefono del empleado",
 		    				JOptionPane.PLAIN_MESSAGE);
 		    		if (telefono == null || telefono.trim().isEmpty()) {
-		    			throw new IllegalArgumentException("Introduzca el telegno del empleado");
+		    			throw new IllegalArgumentException("Introduzca el telefono del empleado");
 		    		}
 		    		
 			         
@@ -134,7 +132,9 @@ public class PanelEmpleado extends PanelComponente {
         	jComboBoxDatosLaborales.addItem(datoLaboral);
         }
         
-   
+       
+     	 Object[] datos = {"0", "0","0","0","0",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
+          defaultTableModel.addRow(datos);
      // getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
 		    
 	}
@@ -151,10 +151,9 @@ public class PanelEmpleado extends PanelComponente {
 				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 			     defaultTableModel.removeRow(getTabla().getSelectedRow());
-			} catch (Exception e) {	
-				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-			} 
+			}  catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+			}
 
 	       
 	    }
@@ -171,9 +170,8 @@ public class PanelEmpleado extends PanelComponente {
 	            empleado.setEmail((String) getTabla().getModel().getValueAt(i, 3));
 	            empleado.setTelefono((String) getTabla().getModel().getValueAt(i, 4));
 	            empleado.setEmpresa((Empresa) getTabla().getModel().getValueAt(i, 5));
-	            empleado.setDatoLaboral((DatoLaboral) getTabla().getModel().getValueAt(i, 6));
-	            empleado.setDatoPersonal((DatoPersonal) getTabla().getModel().getValueAt(i, 7));
-	            
+	            empleado.setDatoPersonal((DatoPersonal) getTabla().getModel().getValueAt(i, 6));
+	            empleado.setDatoLaboral((DatoLaboral) getTabla().getModel().getValueAt(i, 7));
 	         //Aqui intenta guardarlo:
 	            getEmpleadoService().save(empleado);
 	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
