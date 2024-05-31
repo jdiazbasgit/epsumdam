@@ -3,15 +3,18 @@ package epsum.curso.chatspring.ventanas.servidores;
 import java.io.IOException;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 @Data
 public class ServidorEscuchaRegistroCliente extends ServidorChat {
 
+	@Autowired
 	private VentanaChat ventanaChat;
 	public ServidorEscuchaRegistroCliente(int puerto,VentanaChat ventanaChat) {
 		super(puerto);
-		this.ventanaChat=ventanaChat;
+		//this.ventanaChat=ventanaChat;
 	}
 
 	@Override

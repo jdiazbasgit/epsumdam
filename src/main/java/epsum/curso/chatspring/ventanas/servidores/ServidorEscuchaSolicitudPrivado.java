@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import epsum.curso.chatspring.ventanas.DialogPrivado;
@@ -24,13 +25,16 @@ import lombok.Data;
 @Service
 public class ServidorEscuchaSolicitudPrivado extends ServidorChat {
 
+	@Autowired
 	private VentanaChat ventanaChat;
+	@Autowired
+	private ClienteenvioPeticionPrivado clienteenvioPeticionPrivado;
 	private String ipOtro;
 	private int puertoDelOtro;
 	private boolean primeraVez;
 	public ServidorEscuchaSolicitudPrivado(int puerto,VentanaChat ventanaChat) {
 		super(puerto);
-		this.ventanaChat=ventanaChat;
+		//this.ventanaChat=ventanaChat;
 	}
 
 	@Override

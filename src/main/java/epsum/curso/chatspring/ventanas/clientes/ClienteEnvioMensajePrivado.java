@@ -3,16 +3,20 @@ package epsum.curso.chatspring.ventanas.clientes;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import epsum.curso.chatspring.ventanas.DialogPrivado;
 import lombok.Data;
 
 @Data
 public class ClienteEnvioMensajePrivado extends ClienteChat {
 
+	@Autowired
 	private DialogPrivado dialogPrivado;
+	
 	public ClienteEnvioMensajePrivado(String ip, int puerto, DialogPrivado dialogPrivado) {
 		super(ip, puerto);
-		this.dialogPrivado=dialogPrivado;
+		//this.dialogPrivado=dialogPrivado;
 	}
 
 	@Override
