@@ -11,9 +11,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.yaml.snakeyaml.comments.CommentLine;
 
+import epsum.curso.conexiondatos.configuracion.ConfiguracionEmpresas;
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.ventanas.VentanaDatos;
 import epsum.curso.conexiondatos.entidades.Hijo;
@@ -21,6 +23,7 @@ import lombok.Data;
 
 @SpringBootApplication
 @Data
+@Import(ConfiguracionEmpresas.class)
 public class ConexionDatosApplication implements CommandLineRunner {
 	
 	@Autowired
@@ -44,6 +47,7 @@ public class ConexionDatosApplication implements CommandLineRunner {
 		getVentanaDatos().setVisible(true);
 		
 	}
+	
 	
 	
 

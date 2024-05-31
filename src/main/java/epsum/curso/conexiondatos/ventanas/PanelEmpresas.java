@@ -9,18 +9,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 
-import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.entidades.Empresa;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Data
-public class PanelEmpresas extends PanelComponente{
+public class PanelEmpresas extends PanelComponente {
 
 	@Autowired
+	@Lazy
 	private EmpresaService empresaService;
 
 	private String[] cabeceras;
@@ -32,8 +33,7 @@ public class PanelEmpresas extends PanelComponente{
 	public PanelEmpresas(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 	}
-	
-	
+
 	@Override
 	public void alta() {
 //		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
@@ -54,10 +54,10 @@ public class PanelEmpresas extends PanelComponente{
 				if (nombre == null || nombre.trim().isEmpty()) {
 					throw new IllegalArgumentException("El nombre no puede estar vacío");
 				}
-				
-				String cif = JOptionPane.showInputDialog(null, "Introduce el cif de la nueva empresa:",
-						"Nuevo cif", JOptionPane.PLAIN_MESSAGE);
-				
+
+				String cif = JOptionPane.showInputDialog(null, "Introduce el cif de la nueva empresa:", "Nuevo cif",
+						JOptionPane.PLAIN_MESSAGE);
+
 				if (cif == null || cif.trim().isEmpty()) {
 					throw new IllegalArgumentException("El cif no puede estar vacío");
 				}
@@ -73,12 +73,13 @@ public class PanelEmpresas extends PanelComponente{
 				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		}
+	}
 
 	@Override
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-		
+		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+
 		int confirmation = JOptionPane.showConfirmDialog(
 				null, "¿Estás seguro de borrar la empresa "
 						+ getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 1) + "?",
@@ -86,10 +87,9 @@ public class PanelEmpresas extends PanelComponente{
 		if (confirmation == JOptionPane.YES_OPTION) {
 
 			try {
-				getEmpresaService().deleteById(id);
+				empresaService.deleteById(id);
 				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito",
 						JOptionPane.INFORMATION_MESSAGE);
-				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 				defaultTableModel.removeRow(getTabla().getSelectedRow());
 			} catch (DataIntegrityViolationException e) {
 				e.printStackTrace();
@@ -99,7 +99,9 @@ public class PanelEmpresas extends PanelComponente{
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "El registro no existe, se va a eliminar", "Error",
 						JOptionPane.INFORMATION_MESSAGE);
-				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				defaultTableModel.removeRow(getTabla().getSelectedRow());
+			}catch (Exception e) {
+				e.printStackTrace();
 				defaultTableModel.removeRow(getTabla().getSelectedRow());
 			}
 
@@ -116,7 +118,7 @@ public class PanelEmpresas extends PanelComponente{
 				empresa.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
 				empresa.setNombre((String) getTabla().getModel().getValueAt(i, 1));
 				empresa.setCif((String) getTabla().getModel().getValueAt(i, 2));
-				getEmpresaService().save(empresa);
+				empresaService.save(empresa);
 				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 				defaultTableModel.setValueAt(String.valueOf(empresa.getId()), i, 0);
 			}
@@ -136,7 +138,7 @@ public class PanelEmpresas extends PanelComponente{
 					JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
