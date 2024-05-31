@@ -1,4 +1,4 @@
-package epsum.curso.chat.ventanas.servidores;
+package epsum.curso.chatspring.ventanas.servidores;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Data;
+import lombok.Value;
 
 @Data
 public abstract class ServidorChat extends Thread {
@@ -23,7 +24,7 @@ public abstract class ServidorChat extends Thread {
 	public static Map<String, String> usuarios= new HashMap<>();
 	public static Map<String, String> mensajes= new HashMap<>();
 	
-	ServidorChat(int puerto){
+	public ServidorChat(int puerto){
 		this.puerto=puerto;
 	}
 	

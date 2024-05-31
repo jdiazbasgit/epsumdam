@@ -1,18 +1,20 @@
-package epsum.curso.chat.ventanas.clientes;
+package epsum.curso.chatspring.ventanas.clientes;
 
 import java.io.IOException;
 
-import epsum.curso.chat.ventanas.VentanaChat;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 @Data
 public class ClienteenvioPeticionPrivado extends ClienteChat {
 
-	
+	@Autowired
 	private VentanaChat ventanaChat;
 
-	public ClienteenvioPeticionPrivado(String ip, int puerto, VentanaChat ventanaChat) {
+	public ClienteenvioPeticionPrivado(String ip, int puerto) {
 		super(ip, puerto);
-		this.ventanaChat = ventanaChat;
+		//this.ventanaChat = ventanaChat;
 	}
 
 	@Override

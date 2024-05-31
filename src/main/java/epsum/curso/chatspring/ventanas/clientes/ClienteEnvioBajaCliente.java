@@ -1,7 +1,9 @@
-package epsum.curso.chat.ventanas.clientes;
+package epsum.curso.chatspring.ventanas.clientes;
 
 import java.io.IOException;
+import lombok.Data;
 
+@Data
 public class ClienteEnvioBajaCliente extends ClienteChat {
 
 	public ClienteEnvioBajaCliente(String ip, int puerto) {
