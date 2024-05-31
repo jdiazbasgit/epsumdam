@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Map;
 
+import org.springframework.context.annotation.Scope;
+
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.Data;
 
 @Data
+
 public class ClienteEnvioRegistroServidor extends ClienteChat {
 
 	private Map<String, String> usuarios;
@@ -20,7 +23,7 @@ public class ClienteEnvioRegistroServidor extends ClienteChat {
 	@Override
 	public void hacerAlgo() throws IOException {
 		ObjectOutputStream objectOutputStream= new ObjectOutputStream(getSocket().getOutputStream());
-		objectOutputStream.writeObject(getUsuarios());
+		objectOutputStream.writeObject(ServidorChat.usuarios);
 		objectOutputStream.flush();
 	}
 

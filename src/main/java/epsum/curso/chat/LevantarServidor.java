@@ -1,4 +1,4 @@
-package epsum.curso.chat.ventanas.servidores;
+package epsum.curso.chat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,11 +9,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
 import epsum.curso.chat.ventanas.configuracion.ServidorConfiguration;
+import epsum.curso.chat.ventanas.servidores.ServidorEscuchaBajaServidor;
+import epsum.curso.chat.ventanas.servidores.ServidorEscuchaMensajeServidor;
+import epsum.curso.chat.ventanas.servidores.ServidorEscuchaRegistroServidor;
 import lombok.Data;
 
 @SpringBootApplication
 @Data
-@Import(ServidorConfiguration.class)
 public class LevantarServidor implements CommandLineRunner {
 	@Autowired
 	private ServidorEscuchaBajaServidor servidorEscuchaBajaServidor;
@@ -34,6 +36,7 @@ public class LevantarServidor implements CommandLineRunner {
 		getServidorEscuchaRegistroServidor().start();
 
 	}
-
+	
+	
 	
 }

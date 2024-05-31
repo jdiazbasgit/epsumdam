@@ -6,13 +6,20 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
-import epsum.curso.chat.ventanas.clientes.ClienteChat;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroServidor;
+import lombok.Data;
 
 
+@Data
 public class ServidorEscuchaRegistroServidor extends ServidorChat {
+
+	@Autowired
+	private ClienteEnvioRegistroServidor clienteEnvioRegistroServidor;
+	 @Autowired
+	    private ApplicationContext applicationContext;
 
 	public ServidorEscuchaRegistroServidor(int puerto) {
 		super(puerto);
@@ -27,9 +34,10 @@ public class ServidorEscuchaRegistroServidor extends ServidorChat {
 		Map<String,String> usuariosTemporales=null;
 		if(ServidorEscuchaRegistroServidor.usuarios.values().stream().filter(u->u.equals(nick)).count()>0) {
 			usuariosTemporales= new HashMap<>();
-			ClienteEnvioRegistroServidor clienteEnvioRegistroServidor=
-					new ClienteEnvioRegistroServidor(ip,ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO,usuariosTemporales);
-			clienteEnvioRegistroServidor.start();
+			getClienteEnvioRegistroServidor().setIp(ip);
+			getClienteEnvioRegistroServidor().setUsuarios(usuariosTemporales);
+			getClienteEnvioRegistroServidor().start();
+			System.out.println("estado del cliente:"+getClienteEnvioRegistroServidor().getState());
 		}
 		else {
 			System.out.println("envio map a clientes");
@@ -39,11 +47,16 @@ public class ServidorEscuchaRegistroServidor extends ServidorChat {
 			}
 			ServidorChat.usuarios.put(ip, nick);
 			
-			ServidorChat.usuarios.keySet().stream().forEach(ip1->{
-				ClienteEnvioRegistroServidor clienteEnvioRegistroServidor=
-						new ClienteEnvioRegistroServidor(ip1,ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO,ServidorChat.usuarios);
+			//ServidorChat.usuarios.keySet().stream().forEach(ip1->{
+			for(String ip1:ServidorChat.usuarios.keySet()) {
+				System.out.println("estado del cliente0:"+getClienteEnvioRegistroServidor().getState());
+				
+				ClienteEnvioRegistroServidor clienteEnvioRegistroServidor=(ClienteEnvioRegistroServidor) getApplicationContext().getBean("clienteEnvioRegistroServidor");
+				clienteEnvioRegistroServidor.setIp(ip1);
+				clienteEnvioRegistroServidor.setUsuarios(ServidorChat.usuarios);
 				clienteEnvioRegistroServidor.start();
-			});
+				System.out.println("estado del cliente1:"+clienteEnvioRegistroServidor.getState());
+			};
 		}
 		
 	}
