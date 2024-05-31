@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
 import epsum.curso.conexiondatos.entidades.Cargo;
@@ -57,9 +59,31 @@ public class PanelDatosLaborales extends PanelComponente {
 	@Override
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-		getDatoLaboralService().deleteById(id);
-		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
+		int confirmation = JOptionPane.showConfirmDialog(
+				null, "¿Estás seguro de borrar el cargo "
+						+ getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 1) + "?",
+				"Confirmación", JOptionPane.YES_NO_OPTION);
+		if (confirmation == JOptionPane.YES_OPTION) {
+
+			try {
+				getDatoLaboralService().deleteById(id);
+				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito",
+						JOptionPane.INFORMATION_MESSAGE);
+				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				defaultTableModel.removeRow(getTabla().getSelectedRow());
+			} catch (DataIntegrityViolationException e) {
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque esta en uso", "Éxito",
+						JOptionPane.INFORMATION_MESSAGE);
+			} catch (EmptyResultDataAccessException e) {
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "El registro no existe, se va a eliminar", "Error",
+						JOptionPane.INFORMATION_MESSAGE);
+				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				defaultTableModel.removeRow(getTabla().getSelectedRow());
+			}
+
+		}
 	}
 
 	@Override
