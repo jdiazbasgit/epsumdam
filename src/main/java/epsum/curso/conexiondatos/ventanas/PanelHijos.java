@@ -26,6 +26,14 @@ public class PanelHijos extends PanelComponente {
 	private String titulo;
 
 	private int i;
+	
+	/*
+	@Override
+	public void setBotonBorrarToolTip(String text) {
+		// TODO Auto-generated method stub
+		super.setBotonBorrarToolTip("Para borrar un registro seleccione la fila que desea eliminar y después pulse el botón BORRAR");
+	}
+	*/
 
 	public PanelHijos(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
@@ -39,13 +47,6 @@ public class PanelHijos extends PanelComponente {
 		 
 		 if (confirmation == JOptionPane.YES_OPTION) {
 			try {
-				/*
-				String descripcion = JOptionPane.showInputDialog(null, "Introduce la descripción del nuevo cargo:", "Nueva Descripción", JOptionPane.PLAIN_MESSAGE);
-				
-				if (descripcion == null || descripcion.trim().isEmpty()) {
-					throw new IllegalArgumentException("La descripción no puede estar vacía");
-				}
-				*/
 				JOptionPane.showMessageDialog(null, "Introduzca el número de hijos/hijas del registro. Después pulse el botón gabar", "Información", JOptionPane.INFORMATION_MESSAGE);
 				
 				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
@@ -62,31 +63,30 @@ public class PanelHijos extends PanelComponente {
 	 
 	@Override
 	public void baja() {
-		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
 		
-		//confirmacion de borrado
-		JOptionPane jOptionPane=new JOptionPane("Estas seguro?");
-		jOptionPane.setSize(300,300);
-		jOptionPane.setLocation(100, 100);
-		int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
-		
-		if (confirmation == JOptionPane.YES_OPTION) {
-			try {
-				getHijoService().deleteByID(id);
-				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
-			     defaultTableModel.removeRow(getTabla().getSelectedRow());
-			} catch (Exception e) {	
-				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		try {
+			int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
+			//confirmacion de borrado
+			JOptionPane jOptionPane=new JOptionPane("Estas seguro?");
+			jOptionPane.setSize(300,300);
+			jOptionPane.setLocation(100, 100);
+			int confirmation = JOptionPane.showConfirmDialog(null, "¿De verdad quieres borrar?", "Confirmación", JOptionPane.YES_NO_OPTION);
+			
+			if (confirmation == JOptionPane.YES_OPTION) {
+				try {
+					getHijoService().deleteByID(id);
+					JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+					 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+				     defaultTableModel.removeRow(getTabla().getSelectedRow());
+				} catch (Exception e) {	
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
-			/*
-			getHijoService().deleteByID(id);
-			DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-			defaultTableModel.removeRow(getTabla().getSelectedRow());
-			*/
+		} catch (ArrayIndexOutOfBoundsException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Seleccione primero el registro que desea borrar", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 		}
-		
 	}
 
 	@Override

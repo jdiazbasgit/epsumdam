@@ -44,6 +44,7 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 		this.botonAlta = new JButton("ALTA");
 		this.botonBorrar = new JButton("BORRAR");
+		botonBorrar.setToolTipText("Seleccione el registro que quiera eliminar y después presione BORRAR");
 		this.botonModificar = new JButton("GRABAR");
 		this.botonAlta.addActionListener(this);
 		this.botonModificar.addActionListener(this);
@@ -92,9 +93,11 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		getTabla().repaint();
 		recargar();
 	}
-
-	
-
+	/*
+	public void setBotonBorrarToolTip(String text) {
+        botonBorrar.setToolTipText("ejemplo");
+    }	
+	*/
 	private void recargar() {
 		for(int i=0;i<getTabla().getRowCount();i++)
 			for(int j=0;j<getTabla().getColumnCount();j++)
@@ -126,7 +129,5 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 	}
 
 	// marlenepaper
-	//adrianpaper
-	//alvaropaper
 
 }
