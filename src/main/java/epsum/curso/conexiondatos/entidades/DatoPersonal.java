@@ -10,28 +10,33 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name="datos_personales")
-@Data
+@Table(name = "datos_personales")
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DatoPersonal
-{
+public class DatoPersonal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "hijos_id")
 	private Hijo hijo;
-	
-	@ManyToOne
-	@JoinColumn(name="estados_civiles_id")
-	private  EstadoCivil estadoCivil;
-	
 
-	
+	@ManyToOne
+	@JoinColumn(name = "estados_civiles_id")
+	private EstadoCivil estadoCivil;
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getEstadoCivil().getDescripcion()+ " - " + getHijo().getChicos()+ " - " + getHijo().getChicas();
+		}
 
 }
