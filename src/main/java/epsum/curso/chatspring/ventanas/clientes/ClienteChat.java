@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Map;
 
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import lombok.Data;
@@ -20,7 +19,6 @@ public abstract class ClienteChat extends Thread {
 	public final static String SERVIDOR="192.168.0.126";
 	//public final static String SERVIDOR="localhost";
 	
-
 	private String ip;
 	private int puerto;
 	private Socket socket;

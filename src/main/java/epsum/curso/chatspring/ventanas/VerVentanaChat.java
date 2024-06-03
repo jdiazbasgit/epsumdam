@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
-import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
-import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;

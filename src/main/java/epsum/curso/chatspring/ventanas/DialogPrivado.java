@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 
 import org.springframework.stereotype.Component;
 
-import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 import lombok.Data;

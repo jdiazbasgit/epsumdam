@@ -1,30 +1,20 @@
 package epsum.curso.chat.ventanas.configuracion;
 
-import java.awt.Dialog;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
-import epsum.curso.chatspring.ventanas.DialogPrivado;
-
-import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
-
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
-import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 
+import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioBajaCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 
-
-import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 
 @Configuration
