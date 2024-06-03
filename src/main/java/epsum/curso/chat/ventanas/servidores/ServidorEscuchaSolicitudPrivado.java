@@ -4,15 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import org.springframework.stereotype.Service;
-
 import epsum.curso.chat.ventanas.DialogPrivado;
 import epsum.curso.chat.ventanas.VentanaChat;
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
