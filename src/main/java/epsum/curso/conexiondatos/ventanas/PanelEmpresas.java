@@ -86,7 +86,7 @@ public class PanelEmpresas extends PanelComponente{
 		if (confirmation == JOptionPane.YES_OPTION) {
 
 			try {
-				getEmpresaService().deleteById(id);
+				empresaService.deleteById(id);
 				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito",
 						JOptionPane.INFORMATION_MESSAGE);
 				DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();

@@ -22,8 +22,10 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	private String[] cabeceras;
@@ -44,12 +46,13 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 
 		this.botonAlta = new JButton("ALTA");
 		this.botonBorrar = new JButton("BORRAR");
+		botonBorrar.setToolTipText("Seleccione el registro que quiera eliminar y después presione BORRAR");
 		this.botonModificar = new JButton("GRABAR");
 		this.botonAlta.addActionListener(this);
 		this.botonModificar.addActionListener(this);
 		this.botonBorrar.addActionListener(this);
 
-		MyTableModel myTableModel = new MyTableModel(datos, cabeceras);
+		DefaultTableModel myTableModel = new DefaultTableModel(datos, cabeceras);
 
 		this.tabla = new JTable(myTableModel);
 		for (int i = 0; i < getTabla().getRowCount(); i++) {
@@ -92,9 +95,11 @@ public abstract class PanelComponente extends JPanel implements ActionListener {
 		getTabla().repaint();
 		recargar();
 	}
-
-	
-
+	/*
+	public void setBotonBorrarToolTip(String text) {
+        botonBorrar.setToolTipText("ejemplo");
+    }	
+	*/
 	private void recargar() {
 		for(int i=0;i<getTabla().getRowCount();i++)
 			for(int j=0;j<getTabla().getColumnCount();j++)
