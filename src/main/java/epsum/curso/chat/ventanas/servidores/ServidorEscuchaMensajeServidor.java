@@ -13,11 +13,11 @@ import lombok.Data;
 @Data
 public class ServidorEscuchaMensajeServidor extends ServidorChat {
 
-	@Autowired
-	private ClienteEnvioMensajeServidor clienteEnvioMensajeServidor;
+	
 	
 	@Autowired
 	private ApplicationContext applicationContext;
+	
 	public ServidorEscuchaMensajeServidor(int puerto) {
 
 		super(puerto);
@@ -33,7 +33,7 @@ public class ServidorEscuchaMensajeServidor extends ServidorChat {
 		ServidorChat.usuarios.keySet().stream().forEach(ipc->{
 			ClienteEnvioMensajeServidor clienteEnvioMensajeServidor=(ClienteEnvioMensajeServidor) getApplicationContext().getBean("clienteEnvioMensajeServidor");
 			clienteEnvioMensajeServidor.setIp(ipc);
-			clienteEnvioMensajeServidor.setMensajeSalida(mensaje);
+			clienteEnvioMensajeServidor.setMensajeSalida(mensajeSalida);
 			clienteEnvioMensajeServidor.start();
 		});
 		

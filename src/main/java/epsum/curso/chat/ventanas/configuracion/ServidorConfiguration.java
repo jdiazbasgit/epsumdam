@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
+import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioMensajeServidor;
 import epsum.curso.chat.ventanas.clientes.ClienteEnvioRegistroServidor;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
@@ -49,6 +50,12 @@ public class ServidorConfiguration {
 	@Scope("prototype")
 	public ClienteEnvioMensajeServidor clienteEnvioMensajeServidor() {
 		return new ClienteEnvioMensajeServidor(null, ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, null);
+	}
+	
+	@Bean
+	@Scope("prototype")
+	public ClienteEnvioMensajeCliente clienteEnvioMensajeCliente() {
+		return new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR, ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, null);
 	}
 
 }

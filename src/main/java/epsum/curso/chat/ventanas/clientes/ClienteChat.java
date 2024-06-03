@@ -33,7 +33,8 @@ public abstract class ClienteChat extends Thread {
 
 	@Override
 	public void run() {
-		try (Socket socket = new Socket(getIp(), getPuerto())) {
+		try  {
+			Socket socket = new Socket(getIp(), getPuerto());
 			setSocket(socket);
 			hacerAlgo();
 		} catch (Exception e) {

@@ -21,6 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import epsum.curso.chat.ventanas.clientes.ClienteChat;
@@ -31,11 +33,159 @@ import epsum.curso.chat.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chat.ventanas.servidores.ServidorChat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Data
 @Component
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
+	
+	private ClienteEnvioMensajeCliente clienteEnvioMensajeCliente;
+	@Autowired
+	private ApplicationContext applicationContext;
+	public JPanel getPSuperior() {
+		return PSuperior;
+	}
+
+	public void setPSuperior(JPanel pSuperior) {
+		PSuperior = pSuperior;
+	}
+
+	public JPanel getPInferior() {
+		return PInferior;
+	}
+
+	public void setPInferior(JPanel pInferior) {
+		PInferior = pInferior;
+	}
+
+	public JPanel getPIzquierda() {
+		return PIzquierda;
+	}
+
+	public void setPIzquierda(JPanel pIzquierda) {
+		PIzquierda = pIzquierda;
+	}
+
+	public JPanel getPCentral() {
+		return PCentral;
+	}
+
+	public void setPCentral(JPanel pCentral) {
+		PCentral = pCentral;
+	}
+
+	public JPanel getPSuperiorIzquierda() {
+		return PSuperiorIzquierda;
+	}
+
+	public void setPSuperiorIzquierda(JPanel pSuperiorIzquierda) {
+		PSuperiorIzquierda = pSuperiorIzquierda;
+	}
+
+	public JPanel getPInferiorIzquierda() {
+		return PInferiorIzquierda;
+	}
+
+	public void setPInferiorIzquierda(JPanel pInferiorIzquierda) {
+		PInferiorIzquierda = pInferiorIzquierda;
+	}
+
+	public JPanel getpCentralIzquierdaInferior() {
+		return pCentralIzquierdaInferior;
+	}
+
+	public void setpCentralIzquierdaInferior(JPanel pCentralIzquierdaInferior) {
+		this.pCentralIzquierdaInferior = pCentralIzquierdaInferior;
+	}
+
+	public JButton getBRegistrar() {
+		return BRegistrar;
+	}
+
+	public void setBRegistrar(JButton bRegistrar) {
+		BRegistrar = bRegistrar;
+	}
+
+	public JButton getBEnviar() {
+		return BEnviar;
+	}
+
+	public void setBEnviar(JButton bEnviar) {
+		BEnviar = bEnviar;
+	}
+
+	public JButton getbPrivado() {
+		return bPrivado;
+	}
+
+	public void setbPrivado(JButton bPrivado) {
+		this.bPrivado = bPrivado;
+	}
+
+	public JLabel getLNick() {
+		return LNick;
+	}
+
+	public void setLNick(JLabel lNick) {
+		LNick = lNick;
+	}
+
+	public JLabel getLMensaje() {
+		return LMensaje;
+	}
+
+	public void setLMensaje(JLabel lMensaje) {
+		LMensaje = lMensaje;
+	}
+
+	public JLabel getLUsuarios() {
+		return LUsuarios;
+	}
+
+	public void setLUsuarios(JLabel lUsuarios) {
+		LUsuarios = lUsuarios;
+	}
+
+	public JTextField getTNick() {
+		return TNick;
+	}
+
+	public void setTNick(JTextField tNick) {
+		TNick = tNick;
+	}
+
+	public JTextField getTMensaje() {
+		return TMensaje;
+	}
+
+	public void setTMensaje(JTextField tMensaje) {
+		TMensaje = tMensaje;
+	}
+
+	public JTextArea getTAMensajes() {
+		return TAMensajes;
+	}
+
+	public void setTAMensajes(JTextArea tAMensajes) {
+		TAMensajes = tAMensajes;
+	}
+
+	public JTextArea getTAUsuarios() {
+		return TAUsuarios;
+	}
+
+	public void setTAUsuarios(JTextArea tAUsuarios) {
+		TAUsuarios = tAUsuarios;
+	}
+
+	public int getPuerto() {
+		return puerto;
+	}
+
+	public void setPuerto(int puerto) {
+		this.puerto = puerto;
+	}
+
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda,
 			pCentralIzquierdaInferior;
 	private JButton BRegistrar, BEnviar, bPrivado;
@@ -54,8 +204,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		barraIzquierda();
 		barraCentral();
 		getBRegistrar().addActionListener(this);
-		getBEnviar().addActionListener(this);
-		TMensaje.addKeyListener((KeyListener) this);
+		//getBEnviar().addActionListener(this);
+		TMensaje.addKeyListener(this);
 		TAMensajes.setEditable(false);
 		TAUsuarios.setEditable(false);
 	}
@@ -115,8 +265,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		getPCentral().setLayout(new BorderLayout());
 		add(PCentral, BorderLayout.CENTER);
 		getPCentral().add(getTAMensajes());
-		getPCentralIzquierdaInferior().add(getBPrivado());
-		getPIzquierda().add(getPCentralIzquierdaInferior(), BorderLayout.SOUTH);
+		getpCentralIzquierdaInferior().add(getbPrivado());
+		getPIzquierda().add(getpCentralIzquierdaInferior(), BorderLayout.SOUTH);
 	}
 
 	@Override
@@ -163,15 +313,15 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		// TODO Auto-generated method stub
 
 	}
-
 	private void enviarMensaje() {
-		ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-		clienteEnvioMensajeCliente.start();
+		setClienteEnvioMensajeCliente((ClienteEnvioMensajeCliente) getApplicationContext().getBean("clienteEnvioMensajeCliente"));
+		getClienteEnvioMensajeCliente().setVentanaChat(this);
+		getClienteEnvioMensajeCliente().start();
 
 	}
 
 	private void registrarCliente() {
+		
 		System.out.println("envio nick desde cliente");
 		ClienteEnvioRegistroCliente cliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR,
 				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, this);
@@ -188,12 +338,10 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 			getTMensaje().addKeyListener(this);
 		}
 		if (e.getSource().equals(getBEnviar())) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
+			enviarMensaje();
 
 		}
-		if (e.getSource().equals(getBPrivado())) {
+		if (e.getSource().equals(getbPrivado())) {
 
 			ServidorChat.usuarios.keySet().stream().forEach(ip -> {
 				if (ServidorChat.usuarios.get(ip).equals(getTAUsuarios().getSelectedText())) {
@@ -211,24 +359,39 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void keyTyped(KeyEvent e) {
+		//System.out.println("code:" + e.getKeyCode());
+				System.out.println("char:" + e.getKeyChar());
+				//if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+				if(e.getSource().equals(getTMensaje()) && e.getKeyChar()==KeyEvent.VK_ENTER)
+					enviarMensaje();
 
+				//}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("code:" + e.getKeyCode());
-		System.out.println("char:" + e.getKeyChar());
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			ClienteEnvioMensajeCliente clienteEnvioMensajeCliente = new ClienteEnvioMensajeCliente(ClienteChat.SERVIDOR,
-					ServidorChat.PUERTO_ESCUCHA_SERVIDOR_MENSAJE, this);
-			clienteEnvioMensajeCliente.start();
-
-		}
+		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public ClienteEnvioMensajeCliente getClienteEnvioMensajeCliente() {
+		return clienteEnvioMensajeCliente;
+	}
+
+	public void setClienteEnvioMensajeCliente(ClienteEnvioMensajeCliente clienteEnvioMensajeCliente) {
+		this.clienteEnvioMensajeCliente = clienteEnvioMensajeCliente;
+	}
+
+	public ApplicationContext getApplicationContext() {
+		return applicationContext;
+	}
+
+	public void setApplicationContext(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
 	}
 }
