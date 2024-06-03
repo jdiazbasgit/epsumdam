@@ -62,8 +62,9 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
+	private PanelEmpleado panelEmpleado;
 	private PanelEmpresas panelEmpresas;
-  @Autowired
+    @Autowired
 	private PanelHijos panelHijos;
 	@Autowired
 	private PanelDatosLaborales panelDatosLaborales;
@@ -217,29 +218,7 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 
 		if (e.getSource().equals(empleados)) {
 			getContentPane().removeAll();
-			Object[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESAS", "DATOS_PERSONALES",
-					"DATOS_LABORALES" };
-			List<Empleado> empleados = (List<Empleado>) empleadoService.findAll();
-			Object[][] datos = new Object[(int) empleadoService.count()][8];
-			int i = 0;
-			for (Empleado empleado : empleados) {
-				datos[i][0] = String.valueOf(empleado.getId());
-				datos[i][1] = empleado.getNombre();
-				datos[i][2] = empleado.getDni();
-				datos[i][3] = empleado.getEmail();
-				datos[i][4] = empleado.getTelefono();
-				datos[i][5] = empleado.getEmpresa().getNombre();
-				datos[i][6] = empleado.getDatoPersonal().getEstadoCivil().getDescripcion() + " - "
-						+ empleado.getDatoPersonal().getHijo().getChicos() + " - "
-						+ empleado.getDatoPersonal().getHijo().getChicas();
-				datos[i][7] = empleado.getDatoLaboral().getCargo().getDescripcion() + " - "
-						+ empleado.getDatoLaboral().getSalario();
-
-				i++;
-
-			}
-			;
-			getContentPane().add(new PanelCargos(cabeceras, datos, "EMPLEADOS"));
+			getContentPane().add(panelEmpleado);
 			this.show();
 
 		}
