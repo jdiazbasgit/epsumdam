@@ -3,6 +3,7 @@ package epsum.curso.conexiondatos.configuracion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 import java.util.List;
 import epsum.curso.conexiondatos.servicios.EmpresaService;
@@ -18,8 +19,8 @@ public class ConfiguracionEmpresas {
 	@Autowired
 	private EmpresaService empresaService;
 	
-	public Object[] cabecerasEmpresas() {
-		Object[] cabeceras = {"ID", "NOMBRE", "CIF"};
+	public String[] cabecerasEmpresas() {
+		String[] cabeceras = {"ID", "NOMBRE", "CIF"};
 		return cabeceras;
 	}
 	

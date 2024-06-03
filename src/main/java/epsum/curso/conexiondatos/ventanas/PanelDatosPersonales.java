@@ -2,7 +2,7 @@ package epsum.curso.conexiondatos.ventanas;
 
 public class PanelDatosPersonales extends PanelComponente {
 
-	public PanelDatosPersonales(Object[] cabeceras, Object[][] datos, String titulo) {
+	public PanelDatosPersonales(String[] cabeceras, Object[][] datos, String titulo) {
 		super(cabeceras, datos, titulo);
 	}
 

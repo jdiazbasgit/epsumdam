@@ -1,6 +1,8 @@
 package epsum.curso.conexiondatos.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Service;
 
 import epsum.curso.conexiondatos.entidades.Empresa;
