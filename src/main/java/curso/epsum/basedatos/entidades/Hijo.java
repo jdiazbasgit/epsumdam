@@ -1,4 +1,4 @@
-package main.java.curso.epsum.basedatos.entidades;
+package curso.epsum.basedatos.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
