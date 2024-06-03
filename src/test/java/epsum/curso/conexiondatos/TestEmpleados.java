@@ -44,7 +44,7 @@ public class TestEmpleados {
 		getEmpleadoService().deleteById(empleado.getId());
 	}
 	
-	public void modificar() {
+	/*public void modificar() {
 		System.setProperty("java.awt.headless", "false");
 		Empleado empleado = new Empleado();	
 		empleado.setNombre("Shinji");
@@ -58,5 +58,5 @@ public class TestEmpleados {
 		empleado.setNombre("Manuel");
 		getEmpleadoService().save(empleado);
 		getEmpleadoService().deleteById(empleado.getId());
-	}
+	}*/
 }

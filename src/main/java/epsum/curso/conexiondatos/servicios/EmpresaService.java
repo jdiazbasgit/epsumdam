@@ -28,4 +28,8 @@ public class EmpresaService {
 	public void deleteById(int id) {
 		getEmpresaCrudRepository().deleteById(id);
 	}
+	
+	public boolean existById(int id) {
+		return getEmpresaCrudRepository().existsById(id);
+	}
 }
