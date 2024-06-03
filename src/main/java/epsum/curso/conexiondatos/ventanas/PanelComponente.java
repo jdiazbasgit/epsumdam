@@ -22,8 +22,10 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public abstract class PanelComponente extends JPanel implements ActionListener {
 
 	private String[] cabeceras;
