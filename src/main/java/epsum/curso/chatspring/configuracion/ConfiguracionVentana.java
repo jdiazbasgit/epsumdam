@@ -13,7 +13,9 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
-
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
 import lombok.Data;
 
 @Configuration
@@ -54,5 +56,18 @@ public class ConfiguracionVentana {
 	public ClienteEnvioRegistroCliente clienteEnvioRegistroCliente() {
 		return new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO, ventanaChat);
 	}
+	@Bean
+	public ServidorEscuchaRegistroCliente servidorEscuchaRegistroCliente() {
+		return new ServidorEscuchaRegistroCliente (ClienteChat.PUERTO_EXCUCHA_CLIENTE_REGISTRO, getVentanaChat());
+	}
 	
+	@Bean
+	public ServidorEscuchaMensajeCliente servidorMensaje() {
+		return new ServidorEscuchaMensajeCliente(ClienteChat.PUERTO_EXCUCHA_CLIENTE_MENSAJE, getVentanaChat());
+	}
+	
+	@Bean
+	public ServidorEscuchaSolicitudPrivado servidorEscuchaSolicitudPrtivado() {
+		return new ServidorEscuchaSolicitudPrivado(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA, getVentanaChat());
+	}
 }
