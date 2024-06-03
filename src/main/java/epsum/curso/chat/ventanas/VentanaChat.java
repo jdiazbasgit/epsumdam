@@ -39,6 +39,7 @@ import lombok.NoArgsConstructor;
 @Component
 public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
 	
+	@Autowired
 	private ClienteEnvioMensajeCliente clienteEnvioMensajeCliente;
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -204,7 +205,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		barraIzquierda();
 		barraCentral();
 		getBRegistrar().addActionListener(this);
-		//getBEnviar().addActionListener(this);
+		getBEnviar().addActionListener(this);
 		TMensaje.addKeyListener(this);
 		TAMensajes.setEditable(false);
 		TAUsuarios.setEditable(false);
@@ -359,18 +360,18 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		//System.out.println("code:" + e.getKeyCode());
-				System.out.println("char:" + e.getKeyChar());
-				//if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				if(e.getSource().equals(getTMensaje()) && e.getKeyChar()==KeyEvent.VK_ENTER)
-					enviarMensaje();
-
-				//}
+		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		//System.out.println("code:" + e.getKeyCode());
+		System.out.println("char:" + e.getKeyChar());
+		//if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+		if(e.getSource().equals(getTMensaje()) && e.getKeyChar()==KeyEvent.VK_ENTER)
+			enviarMensaje();
+
+		//}
 	}
 
 	@Override
