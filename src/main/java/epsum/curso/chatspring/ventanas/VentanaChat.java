@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
@@ -20,12 +21,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioBajaCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
-
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -57,6 +59,21 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	@Lazy
 	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
 
+	@Autowired
+	@Lazy
+	private ClienteEnvioRegistroCliente clienteEnvioRegistroCliente;
+
+	@Autowired
+	@Lazy
+	private ClienteenvioPeticionPrivado clienteenvioPeticionPrivado;
+	
+	@Autowired
+	private ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado;
+	
+	@Autowired
+	private DialogPrivado dialogPrivado;
+	
+	
 	public JPanel getPSuperior() {
 		return PSuperior;
 	}
@@ -233,13 +250,6 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		this.clienteenvioPeticionPrivado = clienteenvioPeticionPrivado;
 	}
 
-	@Autowired
-	@Lazy
-	private ClienteEnvioRegistroCliente clienteEnvioRegistroCliente;
-
-	@Autowired
-	@Lazy
-	private ClienteenvioPeticionPrivado clienteenvioPeticionPrivado;
 
 	public VentanaChat() {
 		setSize(500, 500);
@@ -376,21 +386,38 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(getBRegistrar())) {
 			registrarCliente();
-			getTMensaje().addKeyListener(this);
+			//getTMensaje().addKeyListener(this);
+			 getTMensaje().addKeyListener(new KeyAdapter() {
+		            @Override
+		            public void keyPressed(KeyEvent e) {
+		                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+		                    enviarMensaje();
+		                }
+		            }
+		        });
 		}
 		if (e.getSource().equals(getBEnviar())) {
 			enviarMensaje();
 		}
+		
 		if (e.getSource().equals(getbPrivado())) {
 
 			String nick = this.getTAUsuarios().getSelectedText();
 			ServidorChat.usuarios.keySet().stream().forEach(ip -> {
 				if (ServidorChat.usuarios.get(ip).equals(nick)) {
+					clienteenvioPeticionPrivado.setPuerto(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
 					clienteenvioPeticionPrivado.setIp(ip);
+					setPuerto(getPuerto() + 1);
+					clienteenvioPeticionPrivado.start();
+					
+					//clienteenvioPeticionPrivado.setPuerto(ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
+					//dialogPrivado(ServidorChat.usuarios,clienteenvioPeticionPrivado.setIp(ip));
 				}
+				
+				
 			});
-			clienteenvioPeticionPrivado.start();
-			setPuerto(getPuerto() + 1);
+			//clienteenvioPeticionPrivado.start();
+			//setPuerto(getPuerto() + 1);
 		}
 
 	}
@@ -402,11 +429,11 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("code:" + e.getKeyCode());
+	/*	System.out.println("code:" + e.getKeyCode());
 		System.out.println("char:" + e.getKeyChar());
-		if (e.getKeyCode() == 10/*KeyEvent.VK_ENTER*/) {
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			enviarMensaje();
-		}
+		}*/
 	}
 
 	@Override

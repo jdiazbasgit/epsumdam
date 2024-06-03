@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajeCliente;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaRegistroCliente;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaSolicitudPrivado;
 
@@ -41,6 +42,12 @@ public class Configuracion {
 	}
 	
 	@Bean
+	public ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado() {
+		return new ServidorEscuchaMensajePrivado(0, null);
+	}
+	
+	@Bean
+	@Scope("prototype")
 	public ClienteEnvioBajaCliente clienteEnvioBajaCliente() {
 		ClienteEnvioBajaCliente clienteEnvioBajaCliente = new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
 		return clienteEnvioBajaCliente;
@@ -54,12 +61,14 @@ public class Configuracion {
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public ClienteEnvioRegistroCliente clienteEnvioRegistroCliente() {
 		ClienteEnvioRegistroCliente clienteEnvioRegistroCliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
 		return clienteEnvioRegistroCliente;
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public ClienteenvioPeticionPrivado clienteenvioPeticionPrivado() {
 		ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(null, ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
 		return clienteenvioPeticionPrivado;
