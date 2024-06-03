@@ -64,12 +64,14 @@ public class Configuracion {
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public ClienteEnvioRegistroCliente clienteEnvioRegistroCliente() {
 		ClienteEnvioRegistroCliente clienteEnvioRegistroCliente = new ClienteEnvioRegistroCliente(ClienteChat.SERVIDOR, ServidorChat.PUERTO_ESCUCHA_SERVIDOR_REGISTRO);
 		return clienteEnvioRegistroCliente;
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public ClienteenvioPeticionPrivado clienteenvioPeticionPrivado() {
 		ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(null, ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
 		return clienteenvioPeticionPrivado;

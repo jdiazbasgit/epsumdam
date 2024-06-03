@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -43,7 +45,7 @@ import epsum.curso.chat.ventanas.configuracion.Configuracion;
 @Data
 @EqualsAndHashCode(callSuper=false)
 //@Import(Configuracion.class)
-public class VentanaChat extends JFrame implements WindowListener, ActionListener, KeyListener {
+public class VentanaChat extends JFrame implements WindowListener, ActionListener,MouseListener, KeyListener {
 	
 	private JPanel PSuperior, PInferior, PIzquierda, PCentral, PSuperiorIzquierda, PInferiorIzquierda, pCentralIzquierdaInferior;
 	private JButton BRegistrar, BEnviar, bPrivado;
@@ -78,8 +80,10 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		barraIzquierda();
 		barraCentral();
 		getBRegistrar().addActionListener(this);
-		getBEnviar().addActionListener(this);
+	//	getBEnviar().addActionListener(this);
 		TMensaje.addKeyListener((KeyListener) this);
+		getBEnviar().addMouseListener(this);
+	//	getBEnviar().addMouseListener(this);
 		TAMensajes.setEditable(false);
 		TAUsuarios.setEditable(false);
 	}
@@ -204,7 +208,6 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 			getTMensaje().addKeyListener(this);
 		}
 		if (e.getSource().equals(getBEnviar())) {
-			clienteEnvioMensajeCliente.start();
 
 		}
 		if (e.getSource().equals(getBPrivado())) {
@@ -241,5 +244,37 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+			clienteEnvioMensajeCliente.start();
+
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
