@@ -86,13 +86,14 @@ public class PanelDatosLaborales extends PanelComponente {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void modificar() {
 		for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
 			DatoLaboral datoLaboral = new DatoLaboral();
 			datoLaboral.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
 			datoLaboral.setSalario(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 1)));
-			datoLaboral.setCargo((Cargo) getTabla().getModel().getValueAt(i, 2));
+			datoLaboral.setCargo((Cargo)(getTabla().getModel().getValueAt(i, 2)));
 			getDatoLaboralService().save(datoLaboral);
 			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 			defaultTableModel.setValueAt(String.valueOf(datoLaboral.getId()), i, 0);

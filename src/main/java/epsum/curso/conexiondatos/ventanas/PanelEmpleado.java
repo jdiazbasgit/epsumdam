@@ -18,6 +18,8 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 
 import epsum.curso.conexiondatos.servicios.DatoLaboralService;
 import epsum.curso.conexiondatos.servicios.DatosPersonalesService;
@@ -31,6 +33,7 @@ import lombok.Data;
 @Data
 public class PanelEmpleado extends PanelComponente {
 	public PanelEmpleado(String[] cabeceras, Object[][] datos, String titulo) {
+
 		super(cabeceras, datos, titulo);
 		
 	}
@@ -57,11 +60,54 @@ public class PanelEmpleado extends PanelComponente {
 	
 	@Override
 	public void alta() {
-		List<Empleado> empleados= getEmpleadoService().findByNombreEquals("profe");
-		empleados.stream().forEach(e->System.out.println(e.getNombre()));
+
+		 int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+		    if (confirmation == JOptionPane.YES_OPTION) {
+		    	
+		    	try {
+		    		String nombre = JOptionPane.showInputDialog(null, "Introduce el nombre del empleado:", "nuevo empleado", 
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (nombre == null || nombre.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Tienes que escribir un nombre");
+		    		}
+		    	
+		    		String dni = JOptionPane.showInputDialog(null, "Introduzca el DNI/NIE del empleado:", "DNI/NIE del empleado",
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (dni == null || dni.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Introduzca el DNI/NIE del empleado");
+		    		}
+		    		String email = JOptionPane.showInputDialog(null, "Introduce el email:", "email del empleado", 
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (email == null || email.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Introduzca el correo del empleado");
+		    		}
+		    		
+		    		String telefono = JOptionPane.showInputDialog(null, "Introduce el telefono del empleado:", "telefono del empleado",
+		    				JOptionPane.PLAIN_MESSAGE);
+		    		if (telefono == null || telefono.trim().isEmpty()) {
+		    			throw new IllegalArgumentException("Introduzca el telefono del empleado");
+		    			
+		    		}
+		    		
+		    		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		    		Object[] datos = {"0", nombre.trim(),dni.trim(),email.trim(),telefono.trim(),jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
+		            defaultTableModel.addRow(datos);
+		    		
+			         
+			         	JOptionPane.showMessageDialog(null, "Registro correctamente agregado", "Éxito",
+			         			JOptionPane.INFORMATION_MESSAGE);
+			         	
+		    	} catch (IllegalArgumentException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+				}
+		    	
+		    	
+		    }
+
+		/*List<Empleado> empleados= getEmpleadoService().findByNombreEquals("profe");
+		empleados.stream().forEach(e->System.out.println(e.getNombre()));*/
 		
-		
-		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+		  
   
 		 jComboBoxEmpresas = new JComboBox<Empresa>(); 
         
@@ -71,7 +117,7 @@ public class PanelEmpleado extends PanelComponente {
         	 jComboBoxEmpresas.addItem(empresa);
          }
          
-      //  getTabla().getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(jComboBoxEmpresas));
+      getTabla().getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(jComboBoxEmpresas));
          
          jComboBoxDatosPersonales = new JComboBox<DatoPersonal>();
          
@@ -81,7 +127,7 @@ public class PanelEmpleado extends PanelComponente {
         	 jComboBoxDatosPersonales.addItem(datoPersonal);
          }
 
-      //getTabla().getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(jComboBoxDatosPersonales));
+      getTabla().getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(jComboBoxDatosPersonales));
         
         jComboBoxDatosLaborales = new JComboBox<DatoLaboral>();
         
@@ -91,41 +137,63 @@ public class PanelEmpleado extends PanelComponente {
         	jComboBoxDatosLaborales.addItem(datoLaboral);
         }
         
-        Object[] datos = {"0", "0","0","0","0",jComboBoxEmpresas,jComboBoxDatosPersonales,jComboBoxDatosLaborales};
-        defaultTableModel.addRow(datos);
 
-      // getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
-      
+      getTabla().getColumnModel().getColumn(7).setCellEditor(new DefaultCellEditor(jComboBoxDatosLaborales));
+		    
 	}
 	
 
 	@Override
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-		getEmpleadoService().deleteById(id);
-		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
-		
+	    int confirmation = JOptionPane.showConfirmDialog(null, "¿Estás seguro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+	    if (confirmation == JOptionPane.YES_OPTION) {
+
+	        try {
+				getEmpleadoService().deleteById(id);
+				JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+				 DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
+			     defaultTableModel.removeRow(getTabla().getSelectedRow());
+			}  catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(),"error", JOptionPane.ERROR_MESSAGE);
+			}
+
+	       
+	    }
 	}
 
 	@Override
 	public void modificar() {
-		int fila = 0;
-		for (int i = 0; i <getTabla().getModel().getRowCount(); i++) {
-			Empleado empleado = new Empleado();
-			empleado.setId((int)getTabla().getModel().getValueAt(i,0));
-			empleado.setNombre((String) getTabla().getModel().getValueAt(i, 1));
-			empleado.setDni((String) getTabla().getModel().getValueAt(i, 2));
-			empleado.setEmail((String) getTabla().getModel().getValueAt(i, 3));
-			empleado.setTelefono((String) getTabla().getModel().getValueAt(i, 4));
-			empleado.setEmpresa((Empresa) getTabla().getModel().getValueAt(i, 5));
-			empleado.setDatoLaboral((DatoLaboral) getTabla().getModel().getValueAt(i, 6));
-			empleado.setDatoPersonal((DatoPersonal) getTabla().getModel().getValueAt(i, 7));
-			getEmpleadoService().save(empleado);
-			getTabla().getModel().setValueAt(String.valueOf(empleado.getId()),fila, 0);
-			fila++;
-			
-		}
+		try {
+	        for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
+	            Empleado empleado = new Empleado();
+	            empleado.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
+	            empleado.setNombre((String) getTabla().getModel().getValueAt(i, 1));
+	            empleado.setDni((String) getTabla().getModel().getValueAt(i, 2));
+	            empleado.setEmail((String) getTabla().getModel().getValueAt(i, 3));
+	            empleado.setTelefono((String) getTabla().getModel().getValueAt(i, 4));
+	            empleado.setEmpresa((Empresa) getTabla().getModel().getValueAt(i, 5));
+	            empleado.setDatoPersonal((DatoPersonal) getTabla().getModel().getValueAt(i, 6));
+	            empleado.setDatoLaboral((DatoLaboral) getTabla().getModel().getValueAt(i, 7));
+	         //Aqui intenta guardarlo:
+	            getEmpleadoService().save(empleado);
+	            DefaultTableModel defaultTableModel= (DefaultTableModel) getTabla().getModel();
+	            defaultTableModel.setValueAt(String.valueOf(empleado.getId()), i, 0);
+	        }
+	        JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+	    
+	    } catch (DuplicateKeyException e) {
+	        JOptionPane.showMessageDialog(null, "Error: Clave duplicada. No se puede guardar el cargo.", "Error", JOptionPane.ERROR_MESSAGE);
+	        e.printStackTrace(); 
+	        
+	    } catch (DataIntegrityViolationException e) {
+	        JOptionPane.showMessageDialog(null, "Error: Violación de integridad. Verifique los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+	        e.printStackTrace(); 
+	        
+	    }catch (Exception e) {
+	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
+	        e.printStackTrace(); 
+	    }
 	}
 
 }
