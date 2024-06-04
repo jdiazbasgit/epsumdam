@@ -42,32 +42,8 @@ public class ConfiguracionEmpleados {
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
 	
-	public String[] cabecerasCargos() {
-		Connection conexion=null;
-		String[] cabeceras=new String[8] ;
-		try {
-			conexion= DriverManager.getConnection("jdbc:mysql://192.168.0.126:3306/empresas?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","curso","Cursocurso1;");
-			Statement st=conexion.createStatement();
-			ResultSet rs= st.executeQuery("select * from empleados");
-			ResultSetMetaData rsmd= rs.getMetaData();
-			for(int i=0;i<rsmd.getColumnCount();i++)
-			{
-				cabeceras[i]=rsmd.getColumnName(i+1);
-			}
-			//Object[] cabeceras = { "ID", "DESCRIPCION" };
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				conexion.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
+	public String[] cabecerasEmpleados() {
+		String[] cabeceras = { "ID", "NOMBRE", "DNI", "EMAIL", "TELEFONO", "EMPRESA", "DATOS PERSONALES", "DATOS LABORALES" };
 		return  cabeceras;
 	}
 	public Object[][] datosEmpleados() {
@@ -145,6 +121,6 @@ public class ConfiguracionEmpleados {
 	
 	@Bean
 	public PanelEmpleado getPanelEmpleados() {
-		return new PanelEmpleado(cabecerasCargos(),datosEmpleados(),"EMPLEADOS");
+		return new PanelEmpleado(cabecerasEmpleados(),datosEmpleados(),"EMPLEADOS");
 	}
 }
