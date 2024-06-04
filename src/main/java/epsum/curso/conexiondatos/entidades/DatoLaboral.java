@@ -10,11 +10,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "datos_laborales")
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class DatoLaboral {
@@ -29,5 +32,10 @@ public class DatoLaboral {
 	@JoinColumn(name = "cargos_id")
 	private Cargo cargo;
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getCargo().getDescripcion()+ " - " + getSalario();
+	}
 	
 }

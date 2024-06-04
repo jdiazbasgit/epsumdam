@@ -8,11 +8,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "empresas")
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Empresa {
@@ -25,5 +28,10 @@ public class Empresa {
 
 	private String cif;
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getNombre();
+	}
 
 }
