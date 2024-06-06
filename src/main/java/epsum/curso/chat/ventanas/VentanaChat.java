@@ -42,7 +42,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	@Autowired
 	private ClienteEnvioMensajeCliente clienteEnvioMensajeCliente;
 	@Autowired
-	private ApplicationContext applicationContext;
+	private ClienteEnvioBajaCliente clienteEnvioBajaCliente;
 	public JPanel getPSuperior() {
 		return PSuperior;
 	}
@@ -278,9 +278,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		ClienteEnvioBajaCliente cliente = new ClienteEnvioBajaCliente(ClienteChat.SERVIDOR,
-				ServidorChat.PUERTO_ESCUCHA_SERVIDOR_BAJA);
-		cliente.start();
+		
+		clienteEnvioBajaCliente.start();
 		System.exit(0);
 
 	}
@@ -315,7 +314,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	}
 	private void enviarMensaje() {
-		setClienteEnvioMensajeCliente((ClienteEnvioMensajeCliente) getApplicationContext().getBean("clienteEnvioMensajeCliente"));
+		//setClienteEnvioMensajeCliente((ClienteEnvioMensajeCliente) getApplicationContext().getBean("clienteEnvioMensajeCliente"));
 		getClienteEnvioMensajeCliente().setVentanaChat(this);
 		getClienteEnvioMensajeCliente().start();
 
@@ -389,11 +388,5 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		this.clienteEnvioMensajeCliente = clienteEnvioMensajeCliente;
 	}
 
-	public ApplicationContext getApplicationContext() {
-		return applicationContext;
-	}
-
-	public void setApplicationContext(ApplicationContext applicationContext) {
-		this.applicationContext = applicationContext;
-	}
+	
 }

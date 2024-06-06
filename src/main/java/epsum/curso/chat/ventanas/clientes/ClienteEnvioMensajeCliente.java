@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 import epsum.curso.chat.ventanas.VentanaChat;
 import lombok.Data;
