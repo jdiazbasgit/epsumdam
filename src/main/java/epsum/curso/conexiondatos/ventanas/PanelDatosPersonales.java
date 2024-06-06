@@ -2,8 +2,13 @@ package epsum.curso.conexiondatos.ventanas;
 import java.util.List;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import epsum.curso.conexiondatos.entidades.Cargo;
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
@@ -38,6 +43,13 @@ public class PanelDatosPersonales extends PanelComponente {
 
 	@Override
 	public void alta() {
+		int confirmation = JOptionPane.showConfirmDialog(null, "¿Deseas agregar un nuevo registro?", "Confirmacion",JOptionPane.YES_NO_OPTION);
+		if(confirmation == JOptionPane.YES_OPTION) {
+		try {
+			String descripcion = JOptionPane.showInputDialog(null,"Introduce la descripcion del nuevo cargo", "Nueva Descripción", JOptionPane.PLAIN_MESSAGE);
+			if (descripcion == null || descripcion.trim().isEmpty()) {
+				throw new IllegalArgumentException("La descripcion noo puede estar vacia");
+			}
 		DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 		jComboBoxEstadoCivil = new JComboBox<EstadoCivil>();
 		jComboBoxHijo = new JComboBox<Hijo>();
@@ -51,19 +63,39 @@ public class PanelDatosPersonales extends PanelComponente {
 			jComboBoxHijo.addItem(hijo);
 		}
 		Object[] datos = { "0", jComboBoxEstadoCivil, jComboBoxHijo };
+		} catch (IllegalArgumentException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);			
+		}
+		}
+		
 	}
 
 	@Override
 	public void baja() {
 		int id = Integer.parseInt((String) getTabla().getModel().getValueAt(getTabla().getSelectedRow(), 0));
-		getDatosPersonalesService().deleteById(id);
-		 DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
-		defaultTableModel.removeRow(getTabla().getSelectedRow());
-
+		int confirmation = JOptionPane.showConfirmDialog(null, "¿Estas seguro de borrar?"+getTabla().getModel().getValueAt(getTabla().getSelectedRow(),1)+"?");
+		if (confirmation == JOptionPane.YES_OPTION) {
+			try {		
+			getDatosPersonalesService().deleteById(id);
+			JOptionPane.showMessageDialog(null, "Registro borrado correctamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
+			DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
+			defaultTableModel.removeRow(getTabla().getSelectedRow());
+		}catch (DataIntegrityViolationException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Registro no se ha podido borrar porque está en uso","Éxito", JOptionPane.INFORMATION_MESSAGE);
+		}catch(EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El registro no exsiste, se va a eliminar","Error", JOptionPane.INFORMATION_MESSAGE);
+			DefaultTableModel defaultTableModel=(DefaultTableModel) getTabla().getModel();
+			defaultTableModel.removeRow(getTabla().getSelectedRow());
+		}
+		}
 	}
+	
 
 	@Override
 	public void modificar() {
+		try {
 		for (int i = 0; i < getTabla().getModel().getRowCount(); i++) {
 			DatoPersonal datoPersonal = new DatoPersonal();
 			datoPersonal.setId(Integer.parseInt((String) getTabla().getModel().getValueAt(i, 0)));
@@ -73,6 +105,10 @@ public class PanelDatosPersonales extends PanelComponente {
 			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 			defaultTableModel.setValueAt(String.valueOf(datoPersonal.getId()), i, 0);
 		}
+		} catch (Exception e) {
+	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
+	        e.printStackTrace(); 
+	    }
 			
 	}
 
