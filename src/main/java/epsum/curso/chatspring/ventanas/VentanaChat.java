@@ -32,6 +32,8 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajeCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorChat;
+import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
+import epsum.curso.chatspring.ventanas.DialogPrivado;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -67,6 +69,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	@Autowired
 	@Lazy
 	private ClienteenvioPeticionPrivado clienteenvioPeticionPrivado;
+	@Autowired
+	private DialogPrivado dialogPrivado;
 
 	public VentanaChat() {
 		setSize(500, 500);
@@ -200,8 +204,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(getBRegistrar())) {
 			System.out.println("envio nick desde cliente");
-			clienteEnvioRegistroCliente.start();
-			getTMensaje().addKeyListener(this);
+			registrarCliente();
+			//getTMensaje().addKeyListener(this);
 		}
 		if (e.getSource().equals(getBEnviar())) {
 			//clienteEnvioMensajeCliente.start();
@@ -209,14 +213,22 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 		}
 		if (e.getSource().equals(getBPrivado())) {
-
+			
+			dialogPrivado.setPuerto(getPuerto());
+			
 			String nick = this.getTAUsuarios().getSelectedText();
 			ServidorChat.usuarios.keySet().stream().forEach(ip -> {
 						if (ServidorChat.usuarios.get(ip).equals(nick)) {
 							clienteenvioPeticionPrivado.setIp(ip);
+							dialogPrivado.setIp(ip);
 				}
 			});
 			clienteenvioPeticionPrivado.start();
+			;
+			dialogPrivado.setTitle(nick);
+			dialogPrivado.setVisible(true);
+			ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado = new ServidorEscuchaMensajePrivado(getPuerto(),nick);
+			servidorEscuchaMensajePrivado.start();
 			setPuerto(getPuerto() + 1);
 		}
 		

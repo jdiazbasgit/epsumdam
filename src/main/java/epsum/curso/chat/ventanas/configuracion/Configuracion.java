@@ -24,6 +24,7 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioRegistroCliente;
 import epsum.curso.chatspring.ventanas.clientes.ClienteenvioPeticionPrivado;
 
 
+
 import epsum.curso.chatspring.ventanas.VentanaChat;
 import lombok.Data;
 
@@ -74,6 +75,8 @@ public class Configuracion {
 		ClienteenvioPeticionPrivado clienteenvioPeticionPrivado = new ClienteenvioPeticionPrivado(null, ClienteChat.PUERTO_EXCUCHA_CLIENTE_PRIVADO_ALTA);
 		return clienteenvioPeticionPrivado;
 	}
+	
+
 }
 
 
