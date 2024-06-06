@@ -204,7 +204,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 			getTMensaje().addKeyListener(this);
 		}
 		if (e.getSource().equals(getBEnviar())) {
-			clienteEnvioMensajeCliente.start();
+			//clienteEnvioMensajeCliente.start();
+			enviarMensaje();
 
 		}
 		if (e.getSource().equals(getBPrivado())) {
@@ -232,7 +233,8 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		System.out.println("code:" + e.getKeyCode());
 		System.out.println("char:" + e.getKeyChar());
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			clienteEnvioMensajeCliente.start();
+			//clienteEnvioMensajeCliente.start();
+			enviarMensaje();
 
 		}
 	}
