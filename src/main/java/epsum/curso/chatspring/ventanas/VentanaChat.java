@@ -9,6 +9,7 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -27,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
+import org.yaml.snakeyaml.tokens.KeyToken;
 
 import epsum.curso.chatspring.ventanas.clientes.ClienteChat;
 import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioBajaCliente;
@@ -81,7 +83,7 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 		barraCentral();
 		getBRegistrar().addActionListener(this);
 	//	getBEnviar().addActionListener(this);
-		TMensaje.addKeyListener((KeyListener) this);
+		TMensaje.addKeyListener(this);
 		getBEnviar().addMouseListener(this);
 	//	getBEnviar().addMouseListener(this);
 		TAMensajes.setEditable(false);
@@ -192,39 +194,35 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	private void enviarMensaje() {
 		clienteEnvioMensajeCliente.start();
-
+		System.out.print("envio mensaje");
 	}
 
 	private void registrarCliente() {
 		System.out.println("envio nick desde cliente");
 		clienteEnvioRegistroCliente.start();
 	}
-
+	private void iniciarPrivado() {
+		String nick = this.getTAUsuarios().getSelectedText();
+        ServidorChat.usuarios.keySet().stream().forEach(ip -> {
+            if (ServidorChat.usuarios.get(ip).equals(nick)) {
+                clienteenvioPeticionPrivado.setIp(ip);
+            }
+        });
+        clienteenvioPeticionPrivado.start();
+        setPuerto(getPuerto() + 1);
+    }
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(getBRegistrar())) {
-			System.out.println("envio nick desde cliente");
-			clienteEnvioRegistroCliente.start();
-			getTMensaje().addKeyListener(this);
-		}
-		if (e.getSource().equals(getBEnviar())) {
-
-		}
-		if (e.getSource().equals(getBPrivado())) {
-
-			String nick = this.getTAUsuarios().getSelectedText();
-			ServidorChat.usuarios.keySet().stream().forEach(ip -> {
-						if (ServidorChat.usuarios.get(ip).equals(nick)) {
-							clienteenvioPeticionPrivado.setIp(ip);
-				}
-			});
-			clienteenvioPeticionPrivado.start();
-			setPuerto(getPuerto() + 1);
-		}
-		
-
-	}
-
+		  if (e.getSource().equals(getBRegistrar())) {
+	            registrarCliente();
+	        } else if (e.getSource().equals(getBEnviar())) {
+	            enviarMensaje();
+	        } else if (e.getSource().equals(getBPrivado())) {
+	            iniciarPrivado();
+	        }
+	    }
 	@Override
 	public void keyTyped(KeyEvent e) {
 
@@ -232,13 +230,10 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("code:" + e.getKeyCode());
-		System.out.println("char:" + e.getKeyChar());
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			clienteEnvioMensajeCliente.start();
-
-		}
-	}
+	       if (e.getSource().equals(getTMensaje()) && e.getKeyCode() == KeyEvent.VK_ENTER) {
+	            enviarMensaje();
+	        }
+	    }
 
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -255,7 +250,9 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-			clienteEnvioMensajeCliente.start();
+		if (e.getSource().equals(getBEnviar())) {
+            enviarMensaje();
+        }
 
 		
 	}
