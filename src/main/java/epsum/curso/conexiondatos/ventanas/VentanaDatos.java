@@ -34,6 +34,13 @@ import epsum.curso.conexiondatos.servicios.EmpleadoService;
 import epsum.curso.conexiondatos.entidades.Hijo;
 import epsum.curso.conexiondatos.repositorios.CargoCrudRepository;
 import epsum.curso.conexiondatos.servicios.HijoService;
+import epsum.curso.conexiondatos.ventanas.PanelCargos;
+import epsum.curso.conexiondatos.ventanas.PanelDatosLaborales;
+import epsum.curso.conexiondatos.ventanas.PanelDatosPersonales;
+import epsum.curso.conexiondatos.ventanas.PanelEmpleado;
+import epsum.curso.conexiondatos.ventanas.PanelEmpresas;
+import epsum.curso.conexiondatos.ventanas.PanelEstadosCiviles;
+import epsum.curso.conexiondatos.ventanas.PanelHijos;
 import lombok.Data;
 
 import epsum.curso.conexiondatos.entidades.DatoLaboral;
@@ -62,17 +69,23 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 	@Autowired
 	private PanelCargos panelCargos;
 	@Autowired
+	private PanelDatosPersonales panelDatosPersonales;
+	@Autowired
 	private PanelEmpleado panelEmpleado;
 	@Autowired
 	private PanelEmpresas panelEmpresas;
     @Autowired
 	private PanelHijos panelHijos;
+
+
+
 	@Autowired
 	private PanelDatosLaborales panelDatosLaborales;
   @Autowired
 	private PanelEstadosCiviles panelEstadosCiviles;
 
 	
+
 	private boolean primeraVez;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -185,18 +198,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosPersonales)) {
 			getContentPane().removeAll();
-			String[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
-			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
-			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
-			int i = 0;
-			for (DatoPersonal datoPersonal : datosPersonales) {
-				datos[i][0] = String.valueOf(datoPersonal.getId());
-				datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
-				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
-				i++;
-
-			}
-			getContentPane().add(new PanelDatosPersonales(cabeceras, datos, "DATOS PERSONALES"));
+			getContentPane().add(panelDatosPersonales);
+			
 			this.show();
 		}
 		if (e.getSource().equals(estadosCiviles)) {

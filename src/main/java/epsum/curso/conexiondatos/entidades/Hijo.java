@@ -8,15 +8,16 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 
 @Entity
 @Table (name = "hijos")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
 public class Hijo  {
 	
 	@Id
@@ -27,5 +28,9 @@ public class Hijo  {
 	  
 	private int chicas; 
 
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getChicos()+" - "+getChicas();	
+	}
 }
