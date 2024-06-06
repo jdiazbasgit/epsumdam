@@ -23,11 +23,7 @@ public class PanelDatosPersonales extends PanelComponente {
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
 	
-	private String[] cabeceras;
-
-	private Object[][] datos;
-
-	private String titulo;
+	
 	
 	@Autowired
 	private EstadoCivilService estadoCivilService;

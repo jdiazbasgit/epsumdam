@@ -26,7 +26,9 @@ public class ConfiguracionDatosPersonales {
 
 	@Autowired
 	private DatosPersonalesService datosPersonalesService;
+	@Autowired
 	private HijoService hijoService;
+	@Autowired
 	private EstadoCivilService estadoCivilService;
 	
 	public String[] cabecerasDatosPersonales() {
@@ -54,8 +56,8 @@ public class ConfiguracionDatosPersonales {
 				}
 			}
 			
-			datos[i][2]=comboBoxEstadoCivil;
-			datos[i][3]=comboBoxHijo;
+			datos[i][1]=comboBoxEstadoCivil;
+			datos[i][2]=comboBoxHijo;
 			
 		}
 		return datos;

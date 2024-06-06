@@ -198,20 +198,8 @@ public class VentanaDatos extends JFrame implements WindowListener, ActionListen
 		}
 		if (e.getSource().equals(datosPersonales)) {
 			getContentPane().removeAll();
-			
 			getContentPane().add(panelDatosPersonales);
-			String[] cabeceras = { "ID", "ESTADOCIVIL", "NUMEROHIJOS", };
-			List<DatoPersonal> datosPersonales = (List<DatoPersonal>) datosPersonalesService.findAll();
-			Object[][] datos = new Object[(int) datosPersonalesService.count()][3];
-			int i = 0;
-			for (DatoPersonal datoPersonal : datosPersonales) {
-				datos[i][0] = String.valueOf(datoPersonal.getId());
-				datos[i][1] = datoPersonal.getEstadoCivil().getDescripcion();
-				datos[i][2] = datoPersonal.getHijo().getChicos() + " - " + datoPersonal.getHijo().getChicas();
-				i++;
-
-			}
-			getContentPane().add(new PanelDatosPersonales(cabeceras, datos, "DATOS PERSONALES"));
+			
 			this.show();
 		}
 		if (e.getSource().equals(estadosCiviles)) {

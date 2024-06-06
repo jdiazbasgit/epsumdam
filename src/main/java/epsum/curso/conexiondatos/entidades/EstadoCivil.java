@@ -8,11 +8,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "estados_civiles")
-@Data
+@Setter
+@Getter
 public class EstadoCivil {
 	
 	@Id
@@ -21,7 +24,10 @@ public class EstadoCivil {
 	@Column(name="decripcion")
 	private String descripcion;
 
-	
+	@Override
+	public String toString() {
+		return getDescripcion();
+	}
 	
 
 	
