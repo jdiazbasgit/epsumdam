@@ -21,8 +21,8 @@ import epsum.curso.chatspring.ventanas.clientes.ClienteEnvioMensajePrivado;
 import epsum.curso.chatspring.ventanas.servidores.ServidorEscuchaMensajePrivado;
 import lombok.Data;
 
-@Component
 @Data
+@Component
 public class DialogPrivado extends JDialog implements ActionListener {
 
 	private JPanel jPanel;
@@ -33,6 +33,19 @@ public class DialogPrivado extends JDialog implements ActionListener {
 	private String ip;
 	
 	public DialogPrivado() {
+		setSize(500,500);
+		setLocation(200,200);
+		setLayout(new BorderLayout());
+		setJTextField(new JTextField(30));
+		setJButton(new JButton("ENVIAR"));
+		setJTextArea(new JTextArea());
+		setJPanel(new JPanel());
+		add(getJTextArea(),BorderLayout.CENTER);
+		getJPanel().add(getJTextField());
+		getJPanel().add(getJButton());
+		add(getJPanel(),BorderLayout.SOUTH);
+		
+		getJButton().addActionListener(this);
 	}
 	
 
@@ -60,20 +73,7 @@ public class DialogPrivado extends JDialog implements ActionListener {
 		super(owner, title);
 		this.ip=ip;
 		this.puerto=puerto;
-		setSize(500,500);
-		setLocation(200,200);
-		setLayout(new BorderLayout());
-		setJTextField(new JTextField(30));
-		setJButton(new JButton("ENVIAR"));
-		setJTextArea(new JTextArea());
-		setJPanel(new JPanel());
-		add(getJTextArea(),BorderLayout.CENTER);
-		getJPanel().add(getJTextField());
-		getJPanel().add(getJButton());
-		add(getJPanel(),BorderLayout.SOUTH);
-		ServidorEscuchaMensajePrivado servidorEscuchaMensajePrivado = new ServidorEscuchaMensajePrivado(getPuerto(),title);
-		servidorEscuchaMensajePrivado.start();
-		getJButton().addActionListener(this);
+		
 	}
 
 	public DialogPrivado(Dialog owner, boolean modal) {
