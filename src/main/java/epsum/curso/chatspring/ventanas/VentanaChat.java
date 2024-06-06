@@ -201,11 +201,11 @@ public class VentanaChat extends JFrame implements WindowListener, ActionListene
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(getBRegistrar())) {
 			System.out.println("envio nick desde cliente");
-			clienteEnvioRegistroCliente.start();
-			getTMensaje().addKeyListener(this);
+			registrarCliente();
+			//getTMensaje().addKeyListener(this);
 		}
 		if (e.getSource().equals(getBEnviar())) {
-			clienteEnvioMensajeCliente.start();
+			enviarMensaje();
 
 		}
 		if (e.getSource().equals(getBPrivado())) {
