@@ -104,8 +104,9 @@ public class PanelDatosPersonales extends PanelComponente {
 			getDatosPersonalesService().save(datoPersonal);
 			DefaultTableModel defaultTableModel = (DefaultTableModel) getTabla().getModel();
 			defaultTableModel.setValueAt(String.valueOf(datoPersonal.getId()), i, 0);
-			JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+			
 		}
+		JOptionPane.showMessageDialog(null, "Las modificaciones fueron exitosas", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 		} catch (Exception e) {
 	        JOptionPane.showMessageDialog(null, "Hubo un problema al modificar los datos", "Error", JOptionPane.ERROR_MESSAGE);
 	        e.printStackTrace(); 
