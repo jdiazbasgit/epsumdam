@@ -11,9 +11,13 @@ public class HombreOrquesta extends Musico {
 			System.out.println(getInstrumentos()[i].sonar());
 		}*/
 		
-		for (Instrumento instrumento : getInstrumentos()) {
+		/*for (Instrumento instrumento : getInstrumentos()) {
 			System.out.println(instrumento.sonar());
-		}
+		}*/
+		
+		getInstrumentos().stream().forEach(i->{
+			System.out.println(i.sonar());
+		});
 
 	}
 
