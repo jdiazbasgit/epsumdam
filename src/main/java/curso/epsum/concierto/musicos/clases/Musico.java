@@ -3,6 +3,7 @@ package curso.epsum.concierto.musicos.clases;
 import java.util.List;
 import java.util.Set;
 
+import curso.epsum.concierto.excepciones.SinSonidoException;
 import curso.epsum.concierto.instrumentos.clases.Instrumento;
 import curso.epsum.concierto.musicos.interfaces.MusicoInterface;
 
@@ -13,7 +14,7 @@ public abstract class Musico implements MusicoInterface {
 	private List<Instrumento> instrumentos;
 	
 	@Override
-	public abstract void tocar();
+	public abstract void tocar() throws SinSonidoException;
 
 	public Instrumento getInstrumento() {
 		return instrumento;

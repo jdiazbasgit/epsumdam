@@ -1,19 +1,21 @@
 package curso.epsum.concierto.teatros;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.TreeSet;
 
+import curso.epsum.concierto.excepciones.SinSonidoException;
+import curso.epsum.concierto.instrumentos.clases.Guitarra;
 import curso.epsum.concierto.instrumentos.clases.Instrumento;
+import curso.epsum.concierto.instrumentos.clases.Tambor;
+import curso.epsum.concierto.instrumentos.clases.Trompeta;
 import curso.epsum.concierto.musicos.clases.HombreOrquesta;
 
 public class ConciertoHombreOrquesta {
 
 	public static void main(String[] args) {
 
-		Instrumento tambor= new Instrumento("cpom, pom, pom");
-		Instrumento trompeta= new Instrumento("atuuuu, tuuuu, tuuu");
-		Instrumento guitarra= new Instrumento("cpom, pom, pom");
+		Tambor tambor= new Tambor("pom, pom, pom");
+		Trompeta trompeta= new Trompeta("tuuuu, tuuuu, tuuu");
+		Guitarra guitarra= new Guitarra("tlan, tlan, tlan");
 		
 		HombreOrquesta andres= new HombreOrquesta();
 		//Instrumento[] instrumentos= {tambor,trompeta,guitarra};
@@ -21,41 +23,12 @@ public class ConciertoHombreOrquesta {
 		andres.getInstrumentos().add(trompeta);
 		andres.getInstrumentos().add(guitarra);
 		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
-		andres.getInstrumentos().add(trompeta);
-		andres.getInstrumentos().add(guitarra);
-		andres.getInstrumentos().add(tambor);
 		
-		andres.tocar();
+		try {
+			andres.tocar();
+		} catch (SinSonidoException e) {
+			System.out.println("señores se ha roto uno de los instrumentos");
+		}
 	}
 
 }
