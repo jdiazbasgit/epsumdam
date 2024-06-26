@@ -29,12 +29,6 @@ public class ComisionesRestController {
 		return (List<Comision>) getComisionesCrudRepository().findAll();
 	}
 
-	public ComisionesRestController getComisionesRestController() {
-		return comisionesRestController;
-	}
-
-	public void setComisionesRestController(ComisionesRestController comisionesRestController) {
-		this.comisionesRestController = comisionesRestController;
-	}
+	
 	
 }
