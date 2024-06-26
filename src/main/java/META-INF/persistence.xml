@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="desarrollo">
+		<class>com.example.demo.entidades.Articulo</class>
+		<class>com.example.demo.entidades.Cargo</class>
+		<class>com.example.demo.entidades.Comision</class>
+		<class>com.example.demo.entidades.DatoLaboral</class>
+		<class>com.example.demo.entidades.DatoPersonal</class>
+		<class>com.example.demo.entidades.Empleado</class>
+		<class>com.example.demo.entidades.Empresa</class>
+		<class>com.example.demo.entidades.EstadoCivil</class>
+		<class>com.example.demo.entidades.Hijo</class>
+		<class>com.example.demo.entidades.TiposIva</class>
+		<class>com.example.demo.entidades.Venta</class>
+	</persistence-unit>
+</persistence>

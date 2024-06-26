@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: conexionDatos
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: desarrollo
+    url: jdbc:mysql://82.223.202.137:3306/empresas_desarrollo?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    password: Cursocurso1;
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      use-new-id-generator-mappings: false
+
+server:
+  port: 8082
+
+    
