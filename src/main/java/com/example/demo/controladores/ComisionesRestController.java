@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.entidades.Comision;
 import com.example.demo.repositorios.ComisionesCrudRepository;
@@ -23,8 +24,8 @@ public class ComisionesRestController {
 	public void setComisionesCrudRepository(ComisionesCrudRepository comisionesCrudRepository) {
 		this.comisionesCrudRepository = comisionesCrudRepository;
 	}
-
-	@CrossOrigin(origins ="*" )
+	@CrossOrigin(origins="*")
+	@GetMapping("comisiones")
 	public List<Comision> getComisiones(){
 		return (List<Comision>) getComisionesCrudRepository().findAll();
 	}
