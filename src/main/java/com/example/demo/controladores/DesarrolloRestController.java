@@ -162,30 +162,8 @@ public class DesarrolloRestController {
 	
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("borrar")
-	public void borrar(@RequestBody Object dato) {
-
-		if (dato instanceof Empresa)
-			 empresaCrudRepository.delete((Empresa) dato);
-		if (dato instanceof Empleado)
-			 empleadoCrudRepository.delete((Empleado) dato);
-		if (dato instanceof DatoLaboral)
-			 datoLaboralCrudRepository.delete((DatoLaboral) dato);
-		if (dato instanceof DatoPersonal)
-			 datosPersonalesCrudRepository.delete((DatoPersonal) dato);
-		if (dato instanceof Cargo)
-			 cargoCrudRepository.delete((Cargo) dato);
-		if (dato instanceof EstadoCivil)
-			 estadoCivilCrudRepository.delete((EstadoCivil) dato);
-		if (dato instanceof Hijo)
-			 hijoCrudRepository.delete((Hijo) dato);
-		if (dato instanceof Articulo)
-			 articuloCrudRepository.delete((Articulo) dato);
-		if (dato instanceof Venta)
-			 ventaCrudRepository.delete((Venta) dato);
-		if (dato instanceof Comision)
-			 comisionesCrudRepository.delete((Comision) dato);
-		if (dato instanceof TiposIva)
-			 tiposIvaCrudRepository.delete((TiposIva) dato);
+	public void borrar(@RequestBody Comision comision) {
+		comisionesCrudRepository.delete(comision);
 		
 	}
 	
