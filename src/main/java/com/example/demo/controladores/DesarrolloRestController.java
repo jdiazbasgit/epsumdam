@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -159,7 +160,7 @@ public class DesarrolloRestController {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@PostMapping("borrar")
+	@DeleteMapping("borrar")
 	public void borrar(@RequestBody Object dato) {
 
 		if (dato instanceof Empresa)
@@ -188,67 +189,67 @@ public class DesarrolloRestController {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@GetMapping("comisiones/{id}")
+	@PostMapping("comisiones/{id}")
 	public Comision getComisiones1(@PathVariable int id) {
 		return (Comision) comisionesCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("empresas/{id}")
+	@PostMapping("empresas/{id}")
 	public Empresa getEmpresas1(@PathVariable int id) {
 		return (Empresa) empresaCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("empleados/{id}")
+	@PostMapping("empleados/{id}")
 	public Empleado getEmpleados1(@PathVariable int id) {
 		return (Empleado) empleadoCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("datosLaborales/{id}")
+	@PostMapping("datosLaborales/{id}")
 	public DatoLaboral getDatosLaborales1(@PathVariable int id) {
 		return (DatoLaboral) datoLaboralCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("datosPersonales/{id}")
+	@PostMapping("datosPersonales/{id}")
 	public DatoPersonal getDatosPersonales1(@PathVariable int id) {
 		return (DatoPersonal) datosPersonalesCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("cargos/{id}")
+	@PostMapping("cargos/{id}")
 	public Cargo getCargos1(@PathVariable int id) {
 		return (Cargo) cargoCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("estadosCiviles/{id}")
+	@PostMapping("estadosCiviles/{id}")
 	public EstadoCivil getEstadosCiviles1(@PathVariable int id) {
 		return (EstadoCivil) estadoCivilCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("hijos/{id}")
+	@PostMapping("hijos/{id}")
 	public Hijo getHijos1(@PathVariable int id) {
 		return (Hijo) hijoCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("artculos/{id}")
+	@PostMapping("artculos/{id}")
 	public Articulo getArticulos1(@PathVariable int id) {
 		return (Articulo) articuloCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("ventas/{id}")
+	@PostMapping("ventas/{id}")
 	public Venta getVentas1(@PathVariable int id) {
 		return (Venta) ventaCrudRepository.findById(id).get();
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("tiposIva/{id}")
+	@PostMapping("tiposIva/{id}")
 	public TiposIva getTiposIva1(@PathVariable int id) {
 		return (TiposIva) tiposIvaCrudRepository.findById(id).get();
 	}
