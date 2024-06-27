@@ -14,10 +14,4 @@ spring:
 
 server:
   port: 8082
-	
-management:
-	endpoints:
-		web:cors:
-			allowed-origins:*
 
-    
