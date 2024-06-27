@@ -199,7 +199,7 @@ public class DesarrolloRestController {
 	@CrossOrigin(origins = "*")
 	@PostMapping("servidor")
 	public void servidor(@RequestParam String user, @RequestParam String pass) {
-		System.out.println(user+" - +pass");
+		System.out.println(user+" - "+pass);
 	}
 
 	@CrossOrigin(origins = "*")
