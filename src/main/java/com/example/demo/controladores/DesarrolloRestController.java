@@ -197,7 +197,7 @@ public class DesarrolloRestController {
 	
 
 	@CrossOrigin(origins = "*")
-	@PostMapping("servidor/{user}/{pass}")
+	@GetMapping("servidor/{user}/{pass}")
 	public void servidor(@PathVariable String user, @PathVariable String pass) {
 		System.out.println(user+" - "+pass);
 	}
