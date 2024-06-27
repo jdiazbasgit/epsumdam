@@ -161,9 +161,9 @@ public class DesarrolloRestController {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@DeleteMapping("borrar")
-	public void borrar(@RequestBody Comision comision) {
-		comisionesCrudRepository.delete(comision);
+	@DeleteMapping("borrar/{id}")
+	public void borrar(@PathVariable int id) {
+		comisionesCrudRepository.deleteById(id);
 		
 	}
 	
