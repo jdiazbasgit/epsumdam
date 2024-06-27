@@ -70,7 +70,7 @@ public class DesarrolloRestController {
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("empresas1")
+	@GetMapping("empresas")
 	public List<Empresa> getEmpresas() {
 		return (List<Empresa>) empresaCrudRepository.findAll();
 	}
