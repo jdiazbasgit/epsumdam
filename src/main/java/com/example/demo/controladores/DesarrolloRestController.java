@@ -189,9 +189,9 @@ public class DesarrolloRestController {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@PostMapping("comisiones/{id}")
-	public Comision getComisiones1(@PathVariable int id) {
-		return (Comision) comisionesCrudRepository.findById(id).get();
+	@PostMapping("comisiones")
+	public Comision getComisiones1(@RequestBody Comision comision) {
+		return  comisionesCrudRepository.save(comision);
 	}
 
 	@CrossOrigin(origins = "*")
