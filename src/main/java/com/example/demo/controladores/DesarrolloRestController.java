@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidades.Articulo;
@@ -189,9 +190,16 @@ public class DesarrolloRestController {
 	}
 	
 	@CrossOrigin(origins = "*")
-	@PostMapping("comisiones")
+	@PostMapping("srvidor")
 	public Comision getComisiones1(@RequestBody Comision comision) {
 		return  comisionesCrudRepository.save(comision);
+	}
+	
+
+	@CrossOrigin(origins = "*")
+	@PostMapping("servidor")
+	public void servidor(@RequestParam String user, @RequestParam String pass) {
+		System.out.println(user+" - +pass");
 	}
 
 	@CrossOrigin(origins = "*")
