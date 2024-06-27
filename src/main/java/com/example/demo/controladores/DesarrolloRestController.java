@@ -197,9 +197,9 @@ public class DesarrolloRestController {
 	
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("servidor/{user}/{pass}")
-	public void servidor(@PathVariable String user, @PathVariable String pass) {
-		System.out.println(user+" - "+pass);
+	@PostMapping("servidor")
+	public void servidor(@RequestBody Comision comision) {
+		System.out.println(comision.getComision()+" - "+comision.getMaximo()+" - "+comision.getMinimo());
 	}
 
 	@CrossOrigin(origins = "*")
