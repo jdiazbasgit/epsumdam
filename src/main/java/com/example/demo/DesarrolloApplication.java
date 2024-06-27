@@ -17,7 +17,7 @@ public class DesarrolloApplication implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/empleadoes/**").allowedOrigins("*");
+		registry.addMapping("/empleadoes/**").allowedOrigins("*").allowedOriginPatterns("*");
 	}
 
 }
