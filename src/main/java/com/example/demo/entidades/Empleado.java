@@ -53,9 +53,7 @@ public class Empleado implements Serializable {
 	@JoinColumn(name="empresas_id")
 	private Empresa empresa;
 
-	//bi-directional many-to-one association to Venta
-	@OneToMany(mappedBy="empleado")
-	private List<Venta> ventas;
+	
 
 	public Empleado() {
 	}
@@ -140,26 +138,8 @@ public class Empleado implements Serializable {
 		this.empresa = empresa;
 	}
 
-	public List<Venta> getVentas() {
-		return this.ventas;
-	}
+	
 
-	public void setVentas(List<Venta> ventas) {
-		this.ventas = ventas;
-	}
-
-	public Venta addVenta(Venta venta) {
-		getVentas().add(venta);
-		venta.setEmpleado(this);
-
-		return venta;
-	}
-
-	public Venta removeVenta(Venta venta) {
-		getVentas().remove(venta);
-		venta.setEmpleado(null);
-
-		return venta;
-	}
+	
 
 }
