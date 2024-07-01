@@ -38,9 +38,7 @@ public class DatoPersonal implements Serializable {
 	@JoinColumn(name="hijos_id")
 	private Hijo hijo;
 
-	//bi-directional many-to-one association to Empleado
-	@OneToMany(mappedBy="datosPersonale")
-	private List<Empleado> empleados;
+	
 
 	public DatoPersonal() {
 	}
@@ -69,26 +67,6 @@ public class DatoPersonal implements Serializable {
 		this.hijo = hijo;
 	}
 
-	public List<Empleado> getEmpleados() {
-		return this.empleados;
-	}
-
-	public void setEmpleados(List<Empleado> empleados) {
-		this.empleados = empleados;
-	}
-
-	public Empleado addEmpleado(Empleado empleado) {
-		getEmpleados().add(empleado);
-		empleado.setDatosPersonale(this);
-
-		return empleado;
-	}
-
-	public Empleado removeEmpleado(Empleado empleado) {
-		getEmpleados().remove(empleado);
-		empleado.setDatosPersonale(null);
-
-		return empleado;
-	}
+	
 
 }

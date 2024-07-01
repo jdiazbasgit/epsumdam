@@ -23,9 +23,7 @@ public class Hijo implements Serializable {
 
 	private int chicos;
 
-	//bi-directional many-to-one association to DatosPersonale
-	@OneToMany(mappedBy="hijo")
-	private List<DatoPersonal> datosPersonales;
+	
 
 	public Hijo() {
 	}
@@ -54,26 +52,6 @@ public class Hijo implements Serializable {
 		this.chicos = chicos;
 	}
 
-	public List<DatoPersonal> getDatosPersonales() {
-		return this.datosPersonales;
-	}
-
-	public void setDatosPersonales(List<DatoPersonal> datosPersonales) {
-		this.datosPersonales = datosPersonales;
-	}
-
-	public DatoPersonal addDatosPersonale(DatoPersonal datosPersonale) {
-		getDatosPersonales().add(datosPersonale);
-		datosPersonale.setHijo(this);
-
-		return datosPersonale;
-	}
-
-	public DatoPersonal removeDatosPersonale(DatoPersonal datosPersonale) {
-		getDatosPersonales().remove(datosPersonale);
-		datosPersonale.setHijo(null);
-
-		return datosPersonale;
-	}
+	
 
 }

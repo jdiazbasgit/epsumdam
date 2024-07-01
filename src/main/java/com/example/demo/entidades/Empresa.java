@@ -23,10 +23,7 @@ public class Empresa implements Serializable {
 
 	private String descripcion;
 
-	//bi-directional many-to-one association to Empleado
-	@OneToMany(mappedBy="empresa")
-	private List<Empleado> empleados;
-
+	
 	public Empresa() {
 	}
 
@@ -54,26 +51,6 @@ public class Empresa implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public List<Empleado> getEmpleados() {
-		return this.empleados;
-	}
-
-	public void setEmpleados(List<Empleado> empleados) {
-		this.empleados = empleados;
-	}
-
-	public Empleado addEmpleado(Empleado empleado) {
-		getEmpleados().add(empleado);
-		empleado.setEmpresa(this);
-
-		return empleado;
-	}
-
-	public Empleado removeEmpleado(Empleado empleado) {
-		getEmpleados().remove(empleado);
-		empleado.setEmpresa(null);
-
-		return empleado;
-	}
+	
 
 }

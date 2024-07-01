@@ -21,10 +21,7 @@ public class EstadoCivil implements Serializable {
 
 	private String descripcion;
 
-	//bi-directional many-to-one association to DatosPersonale
-	@OneToMany(mappedBy="estadosCivile")
-	private List<DatoPersonal> datosPersonales;
-
+	
 	public EstadoCivil() {
 	}
 
@@ -44,26 +41,6 @@ public class EstadoCivil implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public List<DatoPersonal> getDatosPersonales() {
-		return this.datosPersonales;
-	}
 
-	public void setDatosPersonales(List<DatoPersonal> datosPersonales) {
-		this.datosPersonales = datosPersonales;
-	}
-
-	public DatoPersonal addDatosPersonale(DatoPersonal datosPersonale) {
-		getDatosPersonales().add(datosPersonale);
-		datosPersonale.setEstadosCivile(this);
-
-		return datosPersonale;
-	}
-
-	public DatoPersonal removeDatosPersonale(DatoPersonal datosPersonale) {
-		getDatosPersonales().remove(datosPersonale);
-		datosPersonale.setEstadosCivile(null);
-
-		return datosPersonale;
-	}
 
 }

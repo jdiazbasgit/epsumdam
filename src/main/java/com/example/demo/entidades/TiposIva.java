@@ -21,9 +21,7 @@ public class TiposIva implements Serializable {
 
 	private int iva;
 
-	//bi-directional many-to-one association to Articulo
-	@OneToMany(mappedBy="tiposIva")
-	private List<Articulo> articulos;
+	
 
 	public TiposIva() {
 	}
@@ -44,26 +42,8 @@ public class TiposIva implements Serializable {
 		this.iva = iva;
 	}
 
-	public List<Articulo> getArticulos() {
-		return this.articulos;
-	}
+	
+	
 
-	public void setArticulos(List<Articulo> articulos) {
-		this.articulos = articulos;
-	}
-
-	public Articulo addArticulo(Articulo articulo) {
-		getArticulos().add(articulo);
-		articulo.setTiposIva(this);
-
-		return articulo;
-	}
-
-	public Articulo removeArticulo(Articulo articulo) {
-		getArticulos().remove(articulo);
-		articulo.setTiposIva(null);
-
-		return articulo;
-	}
 
 }

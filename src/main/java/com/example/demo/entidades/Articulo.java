@@ -28,9 +28,7 @@ public class Articulo implements Serializable {
 	@JoinColumn(name="tipo_iva_id")
 	private TiposIva tiposIva;
 
-	//bi-directional many-to-one association to Venta
-	@OneToMany(mappedBy="articulo")
-	private List<Venta> ventas;
+	
 
 	public Articulo() {
 	}
@@ -67,26 +65,7 @@ public class Articulo implements Serializable {
 		this.tiposIva = tiposIva;
 	}
 
-	public List<Venta> getVentas() {
-		return this.ventas;
-	}
+	
 
-	public void setVentas(List<Venta> ventas) {
-		this.ventas = ventas;
-	}
-
-	public Venta addVenta(Venta venta) {
-		getVentas().add(venta);
-		venta.setArticulo(this);
-
-		return venta;
-	}
-
-	public Venta removeVenta(Venta venta) {
-		getVentas().remove(venta);
-		venta.setArticulo(null);
-
-		return venta;
-	}
-
+	
 }

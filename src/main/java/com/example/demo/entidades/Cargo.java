@@ -21,9 +21,6 @@ public class Cargo implements Serializable {
 
 	private String descripcion;
 
-	//bi-directional many-to-one association to DatosLaborale
-	@OneToMany(mappedBy="cargo")
-	private List<DatoLaboral> datosLaborales;
 
 	public Cargo() {
 	}
@@ -44,26 +41,6 @@ public class Cargo implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public List<DatoLaboral> getDatosLaborales() {
-		return this.datosLaborales;
-	}
-
-	public void setDatosLaborales(List<DatoLaboral> datosLaborales) {
-		this.datosLaborales = datosLaborales;
-	}
-
-	public DatoLaboral addDatosLaborale(DatoLaboral datosLaborale) {
-		getDatosLaborales().add(datosLaborale);
-		datosLaborale.setCargo(this);
-
-		return datosLaborale;
-	}
-
-	public DatoLaboral removeDatosLaborale(DatoLaboral datosLaborale) {
-		getDatosLaborales().remove(datosLaborale);
-		datosLaborale.setCargo(null);
-
-		return datosLaborale;
-	}
+	
 
 }

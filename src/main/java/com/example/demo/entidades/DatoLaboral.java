@@ -35,9 +35,7 @@ public class DatoLaboral implements Serializable {
 	@JoinColumn(name="cargos_id")
 	private Cargo cargo;
 
-	//bi-directional many-to-one association to Empleado
-	@OneToMany(mappedBy="datosLaborale")
-	private List<Empleado> empleados;
+	
 
 	public DatoLaboral() {
 	}
@@ -66,26 +64,6 @@ public class DatoLaboral implements Serializable {
 		this.cargo = cargo;
 	}
 
-	public List<Empleado> getEmpleados() {
-		return this.empleados;
-	}
-
-	public void setEmpleados(List<Empleado> empleados) {
-		this.empleados = empleados;
-	}
-
-	public Empleado addEmpleado(Empleado empleado) {
-		getEmpleados().add(empleado);
-		empleado.setDatosLaborale(this);
-
-		return empleado;
-	}
-
-	public Empleado removeEmpleado(Empleado empleado) {
-		getEmpleados().remove(empleado);
-		empleado.setDatosLaborale(null);
-
-		return empleado;
-	}
+	
 
 }

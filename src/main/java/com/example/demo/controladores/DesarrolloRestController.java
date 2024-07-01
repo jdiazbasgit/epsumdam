@@ -131,39 +131,125 @@ public class DesarrolloRestController {
 	}
 
 	@CrossOrigin(origins = "*")
-	@PostMapping("grabar")
-	public Object grabar(@RequestBody Object dato) {
-
-		if (dato instanceof Empresa)
-			return empresaCrudRepository.save((Empresa) dato);
-		if (dato instanceof Empleado)
-			return empleadoCrudRepository.save((Empleado) dato);
-		if (dato instanceof DatoLaboral)
-			return datoLaboralCrudRepository.save((DatoLaboral) dato);
-		if (dato instanceof DatoPersonal)
-			return datosPersonalesCrudRepository.save((DatoPersonal) dato);
-		if (dato instanceof Cargo)
-			return cargoCrudRepository.save((Cargo) dato);
-		if (dato instanceof EstadoCivil)
-			return estadoCivilCrudRepository.save((EstadoCivil) dato);
-		if (dato instanceof Hijo)
-			return hijoCrudRepository.save((Hijo) dato);
-		if (dato instanceof Articulo)
-			return articuloCrudRepository.save((Articulo) dato);
-		if (dato instanceof Venta)
-			return ventaCrudRepository.save((Venta) dato);
-		if (dato instanceof Comision)
-			return comisionesCrudRepository.save((Comision) dato);
-		if (dato instanceof TiposIva)
-			return tiposIvaCrudRepository.save((TiposIva) dato);
-		return null;
-		
+	@PostMapping("empresas")
+	public Empresa grabaEmpresa(@RequestBody Empresa dato) {
+			return empresaCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("empleados")
+	public Empleado grabaEmpleado(@RequestBody Empleado dato) {
+			return empleadoCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("datosLaborales")
+	public DatoLaboral grabaDatoLaboral(@RequestBody DatoLaboral dato) {
+			return datoLaboralCrudRepository.save( dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("datosPersonales")
+	public DatoPersonal grabaDatoPersonal(@RequestBody DatoPersonal dato) {
+			return datosPersonalesCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("cargos")
+	public Object grabaCargo(@RequestBody Cargo dato) {
+			return cargoCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("estadosCiviles")
+	public EstadoCivil grabaEstadoCivil(@RequestBody EstadoCivil dato) {
+			return estadoCivilCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("hijos")
+	public Hijo grabaHijo(@RequestBody Hijo dato) {
+			return hijoCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("comisiones")
+	public Comision grabar(@RequestBody Comision dato) {
+			return comisionesCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("ventas")
+	public Venta grabar(@RequestBody Venta dato) {
+			return ventaCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("articulos")
+	public Articulo grabar(@RequestBody Articulo dato) {
+			return articuloCrudRepository.save(dato);
+	}
+	@CrossOrigin(origins = "*")
+	@PostMapping("tiposDeIva")
+	public TiposIva grabar(@RequestBody TiposIva dato) {
+			return tiposIvaCrudRepository.save(dato);
 	}
 	
 	@CrossOrigin(origins = "*")
-	@DeleteMapping("borrar/{id}")
-	public void borrar(@PathVariable int id) {
+	@DeleteMapping("comisiones/{id}")
+	public void borrarComisiones(@PathVariable int id) {
 		comisionesCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("ventas/{id}")
+	public void borrarVentas(@PathVariable int id) {
+		ventaCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("articulos/{id}")
+	public void borrarArticulos(@PathVariable int id) {
+		articuloCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("tiposDeIva/{id}")
+	public void borrarTipoDeIva(@PathVariable int id) {
+		tiposIvaCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("empleados/{id}")
+	public void borrarEmpleado(@PathVariable int id) {
+		empleadoCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("empresas/{id}")
+	public void borrarEmpresa(@PathVariable int id) {
+		empresaCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("datosLaborales/{id}")
+	public void borrarDatoLaboral(@PathVariable int id) {
+		datoLaboralCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("datosPersonales/{id}")
+	public void borraDatoPersonal(@PathVariable int id) {
+		datosPersonalesCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("cargos/{id}")
+	public void borraCargo(@PathVariable int id) {
+		cargoCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("estadosCiviles/{id}")
+	public void borrarEstadoCivil(@PathVariable int id) {
+		estadoCivilCrudRepository.deleteById(id);
+		
+	}
+	@CrossOrigin(origins = "*")
+	@DeleteMapping("hijos/{id}")
+	public void borraHijo(@PathVariable int id) {
+		hijoCrudRepository.deleteById(id);
 		
 	}
 	
