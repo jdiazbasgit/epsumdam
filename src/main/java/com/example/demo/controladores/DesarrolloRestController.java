@@ -253,11 +253,7 @@ public class DesarrolloRestController {
 		
 	}
 	
-	@CrossOrigin(origins = "*")
-	@PostMapping("comisiones")
-	public Comision getComisiones1(@RequestBody Comision comision) {
-		return  comisionesCrudRepository.save(comision);
-	}
+	
 	
 
 	@CrossOrigin(origins = "*")
