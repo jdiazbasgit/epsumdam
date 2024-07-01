@@ -25,15 +25,15 @@ public class Empleado implements Serializable {
 
 	private String dni;
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@Column(name="fecha_alta")
 	private GregorianCalendar fechaAlta;
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@Column(name="fecha_baja")
 	private GregorianCalendar fechaBaja;
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@Column(name="fecha_nacimiento")
 	private GregorianCalendar fechaNacimiento;
 
