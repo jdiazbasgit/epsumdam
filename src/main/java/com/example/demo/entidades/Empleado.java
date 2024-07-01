@@ -3,6 +3,7 @@ package com.example.demo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 
@@ -26,15 +27,15 @@ public class Empleado implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_alta")
-	private Date fechaAlta;
+	private GregorianCalendar fechaAlta;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_baja")
-	private Date fechaBaja;
+	private GregorianCalendar fechaBaja;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_nacimiento")
-	private Date fechaNacimiento;
+	private GregorianCalendar fechaNacimiento;
 
 	private String nombre;
 
@@ -82,27 +83,31 @@ public class Empleado implements Serializable {
 		this.dni = dni;
 	}
 
-	public Date getFechaAlta() {
-		return this.fechaAlta;
+	
+
+	
+
+	public GregorianCalendar getFechaAlta() {
+		return fechaAlta;
 	}
 
-	public void setFechaAlta(Date fechaAlta) {
+	public void setFechaAlta(GregorianCalendar fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
 
-	public Date getFechaBaja() {
-		return this.fechaBaja;
+	public GregorianCalendar getFechaBaja() {
+		return fechaBaja;
 	}
 
-	public void setFechaBaja(Date fechaBaja) {
+	public void setFechaBaja(GregorianCalendar fechaBaja) {
 		this.fechaBaja = fechaBaja;
 	}
 
-	public Date getFechaNacimiento() {
-		return this.fechaNacimiento;
+	public GregorianCalendar getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(GregorianCalendar fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
