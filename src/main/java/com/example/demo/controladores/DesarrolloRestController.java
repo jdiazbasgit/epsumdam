@@ -1,8 +1,13 @@
 package com.example.demo.controladores;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +43,7 @@ import com.example.demo.repositorios.VentaCrudRepository;
 import lombok.Data;
 
 @RestController
-@Data
+//@Data
 public class DesarrolloRestController {
 
 	@Autowired
@@ -64,6 +69,84 @@ public class DesarrolloRestController {
 	@Autowired
 	private VentaCrudRepository ventaCrudRepository;
 
+	@CrossOrigin(origins = "*")
+	@GetMapping("empleados/{id}")
+	public Empleado getEmpleadoById( @PathVariable int id) {
+		return getEmpleadoCrudRepository().findById(id).get();
+
+	}
+
+	@CrossOrigin(origins = "*")
+	@GetMapping("empresas/{id}")
+	public Empresa getEmpresaoById( @PathVariable int id) {
+		return getEmpresaCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("datosLaborales/{id}")
+	public DatoLaboral getdlById( @PathVariable int id) {
+		return getDatoLaboralCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("datosPersonales/{id}")
+	public DatoPersonal getdpById( @PathVariable int id) {
+		return getDatosPersonalesCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("cargos/{id}")
+	public Cargo getcById( @PathVariable int id) {
+		return getCargoCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("estadosCiviles/{id}")
+	public EstadoCivil getecById( @PathVariable int id) {
+		return getEstadoCivilCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("hijos/{id}")
+	public Hijo getEmhleadoById( @PathVariable int id) {
+		return getHijoCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("articulos/{id}")
+	public Articulo getEmaleadoById( @PathVariable int id) {
+		return getArticuloCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("ventas/{id}")
+	public Venta getEmplveadoById( @PathVariable int id) {
+		return getVentaCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("comisiones/{id}")
+	public Comision getEmpcleadoById( @PathVariable int id) {
+		return getComisionesCrudRepository().findById(id).get();
+
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("tiposIva/{id}")
+	public TiposIva getEmpletuiadoById( @PathVariable int id) {
+		return getTiposIvaCrudRepository().findById(id).get();
+
+	}
+	
+	
 	@CrossOrigin(origins = "*")
 	@GetMapping("comisiones")
 	public List<Comision> getComisiones() {
@@ -133,133 +216,150 @@ public class DesarrolloRestController {
 	@CrossOrigin(origins = "*")
 	@PostMapping("empresas")
 	public Empresa grabaEmpresa(@RequestBody Empresa dato) {
-			return empresaCrudRepository.save(dato);
+		return empresaCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("empleados")
 	public Empleado grabaEmpleado(@RequestBody Empleado dato) {
-			return empleadoCrudRepository.save(dato);
+		return empleadoCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("datosLaborales")
 	public DatoLaboral grabaDatoLaboral(@RequestBody DatoLaboral dato) {
-			return datoLaboralCrudRepository.save( dato);
+		return datoLaboralCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("datosPersonales")
 	public DatoPersonal grabaDatoPersonal(@RequestBody DatoPersonal dato) {
-			return datosPersonalesCrudRepository.save(dato);
+		return datosPersonalesCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("cargos")
 	public Object grabaCargo(@RequestBody Cargo dato) {
-			return cargoCrudRepository.save(dato);
+		return cargoCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("estadosCiviles")
 	public EstadoCivil grabaEstadoCivil(@RequestBody EstadoCivil dato) {
-			return estadoCivilCrudRepository.save(dato);
+		return estadoCivilCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("hijos")
 	public Hijo grabaHijo(@RequestBody Hijo dato) {
-			return hijoCrudRepository.save(dato);
+		return hijoCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("comisiones")
 	public Comision grabar(@RequestBody Comision dato) {
-			return comisionesCrudRepository.save(dato);
+		return comisionesCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("ventas")
 	public Venta grabar(@RequestBody Venta dato) {
-			return ventaCrudRepository.save(dato);
+		return ventaCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("articulos")
 	public Articulo grabar(@RequestBody Articulo dato) {
-			return articuloCrudRepository.save(dato);
+		return articuloCrudRepository.save(dato);
 	}
+
 	@CrossOrigin(origins = "*")
 	@PostMapping("tiposDeIva")
 	public TiposIva grabar(@RequestBody TiposIva dato) {
-			return tiposIvaCrudRepository.save(dato);
+		return tiposIvaCrudRepository.save(dato);
 	}
-	
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("comisiones/{id}")
 	public void borrarComisiones(@PathVariable int id) {
 		comisionesCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("ventas/{id}")
 	public void borrarVentas(@PathVariable int id) {
 		ventaCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("articulos/{id}")
 	public void borrarArticulos(@PathVariable int id) {
 		articuloCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("tiposDeIva/{id}")
 	public void borrarTipoDeIva(@PathVariable int id) {
 		tiposIvaCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("empleados/{id}")
 	public void borrarEmpleado(@PathVariable int id) {
 		empleadoCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("empresas/{id}")
 	public void borrarEmpresa(@PathVariable int id) {
 		empresaCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("datosLaborales/{id}")
 	public void borrarDatoLaboral(@PathVariable int id) {
 		datoLaboralCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("datosPersonales/{id}")
 	public void borraDatoPersonal(@PathVariable int id) {
 		datosPersonalesCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("cargos/{id}")
 	public void borraCargo(@PathVariable int id) {
 		cargoCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("estadosCiviles/{id}")
 	public void borrarEstadoCivil(@PathVariable int id) {
 		estadoCivilCrudRepository.deleteById(id);
-		
+
 	}
+
 	@CrossOrigin(origins = "*")
 	@DeleteMapping("hijos/{id}")
 	public void borraHijo(@PathVariable int id) {
 		hijoCrudRepository.deleteById(id);
-		
+
 	}
-	
-	
-	
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("servidor")
 	public void servidor(@RequestBody Comision comision) {
-		System.out.println(comision.getComision()+" - "+comision.getMaximo()+" - "+comision.getMinimo());
+		System.out.println(comision.getComision() + " - " + comision.getMaximo() + " - " + comision.getMinimo());
 	}
 
 	@CrossOrigin(origins = "*")
@@ -309,7 +409,6 @@ public class DesarrolloRestController {
 	public Articulo getArticulos1(@PathVariable int id) {
 		return (Articulo) articuloCrudRepository.findById(id).get();
 	}
-	
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("ventas/{id}")
@@ -321,6 +420,94 @@ public class DesarrolloRestController {
 	@PostMapping("tiposIva/{id}")
 	public TiposIva getTiposIva1(@PathVariable int id) {
 		return (TiposIva) tiposIvaCrudRepository.findById(id).get();
+	}
+
+	public ComisionesCrudRepository getComisionesCrudRepository() {
+		return comisionesCrudRepository;
+	}
+
+	public void setComisionesCrudRepository(ComisionesCrudRepository comisionesCrudRepository) {
+		this.comisionesCrudRepository = comisionesCrudRepository;
+	}
+
+	public EmpresaCrudRepository getEmpresaCrudRepository() {
+		return empresaCrudRepository;
+	}
+
+	public void setEmpresaCrudRepository(EmpresaCrudRepository empresaCrudRepository) {
+		this.empresaCrudRepository = empresaCrudRepository;
+	}
+
+	public EmpleadoCrudRepository getEmpleadoCrudRepository() {
+		return empleadoCrudRepository;
+	}
+
+	public void setEmpleadoCrudRepository(EmpleadoCrudRepository empleadoCrudRepository) {
+		this.empleadoCrudRepository = empleadoCrudRepository;
+	}
+
+	public DatoLaboralCrudRepository getDatoLaboralCrudRepository() {
+		return datoLaboralCrudRepository;
+	}
+
+	public void setDatoLaboralCrudRepository(DatoLaboralCrudRepository datoLaboralCrudRepository) {
+		this.datoLaboralCrudRepository = datoLaboralCrudRepository;
+	}
+
+	public DatosPersonalesCrudRepository getDatosPersonalesCrudRepository() {
+		return datosPersonalesCrudRepository;
+	}
+
+	public void setDatosPersonalesCrudRepository(DatosPersonalesCrudRepository datosPersonalesCrudRepository) {
+		this.datosPersonalesCrudRepository = datosPersonalesCrudRepository;
+	}
+
+	public CargoCrudRepository getCargoCrudRepository() {
+		return cargoCrudRepository;
+	}
+
+	public void setCargoCrudRepository(CargoCrudRepository cargoCrudRepository) {
+		this.cargoCrudRepository = cargoCrudRepository;
+	}
+
+	public EstadoCivilCrudRepository getEstadoCivilCrudRepository() {
+		return estadoCivilCrudRepository;
+	}
+
+	public void setEstadoCivilCrudRepository(EstadoCivilCrudRepository estadoCivilCrudRepository) {
+		this.estadoCivilCrudRepository = estadoCivilCrudRepository;
+	}
+
+	public HijoCrudRepository getHijoCrudRepository() {
+		return hijoCrudRepository;
+	}
+
+	public void setHijoCrudRepository(HijoCrudRepository hijoCrudRepository) {
+		this.hijoCrudRepository = hijoCrudRepository;
+	}
+
+	public ArticuloCrudRepository getArticuloCrudRepository() {
+		return articuloCrudRepository;
+	}
+
+	public void setArticuloCrudRepository(ArticuloCrudRepository articuloCrudRepository) {
+		this.articuloCrudRepository = articuloCrudRepository;
+	}
+
+	public TiposIvaCrudRepository getTiposIvaCrudRepository() {
+		return tiposIvaCrudRepository;
+	}
+
+	public void setTiposIvaCrudRepository(TiposIvaCrudRepository tiposIvaCrudRepository) {
+		this.tiposIvaCrudRepository = tiposIvaCrudRepository;
+	}
+
+	public VentaCrudRepository getVentaCrudRepository() {
+		return ventaCrudRepository;
+	}
+
+	public void setVentaCrudRepository(VentaCrudRepository ventaCrudRepository) {
+		this.ventaCrudRepository = ventaCrudRepository;
 	}
 
 }
