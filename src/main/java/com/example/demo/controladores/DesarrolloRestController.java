@@ -196,7 +196,7 @@ public class DesarrolloRestController {
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("artculos")
+	@GetMapping("articulos")
 	public List<Articulo> getArticulos() {
 		return (List<Articulo>) articuloCrudRepository.findAll();
 	}
