@@ -42,12 +42,12 @@ public class Empleado implements Serializable {
 	//bi-directional many-to-one association to DatosLaborale
 	@ManyToOne
 	@JoinColumn(name="datos_laborales_id")
-	private DatoLaboral datosLaborale;
+	private DatoLaboral datoLaboral;
 
 	//bi-directional many-to-one association to DatosPersonale
 	@ManyToOne
 	@JoinColumn(name="datos_personales_id")
-	private DatoPersonal datosPersonale;
+	private DatoPersonal datoPersonal;
 
 	//bi-directional many-to-one association to Empresa
 	@ManyToOne
@@ -119,21 +119,6 @@ public class Empleado implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public DatoLaboral getDatosLaborale() {
-		return this.datosLaborale;
-	}
-
-	public void setDatosLaborale(DatoLaboral datosLaborale) {
-		this.datosLaborale = datosLaborale;
-	}
-
-	public DatoPersonal getDatosPersonale() {
-		return this.datosPersonale;
-	}
-
-	public void setDatosPersonale(DatoPersonal datosPersonale) {
-		this.datosPersonale = datosPersonale;
-	}
 
 	public Empresa getEmpresa() {
 		return this.empresa;
@@ -141,6 +126,22 @@ public class Empleado implements Serializable {
 
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
+	}
+
+	public DatoLaboral getDatoLaboral() {
+		return datoLaboral;
+	}
+
+	public void setDatoLaboral(DatoLaboral datoLaboral) {
+		this.datoLaboral = datoLaboral;
+	}
+
+	public DatoPersonal getDatoPersonal() {
+		return datoPersonal;
+	}
+
+	public void setDatoPersonal(DatoPersonal datoPersonal) {
+		this.datoPersonal = datoPersonal;
 	}
 
 	
