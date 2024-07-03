@@ -239,7 +239,7 @@ public class DesarrolloRestController {
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("cargos")
-	public Object grabaCargo(@RequestBody Cargo dato) {
+	public Cargo grabaCargo(@RequestBody Cargo dato) {
 		return cargoCrudRepository.save(dato);
 	}
 
