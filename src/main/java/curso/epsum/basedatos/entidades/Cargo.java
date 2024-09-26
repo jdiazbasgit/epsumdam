@@ -6,21 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table (name="cargos")
-public class Cargo 
-{
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		private int ID;
-		private int descripcion;
-		public int getDescripcion() {
-			return descripcion;
-		}
-		public void setDescripcion(int descripcion) {
-			this.descripcion = descripcion;
-		}
-	
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "cargos")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Cargo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String descripcion;
+
+	
 
 }

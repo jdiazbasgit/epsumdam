@@ -1,17 +1,20 @@
 package curso.epsum.basedatos.entidades;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import jakarta.annotation.Generated;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "datos_laborales")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DatoLaboral {
 
 	@Id
@@ -23,5 +26,6 @@ public class DatoLaboral {
 	@ManyToOne
 	//@JoinColumn(name = "idCargo")
 	private Cargo cargo;
+
 	
 }
